@@ -39,5 +39,15 @@ public struct SectionUpdate<SectionData> {
                   setData: setData,
                   shouldReloadSection: shouldReloadSection)
     }
+    
+    public init(sectionId: UUID,
+                data: SectionData,
+                setData: @escaping (SectionData) -> Void) {
+        self.init(sectionId: sectionId,
+                  changes: [],
+                  data: data,
+                  setData: setData,
+                  shouldReloadSection: { _ in true })
+    }
 }
 

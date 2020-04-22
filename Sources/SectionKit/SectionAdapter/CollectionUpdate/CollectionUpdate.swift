@@ -32,5 +32,13 @@ public struct CollectionUpdate<CollectionData> {
                   setData: setData,
                   shouldReloadCollection: shouldReloadCollection)
     }
+    
+    public init(data: CollectionData,
+                setData: @escaping (CollectionData) -> Void) {
+        self.init(changes: [],
+                  data: data,
+                  setData: setData,
+                  shouldReloadCollection: { _ in true })
+    }
 }
 

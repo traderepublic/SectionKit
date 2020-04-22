@@ -31,10 +31,8 @@ open class GenericSectionController<Item>:
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> SectionUpdate<[Item]> {
         return SectionUpdate(sectionId: id,
-                             changes: [],
                              data: newData,
-                             setData: { [weak self] in self?.collectionViewItems = $0 },
-                             shouldReloadSection: { _ in true})
+                             setData: { [weak self] in self?.collectionViewItems = $0 })
     }
     
     // MARK: - SectionDataSource
