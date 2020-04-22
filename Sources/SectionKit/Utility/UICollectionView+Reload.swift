@@ -24,8 +24,6 @@ public extension UICollectionView {
                 update.setData(batchOperation.data)
                 for change in batchOperation.changes {
                     switch change {
-                    case .reloadSection:
-                        reloadSections(IndexSet(integer: section))
                     case .deleteItem(at: let at):
                         deleteItems(at: [IndexPath(item: at, section: section)])
                     case .insertItem(at: let at):
@@ -63,8 +61,6 @@ public extension UICollectionView {
                 update.setData(batchOperation.data)
                 for change in batchOperation.changes {
                     switch change {
-                    case .reloadCollection:
-                        reloadData()
                     case .deleteSection(at: let at):
                         deleteSections(IndexSet(integer: at))
                     case .insertSection(at: let at):

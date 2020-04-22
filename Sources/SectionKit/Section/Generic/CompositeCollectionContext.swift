@@ -65,8 +65,6 @@ open class CompositeSectionCollectionContext: CollectionContext {
         let adjustedBatchOperations = update.batchOperations.map { batchOperation -> SectionBatchOperation<T> in
             let adjustedChanges = batchOperation.changes.map { sectionChange -> SectionChange in
                 switch sectionChange {
-                case .reloadSection:
-                    return .reloadSection
                 case .deleteItem(at: let at):
                     return .deleteItem(at: at + offset)
                 case .insertItem(at: let at):

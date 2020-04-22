@@ -81,10 +81,10 @@ open class SectionAdapter: NSObject {
      */
     open func calculateUpdate(from oldData: [SectionController],
                               to newData: [SectionController]) -> CollectionUpdate<[SectionController]> {
-        return CollectionUpdate(changes: [.reloadCollection],
+        return CollectionUpdate(changes: [],
                                 data: newData,
                                 setData: { [weak self] in self?.collectionViewSectionControllers = $0 },
-                                shouldReloadCollection: { $0.changes.count > 100 })
+                                shouldReloadCollection: { _ in true })
     }
 }
 

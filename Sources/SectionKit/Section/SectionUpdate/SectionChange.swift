@@ -2,9 +2,6 @@ import Foundation
 
 /// A single change made to the `UICollectionView`
 public enum SectionChange {
-    /// Reload all items in this section
-    case reloadSection
-    
     /// Delete an item at the specified index
     case deleteItem(at: Int)
     

@@ -68,9 +68,10 @@ open class CompositeSectionController: BaseSectionController {
     open func calculateUpdate(from oldData: [SectionController],
                               to newData: [SectionController]) -> SectionUpdate<[SectionController]> {
         return SectionUpdate(sectionId: id,
-                             changes: [.reloadSection],
+                             changes: [],
                              data: newData,
-                             setData: { [weak self] in self?.collectionViewSectionControllers = $0 })
+                             setData: { [weak self] in self?.collectionViewSectionControllers = $0 },
+                             shouldReloadSection: { _ in true})
     }
     
     open func sectionControllerWithOffset(forItemAt indexPath: SectionIndexPath) -> (SectionController, SectionIndexPath)? {
