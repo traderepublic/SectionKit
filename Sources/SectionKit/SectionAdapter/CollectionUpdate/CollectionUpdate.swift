@@ -22,5 +22,15 @@ public struct CollectionUpdate<CollectionData> {
         self.setData = setData
         self.shouldReloadCollection = shouldReloadCollection
     }
+    
+    public init(changes: [CollectionChange],
+                data: CollectionData,
+                setData: @escaping (CollectionData) -> Void,
+                shouldReloadCollection: @escaping (CollectionBatchOperation<CollectionData>) -> Bool = { _ in false }) {
+        let batchOperation = CollectionBatchOperation(changes: changes, data: data)
+        self.init(batchOperations: [batchOperation],
+                  setData: setData,
+                  shouldReloadCollection: shouldReloadCollection)
+    }
 }
 

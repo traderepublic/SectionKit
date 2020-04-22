@@ -27,5 +27,17 @@ public struct SectionUpdate<SectionData> {
         self.setData = setData
         self.shouldReloadSection = shouldReloadSection
     }
+    
+    public init(sectionId: UUID,
+                changes: [SectionChange],
+                data: SectionData,
+                setData: @escaping (SectionData) -> Void,
+                shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false }) {
+        let batchOperation = SectionBatchOperation(changes: changes, data: data)
+        self.init(sectionId: sectionId,
+                  batchOperations: [batchOperation],
+                  setData: setData,
+                  shouldReloadSection: shouldReloadSection)
+    }
 }
 

@@ -1,4 +1,5 @@
 import Foundation
+import SectionKit
 import DifferenceKit
 
 public extension Changeset {

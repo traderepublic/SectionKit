@@ -13,6 +13,9 @@ let package = Package(
         .library(
             name: "SectionKit",
             targets: ["SectionKit"]),
+        .library(
+            name: "DiffingSectionKit",
+            targets: ["DiffingSectionKit"]),
     ],
     dependencies: [
         .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.5"),
@@ -22,7 +25,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "SectionKit",
-            dependencies: ["DifferenceKit"]),
+            dependencies: []),
+        .target(
+            name: "DiffingSectionKit",
+            dependencies: ["SectionKit", "DifferenceKit"]),
         .testTarget(
             name: "SectionKitTests",
             dependencies: ["SectionKit"]),

@@ -30,11 +30,9 @@ open class GenericSectionController<Item>:
     
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> SectionUpdate<[Item]> {
-        // just reload the entire section
-        let reloadBatchOperation = SectionBatchOperation(changes: [.reloadSection],
-                                                         data: newData)
         return SectionUpdate(sectionId: id,
-                             batchOperations: [reloadBatchOperation],
+                             changes: [.reloadSection],
+                             data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 },
                              shouldReloadSection: { $0.changes.count > 100 })
     }

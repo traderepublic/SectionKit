@@ -1,3 +1,5 @@
+import Foundation
+import SectionKit
 import DifferenceKit
 
 /// A `SectionController` that calculates the differences for animated changes to the `UICollectionView`.

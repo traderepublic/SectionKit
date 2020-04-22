@@ -1,5 +1,4 @@
 import UIKit
-import DifferenceKit
 
 open class CompositeSectionController: BaseSectionController {
     
@@ -68,30 +67,9 @@ open class CompositeSectionController: BaseSectionController {
      */
     open func calculateUpdate(from oldData: [SectionController],
                               to newData: [SectionController]) -> SectionUpdate<[SectionController]> {
-        // wrap `SectionController`s inside `DifferentiableBox` for diffing
-        // `SectionController` can't implement `Differentiable` directly,
-        // otherwise it would have associatedtype constraints which makes it harder to use in some scenarios
-        let oldSectionControllers = oldData.map {
-            DifferentiableBox($0,
-                              identifier: \.id,
-                              equal: { $0.id == $1.id })
-        }
-        let newSectionControllers = newData.map {
-            DifferentiableBox($0,
-                              identifier: \.id,
-                              equal: { $0.id == $1.id })
-        }
-        let changeSet = StagedChangeset(source: oldSectionControllers,
-                                        target: newSectionControllers)
-        var changes: [SectionChange] = []
-        if changeSet.isNotEmpty {
-            // just reload the entire section if there are changes
-            changes.append(.reloadSection)
-        }
-        let reloadBatchOperation = SectionBatchOperation(changes: changes,
-                                                         data: newData)
         return SectionUpdate(sectionId: id,
-                             batchOperations: [reloadBatchOperation],
+                             changes: [.reloadSection],
+                             data: newData,
                              setData: { [weak self] in self?.collectionViewSectionControllers = $0 })
     }
     
