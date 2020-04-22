@@ -177,6 +177,7 @@ public protocol SectionDelegate {
      
      - Returns: If the item should be spring loaded.
      */
+    @available(iOS 11.0, *)
     func shouldSpringLoadItem(at indexPath: SectionIndexPath,
                               with context: UISpringLoadedInteractionContext) -> Bool
     
@@ -301,6 +302,7 @@ public extension SectionDelegate {
     
     // MARK: - Default: Spring Loading
     
+    @available(iOS 11.0, *)
     func shouldSpringLoadItem(at indexPath: SectionIndexPath,
                               with context: UISpringLoadedInteractionContext) -> Bool {
         return true

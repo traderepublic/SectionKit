@@ -1,6 +1,7 @@
 import UIKit
 
 /// The drag delegate of a section
+@available(iOS 11.0, *)
 public protocol SectionDragDelegate {
     /**
      Returns the initial list of items to drag.
@@ -39,6 +40,7 @@ public protocol SectionDragDelegate {
     func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters?
 }
 
+@available(iOS 11.0, *)
 public extension SectionDragDelegate {
     func dragItems(forBeginning session: UIDragSession,
                    at indexPath: SectionIndexPath) -> [UIDragItem] {

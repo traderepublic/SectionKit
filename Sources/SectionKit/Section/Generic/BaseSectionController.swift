@@ -30,8 +30,10 @@ open class BaseSectionController:
     
     open var flowDelegate: SectionFlowDelegate? { self }
     
+    @available(iOS 11.0, *)
     open var dragDelegate: SectionDragDelegate? { self }
     
+    @available(iOS 11.0, *)
     open var dropDelegate: SectionDropDelegate? { self }
     
     // MARK: - SectionDataSource
@@ -148,6 +150,7 @@ open class BaseSectionController:
         return shouldSelectItem(at: indexPath)
     }
     
+    @available(iOS 11.0, *)
     open func shouldSpringLoadItem(at indexPath: SectionIndexPath,
                                    with context: UISpringLoadedInteractionContext) -> Bool {
         return true
@@ -171,37 +174,44 @@ open class BaseSectionController:
     
     // MARK: - SectionDragDelegate
     
+    @available(iOS 11.0, *)
     open func dragItems(forBeginning session: UIDragSession,
                         at indexPath: SectionIndexPath) -> [UIDragItem] {
         return []
     }
     
+    @available(iOS 11.0, *)
     open func dragItems(forAddingTo session: UIDragSession,
                         at indexPath: SectionIndexPath,
                         point: CGPoint) -> [UIDragItem] {
         return []
     }
     
+    @available(iOS 11.0, *)
     open func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
     
     // MARK: - SectionDropDelegate
     
+    @available(iOS 11.0, *)
     open func canHandle(drop session: UIDropSession) -> Bool{
         return true
     }
     
+    @available(iOS 11.0, *)
     open func dropSessionDidUpdate(_ session: UIDropSession,
                                    at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
     
+    @available(iOS 11.0, *)
     open func performDrop(at indexPath: SectionIndexPath,
                           with coordinator: UICollectionViewDropCoordinator) {
         
     }
     
+    @available(iOS 11.0, *)
     open func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }

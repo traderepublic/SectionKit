@@ -39,7 +39,11 @@ open class MainCollectionContext: CollectionContext {
     }
     
     open var adjustedContainerInset: UIEdgeInsets {
-        collectionView.adjustedContentInset
+        if #available(iOS 11.0, *) {
+            return collectionView.adjustedContentInset
+        } else {
+            return collectionView.contentInset
+        }
     }
     
     open var insetContainerSize: CGSize {

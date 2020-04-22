@@ -1,6 +1,7 @@
 import UIKit
 
 /// The drop delegate of a section
+@available(iOS 11.0, *)
 public protocol SectionDropDelegate {
     /**
      Determines if the section allows drops from the given `UIDropSession`.
@@ -43,6 +44,7 @@ public protocol SectionDropDelegate {
     func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters?
 }
 
+@available(iOS 11.0, *)
 public extension SectionDropDelegate {
     func canHandle(drop session: UIDropSession) -> Bool{
         return true

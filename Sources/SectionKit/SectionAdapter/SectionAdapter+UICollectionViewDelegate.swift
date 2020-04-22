@@ -203,6 +203,7 @@ extension SectionAdapter: UICollectionViewDelegate {
     
     // MARK: - Spring Loading
     
+    @available(iOS 11.0, *)
     open func collectionView(_ collectionView: UICollectionView,
                              shouldSpringLoadItemAt indexPath: IndexPath,
                              with context: UISpringLoadedInteractionContext) -> Bool {

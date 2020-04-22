@@ -22,9 +22,11 @@ public protocol SectionController: AnyObject {
     var flowDelegate: SectionFlowDelegate? { get }
     
     /// The drag delegate of this section
+    @available(iOS 11.0, *)
     var dragDelegate: SectionDragDelegate? { get }
     
     /// The drop delegate of this section
+    @available(iOS 11.0, *)
     var dropDelegate: SectionDropDelegate? { get }
 }
 
@@ -33,8 +35,10 @@ public extension SectionController {
     
     var flowDelegate: SectionFlowDelegate? { nil }
     
+    @available(iOS 11.0, *)
     var dragDelegate: SectionDragDelegate? { nil }
     
+    @available(iOS 11.0, *)
     var dropDelegate: SectionDropDelegate? { nil }
 }
 

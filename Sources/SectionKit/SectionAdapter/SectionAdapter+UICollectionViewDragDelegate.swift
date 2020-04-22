@@ -1,7 +1,7 @@
 import UIKit
 
+@available(iOS 11.0, *)
 extension SectionAdapter: UICollectionViewDragDelegate {
-    
     open func collectionView(_ collectionView: UICollectionView,
                              itemsForBeginning session: UIDragSession,
                              at indexPath: IndexPath) -> [UIDragItem] {

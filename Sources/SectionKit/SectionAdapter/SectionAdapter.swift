@@ -62,9 +62,11 @@ open class SectionAdapter: NSObject {
         }
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.dragDelegate = self
-        collectionView.dropDelegate = self
-        collectionView.dragInteractionEnabled = true
+        if #available(iOS 11.0, *) {
+            collectionView.dragDelegate = self
+            collectionView.dropDelegate = self
+            collectionView.dragInteractionEnabled = true
+        }
     }
     
     // MARK: - Helper functions

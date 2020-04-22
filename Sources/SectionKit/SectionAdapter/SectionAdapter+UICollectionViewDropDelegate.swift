@@ -1,7 +1,7 @@
 import UIKit
 
+@available(iOS 11.0, *)
 extension SectionAdapter: UICollectionViewDropDelegate {
-    
     open func collectionView(_ collectionView: UICollectionView,
                              canHandle session: UIDropSession) -> Bool {
         return sectionControllers.contains { $0.dropDelegate?.canHandle(drop: session) ?? true }

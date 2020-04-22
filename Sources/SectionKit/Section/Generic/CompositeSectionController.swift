@@ -286,6 +286,7 @@ open class CompositeSectionController: BaseSectionController {
         return delegate.canFocusItem(at: sectionIndexPath)
     }
     
+    @available(iOS 11.0, *)
     override open func shouldSpringLoadItem(at indexPath: SectionIndexPath,
                                             with context: UISpringLoadedInteractionContext) -> Bool {
         guard
@@ -325,6 +326,7 @@ open class CompositeSectionController: BaseSectionController {
     
     // MARK: - SectionDragDelegate
     
+    @available(iOS 11.0, *)
     override open func dragItems(forBeginning session: UIDragSession,
                                  at indexPath: SectionIndexPath) -> [UIDragItem] {
         guard
@@ -334,6 +336,7 @@ open class CompositeSectionController: BaseSectionController {
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
     }
     
+    @available(iOS 11.0, *)
     override open func dragItems(forAddingTo session: UIDragSession,
                                  at indexPath: SectionIndexPath,
                                  point: CGPoint) -> [UIDragItem] {
@@ -344,6 +347,7 @@ open class CompositeSectionController: BaseSectionController {
         return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point)
     }
     
+    @available(iOS 11.0, *)
     override open func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         guard
             let (section, sectionIndexPath) = sectionControllerWithOffset(forItemAt: indexPath),
@@ -354,19 +358,23 @@ open class CompositeSectionController: BaseSectionController {
     
     // MARK: - SectionDropDelegate
     
+    @available(iOS 11.0, *)
     override public func canHandle(drop session: UIDropSession) -> Bool {
         return false
     }
     
+    @available(iOS 11.0, *)
     override public func dropSessionDidUpdate(_ session: UIDropSession,
                                               at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
     
+    @available(iOS 11.0, *)
     override public func performDrop(at indexPath: SectionIndexPath,
                                      with coordinator: UICollectionViewDropCoordinator) {
     }
     
+    @available(iOS 11.0, *)
     override public func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
