@@ -2,7 +2,7 @@ import Foundation
 
 open class HashableBox<Item, HashableItem>: Hashable where HashableItem: Hashable {
     public static func == (lhs: HashableBox<Item, HashableItem>, rhs: HashableBox<Item, HashableItem>) -> Bool {
-        return lhs.hashable(lhs.item).hashValue == rhs.hashable(rhs.item).hashValue
+        return lhs.hashable(lhs.item) == rhs.hashable(rhs.item)
     }
     
     public let item: Item
