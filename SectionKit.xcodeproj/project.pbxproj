@@ -1,0 +1,788 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5AD1D948245086F8005F8F36 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD1D947245086F8005F8F36 /* DifferenceKit.framework */; };
+		OBJ_110 /* DiffingSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingSectionAdapter.swift */; };
+		OBJ_111 /* DiffingSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DiffingSectionController.swift */; };
+		OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ChangeSet+BatchOperations.swift */; };
+		OBJ_113 /* DifferentiableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* DifferentiableBox.swift */; };
+		OBJ_114 /* StagedChangeset+MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* StagedChangeset+MapData.swift */; };
+		OBJ_117 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
+		OBJ_125 /* BaseSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* BaseSectionController.swift */; };
+		OBJ_126 /* CollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* CollectionViewCellRepresentable.swift */; };
+		OBJ_127 /* CompositeCollectionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* CompositeCollectionContext.swift */; };
+		OBJ_128 /* CompositeSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CompositeSectionController.swift */; };
+		OBJ_129 /* FoundationDiffingSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* FoundationDiffingSectionController.swift */; };
+		OBJ_130 /* GenericSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* GenericSectionController.swift */; };
+		OBJ_131 /* GenericSectionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* GenericSectionControllerProtocol.swift */; };
+		OBJ_132 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* SectionController.swift */; };
+		OBJ_133 /* SectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* SectionDataSource.swift */; };
+		OBJ_134 /* SectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* SectionDelegate.swift */; };
+		OBJ_135 /* SectionDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* SectionDragDelegate.swift */; };
+		OBJ_136 /* SectionDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* SectionDropDelegate.swift */; };
+		OBJ_137 /* SectionFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* SectionFlowDelegate.swift */; };
+		OBJ_138 /* SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* SectionIndexPath.swift */; };
+		OBJ_139 /* SectionSupplementaryViewKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* SectionSupplementaryViewKind.swift */; };
+		OBJ_140 /* SectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* SectionBatchOperation.swift */; };
+		OBJ_141 /* SectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* SectionChange.swift */; };
+		OBJ_142 /* SectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SectionUpdate.swift */; };
+		OBJ_143 /* CollectionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CollectionContext.swift */; };
+		OBJ_144 /* CollectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* CollectionBatchOperation.swift */; };
+		OBJ_145 /* CollectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* CollectionChange.swift */; };
+		OBJ_146 /* CollectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* CollectionUpdate.swift */; };
+		OBJ_147 /* FoundationDiffingSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* FoundationDiffingSectionAdapter.swift */; };
+		OBJ_148 /* MainCollectionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* MainCollectionContext.swift */; };
+		OBJ_149 /* SectionAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* SectionAdapter+UICollectionViewDataSource.swift */; };
+		OBJ_150 /* SectionAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* SectionAdapter+UICollectionViewDelegate.swift */; };
+		OBJ_151 /* SectionAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* SectionAdapter+UICollectionViewDragDelegate.swift */; };
+		OBJ_152 /* SectionAdapter+UICollectionViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* SectionAdapter+UICollectionViewDropDelegate.swift */; };
+		OBJ_153 /* SectionAdapter+UICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* SectionAdapter+UICollectionViewFlowLayout.swift */; };
+		OBJ_154 /* SectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* SectionAdapter.swift */; };
+		OBJ_155 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* Collection+Extensions.swift */; };
+		OBJ_156 /* HashableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* HashableBox.swift */; };
+		OBJ_157 /* UICollectionView+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* UICollectionView+Reload.swift */; };
+		OBJ_175 /* SectionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* SectionKitTests.swift */; };
+		OBJ_176 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* XCTestManifests.swift */; };
+		OBJ_178 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5AD1D94424508100005F8F36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SectionKit::SectionKit";
+			remoteInfo = SectionKit;
+		};
+		5AD1D94B24508F28005F8F36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SectionKit::SectionKit";
+			remoteInfo = SectionKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5AD1D947245086F8005F8F36 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
+		OBJ_10 /* DiffingSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingSectionController.swift; sourceTree = "<group>"; };
+		OBJ_12 /* ChangeSet+BatchOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeSet+BatchOperations.swift"; sourceTree = "<group>"; };
+		OBJ_13 /* DifferentiableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiableBox.swift; sourceTree = "<group>"; };
+		OBJ_14 /* StagedChangeset+MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StagedChangeset+MapData.swift"; sourceTree = "<group>"; };
+		OBJ_18 /* BaseSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionController.swift; sourceTree = "<group>"; };
+		OBJ_19 /* CollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellRepresentable.swift; sourceTree = "<group>"; };
+		OBJ_20 /* CompositeCollectionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeCollectionContext.swift; sourceTree = "<group>"; };
+		OBJ_21 /* CompositeSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeSectionController.swift; sourceTree = "<group>"; };
+		OBJ_22 /* FoundationDiffingSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDiffingSectionController.swift; sourceTree = "<group>"; };
+		OBJ_23 /* GenericSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSectionController.swift; sourceTree = "<group>"; };
+		OBJ_24 /* GenericSectionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSectionControllerProtocol.swift; sourceTree = "<group>"; };
+		OBJ_25 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
+		OBJ_26 /* SectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSource.swift; sourceTree = "<group>"; };
+		OBJ_27 /* SectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDelegate.swift; sourceTree = "<group>"; };
+		OBJ_28 /* SectionDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDragDelegate.swift; sourceTree = "<group>"; };
+		OBJ_29 /* SectionDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDropDelegate.swift; sourceTree = "<group>"; };
+		OBJ_30 /* SectionFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFlowDelegate.swift; sourceTree = "<group>"; };
+		OBJ_31 /* SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndexPath.swift; sourceTree = "<group>"; };
+		OBJ_32 /* SectionSupplementaryViewKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSupplementaryViewKind.swift; sourceTree = "<group>"; };
+		OBJ_34 /* SectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperation.swift; sourceTree = "<group>"; };
+		OBJ_35 /* SectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionChange.swift; sourceTree = "<group>"; };
+		OBJ_36 /* SectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdate.swift; sourceTree = "<group>"; };
+		OBJ_38 /* CollectionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContext.swift; sourceTree = "<group>"; };
+		OBJ_40 /* CollectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBatchOperation.swift; sourceTree = "<group>"; };
+		OBJ_41 /* CollectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionChange.swift; sourceTree = "<group>"; };
+		OBJ_42 /* CollectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUpdate.swift; sourceTree = "<group>"; };
+		OBJ_43 /* FoundationDiffingSectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDiffingSectionAdapter.swift; sourceTree = "<group>"; };
+		OBJ_44 /* MainCollectionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionContext.swift; sourceTree = "<group>"; };
+		OBJ_45 /* SectionAdapter+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		OBJ_46 /* SectionAdapter+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		OBJ_47 /* SectionAdapter+UICollectionViewDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UICollectionViewDragDelegate.swift"; sourceTree = "<group>"; };
+		OBJ_48 /* SectionAdapter+UICollectionViewDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UICollectionViewDropDelegate.swift"; sourceTree = "<group>"; };
+		OBJ_49 /* SectionAdapter+UICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UICollectionViewFlowLayout.swift"; sourceTree = "<group>"; };
+		OBJ_50 /* SectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapter.swift; sourceTree = "<group>"; };
+		OBJ_52 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		OBJ_53 /* HashableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashableBox.swift; sourceTree = "<group>"; };
+		OBJ_54 /* UICollectionView+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reload.swift"; sourceTree = "<group>"; };
+		OBJ_57 /* SectionKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionKitTests.swift; sourceTree = "<group>"; };
+		OBJ_58 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_80 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_9 /* DiffingSectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingSectionAdapter.swift; sourceTree = "<group>"; };
+		"SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DiffingSectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SectionKit::SectionKit::Product" /* SectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SectionKit::SectionKitTests::Product" /* SectionKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_115 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				5AD1D948245086F8005F8F36 /* DifferenceKit.framework in Frameworks */,
+				OBJ_117 /* SectionKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_177 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_178 /* SectionKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5AD1D946245086F7005F8F36 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AD1D947245086F8005F8F36 /* DifferenceKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		OBJ_11 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* ChangeSet+BatchOperations.swift */,
+				OBJ_13 /* DifferentiableBox.swift */,
+				OBJ_14 /* StagedChangeset+MapData.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		OBJ_15 /* SectionKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* Section */,
+				OBJ_37 /* SectionAdapter */,
+				OBJ_51 /* Utility */,
+			);
+			name = SectionKit;
+			path = Sources/SectionKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_16 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_17 /* Generic */,
+				OBJ_25 /* SectionController.swift */,
+				OBJ_26 /* SectionDataSource.swift */,
+				OBJ_27 /* SectionDelegate.swift */,
+				OBJ_28 /* SectionDragDelegate.swift */,
+				OBJ_29 /* SectionDropDelegate.swift */,
+				OBJ_30 /* SectionFlowDelegate.swift */,
+				OBJ_31 /* SectionIndexPath.swift */,
+				OBJ_32 /* SectionSupplementaryViewKind.swift */,
+				OBJ_33 /* SectionUpdate */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		OBJ_17 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_18 /* BaseSectionController.swift */,
+				OBJ_19 /* CollectionViewCellRepresentable.swift */,
+				OBJ_20 /* CompositeCollectionContext.swift */,
+				OBJ_21 /* CompositeSectionController.swift */,
+				OBJ_22 /* FoundationDiffingSectionController.swift */,
+				OBJ_23 /* GenericSectionController.swift */,
+				OBJ_24 /* GenericSectionControllerProtocol.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		OBJ_33 /* SectionUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_34 /* SectionBatchOperation.swift */,
+				OBJ_35 /* SectionChange.swift */,
+				OBJ_36 /* SectionUpdate.swift */,
+			);
+			path = SectionUpdate;
+			sourceTree = "<group>";
+		};
+		OBJ_37 /* SectionAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_38 /* CollectionContext.swift */,
+				OBJ_39 /* CollectionUpdate */,
+				OBJ_43 /* FoundationDiffingSectionAdapter.swift */,
+				OBJ_44 /* MainCollectionContext.swift */,
+				OBJ_45 /* SectionAdapter+UICollectionViewDataSource.swift */,
+				OBJ_46 /* SectionAdapter+UICollectionViewDelegate.swift */,
+				OBJ_47 /* SectionAdapter+UICollectionViewDragDelegate.swift */,
+				OBJ_48 /* SectionAdapter+UICollectionViewDropDelegate.swift */,
+				OBJ_49 /* SectionAdapter+UICollectionViewFlowLayout.swift */,
+				OBJ_50 /* SectionAdapter.swift */,
+			);
+			path = SectionAdapter;
+			sourceTree = "<group>";
+		};
+		OBJ_39 /* CollectionUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_40 /* CollectionBatchOperation.swift */,
+				OBJ_41 /* CollectionChange.swift */,
+				OBJ_42 /* CollectionUpdate.swift */,
+			);
+			path = CollectionUpdate;
+			sourceTree = "<group>";
+		};
+		OBJ_5 = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_55 /* Tests */,
+				OBJ_75 /* Products */,
+				OBJ_80 /* README.md */,
+				5AD1D946245086F7005F8F36 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		OBJ_51 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_52 /* Collection+Extensions.swift */,
+				OBJ_53 /* HashableBox.swift */,
+				OBJ_54 /* UICollectionView+Reload.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		OBJ_55 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_56 /* SectionKitTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_56 /* SectionKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_57 /* SectionKitTests.swift */,
+				OBJ_58 /* XCTestManifests.swift */,
+			);
+			name = SectionKitTests;
+			path = Tests/SectionKitTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* DiffingSectionKit */,
+				OBJ_15 /* SectionKit */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_75 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */,
+				"SectionKit::SectionKit::Product" /* SectionKit.framework */,
+				"SectionKit::SectionKitTests::Product" /* SectionKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_8 /* DiffingSectionKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* DiffingSectionAdapter.swift */,
+				OBJ_10 /* DiffingSectionController.swift */,
+				OBJ_11 /* Utility */,
+			);
+			name = DiffingSectionKit;
+			path = Sources/DiffingSectionKit;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"SectionKit::DiffingSectionKit" /* DiffingSectionKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_106 /* Build configuration list for PBXNativeTarget "DiffingSectionKit" */;
+			buildPhases = (
+				OBJ_109 /* Sources */,
+				OBJ_115 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AD1D94C24508F28005F8F36 /* PBXTargetDependency */,
+			);
+			name = DiffingSectionKit;
+			productName = DiffingSectionKit;
+			productReference = "SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SectionKit::SectionKit" /* SectionKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_121 /* Build configuration list for PBXNativeTarget "SectionKit" */;
+			buildPhases = (
+				OBJ_124 /* Sources */,
+				OBJ_158 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SectionKit;
+			productName = SectionKit;
+			productReference = "SectionKit::SectionKit::Product" /* SectionKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SectionKit::SectionKitTests" /* SectionKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_171 /* Build configuration list for PBXNativeTarget "SectionKitTests" */;
+			buildPhases = (
+				OBJ_174 /* Sources */,
+				OBJ_177 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_179 /* PBXTargetDependency */,
+			);
+			name = SectionKitTests;
+			productName = SectionKitTests;
+			productReference = "SectionKit::SectionKitTests::Product" /* SectionKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"SectionKit::DiffingSectionKit" = {
+						ProvisioningStyle = Automatic;
+					};
+					"SectionKit::SectionKit" = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "SectionKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_75 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"SectionKit::DiffingSectionKit" /* DiffingSectionKit */,
+				"SectionKit::SectionKit" /* SectionKit */,
+				"SectionKit::SectionKitTests" /* SectionKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_109 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_110 /* DiffingSectionAdapter.swift in Sources */,
+				OBJ_111 /* DiffingSectionController.swift in Sources */,
+				OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */,
+				OBJ_113 /* DifferentiableBox.swift in Sources */,
+				OBJ_114 /* StagedChangeset+MapData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_125 /* BaseSectionController.swift in Sources */,
+				OBJ_126 /* CollectionViewCellRepresentable.swift in Sources */,
+				OBJ_127 /* CompositeCollectionContext.swift in Sources */,
+				OBJ_128 /* CompositeSectionController.swift in Sources */,
+				OBJ_129 /* FoundationDiffingSectionController.swift in Sources */,
+				OBJ_130 /* GenericSectionController.swift in Sources */,
+				OBJ_131 /* GenericSectionControllerProtocol.swift in Sources */,
+				OBJ_132 /* SectionController.swift in Sources */,
+				OBJ_133 /* SectionDataSource.swift in Sources */,
+				OBJ_134 /* SectionDelegate.swift in Sources */,
+				OBJ_135 /* SectionDragDelegate.swift in Sources */,
+				OBJ_136 /* SectionDropDelegate.swift in Sources */,
+				OBJ_137 /* SectionFlowDelegate.swift in Sources */,
+				OBJ_138 /* SectionIndexPath.swift in Sources */,
+				OBJ_139 /* SectionSupplementaryViewKind.swift in Sources */,
+				OBJ_140 /* SectionBatchOperation.swift in Sources */,
+				OBJ_141 /* SectionChange.swift in Sources */,
+				OBJ_142 /* SectionUpdate.swift in Sources */,
+				OBJ_143 /* CollectionContext.swift in Sources */,
+				OBJ_144 /* CollectionBatchOperation.swift in Sources */,
+				OBJ_145 /* CollectionChange.swift in Sources */,
+				OBJ_146 /* CollectionUpdate.swift in Sources */,
+				OBJ_147 /* FoundationDiffingSectionAdapter.swift in Sources */,
+				OBJ_148 /* MainCollectionContext.swift in Sources */,
+				OBJ_149 /* SectionAdapter+UICollectionViewDataSource.swift in Sources */,
+				OBJ_150 /* SectionAdapter+UICollectionViewDelegate.swift in Sources */,
+				OBJ_151 /* SectionAdapter+UICollectionViewDragDelegate.swift in Sources */,
+				OBJ_152 /* SectionAdapter+UICollectionViewDropDelegate.swift in Sources */,
+				OBJ_153 /* SectionAdapter+UICollectionViewFlowLayout.swift in Sources */,
+				OBJ_154 /* SectionAdapter.swift in Sources */,
+				OBJ_155 /* Collection+Extensions.swift in Sources */,
+				OBJ_156 /* HashableBox.swift in Sources */,
+				OBJ_157 /* UICollectionView+Reload.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_174 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_175 /* SectionKitTests.swift in Sources */,
+				OBJ_176 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AD1D94C24508F28005F8F36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SectionKit::SectionKit" /* SectionKit */;
+			targetProxy = 5AD1D94B24508F28005F8F36 /* PBXContainerItemProxy */;
+		};
+		OBJ_179 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SectionKit::SectionKit" /* SectionKit */;
+			targetProxy = 5AD1D94424508100005F8F36 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SectionKit.xcodeproj/DiffingSectionKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 0.1;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.traderepublic.DiffingSectionKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = DiffingSectionKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_108 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SectionKit.xcodeproj/DiffingSectionKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 0.1;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.traderepublic.DiffingSectionKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = DiffingSectionKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 0.1;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.traderepublic.SectionKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = SectionKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_123 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 0.1;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.traderepublic.SectionKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGET_NAME = SectionKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKitTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SectionKitTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_173 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKitTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SectionKitTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_106 /* Build configuration list for PBXNativeTarget "DiffingSectionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_107 /* Debug */,
+				OBJ_108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_121 /* Build configuration list for PBXNativeTarget "SectionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_122 /* Debug */,
+				OBJ_123 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_171 /* Build configuration list for PBXNativeTarget "SectionKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_172 /* Debug */,
+				OBJ_173 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "SectionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}
