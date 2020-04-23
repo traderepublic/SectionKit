@@ -3,7 +3,7 @@ import Foundation
 /// A set of updates that should be performed
 public struct SectionUpdate<SectionData> {
     /// The id of the section that wants to perform these changes
-    public let sectionId: UUID
+    public let sectionId: String
     
     /// The batch updates that should be performed
     public let batchOperations: [SectionBatchOperation<SectionData>]
@@ -18,7 +18,7 @@ public struct SectionUpdate<SectionData> {
      */
     public let shouldReloadSection: (SectionBatchOperation<SectionData>) -> Bool
     
-    public init(sectionId: UUID,
+    public init(sectionId: String,
                 batchOperations: [SectionBatchOperation<SectionData>],
                 setData: @escaping (SectionData) -> Void,
                 shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false }) {
@@ -28,7 +28,7 @@ public struct SectionUpdate<SectionData> {
         self.shouldReloadSection = shouldReloadSection
     }
     
-    public init(sectionId: UUID,
+    public init(sectionId: String,
                 changes: [SectionChange],
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
@@ -40,7 +40,7 @@ public struct SectionUpdate<SectionData> {
                   shouldReloadSection: shouldReloadSection)
     }
     
-    public init(sectionId: UUID,
+    public init(sectionId: String,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void) {
         self.init(sectionId: sectionId,

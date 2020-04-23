@@ -21,7 +21,7 @@ extension SectionAdapter: UICollectionViewDragDelegate {
                              point: CGPoint) -> [UIDragItem] {
         guard
             indexPath.section >= 0 && indexPath.section < sectionControllers.count,
-            session.localContext as? UUID == sectionControllers[indexPath.section].id,
+            session.localContext as? String == sectionControllers[indexPath.section].id,
             let dragDelegate = sectionControllers[indexPath.section].dragDelegate
             else { return [] }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,

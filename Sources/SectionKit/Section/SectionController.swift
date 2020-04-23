@@ -7,7 +7,7 @@ public protocol SectionController: AnyObject {
      
      It is used to calculate the differences when updating the list of sections.
      */
-    var id: UUID { get }
+    var id: String { get }
     
     /// An object which provides contextual information of the `UICollectionView`
     var context: CollectionContext? { get set }

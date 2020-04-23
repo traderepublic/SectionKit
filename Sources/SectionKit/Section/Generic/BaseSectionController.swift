@@ -22,7 +22,7 @@ open class BaseSectionController:
     
     open var context: CollectionContext?
     
-    open private(set) var id: UUID = UUID()
+    open private(set) var id: String = UUID().uuidString
     
     open var dataSource: SectionDataSource { self }
     

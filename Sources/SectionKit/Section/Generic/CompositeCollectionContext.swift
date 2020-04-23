@@ -6,7 +6,7 @@ open class CompositeSectionCollectionContext: CollectionContext {
     // MARK: - Properties
     
     /// The identifier of the composite section.
-    public let sectionId: UUID
+    public let sectionId: String
     
     /// The parent context where updates should be forwarded to.
     public let parentContext: CollectionContext
@@ -22,7 +22,7 @@ open class CompositeSectionCollectionContext: CollectionContext {
     
     // MARK: - Initializer
     
-    public init(sectionId: UUID, parentContext: CollectionContext) {
+    public init(sectionId: String, parentContext: CollectionContext) {
         self.sectionId = sectionId
         self.parentContext = parentContext
     }
@@ -39,7 +39,7 @@ open class CompositeSectionCollectionContext: CollectionContext {
     
     // MARK: - Apply
     
-    private func itemOffset(forSectionControllerWith sectionControllerId: UUID) -> Int? {
+    private func itemOffset(forSectionControllerWith sectionControllerId: String) -> Int? {
         let sectionControllers = self.sectionControllers()
         guard sectionControllers.contains(where: { $0.id == sectionControllerId }) else {
             return nil
