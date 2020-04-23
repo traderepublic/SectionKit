@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,23 @@
 		85A3210724508D0C003F3B6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A3210524508D0C003F3B6D /* LaunchScreen.storyboard */; };
 		85A3211324508E30003F3B6D /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3211224508E30003F3B6D /* PortfolioViewController.swift */; };
 		85A3211624508E6C003F3B6D /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */; };
+		85DB119A2451930E00027D52 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11992451930E00027D52 /* App.swift */; };
+		85DB119D2451959500027D52 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 85DB119C2451959500027D52 /* ReactiveCocoa */; };
+		85DB11A0245195BC00027D52 /* DiffingSectionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85DB119F245195BC00027D52 /* DiffingSectionKit */; };
+		85DB11A2245195BC00027D52 /* SectionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 85DB11A1245195BC00027D52 /* SectionKit */; };
+		85DB11A62451992E00027D52 /* ChartCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11A52451992E00027D52 /* ChartCellViewModel.swift */; };
+		85DB11A92451997E00027D52 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11A82451997E00027D52 /* ViewModel.swift */; };
+		85DB11AB24519A2100027D52 /* StockSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11AA24519A2100027D52 /* StockSectionViewModel.swift */; };
+		85DB11AD24519D6100027D52 /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11AC24519D6100027D52 /* StockViewModel.swift */; };
+		85DB11B124519E7600027D52 /* ChartSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11B024519E7600027D52 /* ChartSectionController.swift */; };
+		85DB11B424519E9600027D52 /* StockSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11B324519E9600027D52 /* StockSectionController.swift */; };
+		85DB11B624519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11B524519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift */; };
+		85DB11BB24519FB100027D52 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11BA24519FB100027D52 /* StockCell.swift */; };
+		85DB11BF24519FC700027D52 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11BE24519FC700027D52 /* CollectionViewCell.swift */; };
+		85DB11C32451A0E700027D52 /* PortfolioHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C22451A0E700027D52 /* PortfolioHeaderCell.swift */; };
+		85DB11C52451A30300027D52 /* StockSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C42451A30300027D52 /* StockSectionHeaderView.swift */; };
+		85DB11C82451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C72451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift */; };
+		85DB11CA2451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C92451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +41,20 @@
 		85A3210824508D0C003F3B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85A3211224508E30003F3B6D /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
+		85DB11992451930E00027D52 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		85DB11A52451992E00027D52 /* ChartCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellViewModel.swift; sourceTree = "<group>"; };
+		85DB11A82451997E00027D52 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		85DB11AA24519A2100027D52 /* StockSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSectionViewModel.swift; sourceTree = "<group>"; };
+		85DB11AC24519D6100027D52 /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
+		85DB11B024519E7600027D52 /* ChartSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSectionController.swift; sourceTree = "<group>"; };
+		85DB11B324519E9600027D52 /* StockSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSectionController.swift; sourceTree = "<group>"; };
+		85DB11B524519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockViewModel+CollectionViewCellRepresentable.swift"; sourceTree = "<group>"; };
+		85DB11BA24519FB100027D52 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		85DB11BE24519FC700027D52 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		85DB11C22451A0E700027D52 /* PortfolioHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioHeaderCell.swift; sourceTree = "<group>"; };
+		85DB11C42451A30300027D52 /* StockSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSectionHeaderView.swift; sourceTree = "<group>"; };
+		85DB11C72451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+GenericSectionControllerProtocol.swift"; sourceTree = "<group>"; };
+		85DB11C92451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseSectionController+ReactiveExtensionsProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85DB119D2451959500027D52 /* ReactiveCocoa in Frameworks */,
+				85DB11A0245195BC00027D52 /* DiffingSectionKit in Frameworks */,
+				85DB11A2245195BC00027D52 /* SectionKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,10 +90,12 @@
 		85A320F924508D0B003F3B6D /* SectionKit-Example */ = {
 			isa = PBXGroup;
 			children = (
+				85DB11C62451A3C000027D52 /* Extensions */,
 				85A3210F24508DDE003F3B6D /* App */,
 				85A3211024508DEA003F3B6D /* Resources */,
 				85A3211124508E25003F3B6D /* ViewController */,
 				85A3211424508E4A003F3B6D /* ViewModel */,
+				85DB11B724519FA100027D52 /* Views */,
 			);
 			path = "SectionKit-Example";
 			sourceTree = "<group>";
@@ -67,6 +103,7 @@
 		85A3210F24508DDE003F3B6D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				85DB11992451930E00027D52 /* App.swift */,
 				85A320FA24508D0B003F3B6D /* AppDelegate.swift */,
 				85A320FC24508D0B003F3B6D /* SceneDelegate.swift */,
 			);
@@ -86,7 +123,7 @@
 		85A3211124508E25003F3B6D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				85A3211224508E30003F3B6D /* PortfolioViewController.swift */,
+				85DB11AF24519E6600027D52 /* Portfolio */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -94,9 +131,124 @@
 		85A3211424508E4A003F3B6D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */,
+				85DB11A72451997700027D52 /* Generic */,
+				85DB11A32451992300027D52 /* Portfolio */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		85DB11A32451992300027D52 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11A42451992700027D52 /* Cells */,
+				85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */,
+				85DB11AA24519A2100027D52 /* StockSectionViewModel.swift */,
+				85DB11AC24519D6100027D52 /* StockViewModel.swift */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		85DB11A42451992700027D52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11A52451992E00027D52 /* ChartCellViewModel.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		85DB11A72451997700027D52 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11A82451997E00027D52 /* ViewModel.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		85DB11AF24519E6600027D52 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				85A3211224508E30003F3B6D /* PortfolioViewController.swift */,
+				85DB11B224519E7C00027D52 /* SectionController */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		85DB11B224519E7C00027D52 /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11B024519E7600027D52 /* ChartSectionController.swift */,
+				85DB11B324519E9600027D52 /* StockSectionController.swift */,
+				85DB11B524519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift */,
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
+		85DB11B724519FA100027D52 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11BC24519FBD00027D52 /* Generic */,
+				85DB11B824519FA400027D52 /* Portfolio */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		85DB11B824519FA400027D52 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11B924519FA900027D52 /* Cells */,
+				85DB11C42451A30300027D52 /* StockSectionHeaderView.swift */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		85DB11B924519FA900027D52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11C12451A0D300027D52 /* Portfolio */,
+				85DB11C02451A0D100027D52 /* Stock */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		85DB11BC24519FBD00027D52 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11BD24519FC000027D52 /* Cells */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		85DB11BD24519FC000027D52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11BE24519FC700027D52 /* CollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		85DB11C02451A0D100027D52 /* Stock */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11BA24519FB100027D52 /* StockCell.swift */,
+			);
+			path = Stock;
+			sourceTree = "<group>";
+		};
+		85DB11C12451A0D300027D52 /* Portfolio */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11C22451A0E700027D52 /* PortfolioHeaderCell.swift */,
+			);
+			path = Portfolio;
+			sourceTree = "<group>";
+		};
+		85DB11C62451A3C000027D52 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				85DB11C72451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift */,
+				85DB11C92451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +267,11 @@
 			dependencies = (
 			);
 			name = "SectionKit-Example";
+			packageProductDependencies = (
+				85DB119C2451959500027D52 /* ReactiveCocoa */,
+				85DB119F245195BC00027D52 /* DiffingSectionKit */,
+				85DB11A1245195BC00027D52 /* SectionKit */,
+			);
 			productName = "SectionKit-Example";
 			productReference = 85A320F724508D0B003F3B6D /* SectionKit-Example.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +300,10 @@
 				Base,
 			);
 			mainGroup = 85A320EE24508D0B003F3B6D;
+			packageReferences = (
+				85DB119B2451959500027D52 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
+				85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */,
+			);
 			productRefGroup = 85A320F824508D0B003F3B6D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,10 +330,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85DB11B124519E7600027D52 /* ChartSectionController.swift in Sources */,
+				85DB11B424519E9600027D52 /* StockSectionController.swift in Sources */,
+				85DB11AD24519D6100027D52 /* StockViewModel.swift in Sources */,
+				85DB11B624519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift in Sources */,
 				85A3211324508E30003F3B6D /* PortfolioViewController.swift in Sources */,
+				85DB11A62451992E00027D52 /* ChartCellViewModel.swift in Sources */,
+				85DB11CA2451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift in Sources */,
+				85DB11C32451A0E700027D52 /* PortfolioHeaderCell.swift in Sources */,
 				85A3211624508E6C003F3B6D /* PortfolioViewModel.swift in Sources */,
+				85DB11C52451A30300027D52 /* StockSectionHeaderView.swift in Sources */,
+				85DB11BB24519FB100027D52 /* StockCell.swift in Sources */,
+				85DB11AB24519A2100027D52 /* StockSectionViewModel.swift in Sources */,
 				85A320FB24508D0B003F3B6D /* AppDelegate.swift in Sources */,
+				85DB11BF24519FC700027D52 /* CollectionViewCell.swift in Sources */,
+				85DB11C82451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift in Sources */,
+				85DB119A2451930E00027D52 /* App.swift in Sources */,
 				85A320FD24508D0B003F3B6D /* SceneDelegate.swift in Sources */,
+				85DB11A92451997E00027D52 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +537,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		85DB119B2451959500027D52 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.2.0;
+			};
+		};
+		85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:traderepublic/tr-sectionkit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		85DB119C2451959500027D52 /* ReactiveCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85DB119B2451959500027D52 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
+			productName = ReactiveCocoa;
+		};
+		85DB119F245195BC00027D52 /* DiffingSectionKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */;
+			productName = DiffingSectionKit;
+		};
+		85DB11A1245195BC00027D52 /* SectionKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */;
+			productName = SectionKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 85A320EF24508D0B003F3B6D /* Project object */;
 }

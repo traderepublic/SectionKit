@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DifferenceKit",
+        "repositoryURL": "https://github.com/ra1028/DifferenceKit",
+        "state": {
+          "branch": null,
+          "revision": "14c66681e12a38b81045f44c6c29724a0d4b0e72",
+          "version": "1.1.5"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "7fd118ec8795888bcbbebc1a41f6984454c4cd6f",
+          "version": "8.0.7"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "33682c2f6230c60614861dfc61df267e11a1602f",
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "ReactiveCocoa",
+        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveCocoa",
+        "state": {
+          "branch": null,
+          "revision": "3937d9e64459b6cb8bf0ec1823251a25943c8eac",
+          "version": "10.2.0"
+        }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift",
+        "state": {
+          "branch": null,
+          "revision": "e27ccdbf4ec36f154b60b91a0d7e0110c4e882cb",
+          "version": "6.2.1"
+        }
+      },
+      {
+        "package": "SectionKit",
+        "repositoryURL": "git@github.com:traderepublic/tr-sectionkit.git",
+        "state": {
+          "branch": "master",
+          "revision": "b9bd8e20a5d19bac012b9393201363a0b306dc76",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
