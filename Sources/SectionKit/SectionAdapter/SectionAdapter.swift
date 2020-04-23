@@ -32,7 +32,7 @@ open class SectionAdapter: NSObject {
         }
     }
     
-    internal var cachedIndexTitles: [(sectionControllerId: UUID, title: String)] = []
+    internal var cachedIndexTitles: [(sectionControllerId: String, title: String)] = []
     
     /// If reordering should be allowed between different sections
     open var allowReorderingBetweenDifferentSections: Bool = false

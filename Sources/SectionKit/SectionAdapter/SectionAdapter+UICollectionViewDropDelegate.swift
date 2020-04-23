@@ -16,7 +16,7 @@ extension SectionAdapter: UICollectionViewDropDelegate {
             else { return UICollectionViewDropProposal(operation: .forbidden) }
         if !allowReorderingBetweenDifferentSections {
             guard
-                let dragSectionId = session.localDragSession?.localContext as? UUID,
+                let dragSectionId = session.localDragSession?.localContext as? String,
                 dragSectionId == sectionControllers[indexPath.section].id
                 else { return UICollectionViewDropProposal(operation: .forbidden) }
         }
