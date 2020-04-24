@@ -168,31 +168,4 @@ Going into detail of that reactive chain would be beyond the scope of this intro
 
 Build and run and we see our portfolio value update as soon as all our stocks have at least one price.
 
-
-*/
-To avoid `UICollectionView` inconsistencies, we need to set the actual data inside the `setData` closure. This ensures that the data is changed inside the `performBatchUpdates` block.
-
-```swift
-// 1
-private var collectionViewItem: ChartCellViewModel?
-// 2
-var viewModel: ChartCellViewModel? {
-   get { collectionViewItem }
-   set {
-       // 3
-       guard let context = context else {
-           collectionViewItem = newValue
-           return
-       }
-       // 4
-       context.apply(update: SectionUpdate(sectionId: id,
-                                           data: newValue,
-                                           setData: { [weak self] in self?.collectionViewItem = $0 }))
-   }
-}
-```
-1. Our internal representation of the actual `viewModel`.
-2. Our external accessor to our viewModel.
-3. If no context is set we can just set the value as there is no `UICollectionView` to update.
-4. In the case that we have a context we're calculating a diff set and apply it to the context. Only after we've run all the updates on our `SectionController`s is when we write the new data to our internal representation.
-*/
+---
