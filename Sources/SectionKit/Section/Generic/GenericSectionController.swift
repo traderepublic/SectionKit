@@ -52,12 +52,78 @@ open class GenericSectionController<Item>:
     
     // MARK: - SectionDelegate
     
+    override open func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        return items[indexPath.internalRepresentation].shouldHighlightItem(at: indexPath.externalRepresentation,
+                                                                           in: context)
+    }
+    
+    override open func didHighlightItem(at indexPath: SectionIndexPath) {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        items[indexPath.internalRepresentation].didHighlightItem(at: indexPath.externalRepresentation,
+                                                                 in: context)
+    }
+    
+    override open func didUnhighlightItem(at indexPath: SectionIndexPath) {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        items[indexPath.internalRepresentation].didUnhighlightItem(at: indexPath.externalRepresentation,
+                                                                   in: context)
+    }
+    
+    override open func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        return items[indexPath.internalRepresentation].shouldSelectItem(at: indexPath.externalRepresentation,
+                                                                        in: context)
+    }
+    
+    override open func shouldDeselectItem(at indexPath: SectionIndexPath) -> Bool {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        return items[indexPath.internalRepresentation].shouldDeselectItem(at: indexPath.externalRepresentation,
+                                                                          in: context)
+    }
+    
     override open func didSelectItem(at indexPath: SectionIndexPath) {
         guard let context = context else {
             preconditionFailure("Did not set `context` before calling \(#function)")
         }
         items[indexPath.internalRepresentation].didSelectItem(at: indexPath.externalRepresentation,
                                                               in: context)
+    }
+    
+    override open func didDeselectItem(at indexPath: SectionIndexPath) {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        items[indexPath.internalRepresentation].didDeselectItem(at: indexPath.externalRepresentation,
+                                                                in: context)
+    }
+    
+    override open func willDisplay(cell: UICollectionViewCell, at indexPath: SectionIndexPath) {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        items[indexPath.internalRepresentation].willDisplay(cell: cell as! Item.CellType,
+                                                            at: indexPath.externalRepresentation,
+                                                            in: context)
+    }
+    
+    open override func didEndDisplaying(cell: UICollectionViewCell, at indexPath: SectionIndexPath) {
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        items[indexPath.internalRepresentation].didEndDisplaying(cell: cell as! Item.CellType,
+                                                                 at: indexPath.externalRepresentation,
+                                                                 in: context)
     }
     
     // MARK: - SectionFlowDelegate
