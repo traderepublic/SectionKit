@@ -4,7 +4,7 @@ import DiffingSectionKit
 import ReactiveCocoa
 import ReactiveSwift
 
-class PortfolioViewController: UIViewController {
+final class PortfolioViewController: UIViewController {
     // MARK: - Properties
     private let viewModel: PortfolioViewModelType
 
@@ -18,10 +18,7 @@ class PortfolioViewController: UIViewController {
         return collectionView
     }()
 
-    private var sectionAdapter: SectionAdapter?
-    private let portfolioSection = ChartSectionController()
-    private lazy var stockSection = StockSectionController(viewModel: viewModel.outputs.stockSection)
-    private lazy var watchlistSection = StockSectionController(viewModel: viewModel.outputs.watchlistSection)
+    private var sectionAdapter: SectionAdapter!
 
     // MARK: - Initialization
     init(viewModel: PortfolioViewModel) {
@@ -42,15 +39,12 @@ class PortfolioViewController: UIViewController {
         super.viewDidLoad()
         setUpBindings()
 
-        let sectionControllers: [SectionController] = [portfolioSection, stockSection, watchlistSection]
         sectionAdapter = DiffingSectionAdapter(viewController: self,
                                                collectionView: collectionView,
-                                               sectionControllers: sectionControllers)
+                                               sectionControllers: [])
     }
 
     private func setUpBindings() {
-        portfolioSection.reactive.viewModel <~ viewModel.outputs.portfolioHeaderSection
-        viewModel.outputs.stockSection.inputs.mutableStocks <~ stockSection.itemsMoved
-        viewModel.outputs.watchlistSection.inputs.mutableStocks <~ watchlistSection.itemsMoved
+//        headerSection.reactive.viewModel <~ viewModel.outputs.portfolioHeaderSection
     }
 }

@@ -1,3 +1,4 @@
+import DifferenceKit
 import Foundation
 import ReactiveCocoa
 import ReactiveSwift
@@ -54,4 +55,8 @@ final class StockViewModel:
         currentPrice = prices.map { $0.last?.price }
         super.init()
     }
+}
+
+extension StockViewModel: Differentiable {
+    var differenceIdentifier: UUID { id }
 }

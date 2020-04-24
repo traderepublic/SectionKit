@@ -17,6 +17,6 @@ extension StockViewModel: CollectionViewCellRepresentable {
 
     func didSelectItem(at indexPath: IndexPath, in context: CollectionContext) {
         context.collectionView.deselectItem(at: indexPath, animated: true)
-        inputs.deletePressedObserver.send(value: ())
+//        inputs.deletePressedObserver.send(value: ())
     }
 }

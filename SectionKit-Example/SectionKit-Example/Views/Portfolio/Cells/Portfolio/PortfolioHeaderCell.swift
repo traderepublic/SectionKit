@@ -2,7 +2,7 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
-class PortfolioHeaderCell: CollectionViewCell<ChartCellViewModelType> {
+class PortfolioHeaderCell: CollectionViewCell<PortfolioHeaderCellViewModelType> {
     // MARK: - Properties
 
     static let mainStackViewInsets = NSDirectionalEdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24)
@@ -52,7 +52,7 @@ class PortfolioHeaderCell: CollectionViewCell<ChartCellViewModelType> {
         setUpConstraints()
     }
 
-    override func configure(with viewModel: ChartCellViewModelType) {
+    override func configure(with viewModel: PortfolioHeaderCellViewModelType) {
         titleLabel.reactive.text <~ viewModel.outputs.title.producer
             .take(until: reactive.prepareForReuse)
 
@@ -60,7 +60,7 @@ class PortfolioHeaderCell: CollectionViewCell<ChartCellViewModelType> {
             .take(until: reactive.prepareForReuse)
     }
 
-    override class func size(for viewModel: ChartCellViewModelType, size: CGSize) -> CGSize {
+    override class func size(for viewModel: PortfolioHeaderCellViewModelType, size: CGSize) -> CGSize {
         let maxWidth = size.width
             - mainStackViewInsets.leading
             - mainStackViewInsets.trailing

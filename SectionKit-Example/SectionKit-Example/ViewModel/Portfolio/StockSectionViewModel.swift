@@ -68,21 +68,6 @@ final class StockSectionViewModel:
             return newItems
         }
 
-        // Move stocks
-        mutableStocks <~ stocks.producer
-            .skipRepeats()
-            .flatMap(.latest) { items in
-                SignalProducer(value: items)
-                    .sample(with: Signal.merge(items.map { $0.move }))
-        }
-        .map { (items, move) in
-            let (from, to) = move
-            var newItems = items
-            let element = newItems.remove(at: from)
-            newItems.insert(element, at: to)
-            return newItems
-        }
 
-        super.init()
     }
 }

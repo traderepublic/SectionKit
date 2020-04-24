@@ -11,7 +11,7 @@ protocol PortfolioViewModelInputs {
 }
 
 protocol PortfolioViewModelOutputs {
-    var portfolioHeaderSection: Property<ChartCellViewModel> { get }
+    var portfolioHeaderSection: Property<PortfolioHeaderCellViewModel> { get }
     var stockSection: StockSectionViewModel { get }
     var watchlistSection: StockSectionViewModel { get }
 }
@@ -34,34 +34,15 @@ final class PortfolioViewModel:
     }
 
     // MARK: - PortfolioViewModelOutputs
-    let portfolioHeaderSection: Property<ChartCellViewModel>
+    let portfolioHeaderSection: Property<PortfolioHeaderCellViewModel>
 
     let stockSection = StockSectionViewModel(title: "Investments")
     let watchlistSection = StockSectionViewModel(title: "Watchlist")
 
     // MARK: - Initializer
     override init() {
-        let portfolioValue = stockSection.outputs.stocks.producer
-            .flatMap(.latest) { stocks -> SignalProducer<[Float?], Never> in
-                guard !stocks.isEmpty else {
-                    return SignalProducer(value: [])
-                }
-                return SignalProducer.combineLatest(stocks.map { $0.prices.map { $0.last?.price } })
-        }
-        .map { currentStockValues -> Float? in
-            guard !currentStockValues.isEmpty else {
-                return nil
-            }
-            var totalValue: Float = 0
-            for stockValue in currentStockValues {
-                guard let value = stockValue else {
-                    return nil
-                }
-                totalValue += value
-            }
-            return totalValue
-        }
-        portfolioHeaderSection = Property(value: ChartCellViewModel(portfolioValueProducer: portfolioValue))
+        let portfolioValue = SignalProducer<Float?, Never>(value: 9999.99)
+        portfolioHeaderSection = Property(value: PortfolioHeaderCellViewModel(portfolioValueProducer: portfolioValue))
 
         super.init()
 

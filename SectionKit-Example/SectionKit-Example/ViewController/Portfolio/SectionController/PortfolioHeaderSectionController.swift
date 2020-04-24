@@ -5,13 +5,17 @@ import UIKit
 
 // MARK: - SectionController
 
-class ChartSectionController: SectionController {
+class PortfolioHeaderSectionController: SectionController {
+    var id: String = UUID().uuidString
+    var dataSource: SectionDataSource { self }
+    var delegate: SectionDelegate? { self }
+    var flowDelegate: SectionFlowDelegate? { self }
+
+
     var context: CollectionContext?
 
-    let id: UUID = UUID()
-
-    private var collectionViewItem: ChartCellViewModel?
-    var viewModel: ChartCellViewModel? {
+    private var collectionViewItem: PortfolioHeaderCellViewModel?
+    var viewModel: PortfolioHeaderCellViewModel? {
         get { collectionViewItem }
         set {
             guard let context = context else {
@@ -23,17 +27,11 @@ class ChartSectionController: SectionController {
                                                 setData: { [weak self] in self?.collectionViewItem = $0 }))
         }
     }
-
-    var dataSource: SectionDataSource { self }
-
-    var delegate: SectionDelegate? { self }
-
-    var flowDelegate: SectionFlowDelegate? { self }
 }
 
 // MARK: - SectionDataSource
 
-extension ChartSectionController: SectionDataSource {
+extension PortfolioHeaderSectionController: SectionDataSource {
     var numberOfItems: Int {
         viewModel == nil ? 0 : 1
     }
@@ -57,7 +55,7 @@ extension ChartSectionController: SectionDataSource {
 
 // MARK: - SectionDelegate
 
-extension ChartSectionController: SectionDelegate {
+extension PortfolioHeaderSectionController: SectionDelegate {
     func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
         false
     }
@@ -69,7 +67,7 @@ extension ChartSectionController: SectionDelegate {
 
 // MARK: - SectionFlowDelegate
 
-extension ChartSectionController: SectionFlowDelegate {
+extension PortfolioHeaderSectionController: SectionFlowDelegate {
     func sizeForItem(at indexPath: SectionIndexPath,
                      using layout: UICollectionViewLayout) -> CGSize {
         guard let viewModel = viewModel else {
@@ -92,10 +90,10 @@ extension ChartSectionController: SectionFlowDelegate {
 
 // MARK: - Reactive extensions
 
-extension ChartSectionController: ReactiveExtensionsProvider { }
+extension PortfolioHeaderSectionController: ReactiveExtensionsProvider { }
 
-extension Reactive where Base: ChartSectionController {
-    var viewModel: BindingTarget<ChartCellViewModel> {
+extension Reactive where Base: PortfolioHeaderSectionController {
+    var viewModel: BindingTarget<PortfolioHeaderCellViewModel> {
         makeBindingTarget { base, viewModel in
             base.viewModel = viewModel
         }

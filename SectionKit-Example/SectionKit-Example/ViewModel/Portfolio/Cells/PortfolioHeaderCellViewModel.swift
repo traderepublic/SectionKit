@@ -2,33 +2,33 @@ import Foundation
 import ReactiveCocoa
 import ReactiveSwift
 
-protocol ChartCellViewModelType {
-    var inputs: ChartCellViewModelInputs { get }
-    var outputs: ChartCellViewModelOutputs { get }
+protocol PortfolioHeaderCellViewModelType {
+    var inputs: PortfolioHeaderCellViewModelInputs { get }
+    var outputs: PortfolioHeaderCellViewModelOutputs { get }
 }
 
-protocol ChartCellViewModelInputs {
+protocol PortfolioHeaderCellViewModelInputs {
     var moveObserver: Signal<(from: Int, to: Int), Never>.Observer { get }
     var deletePressedObserver: Signal<(), Never>.Observer { get }
 }
 
-protocol ChartCellViewModelOutputs {
+protocol PortfolioHeaderCellViewModelOutputs {
     var id: UUID { get }
     var title: Property<String> { get }
     var difference: Property<String> { get }
     var portfolioValueHistorie: Property<[Float]> { get }
 }
 
-final class ChartCellViewModel:
+final class PortfolioHeaderCellViewModel:
     ViewModel,
-    ChartCellViewModelType,
-    ChartCellViewModelInputs,
-    ChartCellViewModelOutputs
+    PortfolioHeaderCellViewModelType,
+    PortfolioHeaderCellViewModelInputs,
+    PortfolioHeaderCellViewModelOutputs
 {
 
     // MARK: - ChartCellViewModelType
-    var inputs: ChartCellViewModelInputs { self }
-    var outputs: ChartCellViewModelOutputs { self }
+    var inputs: PortfolioHeaderCellViewModelInputs { self }
+    var outputs: PortfolioHeaderCellViewModelOutputs { self }
 
     // MARK: - ChartCellViewModelInputs
     let (move, moveObserver) = Signal<(from: Int, to: Int), Never>.pipe()
