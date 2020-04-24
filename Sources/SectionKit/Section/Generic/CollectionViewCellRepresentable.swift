@@ -141,7 +141,7 @@ public protocol CollectionViewCellRepresentable {
                           in context: CollectionContext)
 }
 
-extension CollectionViewCellRepresentable {
+public extension CollectionViewCellRepresentable {
     func sizeForItem(at indexPath: IndexPath,
                      using layout: UICollectionViewLayout,
                      in context: CollectionContext) -> CGSize {
