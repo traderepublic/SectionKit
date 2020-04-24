@@ -1,4 +1,4 @@
-# __SectionKit__
+![section kit logo](https://github.com/traderepublic/tr-sectionkit/blob/introduction/Resources/SectionKit.png)
 
 In this tutorial we will guide you through the most important classes and APIs
 you will need to set up a simple view containing multiple, reusable and  diffable sections.
