@@ -8,6 +8,8 @@ open class SectionAdapter: NSObject {
     /// An object providing contextual information
     public let collectionContext: CollectionContext
     
+    open weak var scrollViewDelegate: UIScrollViewDelegate?
+    
     /**
      The list of sections currently displayed in the `UICollectionView`
      
@@ -32,7 +34,7 @@ open class SectionAdapter: NSObject {
         }
     }
     
-    internal var cachedIndexTitles: [(sectionControllerId: UUID, title: String)] = []
+    internal var cachedIndexTitles: [(sectionControllerId: String, title: String)] = []
     
     /// If reordering should be allowed between different sections
     open var allowReorderingBetweenDifferentSections: Bool = false
@@ -50,11 +52,15 @@ open class SectionAdapter: NSObject {
      
      - Parameter sectionControllers: The list of `SectionController` of which every controller handles a single section in the `UICollectionView`
      */
-    public init(viewController: UIViewController, collectionView: UICollectionView, sectionControllers: [SectionController] = []) {
+    public init(viewController: UIViewController,
+                collectionView: UICollectionView,
+                sectionControllers: [SectionController] = [],
+                scrollViewDelegate: UIScrollViewDelegate? = nil) {
         let collectionContext = MainCollectionContext(viewController: viewController, collectionView: collectionView)
         self.collectionContext = collectionContext
         self.collectionViewSectionControllers = sectionControllers
         sectionControllers.forEach { $0.context = collectionContext }
+        self.scrollViewDelegate = scrollViewDelegate
         super.init()
         collectionContext.sectionControllers = { [weak self] in
             self?.sectionControllers ?? []
