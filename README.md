@@ -1,3 +1,3 @@
 # SectionKit
 
-![Diagram](./Resources/SectionKit.png)
+![Diagram](./Resources/SectionKit.svg)
