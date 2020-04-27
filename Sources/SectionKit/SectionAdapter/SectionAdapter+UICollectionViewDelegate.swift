@@ -79,14 +79,18 @@ extension SectionAdapter: UICollectionViewDelegate {
                              forElementKind elementKind: String,
                              at indexPath: IndexPath) {
         guard indexPath.section >= 0 && indexPath.section < sectionControllers.count else { return }
-        guard let kind = SectionSupplementaryViewKind(collectionViewElementKind: elementKind) else {
-            return assertionFailure("Unsupported supplementary view kind.")
-        }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        sectionControllers[indexPath.section].delegate?.willDisplay(supplementaryView: view,
-                                                                    for: kind,
-                                                                    at: sectionIndexPath)
+        let delegate = sectionControllers[indexPath.section].delegate
+        switch elementKind {
+        case UICollectionView.elementKindSectionHeader:
+            delegate?.willDisplay(headerView: view,
+                                  at: sectionIndexPath)
+        case UICollectionView.elementKindSectionFooter:
+            delegate?.willDisplay(footerView: view,
+                                  at: sectionIndexPath)
+        default: break
+        }
     }
     
     open func collectionView(_ collectionView: UICollectionView,
@@ -104,14 +108,18 @@ extension SectionAdapter: UICollectionViewDelegate {
                              forElementOfKind elementKind: String,
                              at indexPath: IndexPath) {
         guard indexPath.section >= 0 && indexPath.section < sectionControllers.count else { return }
-        guard let kind = SectionSupplementaryViewKind(collectionViewElementKind: elementKind) else {
-            return assertionFailure("Unsupported supplementary view kind.")
-        }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        sectionControllers[indexPath.section].delegate?.didEndDisplaying(supplementaryView: view,
-                                                                         for: kind,
-                                                                         at: sectionIndexPath)
+        let delegate = sectionControllers[indexPath.section].delegate
+        switch elementKind {
+        case UICollectionView.elementKindSectionHeader:
+            delegate?.didEndDisplaying(headerView: view,
+                                       at: sectionIndexPath)
+        case UICollectionView.elementKindSectionFooter:
+            delegate?.didEndDisplaying(footerView: view,
+                                       at: sectionIndexPath)
+        default: break
+        }
     }
     
     // MARK: - Copy/Paste menu

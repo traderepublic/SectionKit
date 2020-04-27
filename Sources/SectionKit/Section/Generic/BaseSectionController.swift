@@ -110,8 +110,12 @@ open class BaseSectionController:
         
     }
     
-    open func willDisplay(supplementaryView: UICollectionReusableView,
-                          for kind: SectionSupplementaryViewKind,
+    open func willDisplay(headerView: UICollectionReusableView,
+                          at indexPath: SectionIndexPath) {
+        
+    }
+    
+    open func willDisplay(footerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath) {
         
     }
@@ -121,8 +125,12 @@ open class BaseSectionController:
         
     }
     
-    open func didEndDisplaying(supplementaryView: UICollectionReusableView,
-                               for kind: SectionSupplementaryViewKind,
+    open func didEndDisplaying(headerView: UICollectionReusableView,
+                               at indexPath: SectionIndexPath) {
+        
+    }
+    
+    open func didEndDisplaying(footerView: UICollectionReusableView,
                                at indexPath: SectionIndexPath) {
         
     }

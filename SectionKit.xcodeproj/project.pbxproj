@@ -29,7 +29,6 @@
 		OBJ_136 /* SectionDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* SectionDropDelegate.swift */; };
 		OBJ_137 /* SectionFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* SectionFlowDelegate.swift */; };
 		OBJ_138 /* SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* SectionIndexPath.swift */; };
-		OBJ_139 /* SectionSupplementaryViewKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* SectionSupplementaryViewKind.swift */; };
 		OBJ_140 /* SectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* SectionBatchOperation.swift */; };
 		OBJ_141 /* SectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* SectionChange.swift */; };
 		OBJ_142 /* SectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SectionUpdate.swift */; };
@@ -91,7 +90,6 @@
 		OBJ_29 /* SectionDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDropDelegate.swift; sourceTree = "<group>"; };
 		OBJ_30 /* SectionFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFlowDelegate.swift; sourceTree = "<group>"; };
 		OBJ_31 /* SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndexPath.swift; sourceTree = "<group>"; };
-		OBJ_32 /* SectionSupplementaryViewKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSupplementaryViewKind.swift; sourceTree = "<group>"; };
 		OBJ_34 /* SectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperation.swift; sourceTree = "<group>"; };
 		OBJ_35 /* SectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionChange.swift; sourceTree = "<group>"; };
 		OBJ_36 /* SectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdate.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				OBJ_29 /* SectionDropDelegate.swift */,
 				OBJ_30 /* SectionFlowDelegate.swift */,
 				OBJ_31 /* SectionIndexPath.swift */,
-				OBJ_32 /* SectionSupplementaryViewKind.swift */,
 				OBJ_33 /* SectionUpdate */,
 			);
 			path = Section;
@@ -437,7 +434,6 @@
 				OBJ_136 /* SectionDropDelegate.swift in Sources */,
 				OBJ_137 /* SectionFlowDelegate.swift in Sources */,
 				OBJ_138 /* SectionIndexPath.swift in Sources */,
-				OBJ_139 /* SectionSupplementaryViewKind.swift in Sources */,
 				OBJ_140 /* SectionBatchOperation.swift in Sources */,
 				OBJ_141 /* SectionChange.swift in Sources */,
 				OBJ_142 /* SectionUpdate.swift in Sources */,
