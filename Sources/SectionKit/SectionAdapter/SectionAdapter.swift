@@ -51,6 +51,8 @@ open class SectionAdapter: NSObject {
      - Parameter collectionView: The `UICollectionView` to use to display the data
      
      - Parameter sectionControllers: The list of `SectionController` of which every controller handles a single section in the `UICollectionView`
+     
+     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks
      */
     public init(viewController: UIViewController,
                 collectionView: UICollectionView,

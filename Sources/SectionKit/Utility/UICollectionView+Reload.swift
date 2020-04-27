@@ -22,20 +22,26 @@ public extension UICollectionView {
             }
             performBatchUpdates({
                 update.setData(batchOperation.data)
-                for change in batchOperation.changes {
-                    switch change {
-                    case .deleteItem(at: let at):
-                        deleteItems(at: [IndexPath(item: at, section: section)])
-                    case .insertItem(at: let at):
-                        insertItems(at: [IndexPath(item: at, section: section)])
-                    case .reloadItem(at: let at):
-                        reloadItems(at: [IndexPath(item: at, section: section)])
-                    case .moveItem(at: let at, to: let to):
-                        moveItem(at: IndexPath(item: at, section: section),
-                                 to: IndexPath(item: to, section: section))
-                    case .custom(let handler):
-                        handler()
-                    }
+                
+                let deletes = batchOperation.deletes
+                if deletes.isNotEmpty {
+                    deleteItems(at: deletes.map { IndexPath(item: $0, section: section) })
+                }
+                
+                let inserts = batchOperation.inserts
+                if inserts.isNotEmpty {
+                    insertItems(at: inserts.map { IndexPath(item: $0, section: section) })
+                }
+                
+                let moves = batchOperation.moves
+                for (at, to) in moves {
+                    moveItem(at: IndexPath(item: at, section: section),
+                             to: IndexPath(item: to, section: section))
+                }
+                
+                let reloads = batchOperation.reloads
+                if reloads.isNotEmpty {
+                    reloadItems(at: reloads.map { IndexPath(item: $0, section: section) })
                 }
             })
         }
@@ -59,19 +65,25 @@ public extension UICollectionView {
             }
             performBatchUpdates({
                 update.setData(batchOperation.data)
-                for change in batchOperation.changes {
-                    switch change {
-                    case .deleteSection(at: let at):
-                        deleteSections(IndexSet(integer: at))
-                    case .insertSection(at: let at):
-                        insertSections(IndexSet(integer: at))
-                    case .reloadSection(at: let at):
-                        reloadSections(IndexSet(integer: at))
-                    case .moveSection(at: let at, to: let to):
-                        moveSection(at, toSection: to)
-                    case .custom(let handler):
-                        handler()
-                    }
+                
+                let deletes = batchOperation.deletes
+                if deletes.isNotEmpty {
+                    deleteSections(IndexSet(deletes))
+                }
+                
+                let inserts = batchOperation.inserts
+                if inserts.isNotEmpty {
+                    insertSections(IndexSet(inserts))
+                }
+                
+                let moves = batchOperation.moves
+                for (at, to) in moves {
+                    moveSection(at, toSection: to)
+                }
+                
+                let reloads = batchOperation.reloads
+                if reloads.isNotEmpty {
+                    reloadSections(IndexSet(reloads))
                 }
             })
         }
