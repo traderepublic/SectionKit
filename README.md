@@ -1,3 +1,3 @@
 # SectionKit
 
-A description of this package.
+![Diagram](./Resources/SectionKit.png)

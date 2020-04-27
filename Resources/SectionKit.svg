@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 800 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-100,-100)">
+        <g id="Flow-Diagram" serif:id="Flow Diagram">
+            <g id="UIKit" transform="matrix(0.628892,0,0,0.628892,455.824,546.171)">
+                <g transform="matrix(2.23403,0,0,2.57408,-446.698,-443.348)">
+                    <path d="M356.665,272.203C356.665,269.475 354.113,267.261 350.971,267.261L111.819,267.261C108.676,267.261 106.124,269.475 106.124,272.203L106.124,324.092C106.124,326.82 108.676,329.034 111.819,329.034L350.971,329.034C354.113,329.034 356.665,326.82 356.665,324.092L356.665,272.203Z" style="fill:rgb(162,155,254);"/>
+                </g>
+                <g transform="matrix(0.71107,0,0,0.71107,-288.478,59.5806)">
+                    <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:55.905px;fill:rgb(108,92,231);">UIKit</text>
+                </g>
+                <g id="UICollectionView" transform="matrix(1.5901,0,0,1.5901,-371.197,85.5933)">
+                    <g transform="matrix(1.3411,0,0,0.906539,-32.7053,-106.282)">
+                        <path d="M356.665,276.086C356.665,271.215 353.992,267.261 350.699,267.261L112.09,267.261C108.797,267.261 106.124,271.215 106.124,276.086L106.124,320.21C106.124,325.08 108.797,329.034 112.09,329.034L350.699,329.034C353.992,329.034 356.665,325.08 356.665,320.21L356.665,276.086Z" style="fill:rgb(108,92,231);"/>
+                    </g>
+                    <g transform="matrix(0.463097,0,0,0.463097,59.4975,13.3566)">
+                        <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:44.987px;fill:white;">UICol<tspan x="228.166px " y="316.108px ">l</tspan>ectionView</text>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,50.1079,0)">
+                <g id="SectionKit----UIKit" serif:id="SectionKit -&gt; UIKit" transform="matrix(1,0,0,1,-531.898,415.74)">
+                    <g transform="matrix(4.50986,-2.55155,-0.394956,-0.698083,117.699,896.813)">
+                        <g transform="matrix(0.16797,-0.613944,-0.0950326,-1.08514,193.185,1030.87)">
+                            <path d="M387.167,563.338L392.786,563.757L395.333,558.732" style="fill:none;stroke:black;stroke-width:2.08px;"/>
+                            <path d="M392.786,563.757C389.196,557.394 371.117,525.347 371.117,525.347" style="fill:none;stroke:black;stroke-width:2.08px;stroke-miterlimit:1;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(0.402268,-4.06576e-20,0,0.402268,580.692,100.73)">
+                        <text x="295.129px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">commit changes to</text>
+                        <text x="543.112px" y="316.108px" style="font-family:'DINNextLTPro-Bold', 'DIN Next LT Pro', sans-serif;font-weight:700;font-size:29.299px;">UICol<tspan x="611.29px " y="316.108px ">l</tspan>ectionVie<tspan x="739.442px " y="316.108px ">w</tspan></text>
+                        <text x="768.711px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">in stages</text>
+                        <text x="295.129px" y="345.407px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">using</text>
+                        <text x="371.891px" y="345.407px" style="font-family:'DINNextLTPro-Bold', 'DIN Next LT Pro', sans-serif;font-weight:700;font-size:29.299px;">performBatchUpdates</text>
+                    </g>
+                </g>
+                <g id="UIKit----SectionKit" serif:id="UIKit -&gt; SectionKit" transform="matrix(1,0,0,1,-200.631,415.74)">
+                    <g transform="matrix(-4.50863,-2.55372,0.395291,-0.697893,1527.74,897.219)">
+                        <g transform="matrix(-0.167924,0.614464,-0.0951132,-1.08485,329.844,531.072)">
+                            <path d="M436.102,526.858L441.72,526.442L444.265,531.469" style="fill:none;stroke:black;stroke-width:2.08px;"/>
+                            <path d="M420.033,564.842C420.033,564.842 438.128,532.803 441.72,526.442" style="fill:none;stroke:black;stroke-width:2.08px;stroke-miterlimit:1;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(0.402268,-4.06576e-20,0,0.402268,591.654,100.73)">
+                        <text x="295.129px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">communic<tspan x="426.709px " y="316.108px ">a</tspan>te thr<tspan x="511.177px " y="316.108px ">o</tspan>ugh</text>
+                        <text x="581.112px" y="316.108px" style="font-family:'DINNextLTPro-Bold', 'DIN Next LT Pro', sans-serif;font-weight:700;font-size:29.299px;">UICol<tspan x="649.29px " y="316.108px ">l</tspan>ectionVie<tspan x="777.442px " y="316.108px ">w</tspan>DataSour<tspan x="919.892px 933.457px " y="316.108px 316.108px ">ce</tspan></text>
+                        <text x="295.129px" y="345.407px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">and various</text>
+                        <text x="451.642px" y="345.407px" style="font-family:'DINNextLTPro-Bold', 'DIN Next LT Pro', sans-serif;font-weight:700;font-size:29.299px;">UICol<tspan x="519.82px " y="345.407px ">l</tspan>ectionVie<tspan x="647.972px " y="345.407px ">w</tspan>Delegate</text>
+                        <text x="792.004px" y="345.407px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">pr<tspan x="820.072px " y="345.407px ">o</tspan>tocols</text>
+                    </g>
+                </g>
+            </g>
+            <g id="SectionKit" transform="matrix(1,0,0,1,0,167.258)">
+                <g transform="matrix(3.1931,0,0,4.85646,-238.866,-1165.2)">
+                    <path d="M356.665,268.908C356.665,267.999 355.542,267.261 354.159,267.261L108.63,267.261C107.247,267.261 106.124,267.999 106.124,268.908L106.124,327.387C106.124,328.296 107.247,329.034 108.63,329.034L354.159,329.034C355.542,329.034 356.665,328.296 356.665,327.387L356.665,268.908Z" style="fill:rgb(184,233,148);"/>
+                </g>
+                <g id="CollectionContext----CollectionContext" serif:id="CollectionContext -&gt; CollectionContext" transform="matrix(1.12496,0,0,1.12496,-602.659,30.7477)">
+                    <g transform="matrix(0.921308,0,0,0.921308,-62.5334,-185.224)">
+                        <g transform="matrix(0.964849,-0,-0,0.964849,745.834,106.484)">
+                            <path d="M29.125,461.313L26,466L29.125,470.688" style="fill:none;stroke:rgb(16,172,132);stroke-width:2.08px;"/>
+                            <circle cx="26" cy="476" r="10" style="fill:none;stroke:rgb(16,172,132);stroke-width:2.08px;stroke-miterlimit:1;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(0.402268,-4.06576e-20,0,0.402268,546.325,211.341)">
+                        <text x="295.129px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;fill:rgb(16,172,132);">optional par<tspan x="448.917px " y="316.108px ">e</tspan>nt conte<tspan x="566.346px " y="316.108px ">x</tspan>ts will appl<tspan x="720.867px " y="316.108px ">y</tspan> oﬀset and forw<tspan x="936.182px 951.505px 963.635px " y="316.108px 316.108px 316.108px ">ard</tspan></text>
+                    </g>
+                </g>
+                <g id="CollectionContext" transform="matrix(1,0,0,1,6.38163,109.968)">
+                    <g transform="matrix(1.3411,0,0,0.906539,-32.7053,-17.5087)">
+                        <path d="M356.665,276.086C356.665,271.215 353.992,267.261 350.699,267.261L112.09,267.261C108.797,267.261 106.124,271.215 106.124,276.086L106.124,320.21C106.124,325.08 108.797,329.034 112.09,329.034L350.699,329.034C353.992,329.034 356.665,325.08 356.665,320.21L356.665,276.086Z" style="fill:rgb(16,172,132);"/>
+                    </g>
+                    <g transform="matrix(0.447186,0,0,0.447186,57.7473,129.056)">
+                        <text x="132.712px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:37.27px;fill:rgb(184,233,148);">func appl<tspan x="282.873px " y="316.108px ">y</tspan>&lt;T&gt;(update: SectionUpdate&lt;T&gt;)</text>
+                    </g>
+                    <g transform="matrix(0.447186,0,0,0.447186,60.6499,105.81)">
+                        <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:46.588px;fill:white;">Col<tspan x="189.401px " y="316.108px ">l</tspan>ectionConte<tspan x="441.859px " y="316.108px ">x</tspan>t</text>
+                    </g>
+                </g>
+                <g id="SectionAdapter----SectionController" serif:id="SectionAdapter -&gt; SectionController" transform="matrix(1,0,0,1,-165.319,47.8783)">
+                    <g transform="matrix(-4.50986,2.55155,-0.394956,-0.698083,1690.01,-151.015)">
+                        <g transform="matrix(-0.16797,-0.613944,0.0950326,-1.08514,242.714,835.745)">
+                            <path d="M403.556,332.218L406.091,327.187L411.71,327.592" style="fill:none;stroke:rgb(16,172,132);stroke-width:2.08px;"/>
+                            <path d="M427.854,365.543C427.854,365.543 409.696,333.54 406.091,327.187" style="fill:none;stroke:rgb(16,172,132);stroke-width:2.08px;stroke-miterlimit:1;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(0.402268,-4.06576e-20,0,0.402268,590.644,107.986)">
+                        <text x="295.129px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;fill:rgb(16,172,132);">forw<tspan x="354.341px 369.664px 381.794px " y="316.108px 316.108px 316.108px ">ard</tspan>s datasour<tspan x="533.238px " y="316.108px ">c</tspan>e and delegate methods</text>
+                    </g>
+                </g>
+                <g id="SectionAdapter" transform="matrix(1,0,0,1,-423.01,224.676)">
+                    <g transform="matrix(1.3411,0,0,0.906539,828.686,-134.217)">
+                        <path d="M356.665,276.086C356.665,271.215 353.992,267.261 350.699,267.261L112.09,267.261C108.797,267.261 106.124,271.215 106.124,276.086L106.124,320.21C106.124,325.08 108.797,329.034 112.09,329.034L350.699,329.034C353.992,329.034 356.665,325.08 356.665,320.21L356.665,276.086Z" style="fill:rgb(16,172,132);"/>
+                    </g>
+                    <g transform="matrix(0.447186,0,0,0.447186,919.338,13.3065)">
+                        <text x="132.712px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:37.27px;fill:rgb(184,233,148);">var sectionContr<tspan x="400.721px 420.213px 430.947px " y="316.108px 316.108px 316.108px ">oll</tspan>er<tspan x="476.64px " y="316.108px ">s</tspan>: [SectionContr<tspan x="733.319px 752.812px 763.545px " y="316.108px 316.108px 316.108px ">oll</tspan>er]</text>
+                    </g>
+                    <g transform="matrix(0.447186,0,0,0.447186,922.462,-10.8977)">
+                        <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:46.588px;fill:white;">SectionA<tspan x="303.914px " y="316.108px ">d</tspan>apter</text>
+                    </g>
+                </g>
+                <g id="SectionController----CollectionContext" serif:id="SectionController -&gt; CollectionContext" transform="matrix(1,0,0,1,-439.637,47.8783)">
+                    <g transform="matrix(-5.18163,-0.00103203,0.000159749,-0.802066,1746.97,395.21)">
+                        <g transform="matrix(-0.19299,0.000248324,-3.84381e-05,-1.24678,233.023,635.989)">
+                            <path d="M137.402,364.277L142.093,367.397L146.777,364.267" style="fill:none;stroke:rgb(16,172,132);stroke-width:2.08px;"/>
+                            <path d="M142.093,367.397C142.085,360.092 142.047,323.297 142.047,323.297" style="fill:none;stroke:rgb(16,172,132);stroke-width:2.08px;stroke-miterlimit:1;"/>
+                        </g>
+                    </g>
+                    <g transform="matrix(0.402268,-4.06576e-20,0,0.402268,580.692,107.986)">
+                        <text x="295.129px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;fill:rgb(16,172,132);">c<tspan x="308.518px " y="316.108px ">a</tspan>lculate diﬀ</text>
+                    </g>
+                </g>
+                <g id="SectionController" transform="matrix(1,0,0,1,6.38163,8.37484)">
+                    <g transform="matrix(1.3411,0,0,0.906539,-32.7053,-73.9153)">
+                        <path d="M356.665,276.086C356.665,271.215 353.992,267.261 350.699,267.261L112.09,267.261C108.797,267.261 106.124,271.215 106.124,276.086L106.124,320.21C106.124,325.08 108.797,329.034 112.09,329.034L350.699,329.034C353.992,329.034 356.665,325.08 356.665,320.21L356.665,276.086Z" style="fill:rgb(16,172,132);"/>
+                    </g>
+                    <g transform="matrix(0.447186,0,0,0.447186,57.9467,73.6079)">
+                        <text x="132.712px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:37.27px;fill:rgb(184,233,148);">var items: [ChildViewModel]</text>
+                    </g>
+                    <g transform="matrix(0.447186,0,0,0.447186,61.0703,49.4037)">
+                        <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:46.588px;fill:white;">SectionContr<tspan x="386.327px 410.692px 424.11px " y="316.108px 316.108px 316.108px ">oll</tspan>er</text>
+                    </g>
+                </g>
+                <g transform="matrix(0.569801,0,0,0.569801,35.8793,-19.69)">
+                    <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:43.875px;fill:rgb(16,172,132);">SectionKit</text>
+                </g>
+            </g>
+            <g id="App----SectionKit" serif:id="App -&gt; SectionKit" transform="matrix(1,0,0,1,-241.567,4.67356)">
+                <g transform="matrix(-5.18163,-0.00103203,0.000159749,-0.802066,1748.24,406.956)">
+                    <g transform="matrix(-0.19299,0.000248324,-3.84381e-05,-1.24678,271.485,388.185)">
+                        <path d="M336.739,165.561L341.43,168.681L346.114,165.551" style="fill:none;stroke:black;stroke-width:2.08px;"/>
+                        <path d="M341.43,168.681C341.422,161.376 341.384,124.581 341.384,124.581" style="fill:none;stroke:black;stroke-width:2.08px;stroke-miterlimit:1;"/>
+                    </g>
+                </g>
+                <g transform="matrix(0.402268,-2.71051e-20,0,0.402268,582.236,118.305)">
+                    <text x="295.129px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">when</text>
+                    <text x="371.481px" y="316.108px" style="font-family:'DINNextLTPro-Bold', 'DIN Next LT Pro', sans-serif;font-weight:700;font-size:29.299px;">items</text>
+                    <text x="450.851px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:29.299px;">change</text>
+                </g>
+            </g>
+            <g id="App" transform="matrix(1,0,0,1,224,0)">
+                <g id="App-background" serif:id="App background" transform="matrix(1.40496,0,0,1.61882,-49.101,-332.647)">
+                    <path d="M356.665,272.203C356.665,269.475 354.113,267.261 350.971,267.261L111.819,267.261C108.676,267.261 106.124,269.475 106.124,272.203L106.124,324.092C106.124,326.82 108.676,329.034 111.819,329.034L350.971,329.034C354.113,329.034 356.665,326.82 356.665,324.092L356.665,272.203Z" style="fill:rgb(116,185,255);"/>
+                </g>
+                <g transform="matrix(0.465116,0,0,0.465116,49.5377,-23.2131)">
+                    <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:53.75px;fill:rgb(9,132,227);">App</text>
+                </g>
+                <g id="ViewModel" transform="matrix(1,0,0,1,-1.61837,0)">
+                    <g transform="matrix(1.3411,0,0,0.906539,-32.7053,-106.282)">
+                        <path d="M356.665,276.086C356.665,271.215 353.992,267.261 350.699,267.261L112.09,267.261C108.797,267.261 106.124,271.215 106.124,276.086L106.124,320.21C106.124,325.08 108.797,329.034 112.09,329.034L350.699,329.034C353.992,329.034 356.665,325.08 356.665,320.21L356.665,276.086Z" style="fill:rgb(9,132,227);"/>
+                    </g>
+                    <g transform="matrix(0.497058,0,0,0.497058,51.369,25.4758)">
+                        <text x="132.712px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:33.531px;fill:rgb(116,185,255);">var items: [ChildViewModel]</text>
+                    </g>
+                    <g transform="matrix(0.463097,0,0,0.463097,59.4975,13.3566)">
+                        <text x="124.831px" y="316.108px" style="font-family:'DINNextLTPro-Medium', 'DIN Next LT Pro', sans-serif;font-weight:500;font-size:44.987px;fill:white;">ViewModel</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
