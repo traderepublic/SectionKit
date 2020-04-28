@@ -3,7 +3,7 @@ import SectionKit
 import DifferenceKit
 
 /// A `SectionController` that calculates the differences for animated changes to the items in the section.
-open class DiffingSectionController<Item>: ListSectionController<Item>
+open class DiffingListSectionController<Item>: ListSectionController<Item>
     where Item: Differentiable & CollectionViewCellRepresentable
 {
     override open func calculateUpdate(from oldData: [Item],

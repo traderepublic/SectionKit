@@ -10,7 +10,7 @@
 		5AD1D948245086F8005F8F36 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD1D947245086F8005F8F36 /* DifferenceKit.framework */; };
 		5AD1D97D2452F6EC005F8F36 /* SectionAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD1D97B2452F6D9005F8F36 /* SectionAdapter+UIScrollViewDelegate.swift */; };
 		OBJ_110 /* DiffingSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingSectionAdapter.swift */; };
-		OBJ_111 /* DiffingSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DiffingSectionController.swift */; };
+		OBJ_111 /* DiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DiffingListSectionController.swift */; };
 		OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ChangeSet+BatchOperations.swift */; };
 		OBJ_113 /* DifferentiableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* DifferentiableBox.swift */; };
 		OBJ_114 /* StagedChangeset+MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* StagedChangeset+MapData.swift */; };
@@ -72,7 +72,7 @@
 /* Begin PBXFileReference section */
 		5AD1D947245086F8005F8F36 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5AD1D97B2452F6D9005F8F36 /* SectionAdapter+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
-		OBJ_10 /* DiffingSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingSectionController.swift; sourceTree = "<group>"; };
+		OBJ_10 /* DiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListSectionController.swift; sourceTree = "<group>"; };
 		OBJ_12 /* ChangeSet+BatchOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChangeSet+BatchOperations.swift"; sourceTree = "<group>"; };
 		OBJ_13 /* DifferentiableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiableBox.swift; sourceTree = "<group>"; };
 		OBJ_14 /* StagedChangeset+MapData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StagedChangeset+MapData.swift"; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* DiffingSectionAdapter.swift */,
-				OBJ_10 /* DiffingSectionController.swift */,
+				OBJ_10 /* DiffingListSectionController.swift */,
 				OBJ_11 /* Utility */,
 			);
 			name = DiffingSectionKit;
@@ -408,7 +408,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_110 /* DiffingSectionAdapter.swift in Sources */,
-				OBJ_111 /* DiffingSectionController.swift in Sources */,
+				OBJ_111 /* DiffingListSectionController.swift in Sources */,
 				OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */,
 				OBJ_113 /* DifferentiableBox.swift in Sources */,
 				OBJ_114 /* StagedChangeset+MapData.swift in Sources */,

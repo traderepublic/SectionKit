@@ -6,7 +6,7 @@ open class ListSectionController<Item>:
     ListSectionControllerProtocol
     where Item: CollectionViewCellRepresentable
 {
-    // MARK: - GenericSection
+    // MARK: - ListSectionControllerProtocol
     
     /**
      The list of items currently displayed in the `UICollectionView`
