@@ -194,14 +194,22 @@ open class CompositeSectionController: BaseSectionController {
         delegate.willDisplay(cell: cell, at: sectionIndexPath)
     }
     
-    override open func willDisplay(supplementaryView: UICollectionReusableView,
-                                   for kind: SectionSupplementaryViewKind,
+    override open func willDisplay(headerView: UICollectionReusableView,
                                    at indexPath: SectionIndexPath) {
         guard
             let (section, sectionIndexPath) = sectionControllerWithOffset(forItemAt: indexPath),
             let delegate = section.delegate
             else { return }
-        delegate.willDisplay(supplementaryView: supplementaryView, for: kind, at: sectionIndexPath)
+        delegate.willDisplay(headerView: headerView, at: sectionIndexPath)
+    }
+    
+    override open func willDisplay(footerView: UICollectionReusableView,
+                                   at indexPath: SectionIndexPath) {
+        guard
+            let (section, sectionIndexPath) = sectionControllerWithOffset(forItemAt: indexPath),
+            let delegate = section.delegate
+            else { return }
+        delegate.willDisplay(footerView: footerView, at: sectionIndexPath)
     }
     
     override open func didEndDisplaying(cell: UICollectionViewCell,
@@ -213,15 +221,24 @@ open class CompositeSectionController: BaseSectionController {
         delegate.didEndDisplaying(cell: cell, at: sectionIndexPath)
     }
     
-    override open func didEndDisplaying(supplementaryView: UICollectionReusableView,
-                                        for kind: SectionSupplementaryViewKind,
+    override open func didEndDisplaying(headerView: UICollectionReusableView,
                                         at indexPath: SectionIndexPath) {
         
         guard
             let (section, sectionIndexPath) = sectionControllerWithOffset(forItemAt: indexPath),
             let delegate = section.delegate
             else { return }
-        delegate.didEndDisplaying(supplementaryView: supplementaryView, for: kind, at: sectionIndexPath)
+        delegate.didEndDisplaying(headerView: headerView, at: sectionIndexPath)
+    }
+    
+    override open func didEndDisplaying(footerView: UICollectionReusableView,
+                                        at indexPath: SectionIndexPath) {
+        
+        guard
+            let (section, sectionIndexPath) = sectionControllerWithOffset(forItemAt: indexPath),
+            let delegate = section.delegate
+            else { return }
+        delegate.didEndDisplaying(footerView: footerView, at: sectionIndexPath)
     }
     
     @available(iOS, introduced: 6.0, deprecated: 13.0)
