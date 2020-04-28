@@ -1,13 +1,13 @@
 import UIKit
 
-open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSectionController {
+open class SingleItemSectionController: BaseSectionController {
     
     // MARK: - Properties
     
     private let _id: String
     override open var id: String { _id }
     
-    open var configureCell: ((CollectionContext, CellType, SectionIndexPath) -> ())?
+    open var cellProvider: ((CollectionContext, SectionIndexPath) -> UICollectionViewCell)?
     
     open var sizeProvider: ((CollectionContext, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
     
@@ -34,9 +34,11 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
         guard let context = context else {
             preconditionFailure("Did not set `context` before calling \(#function)")
         }
-        let cell = context.dequeueReusableCell(CellType.self, for: indexPath.externalRepresentation)
-        configureCell?(context, cell, indexPath)
-        return cell
+        guard let cellProvider = cellProvider else {
+            assertionFailure("Did not set `cellProvider` before calling \(#function)")
+            return UICollectionViewCell()
+        }
+        return cellProvider(context, indexPath)
     }
     
     // MARK: - SectionFlowDelegate
@@ -61,6 +63,9 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
     }
     
     override open func didSelectItem(at indexPath: SectionIndexPath) {
-        didSelect?(context!, indexPath)
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        didSelect?(context, indexPath)
     }
 }
