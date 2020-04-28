@@ -18,7 +18,7 @@ open class ListSectionController<Item>:
     
     // MARK: - Init
     
-    init(id: String) {
+    public init(id: String) {
         self._id = id
         super.init()
     }
