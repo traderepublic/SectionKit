@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A345AE624586A3700F32287 /* SingleItemSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A345AE424586A1600F32287 /* SingleItemSectionController.swift */; };
 		5AD1D948245086F8005F8F36 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD1D947245086F8005F8F36 /* DifferenceKit.framework */; };
 		5AD1D97D2452F6EC005F8F36 /* SectionAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD1D97B2452F6D9005F8F36 /* SectionAdapter+UIScrollViewDelegate.swift */; };
 		OBJ_110 /* DiffingSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingSectionAdapter.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A345AE424586A1600F32287 /* SingleItemSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemSectionController.swift; sourceTree = "<group>"; };
 		5AD1D947245086F8005F8F36 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5AD1D97B2452F6D9005F8F36 /* SectionAdapter+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SectionAdapter+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* DiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListSectionController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				OBJ_22 /* FoundationDiffingSectionController.swift */,
 				OBJ_23 /* ListSectionController.swift */,
 				OBJ_24 /* ListSectionControllerProtocol.swift */,
+				5A345AE424586A1600F32287 /* SingleItemSectionController.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				OBJ_131 /* ListSectionControllerProtocol.swift in Sources */,
 				OBJ_132 /* SectionController.swift in Sources */,
 				OBJ_133 /* SectionDataSource.swift in Sources */,
+				5A345AE624586A3700F32287 /* SingleItemSectionController.swift in Sources */,
 				OBJ_134 /* SectionDelegate.swift in Sources */,
 				OBJ_135 /* SectionDragDelegate.swift in Sources */,
 				OBJ_136 /* SectionDropDelegate.swift in Sources */,
