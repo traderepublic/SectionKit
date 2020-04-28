@@ -1,7 +1,7 @@
 import Foundation
 
 /// A `SectionController` that handles a list of items.
-public protocol GenericSectionControllerProtocol: SectionController {
+public protocol ListSectionControllerProtocol: SectionController {
     associatedtype Item
     
     /// The items that should be displayed in this section.

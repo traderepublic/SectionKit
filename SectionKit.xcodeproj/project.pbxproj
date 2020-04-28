@@ -20,8 +20,8 @@
 		OBJ_127 /* CompositeCollectionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* CompositeCollectionContext.swift */; };
 		OBJ_128 /* CompositeSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CompositeSectionController.swift */; };
 		OBJ_129 /* FoundationDiffingSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* FoundationDiffingSectionController.swift */; };
-		OBJ_130 /* GenericSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* GenericSectionController.swift */; };
-		OBJ_131 /* GenericSectionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* GenericSectionControllerProtocol.swift */; };
+		OBJ_130 /* ListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* ListSectionController.swift */; };
+		OBJ_131 /* ListSectionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* ListSectionControllerProtocol.swift */; };
 		OBJ_132 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* SectionController.swift */; };
 		OBJ_133 /* SectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* SectionDataSource.swift */; };
 		OBJ_134 /* SectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* SectionDelegate.swift */; };
@@ -81,8 +81,8 @@
 		OBJ_20 /* CompositeCollectionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeCollectionContext.swift; sourceTree = "<group>"; };
 		OBJ_21 /* CompositeSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeSectionController.swift; sourceTree = "<group>"; };
 		OBJ_22 /* FoundationDiffingSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDiffingSectionController.swift; sourceTree = "<group>"; };
-		OBJ_23 /* GenericSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSectionController.swift; sourceTree = "<group>"; };
-		OBJ_24 /* GenericSectionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSectionControllerProtocol.swift; sourceTree = "<group>"; };
+		OBJ_23 /* ListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionController.swift; sourceTree = "<group>"; };
+		OBJ_24 /* ListSectionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionControllerProtocol.swift; sourceTree = "<group>"; };
 		OBJ_25 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		OBJ_26 /* SectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSource.swift; sourceTree = "<group>"; };
 		OBJ_27 /* SectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDelegate.swift; sourceTree = "<group>"; };
@@ -199,8 +199,8 @@
 				OBJ_20 /* CompositeCollectionContext.swift */,
 				OBJ_21 /* CompositeSectionController.swift */,
 				OBJ_22 /* FoundationDiffingSectionController.swift */,
-				OBJ_23 /* GenericSectionController.swift */,
-				OBJ_24 /* GenericSectionControllerProtocol.swift */,
+				OBJ_23 /* ListSectionController.swift */,
+				OBJ_24 /* ListSectionControllerProtocol.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -425,8 +425,8 @@
 				OBJ_127 /* CompositeCollectionContext.swift in Sources */,
 				OBJ_128 /* CompositeSectionController.swift in Sources */,
 				OBJ_129 /* FoundationDiffingSectionController.swift in Sources */,
-				OBJ_130 /* GenericSectionController.swift in Sources */,
-				OBJ_131 /* GenericSectionControllerProtocol.swift in Sources */,
+				OBJ_130 /* ListSectionController.swift in Sources */,
+				OBJ_131 /* ListSectionControllerProtocol.swift in Sources */,
 				OBJ_132 /* SectionController.swift in Sources */,
 				OBJ_133 /* SectionDataSource.swift in Sources */,
 				OBJ_134 /* SectionDelegate.swift in Sources */,

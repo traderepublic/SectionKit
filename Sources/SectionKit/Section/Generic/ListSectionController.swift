@@ -1,9 +1,9 @@
 import UIKit
 
 /// A `SectionController` that handles a list of items.
-open class GenericSectionController<Item>:
+open class ListSectionController<Item>:
     BaseSectionController,
-    GenericSectionControllerProtocol
+    ListSectionControllerProtocol
     where Item: CollectionViewCellRepresentable
 {
     // MARK: - GenericSection
