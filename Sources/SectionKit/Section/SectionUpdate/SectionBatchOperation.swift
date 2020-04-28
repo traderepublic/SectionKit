@@ -26,8 +26,6 @@ public extension SectionBatchOperation {
                 return nil
             }
         }
-        .sorted()
-        .reversed()
     }
     
     /// Indizes to insert in this batch operation
@@ -40,7 +38,6 @@ public extension SectionBatchOperation {
                 return nil
             }
         }
-        .sorted()
     }
     
     /// Indizes to move in this batch operation
