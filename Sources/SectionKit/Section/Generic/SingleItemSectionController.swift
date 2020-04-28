@@ -7,7 +7,7 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
     private let _id: String
     override open var id: String { _id }
     
-    open var configure: ((CollectionContext, CellType, SectionIndexPath) -> ())?
+    open var configureCell: ((CollectionContext, CellType, SectionIndexPath) -> ())?
     
     open var sizeProvider: ((CollectionContext, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
     
@@ -35,7 +35,7 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
             preconditionFailure("Did not set `context` before calling \(#function)")
         }
         let cell = context.dequeueReusableCell(CellType.self, for: indexPath.externalRepresentation)
-        configure?(context, cell, indexPath)
+        configureCell?(context, cell, indexPath)
         return cell
     }
     
