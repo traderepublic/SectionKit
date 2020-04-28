@@ -15,7 +15,7 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
     
     // MARK: - Init
     
-    init(id: String) {
+    public init(id: String) {
         self._id = id
         super.init()
     }
