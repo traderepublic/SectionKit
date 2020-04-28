@@ -4,8 +4,29 @@ import UIKit
 open class ListSectionController<Item>:
     BaseSectionController,
     ListSectionControllerProtocol
-    where Item: CollectionViewCellRepresentable
 {
+    // MARK: - Properties
+    
+    private let _id: String
+    override open var id: String { _id }
+    
+    open var cellProvider: ((CollectionContext, Item, SectionIndexPath) -> UICollectionViewCell)?
+    
+    open var sizeProvider: ((CollectionContext, Item, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
+    
+    open var didSelect: ((CollectionContext, Item, SectionIndexPath) -> ())?
+    
+    // MARK: - Init
+    
+    init(id: String) {
+        self._id = id
+        super.init()
+    }
+    
+    override public convenience init() {
+        self.init(id: UUID().uuidString)
+    }
+    
     // MARK: - ListSectionControllerProtocol
     
     /**
@@ -45,85 +66,30 @@ open class ListSectionController<Item>:
         guard let context = context else {
             preconditionFailure("Did not set `context` before calling \(#function)")
         }
-        let cell = context.dequeueReusableCell(Item.CellType.self, for: indexPath.externalRepresentation)
-        items[indexPath.internalRepresentation].configure(cell: cell, at: indexPath, in: context)
-        return cell
+        guard let cellProvider = cellProvider else {
+            assertionFailure("Did not set `cellProvider` before calling \(#function)")
+            return UICollectionViewCell()
+        }
+        let item = items[indexPath.internalRepresentation]
+        return cellProvider(context, item, indexPath)
     }
     
     // MARK: - SectionDelegate
     
     override open func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        return items[indexPath.internalRepresentation].shouldHighlightItem(at: indexPath.externalRepresentation,
-                                                                           in: context)
-    }
-    
-    override open func didHighlightItem(at indexPath: SectionIndexPath) {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        items[indexPath.internalRepresentation].didHighlightItem(at: indexPath.externalRepresentation,
-                                                                 in: context)
-    }
-    
-    override open func didUnhighlightItem(at indexPath: SectionIndexPath) {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        items[indexPath.internalRepresentation].didUnhighlightItem(at: indexPath.externalRepresentation,
-                                                                   in: context)
+        return didSelect != nil
     }
     
     override open func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        return items[indexPath.internalRepresentation].shouldSelectItem(at: indexPath.externalRepresentation,
-                                                                        in: context)
-    }
-    
-    override open func shouldDeselectItem(at indexPath: SectionIndexPath) -> Bool {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        return items[indexPath.internalRepresentation].shouldDeselectItem(at: indexPath.externalRepresentation,
-                                                                          in: context)
+        return didSelect != nil
     }
     
     override open func didSelectItem(at indexPath: SectionIndexPath) {
         guard let context = context else {
             preconditionFailure("Did not set `context` before calling \(#function)")
         }
-        items[indexPath.internalRepresentation].didSelectItem(at: indexPath.externalRepresentation,
-                                                              in: context)
-    }
-    
-    override open func didDeselectItem(at indexPath: SectionIndexPath) {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        items[indexPath.internalRepresentation].didDeselectItem(at: indexPath.externalRepresentation,
-                                                                in: context)
-    }
-    
-    override open func willDisplay(cell: UICollectionViewCell, at indexPath: SectionIndexPath) {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        items[indexPath.internalRepresentation].willDisplay(cell: cell as! Item.CellType,
-                                                            at: indexPath.externalRepresentation,
-                                                            in: context)
-    }
-    
-    open override func didEndDisplaying(cell: UICollectionViewCell, at indexPath: SectionIndexPath) {
-        guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
-        }
-        items[indexPath.internalRepresentation].didEndDisplaying(cell: cell as! Item.CellType,
-                                                                 at: indexPath.externalRepresentation,
-                                                                 in: context)
+        let item = items[indexPath.internalRepresentation]
+        didSelect?(context, item, indexPath)
     }
     
     // MARK: - SectionFlowDelegate
@@ -133,9 +99,9 @@ open class ListSectionController<Item>:
         guard let context = context else {
             preconditionFailure("Did not set `context` before calling \(#function)")
         }
-        return items[indexPath.internalRepresentation].sizeForItem(at: indexPath.externalRepresentation,
-                                                                   using: layout,
-                                                                   in: context)
+        let item = items[indexPath.internalRepresentation]
+        return sizeProvider?(context, item, indexPath, layout)
+            ?? super.sizeForItem(at: indexPath, using: layout)
     }
 }
 

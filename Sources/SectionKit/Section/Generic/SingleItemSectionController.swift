@@ -9,7 +9,7 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
     
     open var configure: ((CollectionContext, CellType, SectionIndexPath) -> ())?
     
-    open var size: ((CollectionContext, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
+    open var sizeProvider: ((CollectionContext, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
     
     open var didSelect: ((CollectionContext, SectionIndexPath) -> ())?
     
@@ -31,8 +31,11 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
     }
     
     override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        let cell = context!.dequeueReusableCell(CellType.self, for: indexPath.externalRepresentation)
-        configure?(context!, cell, indexPath)
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        let cell = context.dequeueReusableCell(CellType.self, for: indexPath.externalRepresentation)
+        configure?(context, cell, indexPath)
         return cell
     }
     
@@ -40,7 +43,10 @@ open class SingleItemSectionController<CellType: UICollectionViewCell>: BaseSect
     
     override open func sizeForItem(at indexPath: SectionIndexPath,
                                    using layout: UICollectionViewLayout) -> CGSize {
-        return size?(context!, indexPath, layout)
+        guard let context = context else {
+            preconditionFailure("Did not set `context` before calling \(#function)")
+        }
+        return sizeProvider?(context, indexPath, layout)
             ?? super.sizeForItem(at: indexPath, using: layout)
     }
     
