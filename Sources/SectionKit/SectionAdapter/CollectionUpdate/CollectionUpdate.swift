@@ -23,7 +23,7 @@ public struct CollectionUpdate<CollectionData> {
         self.shouldReloadCollection = shouldReloadCollection
     }
     
-    public init(changes: [CollectionChange],
+    public init(changes: Set<CollectionChange>,
                 data: CollectionData,
                 setData: @escaping (CollectionData) -> Void,
                 shouldReloadCollection: @escaping (CollectionBatchOperation<CollectionData>) -> Bool = { _ in false }) {

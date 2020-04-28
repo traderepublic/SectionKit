@@ -74,11 +74,10 @@ open class CompositeSectionCollectionContext: CollectionContext {
                 case .moveItem(at: let at, to: let to):
                     return .moveItem(at: at + offset,
                                      to: to + offset)
-                case .custom(let handler):
-                    return .custom(handler)
                 }
             }
-            return SectionBatchOperation(changes: adjustedChanges, data: batchOperation.data)
+            return SectionBatchOperation(changes: Set(adjustedChanges),
+                                         data: batchOperation.data)
         }
         let adjustedUpdate = SectionUpdate(sectionId: sectionId,
                                            batchOperations: adjustedBatchOperations,
