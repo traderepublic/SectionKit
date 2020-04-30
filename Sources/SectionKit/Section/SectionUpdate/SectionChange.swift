@@ -1,7 +1,7 @@
 import Foundation
 
 /// A single change made to the `UICollectionView`
-public enum SectionChange {
+public enum SectionChange: Hashable {
     /// Delete an item at the specified index
     case deleteItem(at: Int)
     
@@ -13,8 +13,5 @@ public enum SectionChange {
     
     /// Move an item at the specified index
     case moveItem(at: Int, to: Int)
-    
-    /// Do custom change logic
-    case custom(() -> ())
 }
 

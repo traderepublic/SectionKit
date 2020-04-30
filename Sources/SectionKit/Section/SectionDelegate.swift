@@ -75,16 +75,23 @@ public protocol SectionDelegate {
                      at indexPath: SectionIndexPath)
     
     /**
-     The given supplementary view is about to be displayed.
+     The given header view is about to be displayed.
      
-     - Parameter supplementaryView: The supplementary view that is about to be displayed.
+     - Parameter headerView: The header view that is about to be displayed.
      
-     - Parameter kind: The kind of the supplementary view that is about to be displayed.
-     
-     - Parameter indexPath: The index path of the supplementary view that is about to be displayed.
+     - Parameter indexPath: The index path of the header view that is about to be displayed.
      */
-    func willDisplay(supplementaryView: UICollectionReusableView,
-                     for kind: SectionSupplementaryViewKind,
+    func willDisplay(headerView: UICollectionReusableView,
+                     at indexPath: SectionIndexPath)
+    
+    /**
+     The given footer view is about to be displayed.
+     
+     - Parameter footerView: The footer view that is about to be displayed.
+     
+     - Parameter indexPath: The index path of the footer view that is about to be displayed.
+     */
+    func willDisplay(footerView: UICollectionReusableView,
                      at indexPath: SectionIndexPath)
     
     /**
@@ -98,16 +105,23 @@ public protocol SectionDelegate {
                           at indexPath: SectionIndexPath)
     
     /**
-     The given supplementary view was removed from the `UICollectionView`.
+     The given header view was removed from the `UICollectionView`.
      
-     - Parameter supplementaryView: The supplementary view that was removed from the `UICollectionView`.
+     - Parameter headerView: The header view that was removed from the `UICollectionView`.
      
-     - Parameter kind: The kind of the supplementary view that was removed from the `UICollectionView`.
-     
-     - Parameter indexPath: The index path of the supplementary view that was removed from the `UICollectionView`.
+     - Parameter indexPath: The index path of the header view that was removed from the `UICollectionView`.
      */
-    func didEndDisplaying(supplementaryView: UICollectionReusableView,
-                          for kind: SectionSupplementaryViewKind,
+    func didEndDisplaying(headerView: UICollectionReusableView,
+                          at indexPath: SectionIndexPath)
+    
+    /**
+     The given footer view was removed from the `UICollectionView`.
+     
+     - Parameter footerView: The footer view that was removed from the `UICollectionView`.
+     
+     - Parameter indexPath: The index path of the footer view that was removed from the `UICollectionView`.
+     */
+    func didEndDisplaying(footerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath)
     
     // MARK: - Copy/Paste
@@ -256,8 +270,12 @@ public extension SectionDelegate {
         
     }
     
-    func willDisplay(supplementaryView: UICollectionReusableView,
-                     for kind: SectionSupplementaryViewKind,
+    func willDisplay(headerView: UICollectionReusableView,
+                     at indexPath: SectionIndexPath) {
+        
+    }
+    
+    func willDisplay(footerView: UICollectionReusableView,
                      at indexPath: SectionIndexPath) {
         
     }
@@ -267,8 +285,12 @@ public extension SectionDelegate {
         
     }
     
-    func didEndDisplaying(supplementaryView: UICollectionReusableView,
-                          for kind: SectionSupplementaryViewKind,
+    func didEndDisplaying(headerView: UICollectionReusableView,
+                          at indexPath: SectionIndexPath) {
+        
+    }
+    
+    func didEndDisplaying(footerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath) {
         
     }

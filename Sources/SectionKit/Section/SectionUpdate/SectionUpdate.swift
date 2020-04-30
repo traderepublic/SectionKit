@@ -29,7 +29,7 @@ public struct SectionUpdate<SectionData> {
     }
     
     public init(sectionId: String,
-                changes: [SectionChange],
+                changes: Set<SectionChange>,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
                 shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false }) {
