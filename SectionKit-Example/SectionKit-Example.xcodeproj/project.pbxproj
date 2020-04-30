@@ -7,54 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8508168A2459774C0063C803 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850816892459774C0063C803 /* ProfileViewController.swift */; };
+		8508168F245977D10063C803 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508168E245977D10063C803 /* ProfileViewModel.swift */; };
+		8508169224597CD80063C803 /* ProfilePictureSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508169124597CD80063C803 /* ProfilePictureSectionViewModel.swift */; };
+		8508169424597DA40063C803 /* PersonalInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508169324597DA40063C803 /* PersonalInformationViewModel.swift */; };
+		85081696245983C10063C803 /* TeamMemberSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85081695245983C10063C803 /* TeamMemberSectionViewModel.swift */; };
+		8508169A245987C40063C803 /* ProfilePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85081699245987C40063C803 /* ProfilePictureCell.swift */; };
+		8508169C245991A10063C803 /* PlainTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508169B245991A10063C803 /* PlainTextCell.swift */; };
+		850816A02459B0240063C803 /* TeamMemberSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508169F2459B0240063C803 /* TeamMemberSectionController.swift */; };
 		8562AF1524531AF20048A55E /* DiffingSectionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8562AF1424531AF20048A55E /* DiffingSectionKit */; };
 		8562AF1724531AF20048A55E /* SectionKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8562AF1624531AF20048A55E /* SectionKit */; };
 		85A320FB24508D0B003F3B6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A320FA24508D0B003F3B6D /* AppDelegate.swift */; };
 		85A320FD24508D0B003F3B6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A320FC24508D0B003F3B6D /* SceneDelegate.swift */; };
 		85A3210424508D0C003F3B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A3210324508D0C003F3B6D /* Assets.xcassets */; };
 		85A3210724508D0C003F3B6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A3210524508D0C003F3B6D /* LaunchScreen.storyboard */; };
-		85A3211324508E30003F3B6D /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3211224508E30003F3B6D /* PortfolioViewController.swift */; };
-		85A3211624508E6C003F3B6D /* PortfolioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */; };
 		85DB119A2451930E00027D52 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11992451930E00027D52 /* App.swift */; };
-		85DB119D2451959500027D52 /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 85DB119C2451959500027D52 /* ReactiveCocoa */; };
-		85DB11A62451992E00027D52 /* PortfolioHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11A52451992E00027D52 /* PortfolioHeaderCellViewModel.swift */; };
-		85DB11A92451997E00027D52 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11A82451997E00027D52 /* ViewModel.swift */; };
-		85DB11AB24519A2100027D52 /* StockSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11AA24519A2100027D52 /* StockSectionViewModel.swift */; };
-		85DB11AD24519D6100027D52 /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11AC24519D6100027D52 /* StockViewModel.swift */; };
-		85DB11B124519E7600027D52 /* PortfolioHeaderSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11B024519E7600027D52 /* PortfolioHeaderSectionController.swift */; };
-		85DB11B424519E9600027D52 /* StockSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11B324519E9600027D52 /* StockSectionController.swift */; };
-		85DB11B624519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11B524519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift */; };
-		85DB11BB24519FB100027D52 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11BA24519FB100027D52 /* StockCell.swift */; };
 		85DB11BF24519FC700027D52 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11BE24519FC700027D52 /* CollectionViewCell.swift */; };
-		85DB11C32451A0E700027D52 /* PortfolioHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C22451A0E700027D52 /* PortfolioHeaderCell.swift */; };
-		85DB11C52451A30300027D52 /* StockSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C42451A30300027D52 /* StockSectionHeaderView.swift */; };
-		85DB11C82451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C72451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift */; };
-		85DB11CA2451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB11C92451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		850816892459774C0063C803 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8508168E245977D10063C803 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		8508169124597CD80063C803 /* ProfilePictureSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureSectionViewModel.swift; sourceTree = "<group>"; };
+		8508169324597DA40063C803 /* PersonalInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewModel.swift; sourceTree = "<group>"; };
+		85081695245983C10063C803 /* TeamMemberSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberSectionViewModel.swift; sourceTree = "<group>"; };
+		85081699245987C40063C803 /* ProfilePictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureCell.swift; sourceTree = "<group>"; };
+		8508169B245991A10063C803 /* PlainTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextCell.swift; sourceTree = "<group>"; };
+		8508169F2459B0240063C803 /* TeamMemberSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberSectionController.swift; sourceTree = "<group>"; };
 		85A320F724508D0B003F3B6D /* SectionKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SectionKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A320FA24508D0B003F3B6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85A320FC24508D0B003F3B6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		85A3210324508D0C003F3B6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85A3210624508D0C003F3B6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85A3210824508D0C003F3B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85A3211224508E30003F3B6D /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
-		85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewModel.swift; sourceTree = "<group>"; };
 		85DB11992451930E00027D52 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		85DB11A52451992E00027D52 /* PortfolioHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioHeaderCellViewModel.swift; sourceTree = "<group>"; };
-		85DB11A82451997E00027D52 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		85DB11AA24519A2100027D52 /* StockSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSectionViewModel.swift; sourceTree = "<group>"; };
-		85DB11AC24519D6100027D52 /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
-		85DB11B024519E7600027D52 /* PortfolioHeaderSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioHeaderSectionController.swift; sourceTree = "<group>"; };
-		85DB11B324519E9600027D52 /* StockSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSectionController.swift; sourceTree = "<group>"; };
-		85DB11B524519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockViewModel+CollectionViewCellRepresentable.swift"; sourceTree = "<group>"; };
-		85DB11BA24519FB100027D52 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
 		85DB11BE24519FC700027D52 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		85DB11C22451A0E700027D52 /* PortfolioHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioHeaderCell.swift; sourceTree = "<group>"; };
-		85DB11C42451A30300027D52 /* StockSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSectionHeaderView.swift; sourceTree = "<group>"; };
-		85DB11C72451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+GenericSectionControllerProtocol.swift"; sourceTree = "<group>"; };
-		85DB11C92451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseSectionController+ReactiveExtensionsProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85DB119D2451959500027D52 /* ReactiveCocoa in Frameworks */,
 				8562AF1524531AF20048A55E /* DiffingSectionKit in Frameworks */,
 				8562AF1724531AF20048A55E /* SectionKit in Frameworks */,
 			);
@@ -71,6 +57,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8508168C245977540063C803 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8508169E2459B0100063C803 /* SectionController */,
+				850816892459774C0063C803 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		8508168D245977C90063C803 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8508168E245977D10063C803 /* ProfileViewModel.swift */,
+				8508169024597CCA0063C803 /* SectionController */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		8508169024597CCA0063C803 /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+				8508169124597CD80063C803 /* ProfilePictureSectionViewModel.swift */,
+				8508169324597DA40063C803 /* PersonalInformationViewModel.swift */,
+				85081695245983C10063C803 /* TeamMemberSectionViewModel.swift */,
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
+		85081697245987B80063C803 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				85081698245987BC0063C803 /* Cells */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		85081698245987BC0063C803 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				85081699245987C40063C803 /* ProfilePictureCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8508169E2459B0100063C803 /* SectionController */ = {
+			isa = PBXGroup;
+			children = (
+				8508169F2459B0240063C803 /* TeamMemberSectionController.swift */,
+			);
+			path = SectionController;
+			sourceTree = "<group>";
+		};
 		8562AF1324531AF20048A55E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +136,6 @@
 		85A320F924508D0B003F3B6D /* SectionKit-Example */ = {
 			isa = PBXGroup;
 			children = (
-				85DB11C62451A3C000027D52 /* Extensions */,
 				85A3210F24508DDE003F3B6D /* App */,
 				85A3211024508DEA003F3B6D /* Resources */,
 				85A3211124508E25003F3B6D /* ViewController */,
@@ -131,7 +168,7 @@
 		85A3211124508E25003F3B6D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				85DB11AF24519E6600027D52 /* Portfolio */,
+				8508168C245977540063C803 /* Profile */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -139,83 +176,18 @@
 		85A3211424508E4A003F3B6D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				85DB11A72451997700027D52 /* Generic */,
-				85DB11A32451992300027D52 /* Portfolio */,
+				8508168D245977C90063C803 /* Profile */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		85DB11A32451992300027D52 /* Portfolio */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11A42451992700027D52 /* Cells */,
-				85A3211524508E6C003F3B6D /* PortfolioViewModel.swift */,
-				85DB11AA24519A2100027D52 /* StockSectionViewModel.swift */,
-				85DB11AC24519D6100027D52 /* StockViewModel.swift */,
-			);
-			path = Portfolio;
-			sourceTree = "<group>";
-		};
-		85DB11A42451992700027D52 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11A52451992E00027D52 /* PortfolioHeaderCellViewModel.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		85DB11A72451997700027D52 /* Generic */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11A82451997E00027D52 /* ViewModel.swift */,
-			);
-			path = Generic;
-			sourceTree = "<group>";
-		};
-		85DB11AF24519E6600027D52 /* Portfolio */ = {
-			isa = PBXGroup;
-			children = (
-				85A3211224508E30003F3B6D /* PortfolioViewController.swift */,
-				85DB11B224519E7C00027D52 /* SectionController */,
-			);
-			path = Portfolio;
-			sourceTree = "<group>";
-		};
-		85DB11B224519E7C00027D52 /* SectionController */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11B024519E7600027D52 /* PortfolioHeaderSectionController.swift */,
-				85DB11B324519E9600027D52 /* StockSectionController.swift */,
-				85DB11B524519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift */,
-			);
-			path = SectionController;
 			sourceTree = "<group>";
 		};
 		85DB11B724519FA100027D52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				85081697245987B80063C803 /* Profile */,
 				85DB11BC24519FBD00027D52 /* Generic */,
-				85DB11B824519FA400027D52 /* Portfolio */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		85DB11B824519FA400027D52 /* Portfolio */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11B924519FA900027D52 /* Cells */,
-				85DB11C42451A30300027D52 /* StockSectionHeaderView.swift */,
-			);
-			path = Portfolio;
-			sourceTree = "<group>";
-		};
-		85DB11B924519FA900027D52 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11C12451A0D300027D52 /* Portfolio */,
-				85DB11C02451A0D100027D52 /* Stock */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		85DB11BC24519FBD00027D52 /* Generic */ = {
@@ -230,33 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				85DB11BE24519FC700027D52 /* CollectionViewCell.swift */,
+				8508169B245991A10063C803 /* PlainTextCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		85DB11C02451A0D100027D52 /* Stock */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11BA24519FB100027D52 /* StockCell.swift */,
-			);
-			path = Stock;
-			sourceTree = "<group>";
-		};
-		85DB11C12451A0D300027D52 /* Portfolio */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11C22451A0E700027D52 /* PortfolioHeaderCell.swift */,
-			);
-			path = Portfolio;
-			sourceTree = "<group>";
-		};
-		85DB11C62451A3C000027D52 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				85DB11C72451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift */,
-				85DB11C92451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +224,6 @@
 			);
 			name = "SectionKit-Example";
 			packageProductDependencies = (
-				85DB119C2451959500027D52 /* ReactiveCocoa */,
 				8562AF1424531AF20048A55E /* DiffingSectionKit */,
 				8562AF1624531AF20048A55E /* SectionKit */,
 			);
@@ -309,7 +256,6 @@
 			);
 			mainGroup = 85A320EE24508D0B003F3B6D;
 			packageReferences = (
-				85DB119B2451959500027D52 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
 				85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */,
 			);
 			productRefGroup = 85A320F824508D0B003F3B6D /* Products */;
@@ -338,24 +284,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85DB11B124519E7600027D52 /* PortfolioHeaderSectionController.swift in Sources */,
-				85DB11B424519E9600027D52 /* StockSectionController.swift in Sources */,
-				85DB11AD24519D6100027D52 /* StockViewModel.swift in Sources */,
-				85DB11B624519ECD00027D52 /* StockViewModel+CollectionViewCellRepresentable.swift in Sources */,
-				85A3211324508E30003F3B6D /* PortfolioViewController.swift in Sources */,
-				85DB11A62451992E00027D52 /* PortfolioHeaderCellViewModel.swift in Sources */,
-				85DB11CA2451A40200027D52 /* BaseSectionController+ReactiveExtensionsProvider.swift in Sources */,
-				85DB11C32451A0E700027D52 /* PortfolioHeaderCell.swift in Sources */,
-				85A3211624508E6C003F3B6D /* PortfolioViewModel.swift in Sources */,
-				85DB11C52451A30300027D52 /* StockSectionHeaderView.swift in Sources */,
-				85DB11BB24519FB100027D52 /* StockCell.swift in Sources */,
-				85DB11AB24519A2100027D52 /* StockSectionViewModel.swift in Sources */,
+				8508168A2459774C0063C803 /* ProfileViewController.swift in Sources */,
+				8508169424597DA40063C803 /* PersonalInformationViewModel.swift in Sources */,
 				85A320FB24508D0B003F3B6D /* AppDelegate.swift in Sources */,
 				85DB11BF24519FC700027D52 /* CollectionViewCell.swift in Sources */,
-				85DB11C82451A3CD00027D52 /* Reactive+GenericSectionControllerProtocol.swift in Sources */,
+				8508169C245991A10063C803 /* PlainTextCell.swift in Sources */,
+				8508169A245987C40063C803 /* ProfilePictureCell.swift in Sources */,
 				85DB119A2451930E00027D52 /* App.swift in Sources */,
 				85A320FD24508D0B003F3B6D /* SceneDelegate.swift in Sources */,
-				85DB11A92451997E00027D52 /* ViewModel.swift in Sources */,
+				850816A02459B0240063C803 /* TeamMemberSectionController.swift in Sources */,
+				85081696245983C10063C803 /* TeamMemberSectionViewModel.swift in Sources */,
+				8508169224597CD80063C803 /* ProfilePictureSectionViewModel.swift in Sources */,
+				8508168F245977D10063C803 /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,14 +487,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		85DB119B2451959500027D52 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.2.0;
-			};
-		};
 		85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:traderepublic/tr-sectionkit.git";
@@ -575,11 +507,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 85DB119E245195BC00027D52 /* XCRemoteSwiftPackageReference "tr-sectionkit" */;
 			productName = SectionKit;
-		};
-		85DB119C2451959500027D52 /* ReactiveCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 85DB119B2451959500027D52 /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
-			productName = ReactiveCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

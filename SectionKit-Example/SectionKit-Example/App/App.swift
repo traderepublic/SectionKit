@@ -6,10 +6,9 @@ struct App {
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.shadowColor = .clear
 
-        let portfolioVM = PortfolioViewModel()
-        let portfolioVC = PortfolioViewController(viewModel: portfolioVM)
-        portfolioVC.title = "Portfolio"
-        let portfolio = UINavigationController(rootViewController: portfolioVC)
+        let profileViewModel = ProfileViewModel()
+        let profileViewController = ProfileViewController(viewModel: profileViewModel)
+        let portfolio = UINavigationController(rootViewController: profileViewController)
         portfolio.navigationBar.standardAppearance = navBarAppearance
         portfolio.navigationBar.compactAppearance = navBarAppearance
         portfolio.navigationBar.scrollEdgeAppearance = navBarAppearance

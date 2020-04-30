@@ -11,47 +11,11 @@
         }
       },
       {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "7fd118ec8795888bcbbebc1a41f6984454c4cd6f",
-          "version": "8.0.7"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "33682c2f6230c60614861dfc61df267e11a1602f",
-          "version": "2.2.0"
-        }
-      },
-      {
-        "package": "ReactiveCocoa",
-        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveCocoa",
-        "state": {
-          "branch": null,
-          "revision": "3937d9e64459b6cb8bf0ec1823251a25943c8eac",
-          "version": "10.2.0"
-        }
-      },
-      {
-        "package": "ReactiveSwift",
-        "repositoryURL": "https://github.com/ReactiveCocoa/ReactiveSwift",
-        "state": {
-          "branch": null,
-          "revision": "e27ccdbf4ec36f154b60b91a0d7e0110c4e882cb",
-          "version": "6.2.1"
-        }
-      },
-      {
         "package": "SectionKit",
         "repositoryURL": "git@github.com:traderepublic/tr-sectionkit.git",
         "state": {
           "branch": "master",
-          "revision": "1b86ed623250cf5e0ada7e6a26a816fa4286792a",
+          "revision": "4bfa43a20672344f41921e4d801c5459fae04e03",
           "version": null
         }
       }
