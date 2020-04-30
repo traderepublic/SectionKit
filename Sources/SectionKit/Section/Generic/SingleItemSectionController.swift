@@ -32,7 +32,8 @@ open class SingleItemSectionController: BaseSectionController {
     
     override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
         guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
+            assertionFailure("Did not set `context` before calling \(#function)")
+            return UICollectionViewCell()
         }
         guard let cellProvider = cellProvider else {
             assertionFailure("Did not set `cellProvider` before calling \(#function)")
@@ -46,7 +47,8 @@ open class SingleItemSectionController: BaseSectionController {
     override open func sizeForItem(at indexPath: SectionIndexPath,
                                    using layout: UICollectionViewLayout) -> CGSize {
         guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
+            assertionFailure("Did not set `context` before calling \(#function)")
+            return .zero
         }
         return sizeProvider?(context, indexPath, layout)
             ?? super.sizeForItem(at: indexPath, using: layout)
@@ -64,7 +66,8 @@ open class SingleItemSectionController: BaseSectionController {
     
     override open func didSelectItem(at indexPath: SectionIndexPath) {
         guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
+            assertionFailure("Did not set `context` before calling \(#function)")
+            return
         }
         didSelect?(context, indexPath)
     }

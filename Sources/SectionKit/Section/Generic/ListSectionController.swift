@@ -64,7 +64,8 @@ open class ListSectionController<Item>:
     
     override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
         guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
+            assertionFailure("Did not set `context` before calling \(#function)")
+            return UICollectionViewCell()
         }
         guard let cellProvider = cellProvider else {
             assertionFailure("Did not set `cellProvider` before calling \(#function)")
@@ -86,7 +87,8 @@ open class ListSectionController<Item>:
     
     override open func didSelectItem(at indexPath: SectionIndexPath) {
         guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
+            assertionFailure("Did not set `context` before calling \(#function)")
+            return
         }
         let item = items[indexPath.internalRepresentation]
         didSelect?(context, item, indexPath)
@@ -97,7 +99,8 @@ open class ListSectionController<Item>:
     override open func sizeForItem(at indexPath: SectionIndexPath,
                                    using layout: UICollectionViewLayout) -> CGSize {
         guard let context = context else {
-            preconditionFailure("Did not set `context` before calling \(#function)")
+            assertionFailure("Did not set `context` before calling \(#function)")
+            return .zero
         }
         let item = items[indexPath.internalRepresentation]
         return sizeProvider?(context, item, indexPath, layout)
