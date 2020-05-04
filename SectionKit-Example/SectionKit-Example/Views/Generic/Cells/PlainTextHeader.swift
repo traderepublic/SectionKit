@@ -37,7 +37,7 @@ class PlainTextHeader: CollectionViewCell<String> {
 
     override class func size(for viewModel: String, size: CGSize) -> CGSize {
         let maxSize = CGSize(width: size.width, height: .greatestFiniteMagnitude)
-        let titleHeight = NSAttributedString(string: viewModel, attributes: [.font: Self.titleFont])
+        let titleHeight = NSAttributedString(string: viewModel, attributes: [.font: titleFont])
             .boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
             .height
 

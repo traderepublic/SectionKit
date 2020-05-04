@@ -3,7 +3,12 @@ import UIKit
 class PlainTextCell: CollectionViewCell<String> {
 
     // MARK: - Properties
-    let titleLabel = UILabel()
+    static let titleFont = UIFont.preferredFont(forTextStyle: .body)
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = Self.titleFont
+        return label
+    }()
 
     static let titleStackViewMargins = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
     private lazy var titleStackView: UIStackView = {
@@ -31,7 +36,7 @@ class PlainTextCell: CollectionViewCell<String> {
 
     override class func size(for viewModel: String, size: CGSize) -> CGSize {
         let maxSize = CGSize(width: size.width, height: .greatestFiniteMagnitude)
-        let titleHeight = NSAttributedString(string: viewModel)
+        let titleHeight = NSAttributedString(string: viewModel, attributes: [.font: titleFont])
             .boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
             .height
 
