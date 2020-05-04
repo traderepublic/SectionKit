@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemGroupedBackground
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
 
@@ -146,9 +147,9 @@ extension ProfileViewController {
 
         NSLayoutConstraint.activate([
             // CollectionView
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             // AddMemberStackView
             addMemberStackView.leadingAnchor.constraint(equalTo: addMemberContentView.leadingAnchor),
             addMemberContentView.trailingAnchor.constraint(equalTo: addMemberStackView.trailingAnchor),
