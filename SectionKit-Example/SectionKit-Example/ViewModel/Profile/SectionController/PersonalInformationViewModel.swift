@@ -13,9 +13,11 @@ class PersonalInformationSectionViewModel: PersonalInformationSectionViewModelTy
                                            PersonalInformationSectionViewModelOutput {
     var output: PersonalInformationSectionViewModelOutput { self }
 
+    // MARK: - Output
     let firstName: String
     let lastName: String
 
+    // MARK: - Initialization
     init(firstName: String, lastName: String) {
         self.firstName = firstName
         self.lastName = lastName

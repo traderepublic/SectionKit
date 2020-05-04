@@ -1,9 +1,7 @@
 import UIKit
 
 protocol ProfilePictureSectionViewModelType: AnyObject {
-    associatedtype Output
-
-    var output: Output { get }
+    var output: ProfilePictureSectionViewModelOutput { get }
 }
 
 protocol ProfilePictureSectionViewModelOutput {

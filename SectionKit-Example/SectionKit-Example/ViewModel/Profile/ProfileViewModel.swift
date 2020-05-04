@@ -6,7 +6,7 @@ protocol ProfileViewModelType: AnyObject {
 }
 
 protocol ProfileViewModelInput {
-
+    func add(member: String)
 }
 
 protocol ProfileViewModelOutput {
@@ -21,6 +21,11 @@ class ProfileViewModel: ProfileViewModelType,
                         ProfileViewModelOutput {
     var input: ProfileViewModelInput { self }
     var output: ProfileViewModelOutput { self }
+
+    // MARK: - Input
+    func add(member: String) {
+        teamMemberSection.input.add(member: member)
+    }
 
     // MARK: - Output
     let title = "Profile"

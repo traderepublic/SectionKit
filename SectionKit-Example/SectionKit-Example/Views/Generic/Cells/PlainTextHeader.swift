@@ -1,11 +1,16 @@
 import UIKit
 
-class PlainTextCell: CollectionViewCell<String> {
+class PlainTextHeader: CollectionViewCell<String> {
 
     // MARK: - Properties
-    let titleLabel = UILabel()
+    static let titleFont = UIFont.preferredFont(forTextStyle: .caption1)
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = Self.titleFont
+        return label
+    }()
 
-    static let titleStackViewMargins = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+    static let titleStackViewMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
     private lazy var titleStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel])
         stackView.directionalLayoutMargins = Self.titleStackViewMargins
@@ -18,6 +23,7 @@ class PlainTextCell: CollectionViewCell<String> {
         super.init(frame: frame)
         contentView.addSubview(titleStackView)
         setUpConstraints()
+        backgroundColor = nil
     }
 
     required init?(coder: NSCoder) {
@@ -31,7 +37,7 @@ class PlainTextCell: CollectionViewCell<String> {
 
     override class func size(for viewModel: String, size: CGSize) -> CGSize {
         let maxSize = CGSize(width: size.width, height: .greatestFiniteMagnitude)
-        let titleHeight = NSAttributedString(string: viewModel)
+        let titleHeight = NSAttributedString(string: viewModel, attributes: [.font: Self.titleFont])
             .boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], context: nil)
             .height
 

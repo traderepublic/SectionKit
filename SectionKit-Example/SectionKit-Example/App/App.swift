@@ -12,6 +12,7 @@ struct App {
         portfolio.navigationBar.standardAppearance = navBarAppearance
         portfolio.navigationBar.compactAppearance = navBarAppearance
         portfolio.navigationBar.scrollEdgeAppearance = navBarAppearance
+        portfolio.navigationBar.prefersLargeTitles = true
         window.rootViewController = portfolio
         window.makeKeyAndVisible()
     }

@@ -1,6 +1,7 @@
 import UIKit
 
 class ProfilePictureCell: CollectionViewCell<ProfilePictureSectionViewModel> {
+
     // MARK: - Properties
     static let imageHeight: CGFloat = 120
     private lazy var imageView: UIImageView = {
