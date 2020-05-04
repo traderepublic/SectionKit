@@ -8,12 +8,13 @@ struct App {
 
         let profileViewModel = ProfileViewModel()
         let profileViewController = ProfileViewController(viewModel: profileViewModel)
-        let portfolio = UINavigationController(rootViewController: profileViewController)
-        portfolio.navigationBar.standardAppearance = navBarAppearance
-        portfolio.navigationBar.compactAppearance = navBarAppearance
-        portfolio.navigationBar.scrollEdgeAppearance = navBarAppearance
-        portfolio.navigationBar.prefersLargeTitles = true
-        window.rootViewController = portfolio
+        let profile = UINavigationController(rootViewController: profileViewController)
+        profile.navigationBar.standardAppearance = navBarAppearance
+        profile.navigationBar.compactAppearance = navBarAppearance
+        profile.navigationBar.scrollEdgeAppearance = navBarAppearance
+        profile.navigationBar.prefersLargeTitles = true
+        profile.title = profileViewModel.output.title
+        window.rootViewController = profile
         window.makeKeyAndVisible()
     }
 }
