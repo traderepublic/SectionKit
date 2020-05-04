@@ -11,12 +11,12 @@ open class DiffingSectionAdapter: SectionAdapter {
         let oldSectionControllers = oldData.map {
             DifferentiableBox($0,
                               identifier: \.id,
-                              equal: { $0.id == $1.id })
+                              equal: { $0 === $1 })
         }
         let newSectionControllers = newData.map {
             DifferentiableBox($0,
                               identifier: \.id,
-                              equal: { $0.id == $1.id })
+                              equal: { $0 === $1 })
         }
         let changeSet = StagedChangeset(source: oldSectionControllers,
                                         target: newSectionControllers)
