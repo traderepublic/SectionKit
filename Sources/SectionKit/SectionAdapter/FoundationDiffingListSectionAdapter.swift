@@ -2,7 +2,7 @@ import Foundation
 
 /// A `SectionAdapter` that calculates the differences for animated changes to sections of the `UICollectionView`.
 @available(iOS 13, *)
-open class FoundationDiffingSectionAdapter: SectionAdapter {
+open class FoundationDiffingListSectionAdapter: ListSectionAdapter {
     override open func calculateUpdate(from oldData: [SectionController],
                                        to newData: [SectionController]) -> CollectionUpdate<[SectionController]> {
         let boxedOldData = oldData.map { HashableBox($0, hashable: \.id) }

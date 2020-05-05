@@ -2,7 +2,7 @@ import Foundation
 import SectionKit
 import DifferenceKit
 
-open class DiffingSectionAdapter: SectionAdapter {
+open class DiffingListSectionAdapter: ListSectionAdapter {
     override open func calculateUpdate(from oldData: [SectionController],
                                        to newData: [SectionController]) -> CollectionUpdate<[SectionController]> {
         // wrap `SectionController`s inside `DifferentiableBox` for diffing

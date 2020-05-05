@@ -1,6 +1,6 @@
 import UIKit
 
-extension SectionAdapter: UICollectionViewDelegate {
+extension ListSectionAdapter: UICollectionViewDelegate {
     
     // MARK: - Highlight
     

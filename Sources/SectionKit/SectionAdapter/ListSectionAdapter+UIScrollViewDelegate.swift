@@ -1,6 +1,6 @@
 import UIKit
 
-extension SectionAdapter: UIScrollViewDelegate {
+extension ListSectionAdapter: UIScrollViewDelegate {
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollViewDelegate?.scrollViewDidScroll?(scrollView)
     }

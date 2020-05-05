@@ -1,6 +1,6 @@
 import UIKit
 
-extension SectionAdapter: UICollectionViewDataSource {
+extension ListSectionAdapter: UICollectionViewDataSource {
     open func numberOfSections(in collectionView: UICollectionView) -> Int {
         sectionControllers.count
     }
