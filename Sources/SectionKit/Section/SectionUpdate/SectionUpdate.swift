@@ -32,8 +32,11 @@ public struct SectionUpdate<SectionData> {
                 changes: Set<SectionChange>,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
-                shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false }) {
-        let batchOperation = SectionBatchOperation(changes: changes, data: data)
+                shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false },
+                completion: ((Bool) -> Void)? = nil) {
+        let batchOperation = SectionBatchOperation(changes: changes,
+                                                   data: data,
+                                                   completion: completion)
         self.init(sectionId: sectionId,
                   batchOperations: [batchOperation],
                   setData: setData,
@@ -42,12 +45,14 @@ public struct SectionUpdate<SectionData> {
     
     public init(sectionId: String,
                 data: SectionData,
-                setData: @escaping (SectionData) -> Void) {
+                setData: @escaping (SectionData) -> Void,
+                completion: ((Bool) -> Void)? = nil) {
         self.init(sectionId: sectionId,
                   changes: [],
                   data: data,
                   setData: setData,
-                  shouldReloadSection: { _ in true })
+                  shouldReloadSection: { _ in true },
+                  completion: completion)
     }
 }
 

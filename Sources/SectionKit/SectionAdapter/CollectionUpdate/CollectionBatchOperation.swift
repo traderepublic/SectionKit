@@ -8,10 +8,20 @@ public struct CollectionBatchOperation<CollectionData> {
     /// The data of this collection after this batch of updates has been performed
     public let data: CollectionData
     
+    /**
+     Gets called after the updates have been applied.
+     
+     The parameter may be `true` if all of the related animations completed successfully
+     or `false` if they were interrupted.
+     */
+    public let completion: ((Bool) -> Void)?
+    
     public init(changes: Set<CollectionChange>,
-                data: CollectionData) {
+                data: CollectionData,
+                completion: ((Bool) -> Void)? = nil) {
         self.changes = changes
         self.data = data
+        self.completion = completion
     }
 }
 

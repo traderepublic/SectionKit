@@ -8,10 +8,20 @@ public struct SectionBatchOperation<SectionData> {
     /// The data of this section after this batch of updates has been performed
     public let data: SectionData
     
+    /**
+     Gets called after the updates have been applied.
+     
+     The parameter may be `true` if all of the related animations completed successfully
+     or `false` if they were interrupted.
+     */
+    public let completion: ((Bool) -> Void)?
+    
     public init(changes: Set<SectionChange>,
-                data: SectionData) {
+                data: SectionData,
+                completion: ((Bool) -> Void)? = nil) {
         self.changes = changes
         self.data = data
+        self.completion = completion
     }
 }
 

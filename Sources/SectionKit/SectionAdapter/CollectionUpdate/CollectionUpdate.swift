@@ -26,19 +26,24 @@ public struct CollectionUpdate<CollectionData> {
     public init(changes: Set<CollectionChange>,
                 data: CollectionData,
                 setData: @escaping (CollectionData) -> Void,
-                shouldReloadCollection: @escaping (CollectionBatchOperation<CollectionData>) -> Bool = { _ in false }) {
-        let batchOperation = CollectionBatchOperation(changes: changes, data: data)
+                shouldReloadCollection: @escaping (CollectionBatchOperation<CollectionData>) -> Bool = { _ in false },
+                completion: ((Bool) -> Void)? = nil) {
+        let batchOperation = CollectionBatchOperation(changes: changes,
+                                                      data: data,
+                                                      completion: completion)
         self.init(batchOperations: [batchOperation],
                   setData: setData,
                   shouldReloadCollection: shouldReloadCollection)
     }
     
     public init(data: CollectionData,
-                setData: @escaping (CollectionData) -> Void) {
+                setData: @escaping (CollectionData) -> Void,
+                completion: ((Bool) -> Void)? = nil) {
         self.init(changes: [],
                   data: data,
                   setData: setData,
-                  shouldReloadCollection: { _ in true })
+                  shouldReloadCollection: { _ in true },
+                  completion = completion)
     }
 }
 
