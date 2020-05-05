@@ -9,6 +9,7 @@ public extension StagedChangeset {
      
      - Returns: An array of `ChangeSet<T>` where the `data` property is mapped using the given closure.
      */
+    @inlinable
     func mapData<T>(_ transform: (Collection.Element) throws -> T) rethrows -> [Changeset<[T]>] {
         return try map { changeSet -> Changeset<[T]> in
             Changeset(data: try changeSet.data.map(transform),

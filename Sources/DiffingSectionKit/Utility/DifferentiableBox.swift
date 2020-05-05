@@ -20,8 +20,10 @@ open class DifferentiableBox<Item, Identifier>: Differentiable where Identifier:
         self.equal = equal
     }
     
+    @inlinable
     open var differenceIdentifier: Identifier { identifier(item) }
     
+    @inlinable
     open func isContentEqual(to source: DifferentiableBox<Item, Identifier>) -> Bool {
         equal(item, source.item)
     }

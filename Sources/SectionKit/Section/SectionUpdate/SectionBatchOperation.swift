@@ -27,6 +27,7 @@ public struct SectionBatchOperation<SectionData> {
 
 public extension SectionBatchOperation {
     /// Indizes to delete in this batch operation
+    @inlinable
     var deletes: [Int] {
         return changes.compactMap { change -> Int? in
             switch change {
@@ -39,6 +40,7 @@ public extension SectionBatchOperation {
     }
     
     /// Indizes to insert in this batch operation
+    @inlinable
     var inserts: [Int] {
         return changes.compactMap { change -> Int? in
             switch change {
@@ -51,6 +53,7 @@ public extension SectionBatchOperation {
     }
     
     /// Indizes to move in this batch operation
+    @inlinable
     var moves: [(at: Int, to: Int)] {
         return changes.compactMap { change -> (Int, Int)? in
             switch change {
@@ -63,6 +66,7 @@ public extension SectionBatchOperation {
     }
     
     /// Indizes to reload in this batch operation
+    @inlinable
     var reloads: [Int] {
         return changes.compactMap { change -> Int? in
             switch change {
