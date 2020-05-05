@@ -43,7 +43,7 @@ public struct CollectionUpdate<CollectionData> {
                   data: data,
                   setData: setData,
                   shouldReloadCollection: { _ in true },
-                  completion = completion)
+                  completion: completion)
     }
 }
 
