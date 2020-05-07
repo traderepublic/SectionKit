@@ -5,8 +5,8 @@ import Foundation
 open class FoundationDiffingListSectionAdapter: ListSectionAdapter {
     override open func calculateUpdate(from oldData: [Section],
                                        to newData: [Section]) -> CollectionUpdate<[Section]> {
-        let boxedOldData = oldData.map { HashableBox($0, hashable: \.model) }
-        let boxedNewData = newData.map { HashableBox($0, hashable: \.model) }
+        let boxedOldData = oldData.map { AnyHashable($0.model) }
+        let boxedNewData = newData.map { AnyHashable($0.model) }
         let difference = boxedNewData.difference(from: boxedOldData).inferringMoves()
         var changes: Set<CollectionChange> = []
         for change in difference {

@@ -26,6 +26,9 @@ open class ListSectionAdapter:
                                                   collectionView: collectionView)
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
+        collectionContext.sectionControllers = { [weak self] in
+            self?.sections.map(\.controller) ?? []
+        }
         collectionView.dataSource = self
         collectionView.delegate = self
         if #available(iOS 11.0, *) {

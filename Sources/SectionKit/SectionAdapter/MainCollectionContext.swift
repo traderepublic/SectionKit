@@ -30,14 +30,17 @@ open class MainCollectionContext: CollectionContext {
     
     // MARK: - Container sizing and inset
     
+    @inlinable
     open var containerSize: CGSize {
         collectionView.bounds.size
     }
     
+    @inlinable
     open var containerInset: UIEdgeInsets {
         collectionView.contentInset
     }
     
+    @inlinable
     open var adjustedContainerInset: UIEdgeInsets {
         if #available(iOS 11.0, *) {
             return collectionView.adjustedContentInset
@@ -46,6 +49,7 @@ open class MainCollectionContext: CollectionContext {
         }
     }
     
+    @inlinable
     open var insetContainerSize: CGSize {
         collectionView.bounds.inset(by: adjustedContainerInset).size
     }

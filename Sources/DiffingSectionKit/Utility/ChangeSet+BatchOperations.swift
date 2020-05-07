@@ -4,6 +4,7 @@ import DifferenceKit
 
 public extension Changeset {
     /// Convert this `Changeset` to a `CollectionBatchOperation` containing section updates.
+    @inlinable
     var collectionBatchOperation: CollectionBatchOperation<Collection> {
         var changes: Set<CollectionChange> = []
         for deletion in elementDeleted {
@@ -23,6 +24,7 @@ public extension Changeset {
     }
     
     /// Convert this `Changeset` to a `SectionBatchOperation` containing item updates to a section.
+    @inlinable
     var sectionBatchOperation: SectionBatchOperation<Collection> {
         var changes: Set<SectionChange> = []
         for deletion in elementDeleted {
