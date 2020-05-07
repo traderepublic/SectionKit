@@ -4,10 +4,10 @@ import DifferenceKit
 
 extension Section: Differentiable {
     @inlinable
-    public var differenceIdentifier: AnyHashable { id }
+    public var differenceIdentifier: AnyHashable { model.sectionId }
     
     @inlinable
     public func isContentEqual(to source: Section) -> Bool {
-        model == source.model
+        model.isEqual(to: source.model) 
     }
 }
