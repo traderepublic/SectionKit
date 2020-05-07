@@ -204,6 +204,7 @@
 		OBJ_16 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_33 /* SectionUpdate */,
 				OBJ_17 /* Generic */,
 				OBJ_25 /* SectionController.swift */,
 				OBJ_26 /* SectionDataSource.swift */,
@@ -212,7 +213,6 @@
 				OBJ_29 /* SectionDropDelegate.swift */,
 				OBJ_30 /* SectionFlowDelegate.swift */,
 				OBJ_31 /* SectionIndexPath.swift */,
-				OBJ_33 /* SectionUpdate */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -241,8 +241,8 @@
 		OBJ_37 /* SectionAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				5A68EEA924630E580006CD07 /* ListSectionAdapter */,
 				OBJ_39 /* CollectionUpdate */,
+				5A68EEA924630E580006CD07 /* ListSectionAdapter */,
 				OBJ_38 /* CollectionContext.swift */,
 				OBJ_44 /* MainCollectionContext.swift */,
 				5A68EEB124643F0F0006CD07 /* Section.swift */,
@@ -328,9 +328,9 @@
 		OBJ_8 /* DiffingSectionKit */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_11 /* Utility */,
 				OBJ_9 /* DiffingListSectionAdapter.swift */,
 				OBJ_10 /* DiffingListSectionController.swift */,
-				OBJ_11 /* Utility */,
 			);
 			name = DiffingSectionKit;
 			path = Sources/DiffingSectionKit;
