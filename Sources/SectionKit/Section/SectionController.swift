@@ -22,6 +22,7 @@ public protocol SectionController: AnyObject {
     @available(iOS 11.0, *)
     var dropDelegate: SectionDropDelegate? { get }
     
+    /// The model of this section controller changed
     func didUpdate(model: SectionModel)
 }
 

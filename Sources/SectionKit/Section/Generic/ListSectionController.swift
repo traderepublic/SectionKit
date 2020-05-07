@@ -4,14 +4,6 @@ import UIKit
 open class ListSectionController<Model, Item>:
     BaseSectionController
 {
-    // MARK: - Properties
-    
-    open var cellProvider: ((CollectionContext, Item, SectionIndexPath) -> UICollectionViewCell)?
-    
-    open var sizeProvider: ((CollectionContext, Item, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
-    
-    open var didSelect: ((CollectionContext, Item, SectionIndexPath) -> ())?
-    
     // MARK: - SectionController
     
     override open func didUpdate(model: SectionModel) {
@@ -41,8 +33,7 @@ open class ListSectionController<Model, Item>:
                 collectionViewItems = newValue
                 return
             }
-            let sectionUpdate = calculateUpdate(from: collectionViewItems,
-                                                to: newValue)
+            let sectionUpdate = calculateUpdate(from: collectionViewItems, to: newValue)
             context.apply(update: sectionUpdate)
         }
     }
@@ -70,36 +61,21 @@ open class ListSectionController<Model, Item>:
     }
     
     override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        guard let context = context else {
-            assertionFailure("Did not set `context` before calling \(#function)")
-            return UICollectionViewCell()
-        }
-        guard let cellProvider = cellProvider else {
-            assertionFailure("Did not set `cellProvider` before calling \(#function)")
-            return UICollectionViewCell()
-        }
-        let item = items[indexPath.internalRepresentation]
-        return cellProvider(context, item, indexPath)
+        return cell(for: items[indexPath.internalRepresentation], at: indexPath)
+    }
+    
+    open func cell(for item: Item, at indexPath: SectionIndexPath) -> UICollectionViewCell {
+        assertionFailure("cell(for:at:) not implemented")
+        return UICollectionViewCell()
     }
     
     // MARK: - SectionDelegate
     
-    override open func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
-        return didSelect != nil
-    }
-    
-    override open func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
-        return didSelect != nil
-    }
-    
     override open func didSelectItem(at indexPath: SectionIndexPath) {
-        guard let context = context else {
-            assertionFailure("Did not set `context` before calling \(#function)")
-            return
-        }
-        let item = items[indexPath.internalRepresentation]
-        didSelect?(context, item, indexPath)
+        didSelect(item: items[indexPath.internalRepresentation], at: indexPath)
     }
+    
+    open func didSelect(item: Item, at indexPath: SectionIndexPath) { }
     
     // MARK: - SectionFlowDelegate
     
@@ -113,13 +89,7 @@ open class ListSectionController<Model, Item>:
     open func size(for item: Item,
                    at indexPath: SectionIndexPath,
                    using layout: UICollectionViewLayout) -> CGSize {
-        guard let context = context else {
-            assertionFailure("Did not set `context` before calling \(#function)")
-            return .zero
-        }
-        let item = items[indexPath.internalRepresentation]
-        return sizeProvider?(context, item, indexPath, layout)
-            ?? super.sizeForItem(at: indexPath, using: layout)
+        return super.sizeForItem(at: indexPath, using: layout)
     }
 }
 
