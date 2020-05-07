@@ -86,7 +86,11 @@ open class ListSectionAdapter:
     
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
-        sections = querySections(from: dataSource)
+        let sections = querySections(from: dataSource)
+        sections.forEach {
+            $0.controller.didUpdate(model: $0.model)
+        }
+        self.sections = sections
     }
     
     private func querySections(from dataSource: SectionAdapterDataSource) -> [Section] {
@@ -96,7 +100,8 @@ open class ListSectionAdapter:
         while let (dataSource, object) = objectsStack.pop() {
             switch object {
             case let .section(model):
-                let sectionController = dataSource.sectionController(with: model, for: self)
+                let sectionController = sections.first(where: { $0.model.sectionId == model.sectionId })?.controller
+                    ?? dataSource.sectionController(with: model, for: self)
                 let section = Section(model: model, controller: sectionController)
                 sections.append(section)
             case let .dataSource(nestedDataSource):
