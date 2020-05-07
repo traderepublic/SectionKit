@@ -9,7 +9,7 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
             indexPath.section >= 0 && indexPath.section < sections.count,
             let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return [] }
-        session.localContext = sections[indexPath.section].controller.id
+        session.localContext = sections[indexPath.section].controller
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
@@ -21,7 +21,7 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
                              point: CGPoint) -> [UIDragItem] {
         guard
             indexPath.section >= 0 && indexPath.section < sections.count,
-            session.localContext as? String == sections[indexPath.section].controller.id,
+            session.localContext as? SectionController === sections[indexPath.section].controller,
             let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return [] }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,

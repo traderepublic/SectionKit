@@ -78,21 +78,13 @@ extension ListSectionAdapter: UICollectionViewDataSource {
     }
     
     open func indexTitles(for collectionView: UICollectionView) -> [String]? {
-        cachedIndexTitles = sections.map(\.controller).flatMap { section in
-            (section.dataSource.indexTitles ?? []).map { (sectionId: section.id, title: $0) }
-        }
-        return cachedIndexTitles.map(\.title)
+        return nil
     }
     
     open func collectionView(_ collectionView: UICollectionView,
                              indexPathForIndexTitle title: String,
                              at index: Int) -> IndexPath {
-        for (sectionIndex, section) in sections.enumerated() {
-            guard section.controller.id == cachedIndexTitles[index].sectionControllerId else { continue }
-            let index = section.controller.dataSource.index(for: title)
-            return IndexPath(item: index, section: sectionIndex)
-        }
-        assertionFailure("The corresponding section wasn't found, it seems the id changed.")
+        assertionFailure("collectionView(_:indexPathForIndexTitle:at:) not implemented")
         return IndexPath(item: 0, section: 0)
     }
 }

@@ -4,10 +4,6 @@ open class ListSectionAdapter:
     NSObject,
     SectionAdapter
 {
-    // MARK: - Internal properties
-    
-    internal var cachedIndexTitles: [(sectionControllerId: String, title: String)] = []
-    
     // MARK: - Init
     
     /**
@@ -99,11 +95,9 @@ open class ListSectionAdapter:
         var objectsStack = Stack(rootObjects.reversed())
         while let (dataSource, object) = objectsStack.pop() {
             switch object {
-            case let .section(id: id, model: model):
+            case let .section(model):
                 let sectionController = dataSource.sectionController(with: model, for: self)
-                let section = Section(id: id,
-                                      model: model,
-                                      controller: sectionController)
+                let section = Section(model: model, controller: sectionController)
                 sections.append(section)
             case let .dataSource(nestedDataSource):
                 for nestedObject in nestedDataSource.objects(for: self).reversed() {

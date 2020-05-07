@@ -4,25 +4,11 @@ open class SingleItemSectionController: BaseSectionController {
     
     // MARK: - Properties
     
-    private let _id: String
-    override open var id: String { _id }
-    
     open var cellProvider: ((CollectionContext, SectionIndexPath) -> UICollectionViewCell)?
     
     open var sizeProvider: ((CollectionContext, SectionIndexPath, UICollectionViewLayout) -> CGSize)?
     
     open var didSelect: ((CollectionContext, SectionIndexPath) -> ())?
-    
-    // MARK: - Init
-    
-    public init(id: String) {
-        self._id = id
-        super.init()
-    }
-    
-    override public convenience init() {
-        self.init(id: UUID().uuidString)
-    }
     
     // MARK: - SectionDataSource
     

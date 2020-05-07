@@ -1,12 +1,10 @@
 import Foundation
 
 public class Section {
-    public let id: AnyHashable
-    public let model: AnyHashable
+    public let model: SectionModel
     public let controller: SectionController
     
-    public init(id: AnyHashable, model: AnyHashable, controller: SectionController) {
-        self.id = id
+    public init(model: SectionModel, controller: SectionController) {
         self.model = model
         self.controller = controller
     }

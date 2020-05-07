@@ -50,18 +50,6 @@ public protocol SectionDataSource {
      */
     func moveItem(at sourceIndexPath: SectionIndexPath,
                   to targetIndexPath: SectionIndexPath)
-    
-    /// Returns all index titles for this section.
-    var indexTitles: [String]? { get }
-    
-    /**
-     Returns the index of the item for the given index title.
-     
-     - Parameter indexTitle: The title of which the index of the item should be returned.
-     
-     - Returns: The index of the item for the given index title.
-     */
-    func index(for indexTitle: String) -> Int
 }
 
 public extension SectionDataSource {
@@ -82,15 +70,6 @@ public extension SectionDataSource {
     func moveItem(at sourceIndexPath: SectionIndexPath,
                   to targetIndexPath: SectionIndexPath) {
         
-    }
-    
-    var indexTitles: [String]? {
-        return nil
-    }
-    
-    func index(for indexTitle: String) -> Int {
-        assertionFailure("index(for:) not implemented")
-        return 0
     }
 }
 

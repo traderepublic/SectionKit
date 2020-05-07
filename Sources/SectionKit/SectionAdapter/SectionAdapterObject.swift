@@ -1,6 +1,6 @@
 import Foundation
 
 public enum SectionAdapterObject {
-    case section(id: AnyHashable, model: AnyHashable)
+    case section(SectionModel)
     case dataSource(SectionAdapterDataSource)
 }

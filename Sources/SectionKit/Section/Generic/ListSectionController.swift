@@ -1,14 +1,10 @@
 import UIKit
 
 /// A `SectionController` that handles a list of items.
-open class ListSectionController<Item>:
-    BaseSectionController,
-    ListSectionControllerProtocol
+open class ListSectionController<Model, Item>:
+    BaseSectionController
 {
     // MARK: - Properties
-    
-    private let _id: String
-    override open var id: String { _id }
     
     open var cellProvider: ((CollectionContext, Item, SectionIndexPath) -> UICollectionViewCell)?
     
@@ -16,18 +12,20 @@ open class ListSectionController<Item>:
     
     open var didSelect: ((CollectionContext, Item, SectionIndexPath) -> ())?
     
-    // MARK: - Init
+    // MARK: - SectionController
     
-    public init(id: String) {
-        self._id = id
-        super.init()
+    override open func didUpdate(model: SectionModel) {
+        guard let model = model as? Model else {
+            assertionFailure("Could not cast model to \(String(describing: Model.self))")
+            return
+        }
+        items = items(for: model)
     }
     
-    override public convenience init() {
-        self.init(id: UUID().uuidString)
+    open func items(for model: Model) -> [Item] {
+        assertionFailure("items(for:) not implemented")
+        return []
     }
-    
-    // MARK: - ListSectionControllerProtocol
     
     /**
      The list of items currently displayed in the `UICollectionView`
@@ -49,9 +47,18 @@ open class ListSectionController<Item>:
         }
     }
     
+    /**
+     Calculate the `UICollectionView` events using the difference from the old to the new data
+     
+     - Parameter oldData: The old data currently displayed in the section
+     
+     - Parameter newData: The new data that should be displayed in the section
+     
+     - Returns: The update that should be performed on the section
+     */
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> SectionUpdate<[Item]> {
-        return SectionUpdate(sectionId: id,
+        return SectionUpdate(sectionController: self,
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 })
     }
@@ -98,6 +105,14 @@ open class ListSectionController<Item>:
     
     override open func sizeForItem(at indexPath: SectionIndexPath,
                                    using layout: UICollectionViewLayout) -> CGSize {
+        return size(for: items[indexPath.internalRepresentation],
+                    at: indexPath,
+                    using: layout)
+    }
+    
+    open func size(for item: Item,
+                   at indexPath: SectionIndexPath,
+                   using layout: UICollectionViewLayout) -> CGSize {
         guard let context = context else {
             assertionFailure("Did not set `context` before calling \(#function)")
             return .zero

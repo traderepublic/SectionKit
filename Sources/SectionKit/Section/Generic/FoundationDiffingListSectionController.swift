@@ -1,8 +1,8 @@
 import Foundation
 
 /// A `SectionController` that calculates the differences for animated changes to the items in the section.
-@available(iOS 13, *)
-open class FoundationDiffingListSectionController<Item>: ListSectionController<Item>
+@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
+open class FoundationDiffingListSectionController<Model, Item>: ListSectionController<Model, Item>
     where Item: Hashable
 {
     override open func calculateUpdate(from oldData: [Item],
@@ -27,7 +27,7 @@ open class FoundationDiffingListSectionController<Item>: ListSectionController<I
                 }
             }
         }
-        return SectionUpdate(sectionId: id,
+        return SectionUpdate(sectionController: self,
                              changes: changes,
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 },

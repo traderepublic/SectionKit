@@ -8,7 +8,7 @@ public protocol SectionAdapter: AnyObject {
     /// A delegate that receives callbacks from the `UIScrollView`
     var scrollViewDelegate: UIScrollViewDelegate? { get set }
     
-    /// Sections
+    /// Sections in this adapter
     var sections: [Section] { get set }
     
     /// The datasource of this adapter responsible for creating `SectionControllers`

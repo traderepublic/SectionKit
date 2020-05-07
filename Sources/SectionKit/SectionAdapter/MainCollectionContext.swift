@@ -58,7 +58,7 @@ open class MainCollectionContext: CollectionContext {
     
     open func apply<T>(update: SectionUpdate<T>) {
         let sectionControllers = self.sectionControllers()
-        guard let (sectionIndex, _) = sectionControllers.enumerated().first(where: { $1.id == update.sectionId }) else {
+        guard let (sectionIndex, _) = sectionControllers.enumerated().first(where: { $1 === update.sectionController }) else {
             assertionFailure("No section controller was found for the specified id")
             return collectionView.reloadData()
         }
