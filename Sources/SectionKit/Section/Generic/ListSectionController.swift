@@ -32,7 +32,7 @@ open class ListSectionController<Item>:
     /**
      The list of items currently displayed in the `UICollectionView`
      
-     Only set this property if `UICollectionView` insertions and deletions are handled, use `items` instead.
+     Only set this property if `UICollectionView` insertions and deletions are handled, otherwise use `items` instead.
      */
     open var collectionViewItems: [Item] = []
     

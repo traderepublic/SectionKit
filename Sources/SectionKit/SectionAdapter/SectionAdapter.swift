@@ -1,41 +1,24 @@
 import UIKit
 
+/// The root object for a given `UICollectionView` that forwards datasource and delegate methods to the corresponding `SectionController`
 public protocol SectionAdapter: AnyObject {
-    associatedtype DataSource: AdapterDataSource
-    
     /// An object providing contextual information
     var collectionContext: CollectionContext { get }
     
     /// A delegate that receives callbacks from the `UIScrollView`
     var scrollViewDelegate: UIScrollViewDelegate? { get set }
     
-    /// The datasource of this `SectionAdapter` responsible for creating `SectionControllers`
-    var dataSource: DataSource { get set }
+    /// Sections
+    var sections: [Section] { get set }
+    
+    /// The datasource of this adapter responsible for creating `SectionControllers`
+    var dataSource: SectionAdapterDataSource? { get set }
     
     /// If reordering should be allowed between different sections
     var allowReorderingBetweenDifferentSections: Bool { get set }
     
-    /// Tells the `SectionAdapter` to query the `dataSource` when the data changed
+    /// Tells the adapter to query the `dataSource` again
     func invalidateDataSource()
-}
-
-public class AnyAdapterDataSource {
-    
-}
-
-public protocol AdapterDataSource: AnyObject {
-    associatedtype SectionIdentifier: Hashable
-    
-    /// Returns objects for each section.
-    var objects: [AdapterObject<SectionIdentifier>] { get }
-    
-    /// Returns the `SectionController` for the provided object
-    func sectionController(with identifier: SectionIdentifier,
-                           items: [AnyHashable]) -> SectionController
-}
-
-public enum AdapterObject<SectionIdentifier: Hashable> {
-    case section(identifier: SectionIdentifier, items: [AnyHashable])
 }
 
 // MARK: - Sample implementation
@@ -45,25 +28,28 @@ enum MySections: String {
     case second
 }
 
-class MyAdapterDataSource: AdapterDataSource {
-    var objects: [AdapterObject<MySections>] {
+class MyAdapterDataSource: SectionAdapterDataSource {
+    func objects(for adapter: SectionAdapter) -> [SectionAdapterObject] {
         return [
-            .section(identifier: .first, items: ["1", "2"]),
-            .section(identifier: .second, items: ["3", "4"])
+            .section(id: MySections.first, model: ["1", "2"]),
+            .section(id: MySections.second, model: ["3", "4"])
         ]
     }
     
-    func sectionController(with identifier: SectionIdentifier,
-                           items: [AnyHashable]) -> SectionController {
-        switch identifier {
-        case .first:
-            let sectionController = ListSectionController<String>(id: identifier.rawValue)
-            sectionController.items = items.map { $0 as! String }
-            return sectionController
-        case .second:
-            let sectionController = ListSectionController<String>(id: identifier.rawValue)
-            sectionController.items = items.map { $0 as! String }
-            return sectionController
+    func sectionController(with model: AnyHashable, for adapter: SectionAdapter) -> SectionController {
+        switch model {
+        case let model as MySections:
+            switch model {
+            case .first:
+                let sectionController = ListSectionController<String>(id: MySections.first.rawValue)
+                sectionController.items = ["1", "2"]
+                return sectionController
+            case .second:
+                let sectionController = ListSectionController<String>(id: MySections.second.rawValue)
+                sectionController.items = ["3", "4"]
+                return sectionController
+            }
+        default: fatalError("unsupported section model")
         }
     }
 }

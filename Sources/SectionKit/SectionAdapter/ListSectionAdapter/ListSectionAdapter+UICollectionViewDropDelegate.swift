@@ -4,7 +4,7 @@ import UIKit
 extension ListSectionAdapter: UICollectionViewDropDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              canHandle session: UIDropSession) -> Bool {
-        return sectionControllers.contains { $0.dropDelegate?.canHandle(drop: session) ?? true }
+        return sections.contains { $0.controller.dropDelegate?.canHandle(drop: session) ?? true }
     }
     
     open func collectionView(_ collectionView: UICollectionView,
@@ -12,18 +12,18 @@ extension ListSectionAdapter: UICollectionViewDropDelegate {
                              withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         guard
             let indexPath = destinationIndexPath,
-            indexPath.section >= 0 && indexPath.section < sectionControllers.count
+            indexPath.section >= 0 && indexPath.section < sections.count
             else { return UICollectionViewDropProposal(operation: .forbidden) }
         if !allowReorderingBetweenDifferentSections {
             guard
                 let dragSectionId = session.localDragSession?.localContext as? String,
-                dragSectionId == sectionControllers[indexPath.section].id
+                dragSectionId == sections[indexPath.section].controller.id
                 else { return UICollectionViewDropProposal(operation: .forbidden) }
         }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        return sectionControllers[indexPath.section].dropDelegate?.dropSessionDidUpdate(session,
-                                                                                        at: sectionIndexPath)
+        return sections[indexPath.section].controller.dropDelegate?.dropSessionDidUpdate(session,
+                                                                                         at: sectionIndexPath)
             ?? UICollectionViewDropProposal(operation: .forbidden)
     }
     
@@ -31,12 +31,12 @@ extension ListSectionAdapter: UICollectionViewDropDelegate {
                              performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard
             let indexPath = coordinator.destinationIndexPath,
-            indexPath.section >= 0 && indexPath.section < sectionControllers.count
+            indexPath.section >= 0 && indexPath.section < sections.count
             else { return }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        sectionControllers[indexPath.section].dropDelegate?.performDrop(at: sectionIndexPath,
-                                                                        with: coordinator)
+        sections[indexPath.section].controller.dropDelegate?.performDrop(at: sectionIndexPath,
+                                                                         with: coordinator)
     }
     
     open func collectionView(_ collectionView: UICollectionView,
@@ -56,10 +56,10 @@ extension ListSectionAdapter: UICollectionViewDropDelegate {
     
     open func collectionView(_ collectionView: UICollectionView,
                              dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        guard indexPath.section >= 0 && indexPath.section < sectionControllers.count else { return nil }
+        guard indexPath.section >= 0 && indexPath.section < sections.count else { return nil }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        return sectionControllers[indexPath.section].dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
+        return sections[indexPath.section].controller.dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
     }
 }
 

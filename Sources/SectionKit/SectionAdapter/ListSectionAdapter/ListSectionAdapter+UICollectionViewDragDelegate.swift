@@ -6,10 +6,10 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
                              itemsForBeginning session: UIDragSession,
                              at indexPath: IndexPath) -> [UIDragItem] {
         guard
-            indexPath.section >= 0 && indexPath.section < sectionControllers.count,
-            let dragDelegate = sectionControllers[indexPath.section].dragDelegate
+            indexPath.section >= 0 && indexPath.section < sections.count,
+            let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return [] }
-        session.localContext = sectionControllers[indexPath.section].id
+        session.localContext = sections[indexPath.section].controller.id
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
@@ -20,9 +20,9 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
                              at indexPath: IndexPath,
                              point: CGPoint) -> [UIDragItem] {
         guard
-            indexPath.section >= 0 && indexPath.section < sectionControllers.count,
-            session.localContext as? String == sectionControllers[indexPath.section].id,
-            let dragDelegate = sectionControllers[indexPath.section].dragDelegate
+            indexPath.section >= 0 && indexPath.section < sections.count,
+            session.localContext as? String == sections[indexPath.section].controller.id,
+            let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return [] }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
@@ -32,8 +32,8 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         guard
-            indexPath.section >= 0 && indexPath.section < sectionControllers.count,
-            let dragDelegate = sectionControllers[indexPath.section].dragDelegate
+            indexPath.section >= 0 && indexPath.section < sections.count,
+            let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return nil }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
