@@ -8,27 +8,8 @@ open class FoundationDiffingListSectionController<Model: SectionModel, Item: Has
     override open func calculateUpdate(from oldData: [Item],
                                        to newData: [Item]) -> SectionUpdate<[Item]> {
         let difference = newData.difference(from: oldData).inferringMoves()
-        var changes: Set<SectionChange> = []
-        for change in difference {
-            switch change {
-            case .insert(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
-                if let associatedWith = associatedWith {
-                    changes.insert(.moveItem(at: associatedWith, to: offset))
-                } else {
-                    changes.insert(.insertItem(at: offset))
-                }
-            case .remove(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
-                if associatedWith == nil {
-                    changes.insert(.deleteItem(at: offset))
-                }
-            }
-        }
         return SectionUpdate(sectionId: model.sectionId,
-                             changes: changes,
+                             changes: difference.sectionChanges,
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 },
                              shouldReloadSection: { $0.changes.count > 100 })

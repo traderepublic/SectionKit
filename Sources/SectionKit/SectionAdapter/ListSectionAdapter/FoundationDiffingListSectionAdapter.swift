@@ -5,29 +5,10 @@ import Foundation
 open class FoundationDiffingListSectionAdapter: ListSectionAdapter {
     override open func calculateUpdate(from oldData: [Section],
                                        to newData: [Section]) -> CollectionUpdate<[Section]> {
-        let boxedOldData = oldData.map(\.model.sectionId)
-        let boxedNewData = newData.map(\.model.sectionId)
-        let difference = boxedNewData.difference(from: boxedOldData).inferringMoves()
-        var changes: Set<CollectionChange> = []
-        for change in difference {
-            switch change {
-            case .insert(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
-                if let associatedWith = associatedWith {
-                    changes.insert(.moveSection(at: associatedWith, to: offset))
-                } else {
-                    changes.insert(.insertSection(at: offset))
-                }
-            case .remove(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
-                if associatedWith == nil {
-                    changes.insert(.deleteSection(at: offset))
-                }
-            }
-        }
-        return CollectionUpdate(changes: changes,
+        let difference = newData.map(\.model.sectionId)
+            .difference(from: oldData.map(\.model.sectionId))
+            .inferringMoves()
+        return CollectionUpdate(changes: difference.collectionChanges,
                                 data: newData,
                                 setData: { [weak self] in self?.collectionViewSections = $0 },
                                 shouldReloadCollection: { $0.changes.count > 100 })
