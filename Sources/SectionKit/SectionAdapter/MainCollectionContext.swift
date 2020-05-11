@@ -5,6 +5,8 @@ open class MainCollectionContext: CollectionContext {
     
     // MARK: - Properties
     
+    public weak var sectionAdapter: SectionAdapter?
+    
     public private(set) weak var viewController: UIViewController?
     
     public let collectionView: UICollectionView
@@ -14,11 +16,6 @@ open class MainCollectionContext: CollectionContext {
     private var registeredHeaderViewTypes: [UICollectionReusableView.Type] = []
     
     private var registeredFooterViewTypes: [UICollectionReusableView.Type] = []
-    
-    public var sectionControllers: () -> [SectionController] = {
-        assertionFailure("Did not set sectionControllers")
-        return []
-    }
     
     // MARK: - Initializer
     
@@ -57,7 +54,11 @@ open class MainCollectionContext: CollectionContext {
     // MARK: - Apply
     
     open func apply<T>(update: SectionUpdate<T>) {
-        let sectionControllers = self.sectionControllers()
+        guard let sectionAdapter = sectionAdapter else {
+            assertionFailure("`sectionAdapter` is no set")
+            return collectionView.reloadData()
+        }
+        let sectionControllers = sectionAdapter.sections.map(\.controller)
         guard let (sectionIndex, _) = sectionControllers.enumerated().first(where: { $1 === update.sectionController }) else {
             assertionFailure("No section controller was found for the specified id")
             return collectionView.reloadData()
@@ -138,7 +139,10 @@ open class MainCollectionContext: CollectionContext {
     open func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController, SectionIndexPath)? {
         var sectionIndexPath = indexPath
         var sectionIndex = indexPath.section
-        let sectionControllers = self.sectionControllers()
+        guard let sectionAdapter = sectionAdapter else {
+            fatalError("`sectionAdapter` is no set")
+        }
+        let sectionControllers = sectionAdapter.sections.map(\.controller)
         if sectionIndex >= sectionControllers.count {
             // index of section is out of bounds, select last section instead
             sectionIndex = sectionControllers.count - 1

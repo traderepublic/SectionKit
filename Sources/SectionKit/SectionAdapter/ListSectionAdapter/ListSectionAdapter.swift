@@ -18,13 +18,12 @@ open class ListSectionAdapter:
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
                 scrollViewDelegate: UIScrollViewDelegate? = nil) {
-        collectionContext = MainCollectionContext(viewController: viewController,
-                                                  collectionView: collectionView)
+        let collectionContext = MainCollectionContext(viewController: viewController,
+                                                      collectionView: collectionView)
+        self.collectionContext = collectionContext
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        collectionContext.sectionControllers = { [weak self] in
-            self?.sections.map(\.controller) ?? []
-        }
+        collectionContext.sectionAdapter = self
         collectionView.dataSource = self
         collectionView.delegate = self
         if #available(iOS 11.0, *) {

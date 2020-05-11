@@ -6,5 +6,6 @@ public protocol SectionAdapterDataSource: AnyObject {
     func objects(for adapter: SectionAdapter) -> [SectionAdapterObject]
     
     /// Returns the `SectionController` for the provided object
-    func sectionController(with model: SectionModel, for adapter: SectionAdapter) -> SectionController
+    func sectionController(with model: SectionModel,
+                           for adapter: SectionAdapter) -> SectionController
 }
