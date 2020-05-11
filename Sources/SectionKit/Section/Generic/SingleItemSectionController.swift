@@ -1,14 +1,22 @@
 import UIKit
 
-open class SingleItemSectionController<Model, Item>: BaseSectionController where Item: Equatable {
+open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: BaseSectionController {
     
     // MARK: - SectionController
+    
+    open var model: Model
+    
+    public init(model: Model) {
+        self.model = model
+        super.init()
+    }
     
     override open func didUpdate(model: SectionModel) {
         guard let model = model as? Model else {
             assertionFailure("Could not cast model to \(String(describing: Model.self))")
             return
         }
+        self.model = model
         item = item(for: model)
     }
     
@@ -62,7 +70,7 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController where
         default:
             changes = []
         }
-        return SectionUpdate(sectionController: self,
+        return SectionUpdate(sectionId: model.sectionId,
                              changes: changes,
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItem = $0 })

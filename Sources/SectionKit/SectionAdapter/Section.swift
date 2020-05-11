@@ -2,10 +2,22 @@ import Foundation
 
 public class Section {
     public let model: SectionModel
-    public let controller: SectionController
     
-    public init(model: SectionModel, controller: SectionController) {
+    @usableFromInline
+    internal let controllerAccessor: () -> SectionController
+    
+    public lazy var controller: SectionController = controllerAccessor()
+    
+    @inlinable
+    public init(model: SectionModel, controllerAccessor: @escaping () -> SectionController) {
         self.model = model
-        self.controller = controller
+        self.controllerAccessor = controllerAccessor
+    }
+}
+
+public extension Section {
+    @inlinable
+    convenience init(model: SectionModel, controller: SectionController) {
+        self.init(model: model, controllerAccessor: { controller })
     }
 }

@@ -58,9 +58,9 @@ open class MainCollectionContext: CollectionContext {
             assertionFailure("`sectionAdapter` is no set")
             return collectionView.reloadData()
         }
-        let sectionControllers = sectionAdapter.sections.map(\.controller)
-        guard let (sectionIndex, _) = sectionControllers.enumerated().first(where: { $1 === update.sectionController }) else {
-            assertionFailure("No section controller was found for the specified id")
+        let sections = sectionAdapter.sections
+        guard let (sectionIndex, _) = sections.enumerated().first(where: { $1.model.sectionId == update.sectionId }) else {
+            assertionFailure("No section was found for the specified id")
             return collectionView.reloadData()
         }
         collectionView.reload(using: update, at: sectionIndex)
@@ -142,14 +142,14 @@ open class MainCollectionContext: CollectionContext {
         guard let sectionAdapter = sectionAdapter else {
             fatalError("`sectionAdapter` is no set")
         }
-        let sectionControllers = sectionAdapter.sections.map(\.controller)
-        if sectionIndex >= sectionControllers.count {
+        let sections = sectionAdapter.sections
+        if sectionIndex >= sections.count {
             // index of section is out of bounds, select last section instead
-            sectionIndex = sectionControllers.count - 1
-            sectionIndexPath = IndexPath(item: sectionControllers[sectionIndex].dataSource.numberOfItems,
+            sectionIndex = sections.count - 1
+            sectionIndexPath = IndexPath(item: sections[sectionIndex].controller.dataSource.numberOfItems,
                                          section: sectionIndex)
         }
-        return (sectionControllers[sectionIndex], SectionIndexPath(sectionIndexPath))
+        return (sections[sectionIndex].controller, SectionIndexPath(sectionIndexPath))
     }
 }
 

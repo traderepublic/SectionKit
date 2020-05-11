@@ -3,7 +3,7 @@ import Foundation
 /// A set of updates that should be performed
 public struct SectionUpdate<SectionData> {
     /// The id of the section that wants to perform these changes
-    public let sectionController: SectionController
+    public let sectionId: AnyHashable
     
     /// The batch updates that should be performed
     public let batchOperations: [SectionBatchOperation<SectionData>]
@@ -18,17 +18,17 @@ public struct SectionUpdate<SectionData> {
      */
     public let shouldReloadSection: (SectionBatchOperation<SectionData>) -> Bool
     
-    public init(sectionController: SectionController,
+    public init(sectionId: AnyHashable,
                 batchOperations: [SectionBatchOperation<SectionData>],
                 setData: @escaping (SectionData) -> Void,
                 shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false }) {
-        self.sectionController = sectionController
+        self.sectionId = sectionId
         self.batchOperations = batchOperations
         self.setData = setData
         self.shouldReloadSection = shouldReloadSection
     }
     
-    public init(sectionController: SectionController,
+    public init(sectionId: AnyHashable,
                 changes: Set<SectionChange>,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
@@ -37,17 +37,17 @@ public struct SectionUpdate<SectionData> {
         let batchOperation = SectionBatchOperation(changes: changes,
                                                    data: data,
                                                    completion: completion)
-        self.init(sectionController: sectionController,
+        self.init(sectionId: sectionId,
                   batchOperations: [batchOperation],
                   setData: setData,
                   shouldReloadSection: shouldReloadSection)
     }
     
-    public init(sectionController: SectionController,
+    public init(sectionId: AnyHashable,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
                 completion: ((Bool) -> Void)? = nil) {
-        self.init(sectionController: sectionController,
+        self.init(sectionId: sectionId,
                   changes: [],
                   data: data,
                   setData: setData,

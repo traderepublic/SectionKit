@@ -1,16 +1,23 @@
 import UIKit
 
 /// A `SectionController` that handles a list of items.
-open class ListSectionController<Model, Item>:
-    BaseSectionController
-{
+open class ListSectionController<Model: SectionModel, Item>: BaseSectionController {
+    
     // MARK: - SectionController
+    
+    open var model: Model
+    
+    public init(model: Model) {
+        self.model = model
+        super.init()
+    }
     
     override open func didUpdate(model: SectionModel) {
         guard let model = model as? Model else {
             assertionFailure("Could not cast model to \(String(describing: Model.self))")
             return
         }
+        self.model = model
         items = items(for: model)
     }
     
@@ -49,7 +56,7 @@ open class ListSectionController<Model, Item>:
      */
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> SectionUpdate<[Item]> {
-        return SectionUpdate(sectionController: self,
+        return SectionUpdate(sectionId: model.sectionId,
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 })
     }
