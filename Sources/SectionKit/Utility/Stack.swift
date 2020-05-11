@@ -4,8 +4,9 @@ protocol Stacking {
     associatedtype Element
     
     func peek() -> Element?
-    
-    mutating func push(_ element: Element)
+
+    @discardableResult
+    mutating func push(_ element: Element) -> Stack<Element>
     
     @discardableResult
     mutating func pop() -> Element?
@@ -32,14 +33,17 @@ struct Stack<Element> {
 }
 
 extension Stack: Stacking {
+
     @inlinable
     func peek() -> Element? {
         storage.last
     }
     
     @inlinable
-    mutating func push(_ element: Element) {
+    @discardableResult
+    mutating func push(_ element: Element) -> Stack<Element> {
         storage.append(element)
+        return self
     }
     
     @inlinable
