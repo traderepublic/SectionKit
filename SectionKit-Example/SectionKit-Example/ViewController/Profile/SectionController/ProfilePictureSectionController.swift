@@ -23,4 +23,12 @@ class ProfilePictureSectionController:
                        using layout: UICollectionViewLayout) -> CGSize {
         return ProfilePictureCell.size(for: item, size: context!.containerSize)
     }
+    
+    override func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
+        return false
+    }
+    
+    override func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
+        return false
+    }
 }

@@ -26,4 +26,12 @@ class PersonalInformationSectionController:
                        using layout: UICollectionViewLayout) -> CGSize {
         return PlainTextCell.size(for: item, size: context!.containerSize)
     }
+    
+    override func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
+        return false
+    }
+    
+    override func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
+        return false
+    }
 }
