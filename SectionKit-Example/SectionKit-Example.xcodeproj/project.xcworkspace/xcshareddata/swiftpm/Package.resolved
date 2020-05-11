@@ -14,8 +14,8 @@
         "package": "SectionKit",
         "repositoryURL": "git@github.com:traderepublic/tr-sectionkit.git",
         "state": {
-          "branch": "master",
-          "revision": "af95147867567eb6fa6ae61ba1c36def537a856d",
+          "branch": "adapter_datasource",
+          "revision": "ac9ee7f9d6f9a01aeeff24a5a28e883cc68f10ab",
           "version": null
         }
       }

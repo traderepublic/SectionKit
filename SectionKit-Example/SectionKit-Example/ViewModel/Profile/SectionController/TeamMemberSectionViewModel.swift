@@ -11,14 +11,17 @@ protocol TeamMemberSectionViewModelInput {
 }
 
 protocol TeamMemberSectionViewModelOutput {
+    var id: UUID { get }
     var members: [String] { get }
     var headerTitle: String { get }
     var delegate: TeamMemberSectionViewModelDelegate? { get }
 }
 
-class TeamMemberSectionViewModel: TeamMemberSectionViewModelType,
-                                  TeamMemberSectionViewModelInput,
-TeamMemberSectionViewModelOutput {
+class TeamMemberSectionViewModel:
+    TeamMemberSectionViewModelType,
+    TeamMemberSectionViewModelInput,
+    TeamMemberSectionViewModelOutput
+{
     var input: TeamMemberSectionViewModelInput { self }
     var output: TeamMemberSectionViewModelOutput { self }
 
@@ -37,6 +40,7 @@ TeamMemberSectionViewModelOutput {
     }
 
     // MARK: - Output
+    let id = UUID()
     var members: [String] { mutableMembers }
     let headerTitle: String = "Team Members"
     weak var delegate: TeamMemberSectionViewModelDelegate?
@@ -49,4 +53,15 @@ TeamMemberSectionViewModelOutput {
 
 protocol TeamMemberSectionViewModelDelegate: AnyObject {
     func didUpdate(members: [String])
+}
+
+extension TeamMemberSectionViewModel: Identifiable {
+    
+}
+
+extension TeamMemberSectionViewModel: Equatable {
+    static func == (lhs: TeamMemberSectionViewModel, rhs: TeamMemberSectionViewModel) -> Bool {
+        return lhs.output.headerTitle == rhs.output.headerTitle
+            && lhs.output.members == rhs.output.members
+    }
 }

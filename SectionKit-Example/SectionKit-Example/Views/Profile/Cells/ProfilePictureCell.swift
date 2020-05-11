@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfilePictureCell: CollectionViewCell<ProfilePictureSectionViewModel> {
+class ProfilePictureCell: CollectionViewCell<UIImage> {
 
     // MARK: - Properties
     static let imageHeight: CGFloat = 120
@@ -22,8 +22,8 @@ class ProfilePictureCell: CollectionViewCell<ProfilePictureSectionViewModel> {
     }
 
     // MARK: - Configuration
-    override func configure(with viewModel: ProfilePictureSectionViewModel) {
-        imageView.image = viewModel.profilePicture
+    override func configure(with picture: UIImage) {
+        imageView.image = picture
     }
 
     private func setUpConstraints() {
@@ -37,7 +37,7 @@ class ProfilePictureCell: CollectionViewCell<ProfilePictureSectionViewModel> {
         ])
     }
 
-    override class func size(for viewModel: ProfilePictureSectionViewModel, size: CGSize) -> CGSize {
+    override class func size(for image: UIImage, size: CGSize) -> CGSize {
         return CGSize(width: size.width, height: Self.imageHeight)
     }
 

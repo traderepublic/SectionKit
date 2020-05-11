@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A68EEBA246996E10006CD07 /* ProfilePictureSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEB9246996E10006CD07 /* ProfilePictureSectionController.swift */; };
+		5A68EEBC246997070006CD07 /* PersonalInformationSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEBB246997070006CD07 /* PersonalInformationSectionController.swift */; };
 		8508168A2459774C0063C803 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850816892459774C0063C803 /* ProfileViewController.swift */; };
 		8508168F245977D10063C803 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508168E245977D10063C803 /* ProfileViewModel.swift */; };
 		8508169224597CD80063C803 /* ProfilePictureSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508169124597CD80063C803 /* ProfilePictureSectionViewModel.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A68EEB9246996E10006CD07 /* ProfilePictureSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureSectionController.swift; sourceTree = "<group>"; };
+		5A68EEBB246997070006CD07 /* PersonalInformationSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationSectionController.swift; sourceTree = "<group>"; };
 		850816892459774C0063C803 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8508168E245977D10063C803 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8508169124597CD80063C803 /* ProfilePictureSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureSectionViewModel.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				8508169F2459B0240063C803 /* TeamMemberSectionController.swift */,
+				5A68EEB9246996E10006CD07 /* ProfilePictureSectionController.swift */,
+				5A68EEBB246997070006CD07 /* PersonalInformationSectionController.swift */,
 			);
 			path = SectionController;
 			sourceTree = "<group>";
@@ -287,12 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A68EEBA246996E10006CD07 /* ProfilePictureSectionController.swift in Sources */,
 				8508168A2459774C0063C803 /* ProfileViewController.swift in Sources */,
 				8508169424597DA40063C803 /* PersonalInformationViewModel.swift in Sources */,
 				85A320FB24508D0B003F3B6D /* AppDelegate.swift in Sources */,
 				85DB11BF24519FC700027D52 /* CollectionViewCell.swift in Sources */,
 				8508169C245991A10063C803 /* PlainTextCell.swift in Sources */,
 				8508169A245987C40063C803 /* ProfilePictureCell.swift in Sources */,
+				5A68EEBC246997070006CD07 /* PersonalInformationSectionController.swift in Sources */,
 				85DB119A2451930E00027D52 /* App.swift in Sources */,
 				85A320FD24508D0B003F3B6D /* SceneDelegate.swift in Sources */,
 				850816A02459B0240063C803 /* TeamMemberSectionController.swift in Sources */,
@@ -495,7 +503,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:traderepublic/tr-sectionkit.git";
 			requirement = {
-				branch = master;
+				branch = adapter_datasource;
 				kind = branch;
 			};
 		};
