@@ -20,7 +20,7 @@ struct Stack<Element> {
     
     // MARK: - Private properties
     
-    // the top element of the stack is the last in the array
+    /// the top element of the stack is the last in the array
     private var storage: [Element]
     
     // MARK: - Init
