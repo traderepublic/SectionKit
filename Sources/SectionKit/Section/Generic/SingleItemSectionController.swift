@@ -4,11 +4,16 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
     
     // MARK: - SectionController
     
-    open var model: Model
+    open var model: Model {
+        didSet {
+            item = item(for: model)
+        }
+    }
     
     public init(model: Model) {
         self.model = model
         super.init()
+        item = item(for: model)
     }
     
     override open func didUpdate(model: SectionModel) {
@@ -17,7 +22,6 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
             return
         }
         self.model = model
-        item = item(for: model)
     }
     
     open func item(for model: Model) -> Item? {

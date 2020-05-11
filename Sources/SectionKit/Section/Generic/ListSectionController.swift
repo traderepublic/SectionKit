@@ -14,6 +14,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     public init(model: Model) {
         self.model = model
         super.init()
+        items = items(for: model)
     }
     
     override open func didUpdate(model: SectionModel) {
