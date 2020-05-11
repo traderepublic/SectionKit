@@ -34,9 +34,9 @@ public extension UICollectionView {
                 }
                 
                 let moves = batchOperation.moves
-                for (at, to) in moves {
-                    moveItem(at: IndexPath(item: at, section: section),
-                             to: IndexPath(item: to, section: section))
+                for move in moves {
+                    moveItem(at: IndexPath(item: move.at, section: section),
+                             to: IndexPath(item: move.to, section: section))
                 }
                 
                 let reloads = batchOperation.reloads

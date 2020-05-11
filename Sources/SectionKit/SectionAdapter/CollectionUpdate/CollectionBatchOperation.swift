@@ -26,7 +26,7 @@ public struct CollectionBatchOperation<CollectionData> {
 }
 
 public extension CollectionBatchOperation {
-    /// Indizes to delete in this batch operation
+    /// Indices to delete in this batch operation
     @inlinable
     var deletes: [Int] {
         return changes.compactMap { change -> Int? in
@@ -39,7 +39,7 @@ public extension CollectionBatchOperation {
         }
     }
     
-    /// Indizes to insert in this batch operation
+    /// Indices to insert in this batch operation
     @inlinable
     var inserts: [Int] {
         return changes.compactMap { change -> Int? in
@@ -52,7 +52,7 @@ public extension CollectionBatchOperation {
         }
     }
     
-    /// Indizes to move in this batch operation
+    /// Indices to move in this batch operation
     @inlinable
     var moves: [(at: Int, to: Int)] {
         return changes.compactMap { change -> (Int, Int)? in
@@ -65,7 +65,7 @@ public extension CollectionBatchOperation {
         }
     }
     
-    /// Indizes to reload in this batch operation
+    /// Indices to reload in this batch operation
     @inlinable
     var reloads: [Int] {
         return changes.compactMap { change -> Int? in
