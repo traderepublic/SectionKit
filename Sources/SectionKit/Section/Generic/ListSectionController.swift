@@ -5,7 +5,11 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     
     // MARK: - SectionController
     
-    open var model: Model
+    open var model: Model {
+        didSet {
+            items = items(for: model)
+        }
+    }
     
     public init(model: Model) {
         self.model = model
@@ -18,7 +22,6 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
             return
         }
         self.model = model
-        items = items(for: model)
     }
     
     open func items(for model: Model) -> [Item] {

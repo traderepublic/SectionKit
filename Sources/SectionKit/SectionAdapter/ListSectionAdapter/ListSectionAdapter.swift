@@ -85,11 +85,7 @@ open class ListSectionAdapter:
     
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
-        let sections = querySections(from: dataSource)
-        sections.forEach {
-            $0.controller.didUpdate(model: $0.model)
-        }
-        self.sections = sections
+        sections = querySections(from: dataSource)
     }
     
     private func querySections(from dataSource: SectionAdapterDataSource) -> [Section] {
@@ -102,6 +98,7 @@ open class ListSectionAdapter:
                 let section: Section
                 if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
                     section = Section(model: model, controller: existingSection.controller)
+                    existingSection.controller.didUpdate(model: model)
                 } else {
                     section = Section(model: model) { [unowned self] in
                         dataSource.sectionController(with: model, for: self)

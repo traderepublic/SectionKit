@@ -67,7 +67,7 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
             changes = [.deleteItem(at: 0)]
         case (.none, .some):
             changes = [.insertItem(at: 0)]
-        default:
+        case (.none, .none):
             changes = []
         }
         return SectionUpdate(sectionId: model.sectionId,
