@@ -110,9 +110,9 @@
 		8508169E2459B0100063C803 /* SectionController */ = {
 			isa = PBXGroup;
 			children = (
-				8508169F2459B0240063C803 /* TeamMemberSectionController.swift */,
 				5A68EEB9246996E10006CD07 /* ProfilePictureSectionController.swift */,
 				5A68EEBB246997070006CD07 /* PersonalInformationSectionController.swift */,
+				8508169F2459B0240063C803 /* TeamMemberSectionController.swift */,
 			);
 			path = SectionController;
 			sourceTree = "<group>";
