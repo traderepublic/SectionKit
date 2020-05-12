@@ -120,11 +120,11 @@ class ProfileViewController: UIViewController {
 // MARK: - SectionAdapterDataSource
 
 extension ProfileViewController: SectionAdapterDataSource {
-    func objects(for adapter: SectionAdapter) -> [SectionAdapterObject] {
+    func models(for adapter: SectionAdapter) -> [SectionModel] {
         return [
-            .section(viewModel.output.profilePictureSection),
-            .section(viewModel.output.personalInformationSection),
-            .section(viewModel.output.teamMemberSection)
+            viewModel.output.profilePictureSection,
+            viewModel.output.personalInformationSection,
+            viewModel.output.teamMemberSection
         ]
     }
     
