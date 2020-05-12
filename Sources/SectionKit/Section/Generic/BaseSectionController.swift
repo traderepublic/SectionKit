@@ -39,7 +39,7 @@ open class BaseSectionController:
     // MARK: - SectionDataSource
     
     open var numberOfItems: Int {
-        0
+        return 0
     }
     
     open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
