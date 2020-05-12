@@ -9,18 +9,15 @@
 /* Begin PBXBuildFile section */
 		5A345AE624586A3700F32287 /* SingleItemSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A345AE424586A1600F32287 /* SingleItemSectionController.swift */; };
 		5A68EE8A2461AB670006CD07 /* SectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EE892461AB670006CD07 /* SectionAdapter.swift */; };
-		5A68EEA22462D0560006CD07 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEA12462D0560006CD07 /* Stack.swift */; };
 		5A68EEA424630DA40006CD07 /* SectionAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEA324630DA40006CD07 /* SectionAdapterDataSource.swift */; };
 		5A68EEA824630E250006CD07 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEA724630E250006CD07 /* SectionModel.swift */; };
 		5A68EEAC246317240006CD07 /* Section+Differentiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEAA246317120006CD07 /* Section+Differentiable.swift */; };
 		5A68EEAE246422110006CD07 /* SectionIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEAD246422110006CD07 /* SectionIdentifiable.swift */; };
 		5A68EEB0246422240006CD07 /* SectionEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEAF246422240006CD07 /* SectionEquatable.swift */; };
 		5A68EEB224643F0F0006CD07 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEB124643F0F0006CD07 /* Section.swift */; };
-		5A68EEB4246442A90006CD07 /* SectionAdapterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEB3246442A90006CD07 /* SectionAdapterObject.swift */; };
 		5A68EEB6246957310006CD07 /* CollectionDifference+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEB5246957310006CD07 /* CollectionDifference+Changes.swift */; };
 		5AD1D948245086F8005F8F36 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD1D947245086F8005F8F36 /* DifferenceKit.framework */; };
 		5AD1D97D2452F6EC005F8F36 /* ListSectionAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD1D97B2452F6D9005F8F36 /* ListSectionAdapter+UIScrollViewDelegate.swift */; };
-		852E39BB246958FA00066D53 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39B92469571600066D53 /* StackTests.swift */; };
 		852E39C324696BBA00066D53 /* SectionUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C224696BBA00066D53 /* SectionUpdateTests.swift */; };
 		852E39C624696DDB00066D53 /* SectionBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C424696D7100066D53 /* SectionBatchOperationTests.swift */; };
 		852E39C924697CB900066D53 /* SectionIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C724697C9400066D53 /* SectionIndexPathTests.swift */; };
@@ -82,18 +79,15 @@
 /* Begin PBXFileReference section */
 		5A345AE424586A1600F32287 /* SingleItemSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemSectionController.swift; sourceTree = "<group>"; };
 		5A68EE892461AB670006CD07 /* SectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapter.swift; sourceTree = "<group>"; };
-		5A68EEA12462D0560006CD07 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		5A68EEA324630DA40006CD07 /* SectionAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterDataSource.swift; sourceTree = "<group>"; };
 		5A68EEA724630E250006CD07 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		5A68EEAA246317120006CD07 /* Section+Differentiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section+Differentiable.swift"; sourceTree = "<group>"; };
 		5A68EEAD246422110006CD07 /* SectionIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIdentifiable.swift; sourceTree = "<group>"; };
 		5A68EEAF246422240006CD07 /* SectionEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionEquatable.swift; sourceTree = "<group>"; };
 		5A68EEB124643F0F0006CD07 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		5A68EEB3246442A90006CD07 /* SectionAdapterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterObject.swift; sourceTree = "<group>"; };
 		5A68EEB5246957310006CD07 /* CollectionDifference+Changes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionDifference+Changes.swift"; sourceTree = "<group>"; };
 		5AD1D947245086F8005F8F36 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5AD1D97B2452F6D9005F8F36 /* ListSectionAdapter+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListSectionAdapter+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
-		852E39B92469571600066D53 /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		852E39C224696BBA00066D53 /* SectionUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdateTests.swift; sourceTree = "<group>"; };
 		852E39C424696D7100066D53 /* SectionBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperationTests.swift; sourceTree = "<group>"; };
 		852E39C724697C9400066D53 /* SectionIndexPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndexPathTests.swift; sourceTree = "<group>"; };
@@ -189,14 +183,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		852E39BC2469664600066D53 /* UtilityTests */ = {
-			isa = PBXGroup;
-			children = (
-				852E39B92469571600066D53 /* StackTests.swift */,
-			);
-			path = UtilityTests;
-			sourceTree = "<group>";
-		};
 		852E39BD246968C200066D53 /* Section */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,7 +273,6 @@
 				5A68EEAF246422240006CD07 /* SectionEquatable.swift */,
 				5A68EE892461AB670006CD07 /* SectionAdapter.swift */,
 				5A68EEA324630DA40006CD07 /* SectionAdapterDataSource.swift */,
-				5A68EEB3246442A90006CD07 /* SectionAdapterObject.swift */,
 			);
 			path = SectionAdapter;
 			sourceTree = "<group>";
@@ -319,7 +304,6 @@
 			children = (
 				OBJ_52 /* Collection+Extensions.swift */,
 				OBJ_54 /* UICollectionView+Reload.swift */,
-				5A68EEA12462D0560006CD07 /* Stack.swift */,
 				5A68EEB5246957310006CD07 /* CollectionDifference+Changes.swift */,
 			);
 			path = Utility;
@@ -339,7 +323,6 @@
 				OBJ_57 /* SectionKitTests.swift */,
 				OBJ_58 /* XCTestManifests.swift */,
 				852E39BD246968C200066D53 /* Section */,
-				852E39BC2469664600066D53 /* UtilityTests */,
 			);
 			name = SectionKitTests;
 			path = Tests/SectionKitTests;
@@ -502,12 +485,10 @@
 				5A68EEAE246422110006CD07 /* SectionIdentifiable.swift in Sources */,
 				OBJ_140 /* SectionBatchOperation.swift in Sources */,
 				5A68EEA424630DA40006CD07 /* SectionAdapterDataSource.swift in Sources */,
-				5A68EEA22462D0560006CD07 /* Stack.swift in Sources */,
 				OBJ_141 /* SectionChange.swift in Sources */,
 				OBJ_142 /* SectionUpdate.swift in Sources */,
 				OBJ_143 /* CollectionContext.swift in Sources */,
 				OBJ_144 /* CollectionBatchOperation.swift in Sources */,
-				5A68EEB4246442A90006CD07 /* SectionAdapterObject.swift in Sources */,
 				OBJ_145 /* CollectionChange.swift in Sources */,
 				OBJ_146 /* CollectionUpdate.swift in Sources */,
 				OBJ_147 /* FoundationDiffingListSectionAdapter.swift in Sources */,
@@ -532,7 +513,6 @@
 				OBJ_175 /* SectionKitTests.swift in Sources */,
 				852E39C924697CB900066D53 /* SectionIndexPathTests.swift in Sources */,
 				OBJ_176 /* XCTestManifests.swift in Sources */,
-				852E39BB246958FA00066D53 /* StackTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

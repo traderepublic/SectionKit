@@ -90,26 +90,17 @@ open class ListSectionAdapter:
     
     private func querySections(from dataSource: SectionAdapterDataSource) -> [Section] {
         var newSections: [Section] = []
-        let rootObjects = dataSource.objects(for: self).map { (dataSource, $0) }
-        var objectsStack = Stack(rootObjects.reversed())
-        while let (dataSource, object) = objectsStack.pop() {
-            switch object {
-            case let .section(model):
-                let section: Section
-                if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
-                    section = Section(model: model, controller: existingSection.controller)
-                    existingSection.controller.didUpdate(model: model)
-                } else {
-                    section = Section(model: model) { [unowned self] in
-                        dataSource.sectionController(with: model, for: self)
-                    }
-                }
-                newSections.append(section)
-            case let .dataSource(nestedDataSource):
-                for nestedObject in nestedDataSource.objects(for: self).reversed() {
-                    objectsStack.push((nestedDataSource, nestedObject))
+        for model in dataSource.models(for: self) {
+            let section: Section
+            if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
+                section = Section(model: model, controller: existingSection.controller)
+                existingSection.controller.didUpdate(model: model)
+            } else {
+                section = Section(model: model) { [unowned self] in
+                    dataSource.sectionController(with: model, for: self)
                 }
             }
+            newSections.append(section)
         }
         return newSections
     }
