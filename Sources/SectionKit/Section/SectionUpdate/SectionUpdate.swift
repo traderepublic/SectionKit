@@ -27,13 +27,16 @@ public struct SectionUpdate<SectionData> {
         self.setData = setData
         self.shouldReloadSection = shouldReloadSection
     }
-    
-    public init(sectionId: AnyHashable,
-                changes: Set<SectionChange>,
-                data: SectionData,
-                setData: @escaping (SectionData) -> Void,
-                shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false },
-                completion: ((Bool) -> Void)? = nil) {
+}
+
+public extension SectionUpdate {
+    @inlinable
+    init(sectionId: AnyHashable,
+         changes: Set<SectionChange>,
+         data: SectionData,
+         setData: @escaping (SectionData) -> Void,
+         shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false },
+         completion: ((Bool) -> Void)? = nil) {
         let batchOperation = SectionBatchOperation(changes: changes,
                                                    data: data,
                                                    completion: completion)
@@ -43,10 +46,11 @@ public struct SectionUpdate<SectionData> {
                   shouldReloadSection: shouldReloadSection)
     }
     
-    public init(sectionId: AnyHashable,
-                data: SectionData,
-                setData: @escaping (SectionData) -> Void,
-                completion: ((Bool) -> Void)? = nil) {
+    @inlinable
+    init(sectionId: AnyHashable,
+         data: SectionData,
+         setData: @escaping (SectionData) -> Void,
+         completion: ((Bool) -> Void)? = nil) {
         self.init(sectionId: sectionId,
                   changes: [],
                   data: data,

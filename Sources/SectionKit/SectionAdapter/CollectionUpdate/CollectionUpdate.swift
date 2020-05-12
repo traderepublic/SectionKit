@@ -22,12 +22,15 @@ public struct CollectionUpdate<CollectionData> {
         self.setData = setData
         self.shouldReloadCollection = shouldReloadCollection
     }
-    
-    public init(changes: Set<CollectionChange>,
-                data: CollectionData,
-                setData: @escaping (CollectionData) -> Void,
-                shouldReloadCollection: @escaping (CollectionBatchOperation<CollectionData>) -> Bool = { _ in false },
-                completion: ((Bool) -> Void)? = nil) {
+}
+
+public extension CollectionUpdate {
+    @inlinable
+    init(changes: Set<CollectionChange>,
+         data: CollectionData,
+         setData: @escaping (CollectionData) -> Void,
+         shouldReloadCollection: @escaping (CollectionBatchOperation<CollectionData>) -> Bool = { _ in false },
+         completion: ((Bool) -> Void)? = nil) {
         let batchOperation = CollectionBatchOperation(changes: changes,
                                                       data: data,
                                                       completion: completion)
@@ -36,9 +39,10 @@ public struct CollectionUpdate<CollectionData> {
                   shouldReloadCollection: shouldReloadCollection)
     }
     
-    public init(data: CollectionData,
-                setData: @escaping (CollectionData) -> Void,
-                completion: ((Bool) -> Void)? = nil) {
+    @inlinable
+    init(data: CollectionData,
+         setData: @escaping (CollectionData) -> Void,
+         completion: ((Bool) -> Void)? = nil) {
         self.init(changes: [],
                   data: data,
                   setData: setData,

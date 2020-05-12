@@ -3,13 +3,12 @@ import Foundation
 public class Section {
     public let model: SectionModel
     
-    @usableFromInline
-    internal let controllerAccessor: () -> SectionController
+    private let controllerAccessor: () -> SectionController
     
     public lazy var controller: SectionController = controllerAccessor()
     
-    @inlinable
-    public init(model: SectionModel, controllerAccessor: @escaping () -> SectionController) {
+    public init(model: SectionModel,
+                controllerAccessor: @escaping () -> SectionController) {
         self.model = model
         self.controllerAccessor = controllerAccessor
     }

@@ -16,6 +16,7 @@ public struct SectionIndexPath {
 extension SectionIndexPath {
     @inlinable
     public init(_ indexPath: IndexPath) {
-        self.init(externalRepresentation: indexPath, internalRepresentation: indexPath.item)
+        self.init(externalRepresentation: indexPath,
+                  internalRepresentation: indexPath.item)
     }
 }

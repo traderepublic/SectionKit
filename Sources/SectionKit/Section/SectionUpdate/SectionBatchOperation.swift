@@ -29,72 +29,52 @@ public extension SectionBatchOperation {
     /// Indices to delete in this batch operation
     @inlinable
     var deletes: Set<Int> {
-        let deletes = changes.compactMap { change -> Int? in
+        return Set(changes.compactMap { change -> Int? in
             switch change {
             case .deleteItem(at: let index):
                 return index
             default:
                 return nil
             }
-        }
-
-        return Set(deletes)
+        })
     }
     
     /// Indices to insert in this batch operation
     @inlinable
     var inserts: Set<Int> {
-        let inserts = changes.compactMap { change -> Int? in
+        return Set(changes.compactMap { change -> Int? in
             switch change {
             case .insertItem(at: let index):
                 return index
             default:
                 return nil
             }
-        }
-
-        return Set(inserts)
+        })
     }
     
     /// Indices to move in this batch operation
     @inlinable
     var moves: Set<Move> {
-        let moves = changes.compactMap { change -> Move? in
+        return Set(changes.compactMap { change -> Move? in
             switch change {
             case .moveItem(at: let source, to: let target):
                 return Move(at: source, to: target)
             default:
                 return nil
             }
-        }
-
-        return Set(moves)
+        })
     }
     
     /// Indices to reload in this batch operation
     @inlinable
     var reloads: Set<Int> {
-        let reloads = changes.compactMap { change -> Int? in
+        return Set(changes.compactMap { change -> Int? in
             switch change {
             case .reloadItem(at: let index):
                 return index
             default:
                 return nil
             }
-        }
-
-        return Set(reloads)
-    }
-}
-
-extension SectionBatchOperation {
-    public struct Move: Hashable {
-        var at: Int
-        var to: Int
-
-        public init(at: Int, to: Int) {
-            self.at = at
-            self.to = to
-        }
+        })
     }
 }
