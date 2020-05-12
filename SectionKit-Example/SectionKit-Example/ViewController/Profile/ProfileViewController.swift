@@ -6,6 +6,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
     
     let viewModel: ProfileViewModel
+    
     var sectionAdapter: SectionAdapter!
 
     // MARK: - Initialization
@@ -127,7 +128,8 @@ extension ProfileViewController: SectionAdapterDataSource {
         ]
     }
     
-    func sectionController(with model: SectionModel, for adapter: SectionAdapter) -> SectionController {
+    func sectionController(with model: SectionModel,
+                           for adapter: SectionAdapter) -> SectionController {
         switch model {
         case let model as ProfilePictureSectionViewModel:
             return ProfilePictureSectionController(model: model)
