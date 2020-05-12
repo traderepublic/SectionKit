@@ -5,7 +5,7 @@ public extension CollectionDifference {
     /// Convert this `CollectionDifference` to a set of collection changes
     @inlinable
     var collectionChanges: Set<CollectionChange> {
-        var changes: Set<CollectionChange> = []
+        var changes = Set<CollectionChange>()
         for change in self {
             switch change {
             case .insert(offset: let offset,
@@ -30,7 +30,7 @@ public extension CollectionDifference {
     /// Convert this `CollectionDifference` to a set of section changes
     @inlinable
     var sectionChanges: Set<SectionChange> {
-        var changes: Set<SectionChange> = []
+        var changes = Set<SectionChange>()
         for change in self {
             switch change {
             case .insert(offset: let offset,
