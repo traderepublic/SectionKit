@@ -3,11 +3,17 @@ import XCTest
 
 final class SectionBatchOperationTests: XCTestCase {
     static var allTests = [
+        "testEquatable": testEquatable,
         "testDeletes": testDeletes,
-        "testDeletes": testInserts,
-        "testDeletes": testMoves,
-        "testDeletes": testReloads,
+        "testInserts": testInserts,
+        "testMoves": testMoves,
+        "testReloads": testReloads,
     ]
+
+    func testEquatable() {
+        let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
+        XCTAssert(input == SectionBatchOperation<[Int]>(changes: changes, data: data))
+    }
 
     func testDeletes() {
         let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
@@ -27,8 +33,9 @@ final class SectionBatchOperationTests: XCTestCase {
         let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
         let output = input.moves
 
-        let expected = Set([SectionBatchOperation<[Int]>.Move(at: 0, to: 1),
-                            SectionBatchOperation<[Int]>.Move(at: 1, to: 2)])
+
+        let expected = Set([Move(at: 0, to: 1),
+                            Move(at: 1, to: 2)])
 
         XCTAssertEqual(output, expected)
     }

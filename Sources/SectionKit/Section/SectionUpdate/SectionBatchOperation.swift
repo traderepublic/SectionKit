@@ -25,6 +25,12 @@ public struct SectionBatchOperation<SectionData> {
     }
 }
 
+extension SectionBatchOperation: Equatable where SectionData: Equatable {
+    public static func == (lhs: SectionBatchOperation<SectionData>, rhs: SectionBatchOperation<SectionData>) -> Bool {
+        return lhs.changes == rhs.changes && lhs.data == rhs.data
+    }
+}
+
 public extension SectionBatchOperation {
     /// Indices to delete in this batch operation
     @inlinable
