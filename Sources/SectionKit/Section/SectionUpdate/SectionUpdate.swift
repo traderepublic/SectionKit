@@ -60,3 +60,8 @@ public extension SectionUpdate {
     }
 }
 
+extension SectionUpdate: Equatable where SectionData: Equatable {
+    public static func == (lhs: SectionUpdate<SectionData>, rhs: SectionUpdate<SectionData>) -> Bool {
+        lhs.batchOperations == rhs.batchOperations && lhs.sectionId == rhs.sectionId
+    }
+}

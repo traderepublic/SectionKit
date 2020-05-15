@@ -23,6 +23,7 @@
 		5AD1D97D2452F6EC005F8F36 /* ListSectionAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD1D97B2452F6D9005F8F36 /* ListSectionAdapter+UIScrollViewDelegate.swift */; };
 		852E39C624696DDB00066D53 /* SectionBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C424696D7100066D53 /* SectionBatchOperationTests.swift */; };
 		852E39C924697CB900066D53 /* SectionIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C724697C9400066D53 /* SectionIndexPathTests.swift */; };
+		852E39CA24697F2800066D53 /* SectionUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C224696BBA00066D53 /* SectionUpdateTests.swift */; };
 		OBJ_110 /* DiffingListSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingListSectionAdapter.swift */; };
 		OBJ_111 /* DiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DiffingListSectionController.swift */; };
 		OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ChangeSet+BatchOperations.swift */; };
@@ -518,6 +519,7 @@
 			files = (
 				852E39C624696DDB00066D53 /* SectionBatchOperationTests.swift in Sources */,
 				OBJ_175 /* SectionKitTests.swift in Sources */,
+				852E39CA24697F2800066D53 /* SectionUpdateTests.swift in Sources */,
 				852E39C924697CB900066D53 /* SectionIndexPathTests.swift in Sources */,
 				5A68EEC1246E90E00006CD07 /* SectionUpdateTests.swift in Sources */,
 				OBJ_176 /* XCTestManifests.swift in Sources */,
