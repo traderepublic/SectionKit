@@ -65,36 +65,4 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
     override open var numberOfItems: Int {
         return 1
     }
-    
-    override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        return cell(for: model, at: indexPath)
-    }
-    
-    open func cell(for model: Model, at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        assertionFailure("cell(for:at:) not implemented")
-        return UICollectionViewCell()
-    }
-    
-    // MARK: - SectionDelegate
-    
-    override open func didSelectItem(at indexPath: SectionIndexPath) {
-        didSelect(model: model, at: indexPath)
-    }
-    
-    open func didSelect(model: Model, at indexPath: SectionIndexPath) { }
-    
-    // MARK: - SectionFlowDelegate
-    
-    override open func sizeForItem(at indexPath: SectionIndexPath,
-                                   using layout: UICollectionViewLayout) -> CGSize {
-        return size(for: model,
-                    at: indexPath,
-                    using: layout)
-    }
-    
-    open func size(for model: Model,
-                   at indexPath: SectionIndexPath,
-                   using layout: UICollectionViewLayout) -> CGSize {
-        return super.sizeForItem(at: indexPath, using: layout)
-    }
 }

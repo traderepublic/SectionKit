@@ -71,37 +71,5 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     override open var numberOfItems: Int {
         items.count
     }
-    
-    override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        return cell(for: items[indexPath.internalRepresentation], at: indexPath)
-    }
-    
-    open func cell(for item: Item, at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        assertionFailure("cell(for:at:) not implemented")
-        return UICollectionViewCell()
-    }
-    
-    // MARK: - SectionDelegate
-    
-    override open func didSelectItem(at indexPath: SectionIndexPath) {
-        didSelect(item: items[indexPath.internalRepresentation], at: indexPath)
-    }
-    
-    open func didSelect(item: Item, at indexPath: SectionIndexPath) { }
-    
-    // MARK: - SectionFlowDelegate
-    
-    override open func sizeForItem(at indexPath: SectionIndexPath,
-                                   using layout: UICollectionViewLayout) -> CGSize {
-        return size(for: items[indexPath.internalRepresentation],
-                    at: indexPath,
-                    using: layout)
-    }
-    
-    open func size(for item: Item,
-                   at indexPath: SectionIndexPath,
-                   using layout: UICollectionViewLayout) -> CGSize {
-        return super.sizeForItem(at: indexPath, using: layout)
-    }
 }
 

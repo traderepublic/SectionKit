@@ -86,45 +86,4 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
     override open var numberOfItems: Int {
         return item != nil ? 1 : 0
     }
-    
-    override open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        guard let item = item else {
-            fatalError("\(#function): Item is not set")
-        }
-        return cell(for: item, at: indexPath)
-    }
-    
-    open func cell(for item: Item, at indexPath: SectionIndexPath) -> UICollectionViewCell {
-        assertionFailure("cell(for:at:) not implemented")
-        return UICollectionViewCell()
-    }
-    
-    // MARK: - SectionDelegate
-    
-    override open func didSelectItem(at indexPath: SectionIndexPath) {
-        guard let item = item else {
-            fatalError("\(#function): Item is not set")
-        }
-        didSelect(item: item, at: indexPath)
-    }
-    
-    open func didSelect(item: Item, at indexPath: SectionIndexPath) { }
-    
-    // MARK: - SectionFlowDelegate
-    
-    override open func sizeForItem(at indexPath: SectionIndexPath,
-                                   using layout: UICollectionViewLayout) -> CGSize {
-        guard let item = item else {
-            fatalError("\(#function): Item is not set")
-        }
-        return size(for: item,
-                    at: indexPath,
-                    using: layout)
-    }
-    
-    open func size(for item: Item,
-                   at indexPath: SectionIndexPath,
-                   using layout: UICollectionViewLayout) -> CGSize {
-        return super.sizeForItem(at: indexPath, using: layout)
-    }
 }
