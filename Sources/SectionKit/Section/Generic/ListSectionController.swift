@@ -44,8 +44,9 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
                 collectionViewItems = newValue
                 return
             }
-            let sectionUpdate = calculateUpdate(from: collectionViewItems, to: newValue)
-            context.apply(update: sectionUpdate)
+            if let sectionUpdate = calculateUpdate(from: collectionViewItems, to: newValue) {
+                context.apply(update: sectionUpdate)
+            }
         }
     }
     
@@ -59,7 +60,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
      - Returns: The update that should be performed on the section
      */
     open func calculateUpdate(from oldData: [Item],
-                              to newData: [Item]) -> SectionUpdate<[Item]> {
+                              to newData: [Item]) -> SectionUpdate<[Item]>? {
         return SectionUpdate(sectionId: model.sectionId,
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 })

@@ -6,7 +6,7 @@ open class FoundationDiffingListSectionController<Model: SectionModel, Item: Has
     ListSectionController<Model, Item>
 {
     override open func calculateUpdate(from oldData: [Item],
-                                       to newData: [Item]) -> SectionUpdate<[Item]> {
+                                       to newData: [Item]) -> SectionUpdate<[Item]>? {
         let difference = newData.difference(from: oldData).inferringMoves()
         return SectionUpdate(sectionId: model.sectionId,
                              changes: difference.sectionChanges,

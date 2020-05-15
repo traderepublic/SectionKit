@@ -31,8 +31,9 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
                 collectionViewModel = newValue
                 return
             }
-            let sectionUpdate = calculateUpdate(from: collectionViewModel, to: newValue)
-            context.apply(update: sectionUpdate)
+            if let sectionUpdate = calculateUpdate(from: collectionViewModel, to: newValue) {
+                context.apply(update: sectionUpdate)
+            }
         }
     }
     
@@ -46,7 +47,7 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
      - Returns: The update that should be performed on the section
      */
     open func calculateUpdate(from oldData: Model,
-                              to newData: Model) -> SectionUpdate<Model> {
+                              to newData: Model) -> SectionUpdate<Model>? {
         let changes: Set<SectionChange>
         if oldData.isEqual(to: newData) {
             changes = []
