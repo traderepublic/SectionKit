@@ -94,7 +94,9 @@ open class ListSectionAdapter:
             let section: Section
             if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
                 section = Section(model: model, controller: existingSection.controller)
-                existingSection.controller.didUpdate(model: model)
+                if !model.isEqual(to: existingSection.model) {
+                    existingSection.controller.didUpdate(model: model)
+                }
             } else {
                 section = Section(model: model) { [unowned self] in
                     dataSource.sectionController(with: model, for: self)
