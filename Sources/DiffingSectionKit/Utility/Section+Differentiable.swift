@@ -8,6 +8,6 @@ extension Section: Differentiable {
     
     @inlinable
     public func isContentEqual(to source: Section) -> Bool {
-        model.isEqual(to: source.model) 
+        model.sectionId == source.model.sectionId
     }
 }
