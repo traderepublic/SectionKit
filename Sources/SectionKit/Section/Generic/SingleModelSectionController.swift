@@ -1,20 +1,12 @@
 import UIKit
 
-/// A `SectionController` that handles a list of items.
-open class ListSectionController<Model: SectionModel, Item>: BaseSectionController {
+open class SingleModelSectionController<Model: SectionModel>: BaseSectionController {
     
     // MARK: - SectionController
     
-    open var model: Model {
-        didSet {
-            items = items(for: model)
-        }
-    }
-    
     public init(model: Model) {
-        self.model = model
+        self.collectionViewModel = model
         super.init()
-        items = items(for: model)
     }
     
     override open func didUpdate(model: SectionModel) {
@@ -25,26 +17,21 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
         self.model = model
     }
     
-    open func items(for model: Model) -> [Item] {
-        assertionFailure("items(for:) not implemented")
-        return []
-    }
-    
     /**
-     The list of items currently displayed in the `UICollectionView`
+     The model currently displayed in the `UICollectionView`
      
-     Only set this property if `UICollectionView` insertions and deletions are handled, otherwise use `items` instead.
+     Only set this property if `UICollectionView` insertions and deletions are handled, otherwise use `model` instead.
      */
-    open var collectionViewItems: [Item] = []
+    open var collectionViewModel: Model
     
-    open var items: [Item] {
-        get { collectionViewItems }
+    open var model: Model {
+        get { collectionViewModel }
         set {
             guard let context = context else {
-                collectionViewItems = newValue
+                collectionViewModel = newValue
                 return
             }
-            if let sectionUpdate = calculateUpdate(from: collectionViewItems, to: newValue) {
+            if let sectionUpdate = calculateUpdate(from: collectionViewModel, to: newValue) {
                 context.apply(update: sectionUpdate)
             }
         }
@@ -59,17 +46,23 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
      
      - Returns: The update that should be performed on the section
      */
-    open func calculateUpdate(from oldData: [Item],
-                              to newData: [Item]) -> SectionUpdate<[Item]>? {
+    open func calculateUpdate(from oldData: Model,
+                              to newData: Model) -> SectionUpdate<Model>? {
+        let changes: Set<SectionChange>
+        if oldData.isEqual(to: newData) {
+            changes = []
+        } else {
+            changes = [.reloadItem(at: 0)]
+        }
         return SectionUpdate(sectionId: model.sectionId,
+                             changes: changes,
                              data: newData,
-                             setData: { [weak self] in self?.collectionViewItems = $0 })
+                             setData: { [weak self] in self?.collectionViewModel = $0 })
     }
     
     // MARK: - SectionDataSource
     
     override open var numberOfItems: Int {
-        items.count
+        return 1
     }
 }
-

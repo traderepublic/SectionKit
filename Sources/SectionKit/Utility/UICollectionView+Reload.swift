@@ -8,6 +8,7 @@ public extension UICollectionView {
      
      - Parameter section: The section in the `UICollectionView` to modify.
      */
+    @inlinable
     func reload<T>(using update: SectionUpdate<T>,
                    at section: Int) {
         if case .none = window, let data = update.batchOperations.last?.data {
@@ -34,9 +35,9 @@ public extension UICollectionView {
                 }
                 
                 let moves = batchOperation.moves
-                for (at, to) in moves {
-                    moveItem(at: IndexPath(item: at, section: section),
-                             to: IndexPath(item: to, section: section))
+                for move in moves {
+                    moveItem(at: IndexPath(item: move.at, section: section),
+                             to: IndexPath(item: move.to, section: section))
                 }
                 
                 let reloads = batchOperation.reloads
@@ -52,6 +53,7 @@ public extension UICollectionView {
      
      - Parameter update: The update to apply to the sections.
      */
+    @inlinable
     func reload<T>(using update: CollectionUpdate<T>) {
         if case .none = window, let data = update.batchOperations.last?.data {
             update.setData(data)
@@ -77,8 +79,8 @@ public extension UICollectionView {
                 }
                 
                 let moves = batchOperation.moves
-                for (at, to) in moves {
-                    moveSection(at, toSection: to)
+                for move in moves {
+                    moveSection(move.at, toSection: move.to)
                 }
                 
                 let reloads = batchOperation.reloads

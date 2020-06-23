@@ -11,11 +11,12 @@ public struct SectionIndexPath {
         self.externalRepresentation = externalRepresentation
         self.internalRepresentation = internalRepresentation
     }
-    
-    public init(_ indexPath: IndexPath) {
-        externalRepresentation = indexPath
-        internalRepresentation = indexPath.item
-    }
 }
 
-
+extension SectionIndexPath {
+    @inlinable
+    public init(_ indexPath: IndexPath) {
+        self.init(externalRepresentation: indexPath,
+                  internalRepresentation: indexPath.item)
+    }
+}

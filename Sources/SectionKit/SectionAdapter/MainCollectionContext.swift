@@ -5,6 +5,8 @@ open class MainCollectionContext: CollectionContext {
     
     // MARK: - Properties
     
+    public weak var sectionAdapter: SectionAdapter?
+    
     public private(set) weak var viewController: UIViewController?
     
     public let collectionView: UICollectionView
@@ -14,11 +16,6 @@ open class MainCollectionContext: CollectionContext {
     private var registeredHeaderViewTypes: [UICollectionReusableView.Type] = []
     
     private var registeredFooterViewTypes: [UICollectionReusableView.Type] = []
-    
-    public var sectionControllers: () -> [SectionController] = {
-        assertionFailure("Did not set sectionControllers")
-        return []
-    }
     
     // MARK: - Initializer
     
@@ -30,14 +27,17 @@ open class MainCollectionContext: CollectionContext {
     
     // MARK: - Container sizing and inset
     
+    @inlinable
     open var containerSize: CGSize {
         collectionView.bounds.size
     }
     
+    @inlinable
     open var containerInset: UIEdgeInsets {
         collectionView.contentInset
     }
     
+    @inlinable
     open var adjustedContainerInset: UIEdgeInsets {
         if #available(iOS 11.0, *) {
             return collectionView.adjustedContentInset
@@ -46,6 +46,7 @@ open class MainCollectionContext: CollectionContext {
         }
     }
     
+    @inlinable
     open var insetContainerSize: CGSize {
         collectionView.bounds.inset(by: adjustedContainerInset).size
     }
@@ -53,9 +54,13 @@ open class MainCollectionContext: CollectionContext {
     // MARK: - Apply
     
     open func apply<T>(update: SectionUpdate<T>) {
-        let sectionControllers = self.sectionControllers()
-        guard let (sectionIndex, _) = sectionControllers.enumerated().first(where: { $1.id == update.sectionId }) else {
-            assertionFailure("No section controller was found for the specified id")
+        guard let sectionAdapter = sectionAdapter else {
+            assertionFailure("`sectionAdapter` is no set")
+            return collectionView.reloadData()
+        }
+        let sections = sectionAdapter.sections
+        guard let (sectionIndex, _) = sections.enumerated().first(where: { $1.model.sectionId == update.sectionId }) else {
+            assertionFailure("No section was found for the specified id")
             return collectionView.reloadData()
         }
         collectionView.reload(using: update, at: sectionIndex)
@@ -134,14 +139,17 @@ open class MainCollectionContext: CollectionContext {
     open func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController, SectionIndexPath)? {
         var sectionIndexPath = indexPath
         var sectionIndex = indexPath.section
-        let sectionControllers = self.sectionControllers()
-        if sectionIndex >= sectionControllers.count {
+        guard let sectionAdapter = sectionAdapter else {
+            fatalError("`sectionAdapter` is no set")
+        }
+        let sections = sectionAdapter.sections
+        if sectionIndex >= sections.count {
             // index of section is out of bounds, select last section instead
-            sectionIndex = sectionControllers.count - 1
-            sectionIndexPath = IndexPath(item: sectionControllers[sectionIndex].dataSource.numberOfItems,
+            sectionIndex = sections.count - 1
+            sectionIndexPath = IndexPath(item: sections[sectionIndex].controller.dataSource.numberOfItems,
                                          section: sectionIndex)
         }
-        return (sectionControllers[sectionIndex], SectionIndexPath(sectionIndexPath))
+        return (sections[sectionIndex].controller, SectionIndexPath(sectionIndexPath))
     }
 }
 

@@ -2,13 +2,6 @@ import UIKit
 
 /// A controller for a section in a `UICollectionView`
 public protocol SectionController: AnyObject {
-    /**
-     An identifier which uniquely identifies this section.
-     
-     It is used to calculate the differences when updating the list of sections.
-     */
-    var id: String { get }
-    
     /// An object which provides contextual information of the `UICollectionView`
     var context: CollectionContext? { get set }
     
@@ -28,6 +21,9 @@ public protocol SectionController: AnyObject {
     /// The drop delegate of this section
     @available(iOS 11.0, *)
     var dropDelegate: SectionDropDelegate? { get }
+    
+    /// The model of this section controller changed
+    func didUpdate(model: SectionModel)
 }
 
 public extension SectionController {

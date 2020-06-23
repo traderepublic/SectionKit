@@ -8,9 +8,6 @@ public protocol CollectionContext: AnyObject {
     /// The current `UICollectionView`
     var collectionView: UICollectionView { get }
     
-    /// A closure set by the `SectionAdapter` which provides access to the current list of section controllers
-    var sectionControllers: () -> [SectionController] { get set }
-    
     /// The size of the `UICollectionView`
     var containerSize: CGSize { get }
     

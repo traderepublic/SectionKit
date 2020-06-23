@@ -26,55 +26,55 @@ public struct CollectionBatchOperation<CollectionData> {
 }
 
 public extension CollectionBatchOperation {
-    /// Indizes to delete in this batch operation
+    /// Indices to delete in this batch operation
     @inlinable
-    var deletes: [Int] {
-        return changes.compactMap { change -> Int? in
+    var deletes: Set<Int> {
+        return Set(changes.compactMap { change -> Int? in
             switch change {
             case .deleteSection(at: let index):
                 return index
             default:
                 return nil
             }
-        }
+        })
     }
     
-    /// Indizes to insert in this batch operation
+    /// Indices to insert in this batch operation
     @inlinable
-    var inserts: [Int] {
-        return changes.compactMap { change -> Int? in
+    var inserts: Set<Int> {
+        return Set(changes.compactMap { change -> Int? in
             switch change {
             case .insertSection(at: let index):
                 return index
             default:
                 return nil
             }
-        }
+        })
     }
     
-    /// Indizes to move in this batch operation
+    /// Indices to move in this batch operation
     @inlinable
-    var moves: [(at: Int, to: Int)] {
-        return changes.compactMap { change -> (Int, Int)? in
+    var moves: Set<Move> {
+        return Set(changes.compactMap { change -> Move? in
             switch change {
             case .moveSection(at: let source, to: let target):
-                return (at: source, to: target)
+                return Move(at: source, to: target)
             default:
                 return nil
             }
-        }
+        })
     }
     
-    /// Indizes to reload in this batch operation
+    /// Indices to reload in this batch operation
     @inlinable
-    var reloads: [Int] {
-        return changes.compactMap { change -> Int? in
+    var reloads: Set<Int> {
+        return Set(changes.compactMap { change -> Int? in
             switch change {
             case .reloadSection(at: let index):
                 return index
             default:
                 return nil
             }
-        }
+        })
     }
 }

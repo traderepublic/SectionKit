@@ -3,7 +3,7 @@ import Foundation
 /// A set of updates that should be performed
 public struct SectionUpdate<SectionData> {
     /// The id of the section that wants to perform these changes
-    public let sectionId: String
+    public let sectionId: AnyHashable
     
     /// The batch updates that should be performed
     public let batchOperations: [SectionBatchOperation<SectionData>]
@@ -18,7 +18,7 @@ public struct SectionUpdate<SectionData> {
      */
     public let shouldReloadSection: (SectionBatchOperation<SectionData>) -> Bool
     
-    public init(sectionId: String,
+    public init(sectionId: AnyHashable,
                 batchOperations: [SectionBatchOperation<SectionData>],
                 setData: @escaping (SectionData) -> Void,
                 shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false }) {
@@ -27,13 +27,16 @@ public struct SectionUpdate<SectionData> {
         self.setData = setData
         self.shouldReloadSection = shouldReloadSection
     }
-    
-    public init(sectionId: String,
-                changes: Set<SectionChange>,
-                data: SectionData,
-                setData: @escaping (SectionData) -> Void,
-                shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false },
-                completion: ((Bool) -> Void)? = nil) {
+}
+
+public extension SectionUpdate {
+    @inlinable
+    init(sectionId: AnyHashable,
+         changes: Set<SectionChange>,
+         data: SectionData,
+         setData: @escaping (SectionData) -> Void,
+         shouldReloadSection: @escaping (SectionBatchOperation<SectionData>) -> Bool = { _ in false },
+         completion: ((Bool) -> Void)? = nil) {
         let batchOperation = SectionBatchOperation(changes: changes,
                                                    data: data,
                                                    completion: completion)
@@ -43,10 +46,11 @@ public struct SectionUpdate<SectionData> {
                   shouldReloadSection: shouldReloadSection)
     }
     
-    public init(sectionId: String,
-                data: SectionData,
-                setData: @escaping (SectionData) -> Void,
-                completion: ((Bool) -> Void)? = nil) {
+    @inlinable
+    init(sectionId: AnyHashable,
+         data: SectionData,
+         setData: @escaping (SectionData) -> Void,
+         completion: ((Bool) -> Void)? = nil) {
         self.init(sectionId: sectionId,
                   changes: [],
                   data: data,
@@ -56,3 +60,8 @@ public struct SectionUpdate<SectionData> {
     }
 }
 
+extension SectionUpdate: Equatable where SectionData: Equatable {
+    public static func == (lhs: SectionUpdate<SectionData>, rhs: SectionUpdate<SectionData>) -> Bool {
+        lhs.batchOperations == rhs.batchOperations && lhs.sectionId == rhs.sectionId
+    }
+}

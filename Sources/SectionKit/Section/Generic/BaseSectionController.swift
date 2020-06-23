@@ -22,8 +22,6 @@ open class BaseSectionController:
     
     open var context: CollectionContext?
     
-    open private(set) var id: String = UUID().uuidString
-    
     open var dataSource: SectionDataSource { self }
     
     open var delegate: SectionDelegate? { self }
@@ -36,10 +34,12 @@ open class BaseSectionController:
     @available(iOS 11.0, *)
     open var dropDelegate: SectionDropDelegate? { self }
     
+    open func didUpdate(model: SectionModel) { }
+    
     // MARK: - SectionDataSource
     
     open var numberOfItems: Int {
-        0
+        return 0
     }
     
     open func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
