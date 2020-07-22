@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DifferenceKit",
+        "repositoryURL": "https://github.com/ra1028/DifferenceKit",
+        "state": {
+          "branch": null,
+          "revision": "14c66681e12a38b81045f44c6c29724a0d4b0e72",
+          "version": "1.1.5"
+        }
+      },
+      {
+        "package": "SectionKit",
+        "repositoryURL": "git@github.com:traderepublic/tr-sectionkit.git",
+        "state": {
+          "branch": "adapter_datasource",
+          "revision": "253ae7dea10cf328c73c9d5a44db0a33e991ed87",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
