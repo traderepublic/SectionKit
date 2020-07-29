@@ -503,8 +503,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:traderepublic/tr-sectionkit.git";
 			requirement = {
-				branch = adapter_datasource;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

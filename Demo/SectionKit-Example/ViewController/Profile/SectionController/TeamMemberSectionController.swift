@@ -15,23 +15,21 @@ class TeamMemberSectionController:
         return model.output.members
     }
     
-    override func cell(for item: String,
-                       at indexPath: SectionIndexPath) -> UICollectionViewCell {
+    override func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
         let cell = context!.dequeueReusableCell(PlainTextCell.self,
                                                 for: indexPath.externalRepresentation)
-        cell.configure(with: item)
+        cell.configure(with: items[indexPath.internalRepresentation])
         return cell
     }
     
-    override func size(for item: String,
-                       at indexPath: SectionIndexPath,
-                       using layout: UICollectionViewLayout) -> CGSize {
-        return PlainTextCell.size(for: item, size: context!.containerSize)
+    override func sizeForItem(at indexPath: SectionIndexPath,
+                              using layout: UICollectionViewLayout) -> CGSize {
+        return PlainTextCell.size(for: items[indexPath.internalRepresentation],
+                                  size: context!.containerSize)
     }
     
-    override func didSelect(item: String,
-                            at indexPath: SectionIndexPath) {
-        model.input.remove(member: item)
+    override func didSelectItem(at indexPath: SectionIndexPath) {
+        model.input.remove(member: items[indexPath.internalRepresentation])
     }
     
     // MARK: - Header

@@ -10,18 +10,17 @@ class ProfilePictureSectionController:
         return model.output.profilePicture
     }
     
-    override func cell(for item: UIImage,
-                       at indexPath: SectionIndexPath) -> UICollectionViewCell {
+    override func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
         let cell = context!.dequeueReusableCell(ProfilePictureCell.self,
                                                 for: indexPath.externalRepresentation)
-        cell.configure(with: item)
+        cell.configure(with: item!)
         return cell
     }
     
-    override func size(for item: UIImage,
-                       at indexPath: SectionIndexPath,
+    override func sizeForItem(at indexPath: SectionIndexPath,
                        using layout: UICollectionViewLayout) -> CGSize {
-        return ProfilePictureCell.size(for: item, size: context!.containerSize)
+        return ProfilePictureCell.size(for: item!,
+                                       size: context!.containerSize)
     }
     
     override func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
