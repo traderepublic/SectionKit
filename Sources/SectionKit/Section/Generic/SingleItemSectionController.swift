@@ -6,8 +6,14 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
     
     open var model: Model {
         didSet {
-            item = item(for: model)
+            if shouldUpdateItem(afterModelChangedTo: model) {
+                item = item(for: model)
+            }
         }
+    }
+
+    open func shouldUpdateItem(afterModelChangedTo: Model) -> Bool {
+        return true
     }
     
     public init(model: Model) {
