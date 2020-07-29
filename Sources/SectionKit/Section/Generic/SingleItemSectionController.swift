@@ -12,7 +12,7 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
         }
     }
 
-    open func shouldUpdateItem(afterModelChangedTo: Model) -> Bool {
+    open func shouldUpdateItem(afterModelChangedTo model: Model) -> Bool {
         return true
     }
     
