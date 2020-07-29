@@ -7,14 +7,22 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     
     open var model: Model {
         didSet {
-            items = items(for: model)
+            if shouldUpdateItems(afterModelChangedTo: model) {
+                items = items(for: model)
+            }
         }
+    }
+
+    open func shouldUpdateItems(afterModelChangedTo model: Model) -> Bool {
+        return true
     }
     
     public init(model: Model) {
         self.model = model
         super.init()
-        items = items(for: model)
+        if shouldUpdateItem(afterModelChangedTo: model) {
+            items = items(for: model)
+        }
     }
     
     override open func didUpdate(model: SectionModel) {
