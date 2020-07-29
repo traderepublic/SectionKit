@@ -20,7 +20,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     public init(model: Model) {
         self.model = model
         super.init()
-        if shouldUpdateItem(afterModelChangedTo: model) {
+        if shouldUpdateItems(afterModelChangedTo: model) {
             items = items(for: model)
         }
     }
