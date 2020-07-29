@@ -19,7 +19,9 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
     public init(model: Model) {
         self.model = model
         super.init()
-        item = item(for: model)
+        if shouldUpdateItem(afterModelChangedTo: model) {
+            item = item(for: model)
+        }
     }
     
     override open func didUpdate(model: SectionModel) {
