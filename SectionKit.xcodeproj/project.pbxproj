@@ -162,7 +162,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A68EEA924630E580006CD07 /* ListCollectionViewAdapter */ = {
+		5A68EEA924630E580006CD07 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_45 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */,
@@ -174,7 +174,7 @@
 				OBJ_50 /* ListCollectionViewAdapter.swift */,
 				OBJ_43 /* FoundationDiffingListSectionAdapter.swift */,
 			);
-			path = ListCollectionViewAdapter;
+			path = Generic;
 			sourceTree = "<group>";
 		};
 		5AD1D946245086F7005F8F36 /* Frameworks */ = {
@@ -267,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_39 /* CollectionUpdate */,
-				5A68EEA924630E580006CD07 /* ListCollectionViewAdapter */,
+				5A68EEA924630E580006CD07 /* Generic */,
 				OBJ_38 /* CollectionViewContext.swift */,
 				OBJ_44 /* MainCollectionViewContext.swift */,
 				5A68EEB124643F0F0006CD07 /* Section.swift */,
