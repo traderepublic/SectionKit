@@ -59,7 +59,7 @@ open class MainCollectionViewContext: CollectionViewContext {
 
     // MARK: - Apply
 
-    open func apply<T>(update: SectionUpdate<T>) {
+    open func apply<T>(update: CollectionViewSectionUpdate<T>) {
         guard let sectionAdapter = sectionAdapter else {
             assertionFailure("`sectionAdapter` is no set")
             return collectionView.reloadData()

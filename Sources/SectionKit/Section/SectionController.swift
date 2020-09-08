@@ -26,14 +26,14 @@ public protocol SectionController: AnyObject {
     func didUpdate(model: SectionModel)
 }
 
-public extension SectionController {
-    var delegate: SectionDelegate? { nil }
+extension SectionController {
+    public var delegate: SectionDelegate? { nil }
 
-    var flowDelegate: SectionFlowDelegate? { nil }
-
-    @available(iOS 11.0, *)
-    var dragDelegate: SectionDragDelegate? { nil }
+    public var flowDelegate: SectionFlowDelegate? { nil }
 
     @available(iOS 11.0, *)
-    var dropDelegate: SectionDropDelegate? { nil }
+    public var dragDelegate: SectionDragDelegate? { nil }
+
+    @available(iOS 11.0, *)
+    public var dropDelegate: SectionDropDelegate? { nil }
 }

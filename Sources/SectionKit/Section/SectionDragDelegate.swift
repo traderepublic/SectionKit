@@ -41,19 +41,19 @@ public protocol SectionDragDelegate: AnyObject {
 }
 
 @available(iOS 11.0, *)
-public extension SectionDragDelegate {
-    func dragItems(forBeginning session: UIDragSession,
-                   at indexPath: SectionIndexPath) -> [UIDragItem] {
+extension SectionDragDelegate {
+    public func dragItems(forBeginning session: UIDragSession,
+                          at indexPath: SectionIndexPath) -> [UIDragItem] {
         return []
     }
 
-    func dragItems(forAddingTo session: UIDragSession,
-                   at indexPath: SectionIndexPath,
-                   point: CGPoint) -> [UIDragItem] {
+    public func dragItems(forAddingTo session: UIDragSession,
+                          at indexPath: SectionIndexPath,
+                          point: CGPoint) -> [UIDragItem] {
         return []
     }
 
-    func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
+    public func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
 }

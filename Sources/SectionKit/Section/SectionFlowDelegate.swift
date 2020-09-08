@@ -59,29 +59,29 @@ public protocol SectionFlowDelegate: AnyObject {
     func referenceSizeForFooter(using layout: UICollectionViewLayout) -> CGSize
 }
 
-public extension SectionFlowDelegate {
-    func sizeForItem(at indexPath: SectionIndexPath,
-                     using layout: UICollectionViewLayout) -> CGSize {
+extension SectionFlowDelegate {
+    public func sizeForItem(at indexPath: SectionIndexPath,
+                            using layout: UICollectionViewLayout) -> CGSize {
         return (layout as? UICollectionViewFlowLayout)?.itemSize ?? CGSize(width: 50, height: 50)
     }
 
-    func inset(using layout: UICollectionViewLayout) -> UIEdgeInsets {
+    public func inset(using layout: UICollectionViewLayout) -> UIEdgeInsets {
         return (layout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
     }
 
-    func minimumLineSpacing(using layout: UICollectionViewLayout) -> CGFloat {
+    public func minimumLineSpacing(using layout: UICollectionViewLayout) -> CGFloat {
         return (layout as? UICollectionViewFlowLayout)?.minimumLineSpacing ?? 10
     }
 
-    func minimumInteritemSpacing(using layout: UICollectionViewLayout) -> CGFloat {
+    public func minimumInteritemSpacing(using layout: UICollectionViewLayout) -> CGFloat {
         return (layout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10
     }
 
-    func referenceSizeForHeader(using layout: UICollectionViewLayout) -> CGSize {
+    public func referenceSizeForHeader(using layout: UICollectionViewLayout) -> CGSize {
         return (layout as? UICollectionViewFlowLayout)?.headerReferenceSize ?? .zero
     }
 
-    func referenceSizeForFooter(using layout: UICollectionViewLayout) -> CGSize {
+    public func referenceSizeForFooter(using layout: UICollectionViewLayout) -> CGSize {
         return (layout as? UICollectionViewFlowLayout)?.footerReferenceSize ?? .zero
     }
 }

@@ -6,7 +6,7 @@ extension Changeset {
     /// Create a `CollectionViewBatchOperation` containing updates to the list of sections in the `UICollectionView`.
     @inlinable
     public var collectionBatchOperation: CollectionViewBatchOperation<Collection> {
-        var changes = Set<CollectionChange>()
+        var changes = Set<CollectionViewChange>()
         for deletion in elementDeleted {
             changes.insert(.deleteSection(at: deletion.element))
         }
@@ -19,7 +19,7 @@ extension Changeset {
         for (source, target) in elementMoved {
             changes.insert(.moveSection(at: source.element, to: target.element))
         }
-        return CollectionBatchOperation(changes: changes, data: data)
+        return CollectionViewBatchOperation(changes: changes, data: data)
     }
 
     /**
@@ -28,7 +28,7 @@ extension Changeset {
      */
     @inlinable
     public var sectionBatchOperation: CollectionViewSectionBatchOperation<Collection> {
-        var changes = Set<SectionChange>()
+        var changes = Set<CollectionViewSectionChange>()
         for deletion in elementDeleted {
             changes.insert(.deleteItem(at: deletion.element))
         }
@@ -41,6 +41,6 @@ extension Changeset {
         for (source, target) in elementMoved {
             changes.insert(.moveItem(at: source.element, to: target.element))
         }
-        return SectionBatchOperation(changes: changes, data: data)
+        return CollectionViewSectionBatchOperation(changes: changes, data: data)
     }
 }

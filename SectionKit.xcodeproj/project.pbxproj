@@ -40,9 +40,9 @@
 		OBJ_136 /* SectionDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* SectionDropDelegate.swift */; };
 		OBJ_137 /* SectionFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* SectionFlowDelegate.swift */; };
 		OBJ_138 /* SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* SectionIndexPath.swift */; };
-		OBJ_140 /* SectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* SectionBatchOperation.swift */; };
-		OBJ_141 /* SectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* SectionChange.swift */; };
-		OBJ_142 /* SectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SectionUpdate.swift */; };
+		OBJ_140 /* CollectionViewSectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* CollectionViewSectionBatchOperation.swift */; };
+		OBJ_141 /* CollectionViewSectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* CollectionViewSectionChange.swift */; };
+		OBJ_142 /* CollectionViewSectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* CollectionViewSectionUpdate.swift */; };
 		OBJ_143 /* CollectionViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CollectionViewContext.swift */; };
 		OBJ_144 /* CollectionViewBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* CollectionViewBatchOperation.swift */; };
 		OBJ_145 /* CollectionViewChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* CollectionViewChange.swift */; };
@@ -110,9 +110,9 @@
 		OBJ_29 /* SectionDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDropDelegate.swift; sourceTree = "<group>"; };
 		OBJ_30 /* SectionFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFlowDelegate.swift; sourceTree = "<group>"; };
 		OBJ_31 /* SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndexPath.swift; sourceTree = "<group>"; };
-		OBJ_34 /* SectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperation.swift; sourceTree = "<group>"; };
-		OBJ_35 /* SectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionChange.swift; sourceTree = "<group>"; };
-		OBJ_36 /* SectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdate.swift; sourceTree = "<group>"; };
+		OBJ_34 /* CollectionViewSectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionBatchOperation.swift; sourceTree = "<group>"; };
+		OBJ_35 /* CollectionViewSectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionChange.swift; sourceTree = "<group>"; };
+		OBJ_36 /* CollectionViewSectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionUpdate.swift; sourceTree = "<group>"; };
 		OBJ_38 /* CollectionViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewContext.swift; sourceTree = "<group>"; };
 		OBJ_40 /* CollectionViewBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBatchOperation.swift; sourceTree = "<group>"; };
 		OBJ_41 /* CollectionViewChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewChange.swift; sourceTree = "<group>"; };
@@ -259,9 +259,9 @@
 		OBJ_33 /* SectionUpdate */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_34 /* SectionBatchOperation.swift */,
-				OBJ_35 /* SectionChange.swift */,
-				OBJ_36 /* SectionUpdate.swift */,
+				OBJ_34 /* CollectionViewSectionBatchOperation.swift */,
+				OBJ_35 /* CollectionViewSectionChange.swift */,
+				OBJ_36 /* CollectionViewSectionUpdate.swift */,
 			);
 			path = SectionUpdate;
 			sourceTree = "<group>";
@@ -532,10 +532,10 @@
 				5A68EEC0246AB7F00006CD07 /* Move.swift in Sources */,
 				OBJ_138 /* SectionIndexPath.swift in Sources */,
 				5A68EEAE246422110006CD07 /* SectionIdentifiable.swift in Sources */,
-				OBJ_140 /* SectionBatchOperation.swift in Sources */,
+				OBJ_140 /* CollectionViewSectionBatchOperation.swift in Sources */,
 				5A68EEA424630DA40006CD07 /* CollectionViewAdapterDataSource.swift in Sources */,
-				OBJ_141 /* SectionChange.swift in Sources */,
-				OBJ_142 /* SectionUpdate.swift in Sources */,
+				OBJ_141 /* CollectionViewSectionChange.swift in Sources */,
+				OBJ_142 /* CollectionViewSectionUpdate.swift in Sources */,
 				OBJ_143 /* CollectionViewContext.swift in Sources */,
 				OBJ_144 /* CollectionViewBatchOperation.swift in Sources */,
 				OBJ_145 /* CollectionViewChange.swift in Sources */,

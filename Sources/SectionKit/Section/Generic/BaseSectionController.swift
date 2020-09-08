@@ -3,7 +3,7 @@ import UIKit
 /**
  A base implementation of all `SectionController` datasource and delegate protocols.
  
- Everything is marked `open` and can be overriden.
+ Every declaration is marked `open` and can be overriden.
  */
 open class BaseSectionController: SectionController,
     SectionDataSource,

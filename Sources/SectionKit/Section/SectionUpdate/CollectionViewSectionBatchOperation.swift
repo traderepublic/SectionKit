@@ -1,22 +1,33 @@
 import Foundation
 
-/// A batch of changes to a section in the `UICollectionView`
-public struct SectionBatchOperation<SectionData> {
-    /// The changes to perform in a batch operation
-    public let changes: Set<SectionChange>
+/// A batch of changes to the list of items in a section.
+public struct CollectionViewSectionBatchOperation<SectionData> {
+    /// The changes to perform to the list of items in a section.
+    public let changes: Set<CollectionViewSectionChange>
 
-    /// The data of this section after this batch of updates has been performed
+    /// The data of this section after the `changes` have been performed.
     public let data: SectionData
 
     /**
-     Gets called after the updates have been applied.
-     
+     A completion handler that gets called after the updates have been applied.
+
      The parameter may be `true` if all of the related animations completed successfully
      or `false` if they were interrupted.
      */
     public let completion: ((Bool) -> Void)?
 
-    public init(changes: Set<SectionChange>,
+    /**
+     Initialize an instance of `CollectionViewSectionBatchOperation`.
+
+     - Parameter changes: The changes to perform to the list of items in a section.
+
+     - Parameter data: The data of the section after the `changes` have been performed.
+
+     - Parameter completion: A completion handler that gets called after the updates have been applied.
+     The parameter may be `true` if all of the related animations completed successfully
+     or `false` if they were interrupted.
+     */
+    public init(changes: Set<CollectionViewSectionChange>,
                 data: SectionData,
                 completion: ((Bool) -> Void)? = nil) {
         self.changes = changes
@@ -25,16 +36,10 @@ public struct SectionBatchOperation<SectionData> {
     }
 }
 
-extension SectionBatchOperation: Equatable where SectionData: Equatable {
-    public static func == (lhs: SectionBatchOperation<SectionData>, rhs: SectionBatchOperation<SectionData>) -> Bool {
-        return lhs.changes == rhs.changes && lhs.data == rhs.data
-    }
-}
-
-public extension SectionBatchOperation {
-    /// Indices to delete in this batch operation
+extension CollectionViewSectionBatchOperation {
+    /// Indices of items to delete in this batch operation.
     @inlinable
-    var deletes: Set<Int> {
+    public var deletes: Set<Int> {
         return Set(changes.compactMap { change -> Int? in
             switch change {
             case .deleteItem(at: let index):
@@ -45,9 +50,9 @@ public extension SectionBatchOperation {
         })
     }
 
-    /// Indices to insert in this batch operation
+    /// Indices of items to insert in this batch operation.
     @inlinable
-    var inserts: Set<Int> {
+    public var inserts: Set<Int> {
         return Set(changes.compactMap { change -> Int? in
             switch change {
             case .insertItem(at: let index):
@@ -58,9 +63,9 @@ public extension SectionBatchOperation {
         })
     }
 
-    /// Indices to move in this batch operation
+    /// Indices of items to move in this batch operation.
     @inlinable
-    var moves: Set<Move> {
+    public var moves: Set<Move> {
         return Set(changes.compactMap { change -> Move? in
             switch change {
             case .moveItem(at: let source, to: let target):
@@ -71,9 +76,9 @@ public extension SectionBatchOperation {
         })
     }
 
-    /// Indices to reload in this batch operation
+    /// Indices of items to reload in this batch operation.
     @inlinable
-    var reloads: Set<Int> {
+    public var reloads: Set<Int> {
         return Set(changes.compactMap { change -> Int? in
             switch change {
             case .reloadItem(at: let index):

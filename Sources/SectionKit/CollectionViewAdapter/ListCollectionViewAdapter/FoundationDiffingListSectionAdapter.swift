@@ -8,9 +8,9 @@ open class FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter
         let difference = newData.map(\.model.sectionId)
             .difference(from: oldData.map(\.model.sectionId))
             .inferringMoves()
-        return CollectionViewUpdate(changes: difference.collectionChanges,
+        return CollectionViewUpdate(changes: difference.collectionViewChanges,
                                     data: newData,
                                     setData: { [weak self] in self?.collectionViewSections = $0 },
-                                    shouldReloadCollection: { $0.changes.count > 100 })
+                                    shouldReload: { $0.changes.count > 100 })
     }
 }

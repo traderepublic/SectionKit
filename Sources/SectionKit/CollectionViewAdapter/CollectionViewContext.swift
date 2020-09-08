@@ -25,7 +25,7 @@ public protocol CollectionViewContext: AnyObject {
      
      - Parameter update: The update to apply to the current section.
      */
-    func apply<T>(update: SectionUpdate<T>)
+    func apply<T>(update: CollectionViewSectionUpdate<T>)
 
     /**
      Apply an update to the sections in the `UICollectionView`.

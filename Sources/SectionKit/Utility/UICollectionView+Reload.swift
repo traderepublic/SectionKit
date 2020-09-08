@@ -9,14 +9,14 @@ extension UICollectionView {
      - Parameter section: The section in the `UICollectionView` to modify.
      */
     @inlinable
-    public func apply<T>(update: SectionUpdate<T>, at section: Int) {
+    public func apply<T>(update: CollectionViewSectionUpdate<T>, at section: Int) {
         if case .none = window, let data = update.batchOperations.last?.data {
             update.setData(data)
             return reloadSections(IndexSet(integer: section))
         }
 
         for batchOperation in update.batchOperations {
-            if update.shouldReloadSection(batchOperation) {
+            if update.shouldReload(batchOperation) {
                 update.setData(batchOperation.data)
                 return reloadSections(IndexSet(integer: section))
             }

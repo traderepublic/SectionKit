@@ -43,21 +43,21 @@ public protocol SectionDropDelegate: AnyObject {
 }
 
 @available(iOS 11.0, *)
-public extension SectionDropDelegate {
-    func canHandle(drop session: UIDropSession) -> Bool {
+extension SectionDropDelegate {
+    public func canHandle(drop session: UIDropSession) -> Bool {
         return true
     }
 
-    func dropSessionDidUpdate(_ session: UIDropSession,
-                              at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
+    public func dropSessionDidUpdate(_ session: UIDropSession,
+                                     at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
 
-    func performDrop(at indexPath: SectionIndexPath,
-                     with coordinator: UICollectionViewDropCoordinator) {
+    public func performDrop(at indexPath: SectionIndexPath,
+                            with coordinator: UICollectionViewDropCoordinator) {
     }
 
-    func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
+    public func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
 }

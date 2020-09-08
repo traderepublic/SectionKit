@@ -4,7 +4,7 @@ import Foundation
 extension CollectionDifference {
     /// Create a set of `CollectionViewChange` containing updates to the list of sections in the `UICollectionView`.
     @inlinable
-    public var collectionChanges: Set<CollectionViewChange> {
+    public var collectionViewChanges: Set<CollectionViewChange> {
         var changes = Set<CollectionViewChange>()
         for change in self {
             switch change {
@@ -32,8 +32,8 @@ extension CollectionDifference {
      in a section in the `UICollectionView`.
      */
     @inlinable
-    public var sectionChanges: Set<SectionChange> {
-        var changes = Set<SectionChange>()
+    public var sectionChanges: Set<CollectionViewSectionChange> {
+        var changes = Set<CollectionViewSectionChange>()
         for change in self {
             switch change {
             case .insert(offset: let offset,

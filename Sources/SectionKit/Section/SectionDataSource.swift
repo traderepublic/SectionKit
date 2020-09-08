@@ -52,22 +52,22 @@ public protocol SectionDataSource: AnyObject {
                   to targetIndexPath: SectionIndexPath)
 }
 
-public extension SectionDataSource {
-    func headerView(at indexPath: SectionIndexPath) -> UICollectionReusableView {
+extension SectionDataSource {
+    public func headerView(at indexPath: SectionIndexPath) -> UICollectionReusableView {
         assertionFailure("headerView(at:) not implemented")
         return UICollectionReusableView()
     }
 
-    func footerView(at indexPath: SectionIndexPath) -> UICollectionReusableView {
+    public func footerView(at indexPath: SectionIndexPath) -> UICollectionReusableView {
         assertionFailure("footerView(at:) not implemented")
         return UICollectionReusableView()
     }
 
-    func canMoveItem(at indexPath: SectionIndexPath) -> Bool {
+    public func canMoveItem(at indexPath: SectionIndexPath) -> Bool {
         return false
     }
 
-    func moveItem(at sourceIndexPath: SectionIndexPath,
+    public func moveItem(at sourceIndexPath: SectionIndexPath,
                   to targetIndexPath: SectionIndexPath) {
     }
 }
