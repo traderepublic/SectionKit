@@ -55,7 +55,7 @@
 		OBJ_153 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift */; };
 		OBJ_154 /* ListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* ListCollectionViewAdapter.swift */; };
 		OBJ_155 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* Collection+Extensions.swift */; };
-		OBJ_157 /* UICollectionView+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* UICollectionView+Reload.swift */; };
+		OBJ_157 /* UICollectionView+Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* UICollectionView+Apply.swift */; };
 		OBJ_176 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* XCTestManifests.swift */; };
 		OBJ_178 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
 /* End PBXBuildFile section */
@@ -124,7 +124,7 @@
 		OBJ_49 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewFlowLayout.swift"; sourceTree = "<group>"; };
 		OBJ_50 /* ListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_52 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
-		OBJ_54 /* UICollectionView+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reload.swift"; sourceTree = "<group>"; };
+		OBJ_54 /* UICollectionView+Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Apply.swift"; sourceTree = "<group>"; };
 		OBJ_58 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_80 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_52 /* Collection+Extensions.swift */,
-				OBJ_54 /* UICollectionView+Reload.swift */,
+				OBJ_54 /* UICollectionView+Apply.swift */,
 				5A68EEB5246957310006CD07 /* CollectionDifference+Changes.swift */,
 				5A68EEBF246AB7F00006CD07 /* Move.swift */,
 			);
@@ -547,7 +547,7 @@
 				5A68EE8A2461AB670006CD07 /* CollectionViewAdapter.swift in Sources */,
 				OBJ_154 /* ListCollectionViewAdapter.swift in Sources */,
 				OBJ_155 /* Collection+Extensions.swift in Sources */,
-				OBJ_157 /* UICollectionView+Reload.swift in Sources */,
+				OBJ_157 /* UICollectionView+Apply.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
