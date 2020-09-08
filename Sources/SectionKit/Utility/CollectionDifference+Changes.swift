@@ -26,7 +26,7 @@ public extension CollectionDifference {
         }
         return changes
     }
-    
+
     /// Convert this `CollectionDifference` to a set of section changes
     @inlinable
     var sectionChanges: Set<SectionChange> {

@@ -4,7 +4,7 @@ import UIKit
 public protocol SectionDataSource {
     /// The number of items in this section.
     var numberOfItems: Int { get }
-    
+
     /**
      Get the cell for a specified index path.
      
@@ -13,7 +13,7 @@ public protocol SectionDataSource {
      - Returns: The index of the item for the given index title.
      */
     func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell
-    
+
     /**
      Get the header view for a specified index path.
      
@@ -22,7 +22,7 @@ public protocol SectionDataSource {
      - Returns: The header view for a specified index path.
      */
     func headerView(at indexPath: SectionIndexPath) -> UICollectionReusableView
-    
+
     /**
      Get the footer view for a specified index path.
      
@@ -31,7 +31,7 @@ public protocol SectionDataSource {
      - Returns: The footer view for a specified index path.
      */
     func footerView(at indexPath: SectionIndexPath) -> UICollectionReusableView
-    
+
     /**
      Returns if the item at the given index path can be moved.
      
@@ -40,7 +40,7 @@ public protocol SectionDataSource {
      - Returns: If the item at the given index path can be moved.
      */
     func canMoveItem(at indexPath: SectionIndexPath) -> Bool
-    
+
     /**
      Move the item at the given index path.
      
@@ -57,19 +57,17 @@ public extension SectionDataSource {
         assertionFailure("headerView(at:) not implemented")
         return UICollectionReusableView()
     }
-    
+
     func footerView(at indexPath: SectionIndexPath) -> UICollectionReusableView {
         assertionFailure("footerView(at:) not implemented")
         return UICollectionReusableView()
     }
-    
+
     func canMoveItem(at indexPath: SectionIndexPath) -> Bool {
         return false
     }
-    
+
     func moveItem(at sourceIndexPath: SectionIndexPath,
                   to targetIndexPath: SectionIndexPath) {
-        
     }
 }
-

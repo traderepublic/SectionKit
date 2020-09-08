@@ -1,6 +1,6 @@
+import DifferenceKit
 import Foundation
 import SectionKit
-import DifferenceKit
 
 open class DiffingListSectionAdapter: ListSectionAdapter {
     override open func calculateUpdate(from oldData: [Section],

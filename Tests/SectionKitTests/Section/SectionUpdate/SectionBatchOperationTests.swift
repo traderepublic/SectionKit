@@ -1,5 +1,5 @@
-import XCTest
 @testable import SectionKit
+import XCTest
 
 final class SectionBatchOperationTests: XCTestCase {
     static var allTests = [
@@ -7,7 +7,7 @@ final class SectionBatchOperationTests: XCTestCase {
         "testDeletes": testDeletes,
         "testInserts": testInserts,
         "testMoves": testMoves,
-        "testReloads": testReloads,
+        "testReloads": testReloads
     ]
 
     func testEquatable() {
@@ -33,7 +33,6 @@ final class SectionBatchOperationTests: XCTestCase {
         let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
         let output = input.moves
 
-
         let expected = Set([Move(at: 0, to: 1),
                             Move(at: 1, to: 2)])
 
@@ -51,7 +50,7 @@ final class SectionBatchOperationTests: XCTestCase {
 
 extension SectionBatchOperationTests {
     private var data: [Int] {
-        [1,2,3]
+        [1, 2, 3]
     }
 
     private var changes: Set<SectionChange> {

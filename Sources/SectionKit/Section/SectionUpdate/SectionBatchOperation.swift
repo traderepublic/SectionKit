@@ -4,10 +4,10 @@ import Foundation
 public struct SectionBatchOperation<SectionData> {
     /// The changes to perform in a batch operation
     public let changes: Set<SectionChange>
-    
+
     /// The data of this section after this batch of updates has been performed
     public let data: SectionData
-    
+
     /**
      Gets called after the updates have been applied.
      
@@ -15,7 +15,7 @@ public struct SectionBatchOperation<SectionData> {
      or `false` if they were interrupted.
      */
     public let completion: ((Bool) -> Void)?
-    
+
     public init(changes: Set<SectionChange>,
                 data: SectionData,
                 completion: ((Bool) -> Void)? = nil) {
@@ -44,7 +44,7 @@ public extension SectionBatchOperation {
             }
         })
     }
-    
+
     /// Indices to insert in this batch operation
     @inlinable
     var inserts: Set<Int> {
@@ -57,7 +57,7 @@ public extension SectionBatchOperation {
             }
         })
     }
-    
+
     /// Indices to move in this batch operation
     @inlinable
     var moves: Set<Move> {
@@ -70,7 +70,7 @@ public extension SectionBatchOperation {
             }
         })
     }
-    
+
     /// Indices to reload in this batch operation
     @inlinable
     var reloads: Set<Int> {

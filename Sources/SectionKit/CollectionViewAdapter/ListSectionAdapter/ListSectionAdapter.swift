@@ -1,11 +1,9 @@
 import UIKit
 
-open class ListSectionAdapter:
-    NSObject,
-    SectionAdapter
-{
+open class ListCollectionViewAdapter: NSObject,
+    CollectionViewAdapter {
     // MARK: - Init
-    
+
     /**
      Initialize an instance of `ListCollectionAdapter` to use it as the datasource and delegate of the given `UICollectionView`
      
@@ -18,7 +16,7 @@ open class ListSectionAdapter:
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
                 scrollViewDelegate: UIScrollViewDelegate? = nil) {
-        let collectionContext = MainCollectionContext(viewController: viewController,
+        let collectionContext = MainCollectionViewContext(viewController: viewController,
                                                       collectionView: collectionView)
         self.collectionContext = collectionContext
         self.scrollViewDelegate = scrollViewDelegate
@@ -31,17 +29,17 @@ open class ListSectionAdapter:
             collectionView.dropDelegate = self
         }
     }
-    
+
     // MARK: - SectionAdapter
-    
-    public let collectionContext: CollectionContext
-    
+
+    public let collectionContext: CollectionViewContext
+
     open weak var scrollViewDelegate: UIScrollViewDelegate?
-    
-    open weak var dataSource: SectionAdapterDataSource? {
+
+    open weak var dataSource: CollectionViewAdapterDataSource? {
         didSet { invalidateDataSource() }
     }
-    
+
     /**
      The list of sections currently displayed in the `UICollectionView`
      
@@ -55,7 +53,7 @@ open class ListSectionAdapter:
             collectionViewSections.forEach { $0.controller.context = collectionContext }
         }
     }
-    
+
     open var sections: [Section] {
         get { collectionViewSections }
         set {
@@ -64,7 +62,7 @@ open class ListSectionAdapter:
             collectionContext.apply(update: collectionUpdate)
         }
     }
-    
+
     /**
      Calculate the `UICollectionView` events using the difference from the old to the new data
      
@@ -79,15 +77,15 @@ open class ListSectionAdapter:
         return CollectionUpdate(data: newData,
                                 setData: { [weak self] in self?.collectionViewSections = $0 })
     }
-    
+
     open var allowReorderingBetweenDifferentSections: Bool = false
-    
+
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
         sections = querySections(from: dataSource)
     }
-    
-    private func querySections(from dataSource: SectionAdapterDataSource) -> [Section] {
+
+    private func querySections(from dataSource: CollectionViewAdapterDataSource) -> [Section] {
         var newSections: [Section] = []
         for model in dataSource.models(for: self) {
             let section: Section
@@ -106,4 +104,3 @@ open class ListSectionAdapter:
         return newSections
     }
 }
-

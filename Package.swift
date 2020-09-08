@@ -15,10 +15,10 @@ let package = Package(
             targets: ["SectionKit"]),
         .library(
             name: "DiffingSectionKit",
-            targets: ["DiffingSectionKit"]),
+            targets: ["DiffingSectionKit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.5"),
+        .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.5")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -31,6 +31,6 @@ let package = Package(
             dependencies: ["SectionKit", "DifferenceKit"]),
         .testTarget(
             name: "SectionKitTests",
-            dependencies: ["SectionKit"]),
+            dependencies: ["SectionKit"])
     ]
 )

@@ -1,5 +1,5 @@
-import XCTest
 @testable import SectionKit
+import XCTest
 
 final class SectionKitTests: XCTestCase {
     func testExample() {
@@ -9,6 +9,6 @@ final class SectionKitTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testExample)
     ]
 }

@@ -4,10 +4,10 @@ import Foundation
 public struct CollectionBatchOperation<CollectionData> {
     /// The changes to perform in a batch operation
     public let changes: Set<CollectionChange>
-    
+
     /// The data of this collection after this batch of updates has been performed
     public let data: CollectionData
-    
+
     /**
      Gets called after the updates have been applied.
      
@@ -15,7 +15,7 @@ public struct CollectionBatchOperation<CollectionData> {
      or `false` if they were interrupted.
      */
     public let completion: ((Bool) -> Void)?
-    
+
     public init(changes: Set<CollectionChange>,
                 data: CollectionData,
                 completion: ((Bool) -> Void)? = nil) {
@@ -38,7 +38,7 @@ public extension CollectionBatchOperation {
             }
         })
     }
-    
+
     /// Indices to insert in this batch operation
     @inlinable
     var inserts: Set<Int> {
@@ -51,7 +51,7 @@ public extension CollectionBatchOperation {
             }
         })
     }
-    
+
     /// Indices to move in this batch operation
     @inlinable
     var moves: Set<Move> {
@@ -64,7 +64,7 @@ public extension CollectionBatchOperation {
             }
         })
     }
-    
+
     /// Indices to reload in this batch operation
     @inlinable
     var reloads: Set<Int> {

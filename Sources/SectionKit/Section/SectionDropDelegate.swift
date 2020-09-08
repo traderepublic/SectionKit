@@ -11,7 +11,7 @@ public protocol SectionDropDelegate {
      - Returns: If the section allows drops from the given `UIDropSession`.
      */
     func canHandle(drop session: UIDropSession) -> Bool
-    
+
     /**
      The position of the drop session changed.
      
@@ -23,7 +23,7 @@ public protocol SectionDropDelegate {
      */
     func dropSessionDidUpdate(_ session: UIDropSession,
                               at indexPath: SectionIndexPath) -> UICollectionViewDropProposal
-    
+
     /**
      Perform the drop at the given index path.
      
@@ -33,7 +33,7 @@ public protocol SectionDropDelegate {
      */
     func performDrop(at indexPath: SectionIndexPath,
                      with coordinator: UICollectionViewDropCoordinator)
-    
+
     /**
      Returns information on how the item at the given index path should be displayed during the drop.
      
@@ -46,22 +46,20 @@ public protocol SectionDropDelegate {
 
 @available(iOS 11.0, *)
 public extension SectionDropDelegate {
-    func canHandle(drop session: UIDropSession) -> Bool{
+    func canHandle(drop session: UIDropSession) -> Bool {
         return true
     }
-    
+
     func dropSessionDidUpdate(_ session: UIDropSession,
                               at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
-    
+
     func performDrop(at indexPath: SectionIndexPath,
                      with coordinator: UICollectionViewDropCoordinator) {
-        
     }
-    
+
     func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
 }
-

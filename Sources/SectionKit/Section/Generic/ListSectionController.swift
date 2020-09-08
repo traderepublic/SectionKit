@@ -2,9 +2,8 @@ import UIKit
 
 /// A `SectionController` that handles a list of items.
 open class ListSectionController<Model: SectionModel, Item>: BaseSectionController {
-    
     // MARK: - SectionController
-    
+
     open var model: Model {
         didSet {
             if shouldUpdateItems(afterModelChangedTo: model) {
@@ -16,7 +15,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     open func shouldUpdateItems(afterModelChangedTo model: Model) -> Bool {
         return true
     }
-    
+
     public init(model: Model) {
         self.model = model
         super.init()
@@ -24,7 +23,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
             items = items(for: model)
         }
     }
-    
+
     override open func didUpdate(model: SectionModel) {
         guard let model = model as? Model else {
             assertionFailure("Could not cast model to \(String(describing: Model.self))")
@@ -32,19 +31,19 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
         }
         self.model = model
     }
-    
+
     open func items(for model: Model) -> [Item] {
         assertionFailure("items(for:) not implemented")
         return []
     }
-    
+
     /**
      The list of items currently displayed in the `UICollectionView`
      
      Only set this property if `UICollectionView` insertions and deletions are handled, otherwise use `items` instead.
      */
     open var collectionViewItems: [Item] = []
-    
+
     open var items: [Item] {
         get { collectionViewItems }
         set {
@@ -57,7 +56,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
             }
         }
     }
-    
+
     /**
      Calculate the `UICollectionView` events using the difference from the old to the new data
      
@@ -73,11 +72,10 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
                              data: newData,
                              setData: { [weak self] in self?.collectionViewItems = $0 })
     }
-    
+
     // MARK: - SectionDataSource
-    
+
     override open var numberOfItems: Int {
         items.count
     }
 }
-

@@ -1,5 +1,5 @@
-import XCTest
 @testable import SectionKit
+import XCTest
 
 final class SectionIndexPathTests: XCTestCase {
     static var allTests = [

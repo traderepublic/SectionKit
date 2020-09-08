@@ -15,7 +15,7 @@ public extension UICollectionView {
             update.setData(data)
             return reloadSections(IndexSet(integer: section))
         }
-        
+
         for batchOperation in update.batchOperations {
             if update.shouldReloadSection(batchOperation) {
                 update.setData(batchOperation.data)
@@ -23,23 +23,23 @@ public extension UICollectionView {
             }
             performBatchUpdates({
                 update.setData(batchOperation.data)
-                
+
                 let deletes = batchOperation.deletes
                 if deletes.isNotEmpty {
                     deleteItems(at: deletes.map { IndexPath(item: $0, section: section) })
                 }
-                
+
                 let inserts = batchOperation.inserts
                 if inserts.isNotEmpty {
                     insertItems(at: inserts.map { IndexPath(item: $0, section: section) })
                 }
-                
+
                 let moves = batchOperation.moves
                 for move in moves {
                     moveItem(at: IndexPath(item: move.at, section: section),
                              to: IndexPath(item: move.to, section: section))
                 }
-                
+
                 let reloads = batchOperation.reloads
                 if reloads.isNotEmpty {
                     reloadItems(at: reloads.map { IndexPath(item: $0, section: section) })
@@ -47,7 +47,7 @@ public extension UICollectionView {
             }, completion: batchOperation.completion)
         }
     }
-    
+
     /**
      Reloads the sections in the `UICollectionView` using the given update.
      
@@ -59,7 +59,7 @@ public extension UICollectionView {
             update.setData(data)
             return reloadData()
         }
-        
+
         for batchOperation in update.batchOperations {
             if update.shouldReloadCollection(batchOperation) {
                 update.setData(batchOperation.data)
@@ -67,22 +67,22 @@ public extension UICollectionView {
             }
             performBatchUpdates({
                 update.setData(batchOperation.data)
-                
+
                 let deletes = batchOperation.deletes
                 if deletes.isNotEmpty {
                     deleteSections(IndexSet(deletes))
                 }
-                
+
                 let inserts = batchOperation.inserts
                 if inserts.isNotEmpty {
                     insertSections(IndexSet(inserts))
                 }
-                
+
                 let moves = batchOperation.moves
                 for move in moves {
                     moveSection(move.at, toSection: move.to)
                 }
-                
+
                 let reloads = batchOperation.reloads
                 if reloads.isNotEmpty {
                     reloadSections(IndexSet(reloads))
@@ -91,4 +91,3 @@ public extension UICollectionView {
         }
     }
 }
-

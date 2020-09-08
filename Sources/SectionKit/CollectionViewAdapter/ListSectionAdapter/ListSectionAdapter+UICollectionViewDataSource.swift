@@ -1,10 +1,10 @@
 import UIKit
 
-extension ListSectionAdapter: UICollectionViewDataSource {
+extension ListCollectionViewAdapter: UICollectionViewDataSource {
     open func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              numberOfItemsInSection section: Int) -> Int {
         guard section >= 0 && section < sections.count else {
@@ -13,7 +13,7 @@ extension ListSectionAdapter: UICollectionViewDataSource {
         }
         return sections[section].controller.dataSource.numberOfItems
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard indexPath.section >= 0 && indexPath.section < sections.count else {
@@ -24,7 +24,7 @@ extension ListSectionAdapter: UICollectionViewDataSource {
                                                 internalRepresentation: indexPath.item)
         return sections[indexPath.section].controller.dataSource.cellForItem(at: sectionIndexPath)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              viewForSupplementaryElementOfKind elementKind: String,
                              at indexPath: IndexPath) -> UICollectionReusableView {
@@ -34,9 +34,9 @@ extension ListSectionAdapter: UICollectionViewDataSource {
         }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        
+
         let sectionController = sections[indexPath.section]
-        
+
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
             return sectionController.controller.dataSource.headerView(at: sectionIndexPath)
@@ -47,7 +47,7 @@ extension ListSectionAdapter: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              canMoveItemAt indexPath: IndexPath) -> Bool {
         guard indexPath.section >= 0 && indexPath.section < sections.count else {
@@ -58,7 +58,7 @@ extension ListSectionAdapter: UICollectionViewDataSource {
                                                 internalRepresentation: indexPath.item)
         return sections[indexPath.section].controller.dataSource.canMoveItem(at: sectionIndexPath)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              moveItemAt sourceIndexPath: IndexPath,
                              to destinationIndexPath: IndexPath) {
@@ -76,11 +76,11 @@ extension ListSectionAdapter: UICollectionViewDataSource {
         sections[sourceIndexPath.section].controller.dataSource.moveItem(at: sourceSectionIndexPath,
                                                                          to: destinationSectionIndexPath)
     }
-    
+
     open func indexTitles(for collectionView: UICollectionView) -> [String]? {
         return nil
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              indexPathForIndexTitle title: String,
                              at index: Int) -> IndexPath {
@@ -88,4 +88,3 @@ extension ListSectionAdapter: UICollectionViewDataSource {
         return IndexPath(item: 0, section: 0)
     }
 }
-

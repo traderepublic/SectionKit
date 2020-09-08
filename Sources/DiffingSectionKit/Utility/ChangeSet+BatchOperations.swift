@@ -1,11 +1,11 @@
+import DifferenceKit
 import Foundation
 import SectionKit
-import DifferenceKit
 
 public extension Changeset {
-    /// Convert this `Changeset` to a `CollectionBatchOperation` containing section updates.
+    /// Convert this `Changeset` to a `CollectionViewBatchOperation` containing updates to sections in the `UICollectionView`.
     @inlinable
-    var collectionBatchOperation: CollectionBatchOperation<Collection> {
+    var collectionBatchOperation: CollectionViewBatchOperation<Collection> {
         var changes = Set<CollectionChange>()
         for deletion in elementDeleted {
             changes.insert(.deleteSection(at: deletion.element))
@@ -22,10 +22,10 @@ public extension Changeset {
         return CollectionBatchOperation(changes: changes,
                                         data: data)
     }
-    
-    /// Convert this `Changeset` to a `SectionBatchOperation` containing item updates to a section.
+
+    /// Convert this `Changeset` to a `CollectionViewSectionBatchOperation` containing item updates to a section.
     @inlinable
-    var sectionBatchOperation: SectionBatchOperation<Collection> {
+    var sectionBatchOperation: CollectionViewSectionBatchOperation<Collection> {
         var changes = Set<SectionChange>()
         for deletion in elementDeleted {
             changes.insert(.deleteItem(at: deletion.element))
@@ -43,4 +43,3 @@ public extension Changeset {
                                      data: data)
     }
 }
-

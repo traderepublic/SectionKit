@@ -2,7 +2,7 @@ import Foundation
 
 /// A `SectionAdapter` that calculates the differences for animated changes to sections of the `UICollectionView`.
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
-open class FoundationDiffingListSectionAdapter: ListSectionAdapter {
+open class FoundationDiffingListSectionAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(from oldData: [Section],
                                        to newData: [Section]) -> CollectionUpdate<[Section]> {
         let difference = newData.map(\.model.sectionId)
@@ -14,5 +14,3 @@ open class FoundationDiffingListSectionAdapter: ListSectionAdapter {
                                 shouldReloadCollection: { $0.changes.count > 100 })
     }
 }
-
-

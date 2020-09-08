@@ -1,14 +1,13 @@
 import UIKit
 
 open class SingleModelSectionController<Model: SectionModel>: BaseSectionController {
-    
     // MARK: - SectionController
-    
+
     public init(model: Model) {
         self.collectionViewModel = model
         super.init()
     }
-    
+
     override open func didUpdate(model: SectionModel) {
         guard let model = model as? Model else {
             assertionFailure("Could not cast model to \(String(describing: Model.self))")
@@ -16,14 +15,14 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
         }
         self.model = model
     }
-    
+
     /**
      The model currently displayed in the `UICollectionView`
      
      Only set this property if `UICollectionView` insertions and deletions are handled, otherwise use `model` instead.
      */
     open var collectionViewModel: Model
-    
+
     open var model: Model {
         get { collectionViewModel }
         set {
@@ -36,7 +35,7 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
             }
         }
     }
-    
+
     /**
      Calculate the `UICollectionView` events using the difference from the old to the new data
      
@@ -59,9 +58,9 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
                              data: newData,
                              setData: { [weak self] in self?.collectionViewModel = $0 })
     }
-    
+
     // MARK: - SectionDataSource
-    
+
     override open var numberOfItems: Int {
         return 1
     }

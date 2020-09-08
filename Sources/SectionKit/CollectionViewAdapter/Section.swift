@@ -2,11 +2,11 @@ import Foundation
 
 public class Section {
     public let model: SectionModel
-    
+
     private let controllerAccessor: () -> SectionController
-    
+
     public lazy var controller: SectionController = controllerAccessor()
-    
+
     public init(model: SectionModel,
                 controllerAccessor: @escaping () -> SectionController) {
         self.model = model

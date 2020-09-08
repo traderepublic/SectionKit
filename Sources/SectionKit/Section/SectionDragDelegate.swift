@@ -14,7 +14,7 @@ public protocol SectionDragDelegate {
      */
     func dragItems(forBeginning session: UIDragSession,
                    at indexPath: SectionIndexPath) -> [UIDragItem]
-    
+
     /**
      Returns items which should be added to an existing drag.
      
@@ -29,7 +29,7 @@ public protocol SectionDragDelegate {
     func dragItems(forAddingTo session: UIDragSession,
                    at indexPath: SectionIndexPath,
                    point: CGPoint) -> [UIDragItem]
-    
+
     /**
      Returns information on how the item at the given index path should be displayed during the drag.
      
@@ -46,15 +46,14 @@ public extension SectionDragDelegate {
                    at indexPath: SectionIndexPath) -> [UIDragItem] {
         return []
     }
-    
+
     func dragItems(forAddingTo session: UIDragSession,
                    at indexPath: SectionIndexPath,
                    point: CGPoint) -> [UIDragItem] {
         return []
     }
-    
+
     func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
 }
-

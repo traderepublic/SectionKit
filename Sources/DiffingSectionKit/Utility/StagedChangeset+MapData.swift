@@ -1,5 +1,5 @@
-import Foundation
 import DifferenceKit
+import Foundation
 
 public extension StagedChangeset {
     /**
@@ -24,4 +24,3 @@ public extension StagedChangeset {
         }
     }
 }
-

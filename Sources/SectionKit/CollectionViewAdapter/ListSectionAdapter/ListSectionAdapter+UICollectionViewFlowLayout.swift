@@ -1,6 +1,6 @@
 import UIKit
 
-extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
+extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
     open func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -14,7 +14,7 @@ extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
                                                 internalRepresentation: indexPath.item)
         return flowDelegate.sizeForItem(at: sectionIndexPath, using: collectionViewLayout)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -24,7 +24,7 @@ extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero }
         return flowDelegate.inset(using: collectionViewLayout)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -34,7 +34,7 @@ extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing ?? 10 }
         return flowDelegate.minimumLineSpacing(using: collectionViewLayout)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -44,7 +44,7 @@ extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10 }
         return flowDelegate.minimumInteritemSpacing(using: collectionViewLayout)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -54,7 +54,7 @@ extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.headerReferenceSize ?? .zero }
         return flowDelegate.referenceSizeForHeader(using: collectionViewLayout)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              layout collectionViewLayout: UICollectionViewLayout,
                              referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -65,4 +65,3 @@ extension ListSectionAdapter: UICollectionViewDelegateFlowLayout {
         return flowDelegate.referenceSizeForFooter(using: collectionViewLayout)
     }
 }
-

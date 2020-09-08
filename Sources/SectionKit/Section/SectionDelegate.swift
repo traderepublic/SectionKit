@@ -2,9 +2,8 @@ import UIKit
 
 /// The delegate of a section
 public protocol SectionDelegate {
-    
     // MARK: - Highlight
-    
+
     /**
      Determines if the item should be highlighted during tracking.
      
@@ -13,23 +12,23 @@ public protocol SectionDelegate {
      - Returns: If the item should be highlighted during tracking.
      */
     func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool
-    
+
     /**
      The item with the given index path was highlighted.
      
      - Parameter indexPath: The index path of the cell that was highlighted.
      */
     func didHighlightItem(at indexPath: SectionIndexPath)
-    
+
     /**
      The item with the given index path was unhighlighted.
      
      - Parameter indexPath: The index path of the cell that was highlighted.
      */
     func didUnhighlightItem(at indexPath: SectionIndexPath)
-    
+
     // MARK: - Selection
-    
+
     /**
      Determines if the item should be selected.
      
@@ -38,7 +37,7 @@ public protocol SectionDelegate {
      - Returns: If the item should be selected.
      */
     func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool
-    
+
     /**
      Determines if the item should be deselected.
      
@@ -47,23 +46,23 @@ public protocol SectionDelegate {
      - Returns: If the item should be deselected.
      */
     func shouldDeselectItem(at indexPath: SectionIndexPath) -> Bool
-    
+
     /**
      The item with the given index path was selected.
      
      - Parameter indexPath: The index path of the cell that was highlighted.
      */
     func didSelectItem(at indexPath: SectionIndexPath)
-    
+
     /**
      The item with the given index path was deselected.
      
      - Parameter indexPath: The index path of the cell that was highlighted.
      */
     func didDeselectItem(at indexPath: SectionIndexPath)
-    
+
     // MARK: - Display
-    
+
     /**
      The given cell is about to be displayed.
      
@@ -73,7 +72,7 @@ public protocol SectionDelegate {
      */
     func willDisplay(cell: UICollectionViewCell,
                      at indexPath: SectionIndexPath)
-    
+
     /**
      The given header view is about to be displayed.
      
@@ -83,7 +82,7 @@ public protocol SectionDelegate {
      */
     func willDisplay(headerView: UICollectionReusableView,
                      at indexPath: SectionIndexPath)
-    
+
     /**
      The given footer view is about to be displayed.
      
@@ -93,7 +92,7 @@ public protocol SectionDelegate {
      */
     func willDisplay(footerView: UICollectionReusableView,
                      at indexPath: SectionIndexPath)
-    
+
     /**
      The given cell was removed from the `UICollectionView`.
      
@@ -103,7 +102,7 @@ public protocol SectionDelegate {
      */
     func didEndDisplaying(cell: UICollectionViewCell,
                           at indexPath: SectionIndexPath)
-    
+
     /**
      The given header view was removed from the `UICollectionView`.
      
@@ -113,7 +112,7 @@ public protocol SectionDelegate {
      */
     func didEndDisplaying(headerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath)
-    
+
     /**
      The given footer view was removed from the `UICollectionView`.
      
@@ -123,12 +122,12 @@ public protocol SectionDelegate {
      */
     func didEndDisplaying(footerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath)
-    
+
     // MARK: - Copy/Paste
-    
+
     // These methods provide support for copy/paste actions on cells.
     // All three should be implemented if any are.
-    
+
     /**
      Determines if an action menu should be displayed for the specified item.
      
@@ -138,7 +137,7 @@ public protocol SectionDelegate {
      */
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     func shouldShowMenuForItem(at indexPath: SectionIndexPath) -> Bool
-    
+
     /**
      Determines if the given action can be performed on the item with the given index path.
      
@@ -154,7 +153,7 @@ public protocol SectionDelegate {
     func canPerform(action: Selector,
                     forItemAt indexPath: SectionIndexPath,
                     withSender sender: Any?) -> Bool
-    
+
     /**
      Perform the specified action on the item with the given index path.
      
@@ -168,9 +167,9 @@ public protocol SectionDelegate {
     func perform(action: Selector,
                  forItemAt indexPath: SectionIndexPath,
                  withSender sender: Any?)
-    
+
     // MARK: - Focus
-    
+
     /**
      Determines if the item can be focused.
      
@@ -179,9 +178,9 @@ public protocol SectionDelegate {
      - Returns: If the item can be focused.
      */
     func canFocusItem(at indexPath: SectionIndexPath) -> Bool
-    
+
     // MARK: - Spring Loading
-    
+
     /**
      Determines if the item should be spring loaded.
      
@@ -194,9 +193,9 @@ public protocol SectionDelegate {
     @available(iOS 11.0, *)
     func shouldSpringLoadItem(at indexPath: SectionIndexPath,
                               with context: UISpringLoadedInteractionContext) -> Bool
-    
+
     // MARK: - Multiple Selection
-    
+
     /**
      Determines if a multi-select gesture is enabled for the given index path.
      
@@ -206,7 +205,7 @@ public protocol SectionDelegate {
      */
     @available(iOS 13.0, *)
     func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) -> Bool
-    
+
     /**
      A multi-select gesture started for the given index path.
      
@@ -214,7 +213,7 @@ public protocol SectionDelegate {
      */
     @available(iOS 13.0, *)
     func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath)
-    
+
     /**
      Returns the configuration of a context menu for the given index path.
      
@@ -230,122 +229,108 @@ public protocol SectionDelegate {
 }
 
 public extension SectionDelegate {
-    
     // MARK: - Default: Highlight
-    
+
     func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
         return true
     }
-    
+
     func didHighlightItem(at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func didUnhighlightItem(at indexPath: SectionIndexPath) {
-        
     }
-    
+
     // MARK: - Default: Selection
-    
+
     func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
         return true
     }
-    
+
     func shouldDeselectItem(at indexPath: SectionIndexPath) -> Bool {
         return true
     }
-    
+
     func didSelectItem(at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func didDeselectItem(at indexPath: SectionIndexPath) {
-        
     }
-    
+
     // MARK: - Default: Display
-    
+
     func willDisplay(cell: UICollectionViewCell,
                      at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func willDisplay(headerView: UICollectionReusableView,
                      at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func willDisplay(footerView: UICollectionReusableView,
                      at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func didEndDisplaying(cell: UICollectionViewCell,
                           at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func didEndDisplaying(headerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath) {
-        
     }
-    
+
     func didEndDisplaying(footerView: UICollectionReusableView,
                           at indexPath: SectionIndexPath) {
-        
     }
-    
+
     // MARK: - Default: Copy/Paste
-    
+
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     func shouldShowMenuForItem(at indexPath: SectionIndexPath) -> Bool {
         return false
     }
-    
+
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     func canPerform(action: Selector,
                     forItemAt indexPath: SectionIndexPath,
                     withSender sender: Any?) -> Bool {
         return false
     }
-    
+
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     func perform(action: Selector,
                  forItemAt indexPath: SectionIndexPath,
                  withSender sender: Any?) {
-        
     }
-    
+
     // MARK: - Default: Focus
-    
+
     func canFocusItem(at indexPath: SectionIndexPath) -> Bool {
         return shouldSelectItem(at: indexPath)
     }
-    
+
     // MARK: - Default: Spring Loading
-    
+
     @available(iOS 11.0, *)
     func shouldSpringLoadItem(at indexPath: SectionIndexPath,
                               with context: UISpringLoadedInteractionContext) -> Bool {
         return true
     }
-    
+
     // MARK: - Default: Multiple Selection
-    
+
     @available(iOS 13.0, *)
     func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) -> Bool {
         return false
     }
-    
+
     @available(iOS 13.0, *)
     func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) {
-        
     }
-    
+
     @available(iOS 13.0, *)
     func contextMenuConfigurationForItem(at indexPath: SectionIndexPath,
                                          point: CGPoint) -> UIContextMenuConfiguration? {
         return nil
     }
 }
-

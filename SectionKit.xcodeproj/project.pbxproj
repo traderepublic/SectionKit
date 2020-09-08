@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A345AE624586A3700F32287 /* SingleItemSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A345AE424586A1600F32287 /* SingleItemSectionController.swift */; };
-		5A68EE8A2461AB670006CD07 /* SectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EE892461AB670006CD07 /* SectionAdapter.swift */; };
-		5A68EEA424630DA40006CD07 /* SectionAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEA324630DA40006CD07 /* SectionAdapterDataSource.swift */; };
+		5A68EE8A2461AB670006CD07 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EE892461AB670006CD07 /* CollectionViewAdapter.swift */; };
+		5A68EEA424630DA40006CD07 /* CollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEA324630DA40006CD07 /* CollectionViewAdapterDataSource.swift */; };
 		5A68EEA824630E250006CD07 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEA724630E250006CD07 /* SectionModel.swift */; };
 		5A68EEAC246317240006CD07 /* Section+Differentiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEAA246317120006CD07 /* Section+Differentiable.swift */; };
 		5A68EEAE246422110006CD07 /* SectionIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68EEAD246422110006CD07 /* SectionIdentifiable.swift */; };
@@ -43,12 +43,12 @@
 		OBJ_140 /* SectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* SectionBatchOperation.swift */; };
 		OBJ_141 /* SectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* SectionChange.swift */; };
 		OBJ_142 /* SectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SectionUpdate.swift */; };
-		OBJ_143 /* CollectionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CollectionContext.swift */; };
+		OBJ_143 /* CollectionViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* CollectionViewContext.swift */; };
 		OBJ_144 /* CollectionBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* CollectionBatchOperation.swift */; };
 		OBJ_145 /* CollectionChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* CollectionChange.swift */; };
 		OBJ_146 /* CollectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* CollectionUpdate.swift */; };
 		OBJ_147 /* FoundationDiffingListSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* FoundationDiffingListSectionAdapter.swift */; };
-		OBJ_148 /* MainCollectionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* MainCollectionContext.swift */; };
+		OBJ_148 /* MainCollectionViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* MainCollectionViewContext.swift */; };
 		OBJ_149 /* ListSectionAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* ListSectionAdapter+UICollectionViewDataSource.swift */; };
 		OBJ_150 /* ListSectionAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* ListSectionAdapter+UICollectionViewDelegate.swift */; };
 		OBJ_151 /* ListSectionAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* ListSectionAdapter+UICollectionViewDragDelegate.swift */; };
@@ -81,8 +81,8 @@
 
 /* Begin PBXFileReference section */
 		5A345AE424586A1600F32287 /* SingleItemSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemSectionController.swift; sourceTree = "<group>"; };
-		5A68EE892461AB670006CD07 /* SectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapter.swift; sourceTree = "<group>"; };
-		5A68EEA324630DA40006CD07 /* SectionAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAdapterDataSource.swift; sourceTree = "<group>"; };
+		5A68EE892461AB670006CD07 /* CollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapter.swift; sourceTree = "<group>"; };
+		5A68EEA324630DA40006CD07 /* CollectionViewAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapterDataSource.swift; sourceTree = "<group>"; };
 		5A68EEA724630E250006CD07 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		5A68EEAA246317120006CD07 /* Section+Differentiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Section+Differentiable.swift"; sourceTree = "<group>"; };
 		5A68EEAD246422110006CD07 /* SectionIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIdentifiable.swift; sourceTree = "<group>"; };
@@ -113,12 +113,12 @@
 		OBJ_34 /* SectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperation.swift; sourceTree = "<group>"; };
 		OBJ_35 /* SectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionChange.swift; sourceTree = "<group>"; };
 		OBJ_36 /* SectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdate.swift; sourceTree = "<group>"; };
-		OBJ_38 /* CollectionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContext.swift; sourceTree = "<group>"; };
+		OBJ_38 /* CollectionViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewContext.swift; sourceTree = "<group>"; };
 		OBJ_40 /* CollectionBatchOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBatchOperation.swift; sourceTree = "<group>"; };
 		OBJ_41 /* CollectionChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionChange.swift; sourceTree = "<group>"; };
 		OBJ_42 /* CollectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUpdate.swift; sourceTree = "<group>"; };
 		OBJ_43 /* FoundationDiffingListSectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDiffingListSectionAdapter.swift; sourceTree = "<group>"; };
-		OBJ_44 /* MainCollectionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionContext.swift; sourceTree = "<group>"; };
+		OBJ_44 /* MainCollectionViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewContext.swift; sourceTree = "<group>"; };
 		OBJ_45 /* ListSectionAdapter+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListSectionAdapter+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		OBJ_46 /* ListSectionAdapter+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListSectionAdapter+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		OBJ_47 /* ListSectionAdapter+UICollectionViewDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListSectionAdapter+UICollectionViewDragDelegate.swift"; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_16 /* Section */,
-				OBJ_37 /* SectionAdapter */,
+				OBJ_37 /* CollectionViewAdapter */,
 				OBJ_51 /* Utility */,
 			);
 			name = SectionKit;
@@ -266,21 +266,21 @@
 			path = SectionUpdate;
 			sourceTree = "<group>";
 		};
-		OBJ_37 /* SectionAdapter */ = {
+		OBJ_37 /* CollectionViewAdapter */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_39 /* CollectionUpdate */,
 				5A68EEA924630E580006CD07 /* ListSectionAdapter */,
-				OBJ_38 /* CollectionContext.swift */,
-				OBJ_44 /* MainCollectionContext.swift */,
+				OBJ_38 /* CollectionViewContext.swift */,
+				OBJ_44 /* MainCollectionViewContext.swift */,
 				5A68EEB124643F0F0006CD07 /* Section.swift */,
 				5A68EEA724630E250006CD07 /* SectionModel.swift */,
 				5A68EEAD246422110006CD07 /* SectionIdentifiable.swift */,
 				5A68EEAF246422240006CD07 /* SectionEquatable.swift */,
-				5A68EE892461AB670006CD07 /* SectionAdapter.swift */,
-				5A68EEA324630DA40006CD07 /* SectionAdapterDataSource.swift */,
+				5A68EE892461AB670006CD07 /* CollectionViewAdapter.swift */,
+				5A68EEA324630DA40006CD07 /* CollectionViewAdapterDataSource.swift */,
 			);
-			path = SectionAdapter;
+			path = CollectionViewAdapter;
 			sourceTree = "<group>";
 		};
 		OBJ_39 /* CollectionUpdate */ = {
@@ -374,6 +374,7 @@
 			buildPhases = (
 				OBJ_109 /* Sources */,
 				OBJ_115 /* Frameworks */,
+				5A7C9F9125077FDE00A32BE6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -391,6 +392,7 @@
 			buildPhases = (
 				OBJ_124 /* Sources */,
 				OBJ_158 /* Frameworks */,
+				5A7C9F9025077FC000A32BE6 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -454,6 +456,45 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A7C9F9025077FC000A32BE6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5A7C9F9125077FDE00A32BE6 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_109 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -492,21 +533,21 @@
 				OBJ_138 /* SectionIndexPath.swift in Sources */,
 				5A68EEAE246422110006CD07 /* SectionIdentifiable.swift in Sources */,
 				OBJ_140 /* SectionBatchOperation.swift in Sources */,
-				5A68EEA424630DA40006CD07 /* SectionAdapterDataSource.swift in Sources */,
+				5A68EEA424630DA40006CD07 /* CollectionViewAdapterDataSource.swift in Sources */,
 				OBJ_141 /* SectionChange.swift in Sources */,
 				OBJ_142 /* SectionUpdate.swift in Sources */,
-				OBJ_143 /* CollectionContext.swift in Sources */,
+				OBJ_143 /* CollectionViewContext.swift in Sources */,
 				OBJ_144 /* CollectionBatchOperation.swift in Sources */,
 				OBJ_145 /* CollectionChange.swift in Sources */,
 				OBJ_146 /* CollectionUpdate.swift in Sources */,
 				OBJ_147 /* FoundationDiffingListSectionAdapter.swift in Sources */,
-				OBJ_148 /* MainCollectionContext.swift in Sources */,
+				OBJ_148 /* MainCollectionViewContext.swift in Sources */,
 				OBJ_149 /* ListSectionAdapter+UICollectionViewDataSource.swift in Sources */,
 				OBJ_150 /* ListSectionAdapter+UICollectionViewDelegate.swift in Sources */,
 				OBJ_151 /* ListSectionAdapter+UICollectionViewDragDelegate.swift in Sources */,
 				OBJ_152 /* ListSectionAdapter+UICollectionViewDropDelegate.swift in Sources */,
 				OBJ_153 /* ListSectionAdapter+UICollectionViewFlowLayout.swift in Sources */,
-				5A68EE8A2461AB670006CD07 /* SectionAdapter.swift in Sources */,
+				5A68EE8A2461AB670006CD07 /* CollectionViewAdapter.swift in Sources */,
 				OBJ_154 /* ListSectionAdapter.swift in Sources */,
 				OBJ_155 /* Collection+Extensions.swift in Sources */,
 				OBJ_157 /* UICollectionView+Reload.swift in Sources */,

@@ -1,12 +1,12 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension ListSectionAdapter: UICollectionViewDropDelegate {
+extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              canHandle session: UIDropSession) -> Bool {
         return sections.contains { $0.controller.dropDelegate?.canHandle(drop: session) ?? true }
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidUpdate session: UIDropSession,
                              withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
@@ -25,7 +25,7 @@ extension ListSectionAdapter: UICollectionViewDropDelegate {
                                                                                          at: sectionIndexPath)
             ?? UICollectionViewDropProposal(operation: .forbidden)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard
@@ -37,22 +37,19 @@ extension ListSectionAdapter: UICollectionViewDropDelegate {
         sections[indexPath.section].controller.dropDelegate?.performDrop(at: sectionIndexPath,
                                                                          with: coordinator)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidEnter session: UIDropSession) {
-        
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidExit session: UIDropSession) {
-        
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidEnd session: UIDropSession) {
-        
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         guard indexPath.section >= 0 && indexPath.section < sections.count else { return nil }
@@ -61,4 +58,3 @@ extension ListSectionAdapter: UICollectionViewDropDelegate {
         return sections[indexPath.section].controller.dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
     }
 }
-

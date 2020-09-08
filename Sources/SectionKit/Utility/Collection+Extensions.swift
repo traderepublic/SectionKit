@@ -5,4 +5,3 @@ extension Collection {
     @inlinable
     var isNotEmpty: Bool { !isEmpty }
 }
-

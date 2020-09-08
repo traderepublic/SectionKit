@@ -1,7 +1,7 @@
 import UIKit
 
 @available(iOS 11.0, *)
-extension ListSectionAdapter: UICollectionViewDragDelegate {
+extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              itemsForBeginning session: UIDragSession,
                              at indexPath: IndexPath) -> [UIDragItem] {
@@ -14,7 +14,7 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
                                                 internalRepresentation: indexPath.item)
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              itemsForAddingTo session: UIDragSession,
                              at indexPath: IndexPath,
@@ -28,7 +28,7 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
                                                 internalRepresentation: indexPath.item)
         return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         guard
@@ -39,28 +39,22 @@ extension ListSectionAdapter: UICollectionViewDragDelegate {
                                                 internalRepresentation: indexPath.item)
         return dragDelegate.dragPreviewParametersForItem(at: sectionIndexPath)
     }
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionWillBegin session: UIDragSession) {
-        
     }
-    
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionDidEnd session: UIDragSession) {
-        
     }
-    
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
         return true
     }
-    
-    
+
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionIsRestrictedToDraggingApplication session: UIDragSession) -> Bool {
         return false
     }
 }
-

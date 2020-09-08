@@ -1,0 +1,280 @@
+excluded:
+    - Carthage
+    - vendor
+
+whitelist_rules:
+    - anyobject_protocol
+    - array_init
+    - attributes
+    - block_based_kvo
+    - class_delegate_protocol
+    - closing_brace
+    - closure_body_length
+    - closure_end_indentation
+    - closure_parameter_position
+    - closure_spacing
+    - collection_alignment
+    - colon
+    - comma
+    - compiler_protocol_init
+    - computed_accessors_order
+    - contains_over_filter_count
+    - contains_over_filter_is_empty
+    - contains_over_first_not_nil
+    - contains_over_range_nil_comparison
+    - control_statement
+    - custom_rules
+#    - cyclomatic_complexity # TODO: this will need more work in the future
+    - deployment_target
+    - discarded_notification_center_observer
+    - discouraged_direct_init
+#    - discouraged_object_literal # TODO: this will need more work in the future
+    - duplicate_enum_cases
+    - duplicate_imports
+    - dynamic_inline
+    - empty_collection_literal
+    - empty_count
+    - empty_enum_arguments
+    - empty_parameters
+    - empty_parentheses_with_trailing_closure
+    - empty_string
+    - empty_xctest_method
+    - enum_case_associated_values_count
+    - explicit_init
+    - fatal_error_message
+    - file_header
+    - file_length
+    - file_name_no_space
+    - first_where
+    - flatmap_over_map_reduce
+    - for_where
+    - force_cast
+    - force_try
+#    - force_unwrapping # TODO: 5 left
+#    - function_default_parameter_at_end # TODO: this will need more work in the future
+    - generic_type_name
+    - ibinspectable_in_extension
+    - identical_operands
+    - identifier_name
+    - implicit_getter
+#    - implicitly_unwrapped_optional TODO: 1 left
+    - inert_defer
+    - large_tuple
+    - is_disjoint
+    - joined_default_parameter
+    - last_where
+    - leading_whitespace
+    - legacy_cggeometry_functions
+    - legacy_constant
+    - legacy_constructor
+    - legacy_hashing
+    - legacy_multiple
+    - legacy_nsgeometry_functions
+    - legacy_random
+    - line_length
+    - literal_expression_end_indentation
+    - lower_acl_than_parent
+    - mark
+    - modifier_order
+    - multiline_arguments
+    - multiline_function_chains
+    - multiline_literal_brackets
+    - multiline_parameters
+    - multiple_closures_with_trailing_closure
+#    - nesting # TODO: this will need more work in the future
+    - no_fallthrough_only
+    - no_space_in_method_call
+    - notification_center_detachment
+    - nsobject_prefer_isequal
+    - number_separator
+    - opening_brace
+    - operator_usage_whitespace
+    - operator_whitespace
+    - optional_enum_case_matching
+    - overridden_super_call
+    - override_in_extension
+#    - pattern_matching_keywords # TODO: this will need more work in the future
+    - prefer_self_type_over_type_of_self
+    - prefer_zero_over_explicit_init
+    - private_unit_test
+    - prohibited_interface_builder
+    - prohibited_super_call
+    - protocol_property_accessors_order
+    - reduce_boolean
+    - reduce_into
+    - redundant_nil_coalescing
+    - redundant_objc_attribute
+    - redundant_optional_initialization
+    - redundant_set_access_control
+    - redundant_string_enum_value
+    - redundant_type_annotation
+    - redundant_void_return
+    - return_arrow_whitespace
+    - shorthand_operator
+    - sorted_first_last
+    - sorted_imports
+    - statement_position
+    - static_operator
+    - switch_case_alignment
+    - syntactic_sugar
+    - toggle_bool
+    - trailing_comma
+    - trailing_newline
+    - trailing_semicolon
+    - trailing_whitespace
+    - type_body_length
+    - type_name
+    - unavailable_function
+    - unneeded_break_in_switch
+    - unneeded_notification_center_removal
+    - unneeded_parentheses_in_closure_argument
+    - untyped_error_in_catch
+    - unused_capture_list
+    - unused_closure_parameter
+    - unused_control_flow_label
+    - unused_declaration
+    - unused_enumerated
+    - unused_import
+    - unused_optional_binding
+    - vertical_parameter_alignment
+    - vertical_parameter_alignment_on_call
+    - vertical_whitespace
+    - vertical_whitespace_closing_braces
+    - vertical_whitespace_opening_braces
+    - weak_delegate
+    - xct_specific_matcher
+    - xctfail_message
+    - yoda_condition
+
+attributes:
+    always_on_same_line: []
+    always_on_line_above: ["@IBInspectable", "@objc", "@AttributedString", "@propertyWrapper", "@inlinable", "@usableFromInline"]
+
+closure_body_length:
+    warning: 50
+
+deployment_target:
+    iOS_deployment_target: 11.0
+
+empty_count:
+    severity: warning
+
+enum_case_associated_values_count:
+    warning: 6
+    error: 8
+
+file_length:
+    warning: 1500
+    error: 2000
+
+identifier_name:
+    min_length: 3
+    max_length:
+        warning: 50
+        error: 60
+    allowed_symbols: ["_"]
+    validates_start_with_lowercase: false
+    excluded:
+        - a
+        - b
+        - d
+        - g
+        - q
+        - r
+        - x
+        - y
+        - z
+        - id
+        - eu
+        - to
+        - up
+        - vc
+        - vm
+
+large_tuple:
+    warning: 4
+    error: 5
+
+line_length:
+    warning: 120
+    error: 500
+    ignores_comments: true
+    ignores_interpolated_strings: true
+
+number_separator:
+    minimum_length: 6
+
+type_body_length:
+    warning: 1000
+    error: 2000
+
+type_name:
+    min_length: 4
+    max_length:
+        warning: 50
+        error: 60
+    allowed_symbols: ["_"]
+    excluded:
+        - PUK
+        - PIN
+        - End
+        - Bar
+        - Tag
+        - JWT
+        - L
+
+custom_rules:
+    whitespace_after_closure_begin:
+        name: "Whitespace after closure begin"
+        regex: "([{][^\r\n\t\f\v ])"
+        severity: warning
+        match_kinds:
+            - argument
+            - attribute.builtin
+            - attribute.id
+            - buildconfig.id
+            - buildconfig.keyword
+            - identifier
+            - keyword
+            - number
+            - objectliteral
+            - parameter
+            - placeholder
+            - string_interpolation_anchor
+            - typeidentifier
+    whitespace_before_closure_begin:
+        name: "Whitespace or brace before closure begin"
+        regex: "([^(\r\n\t\f\v ][{])"
+        severity: warning
+        match_kinds:
+            - argument
+            - attribute.builtin
+            - attribute.id
+            - buildconfig.id
+            - buildconfig.keyword
+            - identifier
+            - keyword
+            - number
+            - objectliteral
+            - parameter
+            - placeholder
+            - string_interpolation_anchor
+            - typeidentifier
+    whitespace_before_closure_end:
+        name: "Whitespace before closure end"
+        regex: "([^\r\n\t\f\v ][}])"
+        severity: warning
+        match_kinds:
+            - argument
+            - attribute.builtin
+            - attribute.id
+            - buildconfig.id
+            - buildconfig.keyword
+            - identifier
+            - keyword
+            - number
+            - objectliteral
+            - parameter
+            - placeholder
+            - string_interpolation_anchor
+            - typeidentifier
