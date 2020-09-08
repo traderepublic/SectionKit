@@ -1,6 +1,7 @@
 excluded:
     - Carthage
     - vendor
+    - .build
 
 whitelist_rules:
     - anyobject_protocol

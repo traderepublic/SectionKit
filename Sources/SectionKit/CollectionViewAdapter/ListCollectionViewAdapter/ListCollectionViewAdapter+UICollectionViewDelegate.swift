@@ -226,7 +226,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         guard indexPath.section >= 0 && indexPath.section < sections.count else { return false }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        return sections[indexPath.section].controller.delegate?.shouldBeginMultipleSelectionInteraction(at: sectionIndexPath) ?? false
+        return sections[indexPath.section].controller.delegate?
+            .shouldBeginMultipleSelectionInteraction(at: sectionIndexPath) ?? false
     }
 
     @available(iOS 13.0, *)
@@ -254,14 +255,18 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     }
 
     @available(iOS 13.0, *)
-    open func collectionView(_ collectionView: UICollectionView,
-                             previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration
+    ) -> UITargetedPreview? {
         return nil
     }
 
     @available(iOS 13.0, *)
-    open func collectionView(_ collectionView: UICollectionView,
-                             previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration
+    ) -> UITargetedPreview? {
         return nil
     }
 

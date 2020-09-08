@@ -57,7 +57,6 @@
 		OBJ_154 /* ListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* ListCollectionViewAdapter.swift */; };
 		OBJ_155 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* Collection+Extensions.swift */; };
 		OBJ_157 /* UICollectionView+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* UICollectionView+Reload.swift */; };
-		OBJ_175 /* SectionKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* SectionKitTests.swift */; };
 		OBJ_176 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* XCTestManifests.swift */; };
 		OBJ_178 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
 /* End PBXBuildFile section */
@@ -127,7 +126,6 @@
 		OBJ_50 /* ListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_52 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		OBJ_54 /* UICollectionView+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reload.swift"; sourceTree = "<group>"; };
-		OBJ_57 /* SectionKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionKitTests.swift; sourceTree = "<group>"; };
 		OBJ_58 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_80 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -327,7 +325,6 @@
 		OBJ_56 /* SectionKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_57 /* SectionKitTests.swift */,
 				OBJ_58 /* XCTestManifests.swift */,
 				852E39BD246968C200066D53 /* Section */,
 			);
@@ -559,7 +556,6 @@
 			buildActionMask = 0;
 			files = (
 				852E39C624696DDB00066D53 /* SectionBatchOperationTests.swift in Sources */,
-				OBJ_175 /* SectionKitTests.swift in Sources */,
 				852E39CA24697F2800066D53 /* SectionUpdateTests.swift in Sources */,
 				852E39C924697CB900066D53 /* SectionIndexPathTests.swift in Sources */,
 				5A68EEC1246E90E00006CD07 /* SectionUpdateTests.swift in Sources */,

@@ -7,9 +7,11 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         return sections.contains { $0.controller.dropDelegate?.canHandle(drop: session) ?? true }
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dropSessionDidUpdate session: UIDropSession,
-                             withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dropSessionDidUpdate session: UIDropSession,
+        withDestinationIndexPath destinationIndexPath: IndexPath?
+    ) -> UICollectionViewDropProposal {
         guard
             let indexPath = destinationIndexPath,
             indexPath.section >= 0 && indexPath.section < sections.count

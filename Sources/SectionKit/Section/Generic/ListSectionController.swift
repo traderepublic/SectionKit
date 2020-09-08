@@ -97,8 +97,8 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
         return CollectionViewSectionUpdate(sectionId: model.sectionId,
-                             data: newData,
-                             setData: { [weak self] in self?.collectionViewItems = $0 })
+                                           data: newData,
+                                           setData: { [weak self] in self?.collectionViewItems = $0 })
     }
 
     override open var numberOfItems: Int {

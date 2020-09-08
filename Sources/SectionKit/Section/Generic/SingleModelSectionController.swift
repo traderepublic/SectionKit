@@ -65,9 +65,9 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
             changes = [.reloadItem(at: 0)]
         }
         return CollectionViewSectionUpdate(sectionId: model.sectionId,
-                             changes: changes,
-                             data: newData,
-                             setData: { [weak self] in self?.collectionViewModel = $0 })
+                                           changes: changes,
+                                           data: newData,
+                                           setData: { [weak self] in self?.collectionViewModel = $0 })
     }
 
     override open var numberOfItems: Int {

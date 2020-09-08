@@ -114,9 +114,9 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
             changes = []
         }
         return CollectionViewSectionUpdate(sectionId: model.sectionId,
-                             changes: changes,
-                             data: newData,
-                             setData: { [weak self] in self?.collectionViewItem = $0 })
+                                           changes: changes,
+                                           data: newData,
+                                           setData: { [weak self] in self?.collectionViewItem = $0 })
     }
 
     override open var numberOfItems: Int {

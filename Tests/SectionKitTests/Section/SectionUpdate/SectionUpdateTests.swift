@@ -9,7 +9,11 @@ final class SectionUpdateTests: XCTestCase {
 
         let output1 = SectionUpdate<[Int]>(sectionId: "2", data: [1, 2, 3], setData: setData)
         let output2 = SectionUpdate<[Int]>(sectionId: "1", changes: [], data: [1, 2], setData: setData)
-        let output3 = SectionUpdate<[Int]>(sectionId: "1", changes: [], data: [1, 2, 3], setData: setData, shouldReloadSection: { _ in true })
+        let output3 = SectionUpdate<[Int]>(sectionId: "1",
+                                           changes: [],
+                                           data: [1, 2, 3],
+                                           setData: setData,
+                                           shouldReloadSection: { _ in true })
 
         let output4 = SectionUpdate<[Int]>(sectionId: "1",
                                            changes: [],
@@ -18,7 +22,7 @@ final class SectionUpdateTests: XCTestCase {
                                            shouldReloadSection: { _ in true })
 
         let output5 = SectionUpdate<[Int]>(sectionId: "2",
-                                           batchOperations: [SectionBatchOperation<[Int]>(changes: [], data: [1, 2, 3])],
+                                           batchOperations: [SectionBatchOperation(changes: [], data: [1, 2, 3])],
                                            setData: setData,
                                            shouldReloadSection: { _ in true })
 

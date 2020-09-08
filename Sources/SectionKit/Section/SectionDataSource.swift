@@ -68,6 +68,6 @@ extension SectionDataSource {
     }
 
     public func moveItem(at sourceIndexPath: SectionIndexPath,
-                  to targetIndexPath: SectionIndexPath) {
+                         to targetIndexPath: SectionIndexPath) {
     }
 }
