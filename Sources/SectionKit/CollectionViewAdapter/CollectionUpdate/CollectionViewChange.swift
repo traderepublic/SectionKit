@@ -1,7 +1,7 @@
 import Foundation
 
-/// A single change made to the `UICollectionView`
-public enum CollectionChange: Hashable {
+/// A single change made to the list of sections in the `UICollectionView`
+public enum CollectionViewChange: Hashable {
     /// Delete a section at the specified index
     case deleteSection(at: Int)
 

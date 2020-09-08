@@ -154,7 +154,7 @@ closure_body_length:
     warning: 50
 
 deployment_target:
-    iOS_deployment_target: 11.0
+    iOS_deployment_target: 9.0
 
 empty_count:
     severity: warning

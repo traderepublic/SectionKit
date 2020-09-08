@@ -1,6 +1,8 @@
 import Foundation
 
+/// Defines a hashable id for a section.
 public protocol SectionIdentifiable {
+    /// An identifier that uniquely identifies a section.
     var sectionId: AnyHashable { get }
 }
 

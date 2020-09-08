@@ -3,7 +3,7 @@ import Foundation
 import SectionKit
 
 public extension Changeset {
-    /// Convert this `Changeset` to a `CollectionViewBatchOperation` containing updates to sections in the `UICollectionView`.
+    /// Create a `CollectionViewBatchOperation` containing updates to sections in the `UICollectionView`.
     @inlinable
     var collectionBatchOperation: CollectionViewBatchOperation<Collection> {
         var changes = Set<CollectionChange>()
@@ -23,7 +23,7 @@ public extension Changeset {
                                         data: data)
     }
 
-    /// Convert this `Changeset` to a `CollectionViewSectionBatchOperation` containing item updates to a section.
+    /// Create a `CollectionViewSectionBatchOperation` containing item updates to a section.
     @inlinable
     var sectionBatchOperation: CollectionViewSectionBatchOperation<Collection> {
         var changes = Set<SectionChange>()

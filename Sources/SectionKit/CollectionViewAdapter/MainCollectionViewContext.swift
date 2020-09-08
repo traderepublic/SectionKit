@@ -16,8 +16,15 @@ open class MainCollectionViewContext: CollectionViewContext {
 
     private var registeredFooterViewTypes: [UICollectionReusableView.Type] = []
 
-    // MARK: - Initializer
+    // MARK: - Init
 
+    /**
+     Initialize an instance of `MainCollectionViewContext`.
+
+     - Parameter viewController: The `UIViewController` which contains the `UICollectionView`.
+
+     - Parameter collectionView: The `UICollectionView` of this context.
+     */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView) {
         self.viewController = viewController
@@ -57,16 +64,16 @@ open class MainCollectionViewContext: CollectionViewContext {
             assertionFailure("`sectionAdapter` is no set")
             return collectionView.reloadData()
         }
-        let sections = sectionAdapter.sections
-        guard let (sectionIndex, _) = sections.enumerated().first(where: { $1.model.sectionId == update.sectionId }) else {
+        let sections = sectionAdapter.sections.enumerated()
+        guard let (sectionIndex, _) = sections.first(where: { $1.model.sectionId == update.sectionId }) else {
             assertionFailure("No section was found for the specified id")
             return collectionView.reloadData()
         }
-        collectionView.reload(using: update, at: sectionIndex)
+        collectionView.apply(update: update, at: sectionIndex)
     }
 
-    open func apply<T>(update: CollectionUpdate<T>) {
-        collectionView.reload(using: update)
+    open func apply<T>(update: CollectionViewUpdate<T>) {
+        collectionView.apply(update: update)
     }
 
     // MARK: - Dequeueing reusable cells/views
@@ -135,19 +142,15 @@ open class MainCollectionViewContext: CollectionViewContext {
 
     // MARK: - Sections
 
-    open func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController, SectionIndexPath)? {
-        var sectionIndexPath = indexPath
-        var sectionIndex = indexPath.section
+    open func sectionControllerWithAdjustedIndexPath(
+        for indexPath: IndexPath
+    ) -> (SectionController, SectionIndexPath)? {
         guard let sectionAdapter = sectionAdapter else {
             fatalError("`sectionAdapter` is no set")
         }
+        let sectionIndex = indexPath.section
         let sections = sectionAdapter.sections
-        if sectionIndex >= sections.count {
-            // index of section is out of bounds, select last section instead
-            sectionIndex = sections.count - 1
-            sectionIndexPath = IndexPath(item: sections[sectionIndex].controller.dataSource.numberOfItems,
-                                         section: sectionIndex)
-        }
-        return (sections[sectionIndex].controller, SectionIndexPath(sectionIndexPath))
+        guard sectionIndex < sections.count else { return nil }
+        return (sections[sectionIndex].controller, SectionIndexPath(indexPath))
     }
 }

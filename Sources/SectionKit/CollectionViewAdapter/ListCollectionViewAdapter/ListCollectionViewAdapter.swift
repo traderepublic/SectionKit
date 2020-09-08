@@ -1,23 +1,21 @@
 import UIKit
 
-open class ListCollectionViewAdapter: NSObject,
-    CollectionViewAdapter {
-    // MARK: - Init
-
+open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
-     Initialize an instance of `ListCollectionAdapter` to use it as the datasource and delegate of the given `UICollectionView`
+     Initialize an instance of `ListCollectionAdapter` to use it as the datasource and
+     delegate of the given `UICollectionView`.
      
-     - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`
+     - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
      
-     - Parameter collectionView: The `UICollectionView` to use to display the data
+     - Parameter collectionView: The `UICollectionView` to use to display the data.
      
-     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks
+     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
                 scrollViewDelegate: UIScrollViewDelegate? = nil) {
         let collectionContext = MainCollectionViewContext(viewController: viewController,
-                                                      collectionView: collectionView)
+                                                          collectionView: collectionView)
         self.collectionContext = collectionContext
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
@@ -30,8 +28,6 @@ open class ListCollectionViewAdapter: NSObject,
         }
     }
 
-    // MARK: - SectionAdapter
-
     public let collectionContext: CollectionViewContext
 
     open weak var scrollViewDelegate: UIScrollViewDelegate?
@@ -41,9 +37,10 @@ open class ListCollectionViewAdapter: NSObject,
     }
 
     /**
-     The list of sections currently displayed in the `UICollectionView`
+     The list of sections currently displayed in the `UICollectionView`.
      
-     Only set this property if `UICollectionView` insertions and deletions are handled, otherwise use `sections` instead.
+     - Warning: Only set this property inside an update block of `performBatchUpdates` and
+     if `UICollectionView` insertions and deletions are handled, otherwise use `sections` instead.
      */
     open var collectionViewSections: [Section] = [] {
         willSet {
@@ -73,9 +70,8 @@ open class ListCollectionViewAdapter: NSObject,
      - Returns: The update that should be performed on the `UICollectionView`
      */
     open func calculateUpdate(from oldData: [Section],
-                              to newData: [Section]) -> CollectionUpdate<[Section]> {
-        return CollectionUpdate(data: newData,
-                                setData: { [weak self] in self?.collectionViewSections = $0 })
+                              to newData: [Section]) -> CollectionViewUpdate<[Section]> {
+        return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
     }
 
     open var allowReorderingBetweenDifferentSections: Bool = false

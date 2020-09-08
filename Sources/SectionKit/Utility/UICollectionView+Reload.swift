@@ -9,8 +9,8 @@ public extension UICollectionView {
      - Parameter section: The section in the `UICollectionView` to modify.
      */
     @inlinable
-    func reload<T>(using update: SectionUpdate<T>,
-                   at section: Int) {
+    func apply<T>(update: SectionUpdate<T>,
+                  at section: Int) {
         if case .none = window, let data = update.batchOperations.last?.data {
             update.setData(data)
             return reloadSections(IndexSet(integer: section))
@@ -54,14 +54,14 @@ public extension UICollectionView {
      - Parameter update: The update to apply to the sections.
      */
     @inlinable
-    func reload<T>(using update: CollectionUpdate<T>) {
+    func apply<T>(update: CollectionViewUpdate<T>) {
         if case .none = window, let data = update.batchOperations.last?.data {
             update.setData(data)
             return reloadData()
         }
 
         for batchOperation in update.batchOperations {
-            if update.shouldReloadCollection(batchOperation) {
+            if update.shouldReload(batchOperation) {
                 update.setData(batchOperation.data)
                 return reloadData()
             }

@@ -1,22 +1,25 @@
 import UIKit
 
-/// The root object for a given `UICollectionView` that forwards datasource and delegate methods to the corresponding `SectionController`
+/**
+ The root object for a given `UICollectionView` that forwards datasource and delegate
+ methods to the corresponding `SectionController`.
+ */
 public protocol CollectionViewAdapter: AnyObject {
-    /// An object providing contextual information
+    /// An object providing contextual information.
     var collectionContext: CollectionViewContext { get }
 
-    /// A delegate that receives callbacks from the `UIScrollView`
+    /// A delegate that receives callbacks from the `UIScrollView`.
     var scrollViewDelegate: UIScrollViewDelegate? { get set }
 
-    /// Sections in this adapter
+    /// The sections in the `UICollectionView`.
     var sections: [Section] { get set }
 
-    /// The datasource of this adapter responsible for creating `SectionControllers`
+    /// The datasource of this adapter responsible for creating `SectionControllers`.
     var dataSource: CollectionViewAdapterDataSource? { get set }
 
-    /// If reordering should be allowed between different sections
+    /// If reordering is allowed between different sections.
     var allowReorderingBetweenDifferentSections: Bool { get set }
 
-    /// Tells the adapter to query the `dataSource` again
+    /// Invalidate the current set of sections by requerying the `dataSource`.
     func invalidateDataSource()
 }
