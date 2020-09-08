@@ -24,7 +24,7 @@
 		852E39C624696DDB00066D53 /* SectionBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C424696D7100066D53 /* SectionBatchOperationTests.swift */; };
 		852E39C924697CB900066D53 /* SectionIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C724697C9400066D53 /* SectionIndexPathTests.swift */; };
 		852E39CA24697F2800066D53 /* SectionUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852E39C224696BBA00066D53 /* SectionUpdateTests.swift */; };
-		OBJ_110 /* DiffingListSectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingListSectionAdapter.swift */; };
+		OBJ_110 /* DiffingListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingListCollectionViewAdapter.swift */; };
 		OBJ_111 /* DiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DiffingListSectionController.swift */; };
 		OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ChangeSet+BatchOperations.swift */; };
 		OBJ_113 /* ContentIdentifiable+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* ContentIdentifiable+Identifiable.swift */; };
@@ -131,7 +131,7 @@
 		OBJ_58 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_80 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		OBJ_9 /* DiffingListSectionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListSectionAdapter.swift; sourceTree = "<group>"; };
+		OBJ_9 /* DiffingListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		"SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DiffingSectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SectionKit::SectionKit::Product" /* SectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SectionKit::SectionKitTests::Product" /* SectionKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,7 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_11 /* Utility */,
-				OBJ_9 /* DiffingListSectionAdapter.swift */,
+				OBJ_9 /* DiffingListCollectionViewAdapter.swift */,
 				OBJ_10 /* DiffingListSectionController.swift */,
 			);
 			name = DiffingSectionKit;
@@ -500,7 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_110 /* DiffingListSectionAdapter.swift in Sources */,
+				OBJ_110 /* DiffingListCollectionViewAdapter.swift in Sources */,
 				OBJ_111 /* DiffingListSectionController.swift in Sources */,
 				OBJ_112 /* ChangeSet+BatchOperations.swift in Sources */,
 				5A68EEAC246317240006CD07 /* Section+Differentiable.swift in Sources */,

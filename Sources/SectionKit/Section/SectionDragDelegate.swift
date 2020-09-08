@@ -2,7 +2,7 @@ import UIKit
 
 /// The drag delegate of a section
 @available(iOS 11.0, *)
-public protocol SectionDragDelegate {
+public protocol SectionDragDelegate: AnyObject {
     /**
      Returns the initial list of items to drag.
      
@@ -16,15 +16,15 @@ public protocol SectionDragDelegate {
                    at indexPath: SectionIndexPath) -> [UIDragItem]
 
     /**
-     Returns items which should be added to an existing drag.
+     Returns drag items which should be added to an existing drag.
      
      - Parameter session: The session of the drag.
      
-     - Parameter indexPath: The index path of the cell to be deselected.
+     - Parameter indexPath: The index path of the item to be dragged.
      
      - Parameter point: The location inside the `UICollectionView` that the user tapped on.
      
-     - Returns: Items which should be added to an existing drag.
+     - Returns: Drag items which should be added to an existing drag.
      */
     func dragItems(forAddingTo session: UIDragSession,
                    at indexPath: SectionIndexPath,

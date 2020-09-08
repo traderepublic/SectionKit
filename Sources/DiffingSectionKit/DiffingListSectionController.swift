@@ -2,7 +2,7 @@ import DifferenceKit
 import Foundation
 import SectionKit
 
-/// A `SectionController` that calculates the differences for animated changes to the items in the section.
+/// A `ListSectionController` that performs diffing using `DifferenceKit`.
 open class DiffingListSectionController<Model: SectionModel, Item: Differentiable>: ListSectionController<Model, Item> {
     override open func calculateUpdate(from oldData: [Item],
                                        to newData: [Item]) -> SectionUpdate<[Item]>? {

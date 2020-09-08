@@ -1,7 +1,7 @@
 import UIKit
 
 /// The delegate of a section
-public protocol SectionDelegate {
+public protocol SectionDelegate: AnyObject {
     // MARK: - Highlight
 
     /**
@@ -23,7 +23,7 @@ public protocol SectionDelegate {
     /**
      The item with the given index path was unhighlighted.
      
-     - Parameter indexPath: The index path of the cell that was highlighted.
+     - Parameter indexPath: The index path of the cell that was unhighlighted.
      */
     func didUnhighlightItem(at indexPath: SectionIndexPath)
 
@@ -50,14 +50,14 @@ public protocol SectionDelegate {
     /**
      The item with the given index path was selected.
      
-     - Parameter indexPath: The index path of the cell that was highlighted.
+     - Parameter indexPath: The index path of the cell that was selected.
      */
     func didSelectItem(at indexPath: SectionIndexPath)
 
     /**
      The item with the given index path was deselected.
      
-     - Parameter indexPath: The index path of the cell that was highlighted.
+     - Parameter indexPath: The index path of the cell that was deselected.
      */
     func didDeselectItem(at indexPath: SectionIndexPath)
 
@@ -70,8 +70,7 @@ public protocol SectionDelegate {
      
      - Parameter indexPath: The index path of the cell that is about to be displayed.
      */
-    func willDisplay(cell: UICollectionViewCell,
-                     at indexPath: SectionIndexPath)
+    func willDisplay(cell: UICollectionViewCell, at indexPath: SectionIndexPath)
 
     /**
      The given header view is about to be displayed.
@@ -80,8 +79,7 @@ public protocol SectionDelegate {
      
      - Parameter indexPath: The index path of the header view that is about to be displayed.
      */
-    func willDisplay(headerView: UICollectionReusableView,
-                     at indexPath: SectionIndexPath)
+    func willDisplay(headerView: UICollectionReusableView, at indexPath: SectionIndexPath)
 
     /**
      The given footer view is about to be displayed.
@@ -90,18 +88,16 @@ public protocol SectionDelegate {
      
      - Parameter indexPath: The index path of the footer view that is about to be displayed.
      */
-    func willDisplay(footerView: UICollectionReusableView,
-                     at indexPath: SectionIndexPath)
+    func willDisplay(footerView: UICollectionReusableView, at indexPath: SectionIndexPath)
 
     /**
      The given cell was removed from the `UICollectionView`.
      
      - Parameter cell: The cell that was removed from the `UICollectionView`.
      
-     - Parameter indexPath: The index path of the supplementary view that is about to be displayed.
+     - Parameter indexPath: The index path of the cell that was removed from the `UICollectionView`.
      */
-    func didEndDisplaying(cell: UICollectionViewCell,
-                          at indexPath: SectionIndexPath)
+    func didEndDisplaying(cell: UICollectionViewCell, at indexPath: SectionIndexPath)
 
     /**
      The given header view was removed from the `UICollectionView`.
@@ -110,8 +106,7 @@ public protocol SectionDelegate {
      
      - Parameter indexPath: The index path of the header view that was removed from the `UICollectionView`.
      */
-    func didEndDisplaying(headerView: UICollectionReusableView,
-                          at indexPath: SectionIndexPath)
+    func didEndDisplaying(headerView: UICollectionReusableView, at indexPath: SectionIndexPath)
 
     /**
      The given footer view was removed from the `UICollectionView`.
@@ -120,8 +115,7 @@ public protocol SectionDelegate {
      
      - Parameter indexPath: The index path of the footer view that was removed from the `UICollectionView`.
      */
-    func didEndDisplaying(footerView: UICollectionReusableView,
-                          at indexPath: SectionIndexPath)
+    func didEndDisplaying(footerView: UICollectionReusableView, at indexPath: SectionIndexPath)
 
     // MARK: - Copy/Paste
 
@@ -150,9 +144,7 @@ public protocol SectionDelegate {
      - Returns: If the given action can be performed on the item with the given index path.
      */
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    func canPerform(action: Selector,
-                    forItemAt indexPath: SectionIndexPath,
-                    withSender sender: Any?) -> Bool
+    func canPerform(action: Selector, forItemAt indexPath: SectionIndexPath, withSender sender: Any?) -> Bool
 
     /**
      Perform the specified action on the item with the given index path.
@@ -164,9 +156,7 @@ public protocol SectionDelegate {
      - Parameter sender: The sender that initiated the action.
      */
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    func perform(action: Selector,
-                 forItemAt indexPath: SectionIndexPath,
-                 withSender sender: Any?)
+    func perform(action: Selector, forItemAt indexPath: SectionIndexPath, withSender sender: Any?)
 
     // MARK: - Focus
 
@@ -191,8 +181,7 @@ public protocol SectionDelegate {
      - Returns: If the item should be spring loaded.
      */
     @available(iOS 11.0, *)
-    func shouldSpringLoadItem(at indexPath: SectionIndexPath,
-                              with context: UISpringLoadedInteractionContext) -> Bool
+    func shouldSpringLoadItem(at indexPath: SectionIndexPath, with context: UISpringLoadedInteractionContext) -> Bool
 
     // MARK: - Multiple Selection
 
@@ -221,11 +210,10 @@ public protocol SectionDelegate {
      
      - Parameter point: The location of the context menu inside the `UICollectionView`.
      
-     - Returns: If the item should be deselected.
+     - Returns: The configuration of a context menu for the given index path.
      */
     @available(iOS 13.0, *)
-    func contextMenuConfigurationForItem(at indexPath: SectionIndexPath,
-                                         point: CGPoint) -> UIContextMenuConfiguration?
+    func contextMenuConfigurationForItem(at indexPath: SectionIndexPath, point: CGPoint) -> UIContextMenuConfiguration?
 }
 
 public extension SectionDelegate {

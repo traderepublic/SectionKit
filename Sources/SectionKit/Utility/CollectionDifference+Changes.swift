@@ -1,11 +1,11 @@
 import Foundation
 
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
-public extension CollectionDifference {
-    /// Convert this `CollectionDifference` to a set of collection changes
+extension CollectionDifference {
+    /// Create a set of `CollectionViewChange` containing updates to the list of sections in the `UICollectionView`.
     @inlinable
-    var collectionChanges: Set<CollectionChange> {
-        var changes = Set<CollectionChange>()
+    public var collectionChanges: Set<CollectionViewChange> {
+        var changes = Set<CollectionViewChange>()
         for change in self {
             switch change {
             case .insert(offset: let offset,
@@ -27,9 +27,12 @@ public extension CollectionDifference {
         return changes
     }
 
-    /// Convert this `CollectionDifference` to a set of section changes
+    /**
+     Create a set of `SectionChange` containing the difference to the list of items
+     in a section in the `UICollectionView`.
+     */
     @inlinable
-    var sectionChanges: Set<SectionChange> {
+    public var sectionChanges: Set<SectionChange> {
         var changes = Set<SectionChange>()
         for change in self {
             switch change {

@@ -1,25 +1,24 @@
 import UIKit
 
-/// The delegate for the `UICollectionViewFlowLayout` of a section
-public protocol SectionFlowDelegate {
+/// The delegate for the `UICollectionViewFlowLayout` of a section.
+public protocol SectionFlowDelegate: AnyObject {
     /**
      Returns the size for the item at the given index path.
      
-     - Parameter indexPath: The index path of the cell to be deselected.
+     - Parameter indexPath: The index path of the item of which the size should be calculated.
      
      - Parameter layout: The layout used to display the items.
      
-     - Returns: If the item should be deselected.
+     - Returns: The size for the item at the given index path.
      */
-    func sizeForItem(at indexPath: SectionIndexPath,
-                     using layout: UICollectionViewLayout) -> CGSize
+    func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout) -> CGSize
 
     /**
      Returns the inset of this section.
      
      - Parameter layout: The layout used to display the items.
      
-     - Returns: If the item should be deselected.
+     - Returns: The inset of this section.
      */
     func inset(using layout: UICollectionViewLayout) -> UIEdgeInsets
 

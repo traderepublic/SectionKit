@@ -1,5 +1,12 @@
 import UIKit
 
+/**
+ A `CollectionViewAdapter` that contains a list of sections.
+
+ - Note: Every call to `invalidateDataSource` and subsequent change of the `sections` property will result in call to
+ `reloadData()` on the underlying `UICollectionView`. If animated updates should occur, please
+ override `calculateUpdate(from:to:)`.
+ */
 open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
      Initialize an instance of `ListCollectionAdapter` to use it as the datasource and

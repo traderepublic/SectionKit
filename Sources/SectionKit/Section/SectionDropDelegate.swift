@@ -2,7 +2,7 @@ import UIKit
 
 /// The drop delegate of a section
 @available(iOS 11.0, *)
-public protocol SectionDropDelegate {
+public protocol SectionDropDelegate: AnyObject {
     /**
      Determines if the section allows drops from the given `UIDropSession`.
      
@@ -21,8 +21,7 @@ public protocol SectionDropDelegate {
      
      - Returns: A proposal if and how the drop should be performed at the given location.
      */
-    func dropSessionDidUpdate(_ session: UIDropSession,
-                              at indexPath: SectionIndexPath) -> UICollectionViewDropProposal
+    func dropSessionDidUpdate(_ session: UIDropSession, at indexPath: SectionIndexPath) -> UICollectionViewDropProposal
 
     /**
      Perform the drop at the given index path.
@@ -31,8 +30,7 @@ public protocol SectionDropDelegate {
      
      - Parameter coordinator: The coordinator containing information about the drop.
      */
-    func performDrop(at indexPath: SectionIndexPath,
-                     with coordinator: UICollectionViewDropCoordinator)
+    func performDrop(at indexPath: SectionIndexPath, with coordinator: UICollectionViewDropCoordinator)
 
     /**
      Returns information on how the item at the given index path should be displayed during the drop.

@@ -2,7 +2,8 @@ import DifferenceKit
 import Foundation
 import SectionKit
 
-open class DiffingListSectionAdapter: ListSectionAdapter {
+/// A `ListCollectionViewAdapter` that performs diffing using `DifferenceKit`.
+open class DiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(from oldData: [Section],
                                        to newData: [Section]) -> CollectionUpdate<[Section]> {
         let changeSet = StagedChangeset(source: oldData, target: newData)

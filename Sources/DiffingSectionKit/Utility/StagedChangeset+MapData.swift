@@ -1,16 +1,16 @@
 import DifferenceKit
 import Foundation
 
-public extension StagedChangeset {
+extension StagedChangeset {
     /**
-     Returns an array of `ChangeSet<T>` where the `data` property is mapped using the given closure.
+     Returns an array of `ChangeSet<T>` where the `data` property is transformed using the given `transform` closure.
      
-     - Parameter transform: A closure for mapping the `data` property.
+     - Parameter transform: A closure for transforming the `data` property.
      
-     - Returns: An array of `ChangeSet<T>` where the `data` property is mapped using the given closure.
+     - Returns: An array of `ChangeSet<T>` where the `data` property is transformed using the given `transform` closure.
      */
     @inlinable
-    func mapData<T>(_ transform: (Collection.Element) throws -> T) rethrows -> [Changeset<[T]>] {
+    public func mapData<T>(_ transform: (Collection.Element) throws -> T) rethrows -> [Changeset<[T]>] {
         return try map { changeSet -> Changeset<[T]> in
             Changeset(data: try changeSet.data.map(transform),
                       sectionDeleted: changeSet.sectionDeleted,
