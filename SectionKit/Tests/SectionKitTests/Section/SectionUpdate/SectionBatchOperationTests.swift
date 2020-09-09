@@ -16,7 +16,7 @@ internal final class SectionBatchOperationTests: XCTestCase {
         3
     ]
 
-    private let changes: Set<SectionChange> = [
+    private let changes: Set<CollectionViewSectionChange> = [
         .deleteItem(at: 0),
         .deleteItem(at: 1),
         .insertItem(at: 0),
@@ -28,26 +28,26 @@ internal final class SectionBatchOperationTests: XCTestCase {
     ]
 
     internal func testEquatable() {
-        let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
-        XCTAssert(input == SectionBatchOperation<[Int]>(changes: changes, data: data))
+        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
+        XCTAssert(input == CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data))
     }
 
     internal func testDeletes() {
-        let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
+        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
         let output = input.deletes
         let expected = Set([0, 1])
         XCTAssertEqual(output, expected)
     }
 
     internal func testInserts() {
-        let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
+        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
         let output = input.inserts
         let expected = Set([0, 1])
         XCTAssertEqual(output, expected)
     }
 
     internal func testMoves() {
-        let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
+        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
         let output = input.moves
 
         let expected = Set([
@@ -59,7 +59,7 @@ internal final class SectionBatchOperationTests: XCTestCase {
     }
 
     internal func testReloads() {
-        let input = SectionBatchOperation<[Int]>(changes: changes, data: data)
+        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
         let output = input.reloads
 
         let expected = Set([0, 1])
