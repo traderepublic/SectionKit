@@ -29,12 +29,12 @@ The functionality is split into two packages:
 
 - `FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter` (iOS 13+):
     A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked 
-    for the difference to the current value and separate inserts/deletes/moves will be performed accordingly
+    for the difference to the current value and separate inserts/deletes/moves will be performed
     using difference calculation of Foundations `CollectionDifference` (which is only available on iOS 13+).
 
 - `DiffingListCollectionViewAdapter: ListCollectionViewAdapter`:
     A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked 
-    for the difference to the current value and separate inserts/deletes/moves will be performed accordingly
+    for the difference to the current value and separate inserts/deletes/moves will be performed
     using difference calculation of [DifferenceKit](https://github.com/ra1028/DifferenceKit).
 
 ### SectionController
