@@ -69,8 +69,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         guard indexPath.section >= 0 && indexPath.section < sections.count else { return }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        sections[indexPath.section].controller.delegate?.willDisplay(cell: cell,
-                                                                     at: sectionIndexPath)
+        sections[indexPath.section].controller.delegate?.willDisplay(cell: cell, at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -83,11 +82,10 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         let delegate = sections[indexPath.section].controller.delegate
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            delegate?.willDisplay(headerView: view,
-                                  at: sectionIndexPath)
+            delegate?.willDisplay(headerView: view, at: sectionIndexPath)
+
         case UICollectionView.elementKindSectionFooter:
-            delegate?.willDisplay(footerView: view,
-                                  at: sectionIndexPath)
+            delegate?.willDisplay(footerView: view, at: sectionIndexPath)
         default: break
         }
     }
@@ -98,8 +96,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         guard indexPath.section >= 0 && indexPath.section < sections.count else { return }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
-        sections[indexPath.section].controller.delegate?.didEndDisplaying(cell: cell,
-                                                                          at: sectionIndexPath)
+        sections[indexPath.section].controller.delegate?.didEndDisplaying(cell: cell, at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -112,11 +109,10 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         let delegate = sections[indexPath.section].controller.delegate
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            delegate?.didEndDisplaying(headerView: view,
-                                       at: sectionIndexPath)
+            delegate?.didEndDisplaying(headerView: view, at: sectionIndexPath)
+
         case UICollectionView.elementKindSectionFooter:
-            delegate?.didEndDisplaying(footerView: view,
-                                       at: sectionIndexPath)
+            delegate?.didEndDisplaying(footerView: view, at: sectionIndexPath)
         default: break
         }
     }

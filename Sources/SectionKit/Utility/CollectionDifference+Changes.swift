@@ -8,17 +8,14 @@ extension CollectionDifference {
         var changes = Set<CollectionViewChange>()
         for change in self {
             switch change {
-            case .insert(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
+            case let .insert(offset: offset, element: _, associatedWith: associatedWith):
                 if let associatedWith = associatedWith {
                     changes.insert(.moveSection(at: associatedWith, to: offset))
                 } else {
                     changes.insert(.insertSection(at: offset))
                 }
-            case .remove(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
+
+            case let .remove(offset: offset, element: _, associatedWith: associatedWith):
                 if associatedWith == nil {
                     changes.insert(.deleteSection(at: offset))
                 }
@@ -36,17 +33,14 @@ extension CollectionDifference {
         var changes = Set<CollectionViewSectionChange>()
         for change in self {
             switch change {
-            case .insert(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
+            case let .insert(offset: offset, element: _, associatedWith: associatedWith):
                 if let associatedWith = associatedWith {
                     changes.insert(.moveItem(at: associatedWith, to: offset))
                 } else {
                     changes.insert(.insertItem(at: offset))
                 }
-            case .remove(offset: let offset,
-                         element: _,
-                         associatedWith: let associatedWith):
+
+            case let .remove(offset: offset, element: _, associatedWith: associatedWith):
                 if associatedWith == nil {
                     changes.insert(.deleteItem(at: offset))
                 }

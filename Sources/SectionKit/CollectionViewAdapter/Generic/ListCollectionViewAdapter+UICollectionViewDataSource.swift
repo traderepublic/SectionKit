@@ -40,8 +40,10 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
             return sectionController.controller.dataSource.headerView(at: sectionIndexPath)
+
         case UICollectionView.elementKindSectionFooter:
             return sectionController.controller.dataSource.footerView(at: sectionIndexPath)
+
         default:
             assertionFailure("Unsupported supplementary view kind.")
             return UICollectionReusableView()

@@ -7,7 +7,7 @@ public protocol SectionIdentifiable {
 }
 
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
-public extension SectionIdentifiable where Self: Identifiable {
+extension SectionIdentifiable where Self: Identifiable {
     @inlinable
-    var sectionId: AnyHashable { id }
+    public var sectionId: AnyHashable { id }
 }

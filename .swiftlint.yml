@@ -23,12 +23,13 @@ whitelist_rules:
     - contains_over_first_not_nil
     - contains_over_range_nil_comparison
     - control_statement
+    - convenience_type
     - custom_rules
-#    - cyclomatic_complexity # TODO: this will need more work in the future
+    - cyclomatic_complexity
     - deployment_target
     - discarded_notification_center_observer
     - discouraged_direct_init
-#    - discouraged_object_literal # TODO: this will need more work in the future
+    - discouraged_object_literal
     - duplicate_enum_cases
     - duplicate_imports
     - dynamic_inline
@@ -40,28 +41,39 @@ whitelist_rules:
     - empty_string
     - empty_xctest_method
     - enum_case_associated_values_count
+    - expiring_todo
+    - explicit_acl
+    - explicit_enum_raw_value
     - explicit_init
+    - explicit_self
+    - explicit_top_level_acl
+#    - explicit_type_interface # seems to produce a bunch of false positives
+    - fallthrough
     - fatal_error_message
     - file_header
     - file_length
+    - file_name
     - file_name_no_space
+    - file_types_order
     - first_where
     - flatmap_over_map_reduce
     - for_where
     - force_cast
     - force_try
-#    - force_unwrapping # TODO: 5 left
-#    - function_default_parameter_at_end # TODO: this will need more work in the future
+    - force_unwrapping
+    - function_body_length
+    - function_default_parameter_at_end
+    - function_parameter_count
     - generic_type_name
     - ibinspectable_in_extension
     - identical_operands
     - identifier_name
     - implicit_getter
-#    - implicitly_unwrapped_optional TODO: 1 left
+    - implicitly_unwrapped_optional
     - inert_defer
-    - large_tuple
     - is_disjoint
     - joined_default_parameter
+    - large_tuple
     - last_where
     - leading_whitespace
     - legacy_cggeometry_functions
@@ -75,33 +87,47 @@ whitelist_rules:
     - literal_expression_end_indentation
     - lower_acl_than_parent
     - mark
+#    - missing_docs # how to solve inherited docs?
     - modifier_order
     - multiline_arguments
+#    - multiline_arguments_brackets
     - multiline_function_chains
     - multiline_literal_brackets
     - multiline_parameters
+#    - multiline_parameters_brackets
     - multiple_closures_with_trailing_closure
-#    - nesting # TODO: this will need more work in the future
+    - nesting
+    - no_extension_access_modifier
     - no_fallthrough_only
+    - no_grouping_extension
     - no_space_in_method_call
     - notification_center_detachment
+    - nslocalizedstring_key
+    - nslocalizedstring_require_bundle
     - nsobject_prefer_isequal
     - number_separator
     - opening_brace
     - operator_usage_whitespace
     - operator_whitespace
     - optional_enum_case_matching
+    - orphaned_doc_comment
     - overridden_super_call
     - override_in_extension
-#    - pattern_matching_keywords # TODO: this will need more work in the future
+    - pattern_matching_keywords
     - prefer_self_type_over_type_of_self
     - prefer_zero_over_explicit_init
+    - prefixed_toplevel_constant
+    - private_action
+    - private_outlet
+    - private_over_fileprivate
     - private_unit_test
     - prohibited_interface_builder
     - prohibited_super_call
     - protocol_property_accessors_order
+    - raw_value_for_camel_cased_codable_enum
     - reduce_boolean
     - reduce_into
+    - redundant_discardable_let
     - redundant_nil_coalescing
     - redundant_objc_attribute
     - redundant_optional_initialization
@@ -111,10 +137,13 @@ whitelist_rules:
     - redundant_void_return
     - return_arrow_whitespace
     - shorthand_operator
+    - single_test_class
     - sorted_first_last
     - sorted_imports
     - statement_position
     - static_operator
+    - strong_iboutlet
+    - superfluous_disable_command
     - switch_case_alignment
     - syntactic_sugar
     - toggle_bool
@@ -123,6 +152,7 @@ whitelist_rules:
     - trailing_semicolon
     - trailing_whitespace
     - type_body_length
+#    - type_contents_order # maybe for specific files
     - type_name
     - unavailable_function
     - unneeded_break_in_switch
@@ -136,11 +166,15 @@ whitelist_rules:
     - unused_enumerated
     - unused_import
     - unused_optional_binding
+    - unused_setter_value
+    - valid_ibinspectable
     - vertical_parameter_alignment
     - vertical_parameter_alignment_on_call
     - vertical_whitespace
+    - vertical_whitespace_between_cases
     - vertical_whitespace_closing_braces
     - vertical_whitespace_opening_braces
+    - void_return
     - weak_delegate
     - xct_specific_matcher
     - xctfail_message
@@ -156,16 +190,9 @@ closure_body_length:
 deployment_target:
     iOS_deployment_target: 9.0
 
-empty_count:
-    severity: warning
-
-enum_case_associated_values_count:
-    warning: 6
-    error: 8
-
-file_length:
-    warning: 1500
-    error: 2000
+#file_length:
+#    warning: 1500
+#    error: 2000
 
 identifier_name:
     min_length: 3
@@ -175,30 +202,18 @@ identifier_name:
     allowed_symbols: ["_"]
     validates_start_with_lowercase: false
     excluded:
-        - a
-        - b
-        - d
-        - g
-        - q
-        - r
         - x
         - y
         - z
-        - at
         - id
-        - eu
+        - at
         - to
-        - up
         - vc
         - vm
 
-large_tuple:
-    warning: 4
-    error: 5
-
 line_length:
     warning: 120
-    error: 500
+    error: 140
     ignores_comments: true
     ignores_interpolated_strings: true
 
@@ -215,14 +230,6 @@ type_name:
         warning: 50
         error: 60
     allowed_symbols: ["_"]
-    excluded:
-        - PUK
-        - PIN
-        - End
-        - Bar
-        - Tag
-        - JWT
-        - L
 
 custom_rules:
     whitespace_after_closure_begin:

@@ -19,9 +19,7 @@ public struct SectionIndexPath {
         self.externalRepresentation = externalRepresentation
         self.internalRepresentation = internalRepresentation
     }
-}
 
-extension SectionIndexPath {
     /**
      Initialize an instance of `SectionIndexPath`.
 
@@ -29,9 +27,8 @@ extension SectionIndexPath {
 
      - Parameter internalRepresentation: The internal index of the item.
      */
-    @inlinable
     public init(_ indexPath: IndexPath) {
-        self.init(externalRepresentation: indexPath,
-                  internalRepresentation: indexPath.item)
+        self.externalRepresentation = indexPath
+        self.internalRepresentation = indexPath.item
     }
 }

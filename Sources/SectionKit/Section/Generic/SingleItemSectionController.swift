@@ -106,10 +106,13 @@ open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: Ba
             } else {
                 changes = [.reloadItem(at: 0)]
             }
+
         case (.some, .none):
             changes = [.deleteItem(at: 0)]
+
         case (.none, .some):
             changes = [.insertItem(at: 0)]
+
         case (.none, .none):
             changes = []
         }

@@ -46,9 +46,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
         self.setData = setData
         self.shouldReload = shouldReload
     }
-}
 
-extension CollectionViewSectionUpdate {
     /**
      Initialize an instance of `CollectionViewSectionUpdate`.
      

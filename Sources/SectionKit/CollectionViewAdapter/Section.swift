@@ -22,9 +22,7 @@ public class Section {
         self.model = model
         self.controllerAccessor = controllerAccessor
     }
-}
 
-extension Section {
     /**
      Initialize an instance of `CollectionViewUpdate`.
 
@@ -32,8 +30,8 @@ extension Section {
 
      - Parameter controller: The `SectionController` for this section.
      */
-    @inlinable
-    public convenience init(model: SectionModel, controller: SectionController) {
-        self.init(model: model, controllerAccessor: { controller })
+    public init(model: SectionModel, controller: SectionController) {
+        self.model = model
+        self.controllerAccessor = { controller }
     }
 }

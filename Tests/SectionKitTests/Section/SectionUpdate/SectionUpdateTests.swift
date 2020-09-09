@@ -1,8 +1,8 @@
 @testable import SectionKit
 import XCTest
 
-final class SectionUpdateTests: XCTestCase {
-    func testInitializeSectionUpdate() {
+internal final class SectionUpdateTests: XCTestCase {
+    internal func testInitializeSectionUpdate() {
         let setData: ([Int]) -> Void = { _ in }
 
         let input = SectionUpdate<[Int]>(sectionId: "1", data: [1, 2, 3], setData: setData)

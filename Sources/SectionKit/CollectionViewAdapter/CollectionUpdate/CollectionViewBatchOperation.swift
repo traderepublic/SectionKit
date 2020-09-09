@@ -34,16 +34,15 @@ public struct CollectionViewBatchOperation<CollectionViewData> {
         self.data = data
         self.completion = completion
     }
-}
 
-extension CollectionViewBatchOperation {
     /// Indices of sections to delete in this batch operation.
     @inlinable
     public var deletes: Set<Int> {
         return Set(changes.compactMap { change -> Int? in
             switch change {
-            case .deleteSection(at: let index):
+            case let .deleteSection(at: index):
                 return index
+
             default:
                 return nil
             }
@@ -55,8 +54,9 @@ extension CollectionViewBatchOperation {
     public var inserts: Set<Int> {
         return Set(changes.compactMap { change -> Int? in
             switch change {
-            case .insertSection(at: let index):
+            case let .insertSection(at: index):
                 return index
+
             default:
                 return nil
             }
@@ -68,8 +68,9 @@ extension CollectionViewBatchOperation {
     public var moves: Set<Move> {
         return Set(changes.compactMap { change -> Move? in
             switch change {
-            case .moveSection(at: let source, to: let target):
+            case let .moveSection(at: source, to: target):
                 return Move(at: source, to: target)
+
             default:
                 return nil
             }
@@ -81,8 +82,9 @@ extension CollectionViewBatchOperation {
     public var reloads: Set<Int> {
         return Set(changes.compactMap { change -> Int? in
             switch change {
-            case .reloadSection(at: let index):
+            case let .reloadSection(at: index):
                 return index
+
             default:
                 return nil
             }
