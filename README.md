@@ -1,6 +1,22 @@
 # SectionKit
+[![CI Status](https://github.com/traderepublic/tr-sectionkit/workflows/CI/badge.svg)](https://github.com/traderepublic/tr-sectionkit/actions)
 
-![Diagram](./Resources/SectionKit.svg)
+**SectionKit** makes it possible to implement a data-drive `UICollectionView`. Since each section is implemented separately, it is independant from the `UICollectionView` it is used in and code can be easily reused.
+
+## Installation
+
+### Swift Package Manager
+
+#### Automatically in Xcode:
+
+- Click **File > Swift Packages > Add Package Dependency...**  
+- Use the package URL `https://github.com/traderepublic/tr-sectionkit` to add SectionKit/DiffingSectionKit to your project.
+
+#### Manually in your `Package.swift` file:
+
+```swift
+.package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.1")
+```
 
 ## Overview
 
@@ -95,3 +111,7 @@ The functionality is split into two packages:
 
     This `SectionController` is typically used when there are multiple semantically similar items
     of a model to be displayed and the list of items may dynamically change.
+    
+## Concept
+
+![Diagram](./Resources/SectionKit.svg)
