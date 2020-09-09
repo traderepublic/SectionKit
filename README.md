@@ -27,7 +27,7 @@ The functionality is split into two packages:
 
     `ListCollectionViewAdapter` and `ListSectionController` will not perform checking for difference and call 
     `reloadData()`/`reloadSections(_:)` instead. On iOS 13+ you may use `FoundationDiffingListCollectionViewAdapter` or `FoundationDiffingListSectionController` respectively to get animated updates. When targeting iOS versions lower than 13, 
-    you could implement your own difference calculation by overriding `calculateUpdate(from:to:)`.
+    you can implement your own difference calculation by overriding `calculateUpdate(from:to:)`.
 
     Besides that, `SingleModelSectionController` and `SingleItemSectionController` support separate 
     inserts/deletes/moves out of the box.
@@ -36,8 +36,8 @@ The functionality is split into two packages:
 
     This package extends `SectionKit` by containing two more base classes, `DiffingListCollectionViewAdapter` and 
     `DiffingListSectionController`. Both simply override `calculateUpdate(from:to:)` where they calculate the difference
-    between the old and new date using [DifferenceKit](https://github.com/ra1028/DifferenceKit) and thus animations are performed
-    when the list of sections/items updated (separate inserts/deletes/moves instead of `reloadData()`/`reloadSections(_:)`).
+    between the old and new data using [DifferenceKit](https://github.com/ra1028/DifferenceKit). Therefore animations are performed
+    when the list of sections/items is updated (separate inserts/deletes/moves instead of `reloadData()`/`reloadSections(_:)`).
 
 ### CollectionViewAdapter
 
@@ -50,7 +50,7 @@ The functionality is split into two packages:
 
     A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked 
     for the difference to the current value and separate inserts/deletes/moves will be performed
-    using difference calculation of Foundations `CollectionDifference` (which is only available on iOS 13+).
+    using difference calculation of `Foundation.CollectionDifference` (which is only available on iOS 13+).
 
 - `DiffingListCollectionViewAdapter` (DiffingSectionKit):
 
