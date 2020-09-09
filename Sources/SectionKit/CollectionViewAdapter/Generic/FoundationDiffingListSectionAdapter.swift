@@ -1,6 +1,9 @@
 import Foundation
 
-/// A `CollectionViewAdapter` that calculates the differences of changes to sections in the `UICollectionView`.
+/**
+ A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked
+ for the difference to the current value and separate inserts/deletes/moves will be performed accordingly.
+ */
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
 open class FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(from oldData: [Section],

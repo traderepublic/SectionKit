@@ -3,10 +3,10 @@ import UIKit
 /**
  A `SectionController` that displays a single item derived of a single model.
 
- This `SectionController` is typically used when there is no or one item that should be displayed.
- The optional item is derived from a single model.
- If however multiple items should be displayed, it is recommended to use `SingleModelSectionController` or
- another subclass inheriting from `SingleModelSectionController` instead.
+ This `SectionController` is typically used when one item should be displayed conditionally.
+ If however multiple items should be displayed, it is recommended to use `ListSectionController` instead.
+
+ - Warning: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
  */
 open class SingleItemSectionController<Model: SectionModel, Item: Equatable>: BaseSectionController {
     /**

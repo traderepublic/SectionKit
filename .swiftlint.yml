@@ -1,7 +1,6 @@
-excluded:
-    - Carthage
-    - vendor
-    - .build
+included:
+    - Sources
+    - Tests
 
 whitelist_rules:
     - anyobject_protocol

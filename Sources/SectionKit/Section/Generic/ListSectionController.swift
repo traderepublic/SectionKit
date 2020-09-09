@@ -1,10 +1,11 @@
 import UIKit
 
 /**
- A `SectionController` that handles a list of items.
+ A `SectionController` that contains a list of items. Changes to that list will result in a call to
+ `reloadSections(_:)` on the underlying `UICollectionView`.
 
  This `SectionController` is typically used when there are multiple semantically similar items
- of a model to be displayed.
+ of a model to be displayed and the list of items (almost) never changes or should not perform animated updates.
  */
 open class ListSectionController<Model: SectionModel, Item>: BaseSectionController {
     /**

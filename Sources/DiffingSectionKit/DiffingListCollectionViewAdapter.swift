@@ -2,7 +2,10 @@ import DifferenceKit
 import Foundation
 import SectionKit
 
-/// A `ListCollectionViewAdapter` that performs diffing using `DifferenceKit`.
+/**
+ A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked
+ for the difference to the current value and separate inserts/deletes/moves will be performed accordingly.
+ */
 open class DiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(from oldData: [Section],
                                        to newData: [Section]) -> CollectionViewUpdate<[Section]> {
