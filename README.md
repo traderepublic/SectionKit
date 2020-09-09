@@ -15,7 +15,7 @@
 #### Manually in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.1")
+.package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.2")
 ```
 
 ## Overview
