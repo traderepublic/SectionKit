@@ -25,18 +25,18 @@ The functionality is split into two packages:
 
 ### CollectionViewAdapter
 
-- `ListCollectionViewAdapter: NSObject`:
+- `ListCollectionViewAdapter`:
 
     A `CollectionViewAdapter` that contains a list of sections. Changes to that list will result in a call to
     `reloadData()` on the underlying `UICollectionView`.
 
-- `FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter` (iOS 13+):
+- `FoundationDiffingListCollectionViewAdapter` (iOS 13+):
 
     A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked 
     for the difference to the current value and separate inserts/deletes/moves will be performed
     using difference calculation of Foundations `CollectionDifference` (which is only available on iOS 13+).
 
-- `DiffingListCollectionViewAdapter: ListCollectionViewAdapter`:
+- `DiffingListCollectionViewAdapter` (DiffingSectionKit):
 
     A `CollectionViewAdapter` that contains a list of sections. Changes to that list will be checked 
     for the difference to the current value and separate inserts/deletes/moves will be performed
@@ -54,27 +54,27 @@ The functionality is split into two packages:
     - `SectionDragDelegate` (iOS 11+)
     - `SectionDropDelegate` (iOS 11+)
 
-- `SingleModelSectionController<Model: SectionModel>: BaseSectionController`:
+- `SingleModelSectionController<Model: SectionModel>`:
 
     A `SectionController` that displays data of a single model. Unless overridden, `numberOfItems` will always 
     be `1` and a change to its `model` will perform a call to `reloadItems(at:)`.
     
     **Warning**: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
     
-    This `SectionController` is typically used when there are zero, one or multiple **different** cells from
+    This `SectionController` is typically used when there are one or multiple **different** cells from
     a single model. If however all items are the semantically similar and one could derive an array of models,
     it is recommended to use `ListSectionController` instead.
 
-- `SingleItemSectionController<Model: SectionModel, Item: Equatable>: BaseSectionController`:
+- `SingleItemSectionController<Model: SectionModel, Item: Equatable>`:
 
-    In contrast to the `SingleModelSectionController` this section controller will conditionally display `0` or `1` item.
+    In contrast to the `SingleModelSectionController`, this `SectionController` will conditionally display `0` or `1` item.
     
     **Warning**: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
     
     This `SectionController` is typically used when one item should be displayed conditionally.
     If however multiple items should be displayed, it is recommended to use `ListSectionController` instead.
 
-- `ListSectionController<Model: SectionModel, Item>: BaseSectionController`:
+- `ListSectionController<Model: SectionModel, Item>`:
 
     A `SectionController` that contains a list of items. Changes to that list will result in a call to
     `reloadSections(_:)` on the underlying `UICollectionView`.
@@ -82,14 +82,14 @@ The functionality is split into two packages:
     This `SectionController` is typically used when there are multiple semantically similar items
     of a model to be displayed and the list of items (almost) never changes or should not perform animated updates.
 
-- `FoundationDiffingListSectionController<Model: SectionModel, Item: Hashable>: ListSectionController<Model, Item>` (iOS 13+):
+- `FoundationDiffingListSectionController<Model: SectionModel, Item: Hashable>` (iOS 13+):
 
     A `SectionController` that contains a list of items and calculates the difference whenever there is an update.
 
     This `SectionController` is typically used when there are multiple semantically similar items
     of a model to be displayed and the list of items may dynamically change.
 
-- `DiffingListSectionController<Model: SectionModel, Item: Differentiable>: ListSectionController<Model, Item>`:
+- `DiffingListSectionController<Model: SectionModel, Item: Differentiable>` (DiffingSectionKit):
 
     A `SectionController` that contains a list of items and calculates the difference whenever there is an update.
 
