@@ -4,7 +4,7 @@ import UIKit
  A `SectionController` that displays data of a single model. Unless overridden, `numberOfItems` will always be `1`
  and a change to its `model` will perform a call to `reloadItems(at:)`.
 
- This `SectionController` is typically used when there are zero, one or multiple **different** cells from
+ This `SectionController` is typically used when there are one or multiple **different** cells from
  a single model. If however all items are the semantically similar and one could derive an array of models,
  it is recommended to use `ListSectionController` instead.
 
