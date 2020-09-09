@@ -177,19 +177,6 @@
 		OBJ_69 /* SectionBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperationTests.swift; sourceTree = "<group>"; };
 		OBJ_70 /* SectionUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdateTests.swift; sourceTree = "<group>"; };
 		OBJ_71 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_74 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/nkristek/Documents/GitHub/tr-sectionkit/.build/checkouts/DifferenceKit/Package.swift"; sourceTree = "<group>"; };
-		OBJ_75 /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
-		OBJ_76 /* AnyDifferentiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyDifferentiable.swift; sourceTree = "<group>"; };
-		OBJ_77 /* ArraySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArraySection.swift; sourceTree = "<group>"; };
-		OBJ_78 /* Changeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Changeset.swift; sourceTree = "<group>"; };
-		OBJ_79 /* ContentEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEquatable.swift; sourceTree = "<group>"; };
-		OBJ_80 /* ContentIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentIdentifiable.swift; sourceTree = "<group>"; };
-		OBJ_81 /* Differentiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Differentiable.swift; sourceTree = "<group>"; };
-		OBJ_82 /* DifferentiableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiableSection.swift; sourceTree = "<group>"; };
-		OBJ_83 /* ElementPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementPath.swift; sourceTree = "<group>"; };
-		OBJ_85 /* AppKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitExtension.swift; sourceTree = "<group>"; };
-		OBJ_86 /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
-		OBJ_87 /* StagedChangeset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedChangeset.swift; sourceTree = "<group>"; };
 		OBJ_9 /* DiffingListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_94 /* DiffingSectionKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DiffingSectionKit; sourceTree = SOURCE_ROOT; };
 		OBJ_95 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = SOURCE_ROOT; };
@@ -440,30 +427,9 @@
 		OBJ_72 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_73 /* DifferenceKit 1.1.5 */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
-		};
-		OBJ_73 /* DifferenceKit 1.1.5 */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_74 /* Package.swift */,
-				OBJ_75 /* Algorithm.swift */,
-				OBJ_76 /* AnyDifferentiable.swift */,
-				OBJ_77 /* ArraySection.swift */,
-				OBJ_78 /* Changeset.swift */,
-				OBJ_79 /* ContentEquatable.swift */,
-				OBJ_80 /* ContentIdentifiable.swift */,
-				OBJ_81 /* Differentiable.swift */,
-				OBJ_82 /* DifferentiableSection.swift */,
-				OBJ_83 /* ElementPath.swift */,
-				OBJ_84 /* Extensions */,
-				OBJ_87 /* StagedChangeset.swift */,
-			);
-			name = "DifferenceKit 1.1.5";
-			path = .build/checkouts/DifferenceKit/Sources;
-			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_8 /* DiffingSectionKit */ = {
 			isa = PBXGroup;
@@ -475,15 +441,6 @@
 			name = DiffingSectionKit;
 			path = DiffingSectionKit/Sources;
 			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_84 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_85 /* AppKitExtension.swift */,
-				OBJ_86 /* UIKitExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
 		};
 		OBJ_88 /* Products */ = {
 			isa = PBXGroup;
