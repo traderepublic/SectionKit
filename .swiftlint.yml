@@ -190,10 +190,6 @@ closure_body_length:
 deployment_target:
     iOS_deployment_target: 9.0
 
-#file_length:
-#    warning: 1500
-#    error: 2000
-
 identifier_name:
     min_length: 3
     max_length:

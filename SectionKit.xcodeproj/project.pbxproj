@@ -177,6 +177,41 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
+		5A7C9F922509051800A32BE6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* Section */,
+				OBJ_37 /* CollectionViewAdapter */,
+				OBJ_51 /* Utility */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		5A7C9F932509052800A32BE6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_56 /* SectionKitTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		5A7C9F942509056200A32BE6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* Utility */,
+				OBJ_9 /* DiffingListCollectionViewAdapter.swift */,
+				OBJ_10 /* DiffingListSectionController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		5A7C9F952509056600A32BE6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		5AD1D946245086F7005F8F36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,12 +252,10 @@
 		OBJ_15 /* SectionKit */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* Section */,
-				OBJ_37 /* CollectionViewAdapter */,
-				OBJ_51 /* Utility */,
+				5A7C9F922509051800A32BE6 /* Sources */,
+				5A7C9F932509052800A32BE6 /* Tests */,
 			);
-			name = SectionKit;
-			path = Sources/SectionKit;
+			path = SectionKit;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_16 /* Section */ = {
@@ -294,8 +327,8 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
-				OBJ_7 /* Sources */,
-				OBJ_55 /* Tests */,
+				OBJ_8 /* DiffingSectionKit */,
+				OBJ_15 /* SectionKit */,
 				OBJ_75 /* Products */,
 				OBJ_80 /* README.md */,
 				5AD1D946245086F7005F8F36 /* Frameworks */,
@@ -313,14 +346,6 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		OBJ_55 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_56 /* SectionKitTests */,
-			);
-			name = Tests;
-			sourceTree = SOURCE_ROOT;
-		};
 		OBJ_56 /* SectionKitTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,16 +353,7 @@
 				852E39BD246968C200066D53 /* Section */,
 			);
 			name = SectionKitTests;
-			path = Tests/SectionKitTests;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_7 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_8 /* DiffingSectionKit */,
-				OBJ_15 /* SectionKit */,
-			);
-			name = Sources;
+			path = SectionKit/Tests/SectionKitTests;
 			sourceTree = SOURCE_ROOT;
 		};
 		OBJ_75 /* Products */ = {
@@ -353,12 +369,10 @@
 		OBJ_8 /* DiffingSectionKit */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_11 /* Utility */,
-				OBJ_9 /* DiffingListCollectionViewAdapter.swift */,
-				OBJ_10 /* DiffingListSectionController.swift */,
+				5A7C9F942509056200A32BE6 /* Sources */,
+				5A7C9F952509056600A32BE6 /* Tests */,
 			);
-			name = DiffingSectionKit;
-			path = Sources/DiffingSectionKit;
+			path = DiffingSectionKit;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -470,7 +484,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"$SRCROOT\"/.swiftlint.yml --path \"$SRCROOT\"/SectionKit\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		5A7C9F9125077FDE00A32BE6 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -488,7 +502,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"$SRCROOT\"/.swiftlint.yml --path \"$SRCROOT\"/DiffingSectionKit\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
