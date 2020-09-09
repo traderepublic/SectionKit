@@ -9,11 +9,11 @@ The functionality is split into two packages:
     This package contains the core funtionality. 
 
     `ListCollectionViewAdapter` and `ListSectionController` will not perform checking for difference and call 
-    `reloadData()`/`reloadSections(_:)` instead. On iOS 13+ you may use `FoundationDiffingListCollectionViewAdapter` or `FoundationDiffingListSectionController` respectively to get animated updates. You may also want to implement you own
-    difference calculation by overriding `calculateUpdate(from:to:)`.
+    `reloadData()`/`reloadSections(_:)` instead. On iOS 13+ you may use `FoundationDiffingListCollectionViewAdapter` or `FoundationDiffingListSectionController` respectively to get animated updates. When targeting iOS versions lower than 13, 
+    you could implement your own difference calculation by overriding `calculateUpdate(from:to:)`.
 
-    Besides that, `SingleModelSectionController` and `SingleItemSectionController` support separate inserts/deletes/moves 
-    instead of `reloadData()`/`reloadSections(_:)` out of the box.
+    Besides that, `SingleModelSectionController` and `SingleItemSectionController` support separate 
+    inserts/deletes/moves out of the box.
 
 - `DiffingSectionKit`: 
     This package extends `SectionKit` by containing two more base classes, `DiffingListCollectionViewAdapter` and 
