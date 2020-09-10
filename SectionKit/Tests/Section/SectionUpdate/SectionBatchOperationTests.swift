@@ -2,14 +2,6 @@
 import XCTest
 
 internal final class SectionBatchOperationTests: XCTestCase {
-    internal static var allTests = [
-        "testEquatable": testEquatable,
-        "testDeletes": testDeletes,
-        "testInserts": testInserts,
-        "testMoves": testMoves,
-        "testReloads": testReloads
-    ]
-
     private let data: [Int] = [
         1,
         2,

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		5A7C9FD02509250900A32BE6 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; };
+		5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */; };
+		5AED5914250A34B600E97796 /* DifferenceKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		OBJ_131 /* DiffingListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingListCollectionViewAdapter.swift */; };
 		OBJ_132 /* DiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* DiffingListSectionController.swift */; };
 		OBJ_133 /* Changeset+BatchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Changeset+BatchOperations.swift */; };
@@ -30,7 +32,6 @@
 		OBJ_135 /* Section+Differentiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* Section+Differentiable.swift */; };
 		OBJ_136 /* StagedChangeset+MapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* StagedChangeset+MapData.swift */; };
 		OBJ_139 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
-		OBJ_148 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* XCTestManifests.swift */; };
 		OBJ_150 /* DiffingSectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */; };
 		OBJ_152 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
 		OBJ_160 /* CollectionViewBatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* CollectionViewBatchOperation.swift */; };
@@ -75,7 +76,6 @@
 		OBJ_216 /* SectionIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* SectionIndexPathTests.swift */; };
 		OBJ_217 /* SectionBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* SectionBatchOperationTests.swift */; };
 		OBJ_218 /* SectionUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* SectionUpdateTests.swift */; };
-		OBJ_219 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* XCTestManifests.swift */; };
 		OBJ_221 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SectionKit::SectionKit::Product" /* SectionKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,8 +124,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5AED5913250A349900E97796 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5AED5914250A34B600E97796 /* DifferenceKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
+		5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
 		OBJ_10 /* DiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListSectionController.swift; sourceTree = "<group>"; };
 		OBJ_100 /* introduction.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = introduction.md; sourceTree = "<group>"; };
 		OBJ_101 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -172,11 +186,9 @@
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_60 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		OBJ_61 /* UICollectionView+Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Apply.swift"; sourceTree = "<group>"; };
-		OBJ_64 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_67 /* SectionIndexPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndexPathTests.swift; sourceTree = "<group>"; };
 		OBJ_69 /* SectionBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBatchOperationTests.swift; sourceTree = "<group>"; };
 		OBJ_70 /* SectionUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionUpdateTests.swift; sourceTree = "<group>"; };
-		OBJ_71 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_9 /* DiffingListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_94 /* DiffingSectionKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DiffingSectionKit; sourceTree = SOURCE_ROOT; };
 		OBJ_95 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = SOURCE_ROOT; };
@@ -185,7 +197,7 @@
 		OBJ_98 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		OBJ_99 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		"SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DiffingSectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"SectionKit::DiffingSectionKitTests::Product" /* DiffingSectionKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = DiffingSectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SectionKit::DiffingSectionKitTests::Product" /* DiffingSectionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DiffingSectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SectionKit::SectionKit::Product" /* SectionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SectionKit::SectionKitTests::Product" /* SectionKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -327,7 +339,7 @@
 			path = Generic;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -345,7 +357,6 @@
 				OBJ_101 /* README.md */,
 				5A7C9FCE2509250900A32BE6 /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_53 /* SectionUpdate */ = {
@@ -381,7 +392,7 @@
 		OBJ_63 /* DiffingSectionKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_64 /* XCTestManifests.swift */,
+				5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */,
 			);
 			name = DiffingSectionKitTests;
 			path = DiffingSectionKit/Tests;
@@ -391,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_66 /* Section */,
-				OBJ_71 /* XCTestManifests.swift */,
 			);
 			name = SectionKitTests;
 			path = SectionKit/Tests;
@@ -479,6 +489,7 @@
 			buildConfigurationList = OBJ_144 /* Build configuration list for PBXNativeTarget "DiffingSectionKitTests" */;
 			buildPhases = (
 				OBJ_147 /* Sources */,
+				5AED5913250A349900E97796 /* CopyFiles */,
 				OBJ_149 /* Frameworks */,
 			);
 			buildRules = (
@@ -556,7 +567,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_88 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -628,7 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_148 /* XCTestManifests.swift in Sources */,
+				5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +703,6 @@
 				OBJ_216 /* SectionIndexPathTests.swift in Sources */,
 				OBJ_217 /* SectionBatchOperationTests.swift in Sources */,
 				OBJ_218 /* SectionUpdateTests.swift in Sources */,
-				OBJ_219 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,7 +754,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/DiffingSectionKit_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -773,7 +786,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/DiffingSectionKit_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -798,11 +814,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/DiffingSectionKitTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -823,11 +844,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/DiffingSectionKitTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -851,7 +877,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKit_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -879,7 +908,10 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKit_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -938,7 +970,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKitTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -963,7 +999,11 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = SectionKit.xcodeproj/SectionKitTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -996,7 +1036,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
@@ -1020,9 +1060,10 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
