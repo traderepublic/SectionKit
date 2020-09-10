@@ -22,7 +22,14 @@
 #### Manually in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.2")
+.package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.5")
+```
+
+### Carthage
+
+Add this line to your `Cartfile`:
+```
+github "traderepublic/tr-sectionkit" ~> 0.5.0
 ```
 
 ## Quick Start
