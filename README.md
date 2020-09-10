@@ -1,5 +1,5 @@
 # SectionKit
-[![CI Status](https://github.com/traderepublic/tr-sectionkit/workflows/CI/badge.svg)](https://github.com/traderepublic/tr-sectionkit/actions)
+[![CI Status](https://github.com/traderepublic/tr-sectionkit/workflows/unittests/badge.svg)](https://github.com/traderepublic/tr-sectionkit/actions)
 
 **SectionKit** makes it possible to implement a data-driven `UICollectionView`. Since each section is implemented separately, it is independent from the `UICollectionView` it is used in and code can be easily reused.
 
