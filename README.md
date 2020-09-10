@@ -18,6 +18,64 @@
 .package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.2")
 ```
 
+## Quick Start
+
+To get started, you need to initialize a `CollectionViewAdapter`. That object handles the communication to and from the `UICollectionView`.
+```swift
+import SectionKit
+
+final class MyCollectionViewController: UIViewController {
+
+    private var collectionViewAdapter: CollectionViewAdapter!
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        return UICollectionView(frame: .zero, collectionViewLayout: layout)
+    }()
+    
+    override func loadView() {
+        view = collectionView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionViewAdapter = ListCollectionViewAdapter(viewController: self, collectionView: collectionView)
+        collectionViewAdapter.dataSource = self
+    }
+}
+```
+
+Next you want to implement the `CollectionViewAdapterDataSource` protocol. For this example we're going to have two sections:
+
+```swift
+extension MyCollectionViewController: CollectionViewAdapterDataSource {
+    func models(for adapter: CollectionViewAdapter) -> [SectionModel] {
+        return [
+            FirstSectionModel(),
+            SecondSectionModel()
+        ]
+    }
+
+    func sectionController(with model: SectionModel, for adapter: CollectionViewAdapter) -> SectionController {
+        switch model {
+        case is FirstSectionModel:
+            return FirstSectionController(model: sectionModel)
+
+        case is SecondSectionModel:
+            return SecondSectionController(model: sectionModel)
+            
+        default: fatalError("unrecognized section model")
+        }
+    }
+}
+```
+
+Now whats left is to implement both sections, which consist of a model (`FirstSectionModel` / `SecondSectionModel`) 
+and a controller (`FirstSectionController` / `SecondSectionController`).
+
+Since both sections are completely decoupled from each other, they can be easily reused in other places in the app and 
+writing unit tests becomes much easier!
+
 ## Overview
 
 The functionality is split into two packages:
@@ -25,7 +83,7 @@ The functionality is split into two packages:
 
     This package contains the core funtionality. 
 
-    `ListCollectionViewAdapter` and `ListSectionController` will not perform checking for difference and call 
+    **Please note**: `ListCollectionViewAdapter` and `ListSectionController` will not perform checking for difference and call 
     `reloadData()`/`reloadSections(_:)` instead. On iOS 13+ you may use `FoundationDiffingListCollectionViewAdapter` or `FoundationDiffingListSectionController` respectively to get animated updates. When targeting iOS versions lower than 13, 
     you can implement your own difference calculation by overriding `calculateUpdate(from:to:)`.
 
