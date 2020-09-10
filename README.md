@@ -3,6 +3,13 @@
 
 **SectionKit** makes it possible to implement a data-driven `UICollectionView`. Since each section is implemented separately, it is independent from the `UICollectionView` it is used in and code can be easily reused.
 
+#### Contents:
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Overview](#overview)
+- [Concept](#concept)
+
 ## Installation
 
 ### Swift Package Manager
