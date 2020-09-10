@@ -18,8 +18,18 @@ jobs:
       with:
         fetch-depth: 100
 
-    - name: Build
-      run: swift build -v -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios13.0-simulator"
+    - uses: actions/cache@v2
+      id: carthage-cache
+      with:
+        path: Carthage
+        key:  ${{ runner.os }}-${{ env.DEVELOPER_DIR }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
 
-    - name: Test
-      run: swift test -v -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios13.0-simulator"
+    - name: Carthage
+      if: steps.carthage-cache.outputs.cache-hit != 'true'
+      run: carthage bootstrap --platform iOS --no-use-binaries
+
+    - name: Bundle Install
+      run: bundle install
+
+    - name: Build and run unit tests
+      run: bundle exec fastlane unittest
