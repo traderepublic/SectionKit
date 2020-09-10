@@ -1,0 +1,5 @@
+# Exclude all files ending by "View.swift"
+- .*View.swift
+
+# Exclude all files ending by "Cell.swift"
+- .*Cell.swift

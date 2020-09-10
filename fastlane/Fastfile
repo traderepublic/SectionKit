@@ -1,0 +1,8 @@
+opt_out_usage
+ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "10"
+
+lane :unittest do
+	scan(
+	  scheme: "SectionKit-Package"
+	)
+end
