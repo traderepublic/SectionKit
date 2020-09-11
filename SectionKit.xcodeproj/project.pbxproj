@@ -202,7 +202,7 @@
 		OBJ_99 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		"SectionKit::DiffingSectionKit::Product" /* DiffingSectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DiffingSectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SectionKit::DiffingSectionKitTests::Product" /* DiffingSectionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DiffingSectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		"SectionKit::SectionKit::Product" /* SectionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SectionKit::SectionKit::Product" /* SectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"SectionKit::SectionKitTests::Product" /* SectionKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -753,6 +753,7 @@
 		OBJ_128 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -785,6 +786,7 @@
 		OBJ_129 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -877,6 +879,7 @@
 		OBJ_157 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -908,6 +911,7 @@
 		OBJ_158 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
