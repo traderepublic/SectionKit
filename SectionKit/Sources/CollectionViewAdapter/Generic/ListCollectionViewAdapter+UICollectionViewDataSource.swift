@@ -16,7 +16,7 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
 
     open func collectionView(_ collectionView: UICollectionView,
                              cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard indexPath.section >= 0 && indexPath.section < sections.count else {
+        guard indexPath.isSectionIndexValid(for: sections) else {
             assertionFailure("Could not find the specified section")
             return UICollectionViewCell()
         }
@@ -28,7 +28,7 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
     open func collectionView(_ collectionView: UICollectionView,
                              viewForSupplementaryElementOfKind elementKind: String,
                              at indexPath: IndexPath) -> UICollectionReusableView {
-        guard indexPath.section >= 0 && indexPath.section < sections.count else {
+        guard indexPath.isSectionIndexValid(for: sections) else {
             assertionFailure("Could not find the specified section")
             return UICollectionReusableView()
         }
@@ -52,7 +52,7 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
 
     open func collectionView(_ collectionView: UICollectionView,
                              canMoveItemAt indexPath: IndexPath) -> Bool {
-        guard indexPath.section >= 0 && indexPath.section < sections.count else {
+        guard indexPath.isSectionIndexValid(for: sections) else {
             assertionFailure("Could not find the specified section")
             return false
         }
@@ -64,11 +64,13 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
     open func collectionView(_ collectionView: UICollectionView,
                              moveItemAt sourceIndexPath: IndexPath,
                              to destinationIndexPath: IndexPath) {
-        guard sourceIndexPath.section >= 0 && sourceIndexPath.section < sections.count else {
+        guard sourceIndexPath.isSectionIndexValid(for: sections) else {
             assertionFailure("Could not find the specified section")
             return
         }
-        guard allowReorderingBetweenDifferentSections || sourceIndexPath.section == destinationIndexPath.section else {
+        let moveInsideSection = destinationIndexPath.isSectionIndexValid(for: sections)
+            && sourceIndexPath.section == destinationIndexPath.section
+        guard moveInsideSection || allowReorderingBetweenDifferentSections else {
             return
         }
         let sourceSectionIndexPath = SectionIndexPath(externalRepresentation: sourceIndexPath,
