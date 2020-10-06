@@ -42,11 +42,6 @@ public protocol SectionDragDelegate: AnyObject {
 
 @available(iOS 11.0, *)
 extension SectionDragDelegate {
-    public func dragItems(forBeginning session: UIDragSession,
-                          at indexPath: SectionIndexPath) -> [UIDragItem] {
-        return []
-    }
-
     public func dragItems(forAddingTo session: UIDragSession,
                           at indexPath: SectionIndexPath,
                           point: CGPoint) -> [UIDragItem] {
