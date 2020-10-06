@@ -24,6 +24,7 @@
 /* Begin PBXBuildFile section */
 		5A7C9FD02509250900A32BE6 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; };
 		5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */; };
+		5AD17C77252B6DF5009DEF3F /* IndexPath+IsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */; };
 		5AED5914250A34B600E97796 /* DifferenceKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5AFC546C250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC546B250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift */; };
 		5AFC546E250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC546D250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift */; };
@@ -142,6 +143,7 @@
 /* Begin PBXFileReference section */
 		5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
+		5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+IsValid.swift"; sourceTree = "<group>"; };
 		5AFC546B250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewContext+CollectionViewSectionUpdate.swift"; sourceTree = "<group>"; };
 		5AFC546D250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewContext+CollectionViewUpdate.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* DiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListSectionController.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				OBJ_59 /* CollectionDifference+Changes.swift */,
 				OBJ_60 /* Move.swift */,
 				OBJ_61 /* UICollectionView+Apply.swift */,
+				5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				OBJ_187 /* SectionDragDelegate.swift in Sources */,
 				OBJ_188 /* SectionDropDelegate.swift in Sources */,
 				5AFC546C250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */,
+				5AD17C77252B6DF5009DEF3F /* IndexPath+IsValid.swift in Sources */,
 				OBJ_189 /* SectionFlowDelegate.swift in Sources */,
 				OBJ_190 /* SectionIndexPath.swift in Sources */,
 				OBJ_191 /* CollectionViewSectionBatchOperation.swift in Sources */,

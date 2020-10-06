@@ -14,7 +14,7 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
     ) -> UICollectionViewDropProposal {
         guard
             let indexPath = destinationIndexPath,
-            indexPath.section >= 0 && indexPath.section < sections.count
+            indexPath.isSectionIndexValid(for: sections)
             else { return UICollectionViewDropProposal(operation: .forbidden) }
         if !allowReorderingBetweenDifferentSections {
             guard
@@ -32,7 +32,7 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
                              performDropWith coordinator: UICollectionViewDropCoordinator) {
         guard
             let indexPath = coordinator.destinationIndexPath,
-            indexPath.section >= 0 && indexPath.section < sections.count
+            indexPath.isSectionIndexValid(for: sections)
             else { return }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
@@ -54,7 +54,7 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        guard indexPath.section >= 0 && indexPath.section < sections.count else { return nil }
+        guard indexPath.isSectionIndexValid(for: sections) else { return nil }
         let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
                                                 internalRepresentation: indexPath.item)
         return sections[indexPath.section].controller.dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
