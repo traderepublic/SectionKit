@@ -74,8 +74,15 @@ extension ManualDiffingListSectionController where Item: Identifiable, Item.ID =
     }
 }
 
+// NOTE: the following unfortunately doesn't compile since declaring `init(model: Model)` would require
+// to override the parent initialiser
 //@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
 //extension ManualDiffingListSectionController where Item: Identifiable & Equatable, Item.ID == ItemId {
+//    /**
+//     Initialize an instance of `ManualDiffingListSectionController`.
+//
+//     - Parameter model: The model of this `SectionController`.
+//     */
 //    public convenience init(model: Model) {
 //        self.init(model: model, itemId: \.id, itemContentIsEqual: ==)
 //    }
