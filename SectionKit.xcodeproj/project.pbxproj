@@ -29,6 +29,8 @@
 		5AD17C8A252C575D009DEF3F /* Sequence+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C89252C575D009DEF3F /* Sequence+Group.swift */; };
 		5AD17C91252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C90252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		5AED5914250A34B600E97796 /* DifferenceKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5AF1A3E7253F13E4000058C6 /* ManualDiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1A3E6253F13E4000058C6 /* ManualDiffingListSectionController.swift */; };
+		5AF1A401253F33F8000058C6 /* DifferentiableBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1A400253F33F8000058C6 /* DifferentiableBox.swift */; };
 		5AFC546C250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC546B250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift */; };
 		5AFC546E250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFC546D250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift */; };
 		OBJ_131 /* DiffingListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* DiffingListCollectionViewAdapter.swift */; };
@@ -150,6 +152,8 @@
 		5AD17C7D252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSourcePrefetchingDelegate.swift; sourceTree = "<group>"; };
 		5AD17C89252C575D009DEF3F /* Sequence+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Group.swift"; sourceTree = "<group>"; };
 		5AD17C90252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
+		5AF1A3E6253F13E4000058C6 /* ManualDiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualDiffingListSectionController.swift; sourceTree = "<group>"; };
+		5AF1A400253F33F8000058C6 /* DifferentiableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiableBox.swift; sourceTree = "<group>"; };
 		5AFC546B250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewContext+CollectionViewSectionUpdate.swift"; sourceTree = "<group>"; };
 		5AFC546D250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewContext+CollectionViewUpdate.swift"; sourceTree = "<group>"; };
 		OBJ_10 /* DiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListSectionController.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				OBJ_13 /* ContentIdentifiable+Identifiable.swift */,
 				OBJ_14 /* Section+Differentiable.swift */,
 				OBJ_15 /* StagedChangeset+MapData.swift */,
+				5AF1A400253F33F8000058C6 /* DifferentiableBox.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 			children = (
 				OBJ_9 /* DiffingListCollectionViewAdapter.swift */,
 				OBJ_10 /* DiffingListSectionController.swift */,
+				5AF1A3E6253F13E4000058C6 /* ManualDiffingListSectionController.swift */,
 				OBJ_11 /* Utility */,
 			);
 			name = DiffingSectionKit;
@@ -647,9 +653,11 @@
 				OBJ_131 /* DiffingListCollectionViewAdapter.swift in Sources */,
 				OBJ_132 /* DiffingListSectionController.swift in Sources */,
 				OBJ_133 /* Changeset+BatchOperations.swift in Sources */,
+				5AF1A3E7253F13E4000058C6 /* ManualDiffingListSectionController.swift in Sources */,
 				OBJ_134 /* ContentIdentifiable+Identifiable.swift in Sources */,
 				OBJ_135 /* Section+Differentiable.swift in Sources */,
 				OBJ_136 /* StagedChangeset+MapData.swift in Sources */,
+				5AF1A401253F33F8000058C6 /* DifferentiableBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
