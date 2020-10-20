@@ -184,6 +184,16 @@ The functionality is split into two packages:
     This `SectionController` is typically used when there are multiple semantically similar items
     of a model to be displayed and the list of items may dynamically change.
     
+- `ManualDiffingListSectionController<Model: SectionModel, Item>` (DiffingSectionKit):
+    
+    A `SectionController` that contains a list of items and calculates the difference whenever there is an update.
+    
+    This `SectionController` is typically used when there are multiple semantically similar items
+    of a model to be displayed and the list of items may dynamically change.
+    
+    > Note: Compared to `DiffingListSectionController` this doesn't have a `Differentiable` constraint on the generic
+    `Item` type, instead it requires closures to get diffing information for an item.
+    
 ## Concept
 
 ![Diagram](./Resources/SectionKit.svg)
