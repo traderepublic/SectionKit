@@ -53,10 +53,6 @@ extension SectionDropDelegate {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
 
-    public func performDrop(at indexPath: SectionIndexPath,
-                            with coordinator: UICollectionViewDropCoordinator) {
-    }
-
     public func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }

@@ -6,12 +6,13 @@ import UIKit
  Every declaration is marked `open` and can be overriden.
  */
 open class BaseSectionController: SectionController,
-    SectionDataSource,
-    SectionDelegate,
-    SectionFlowDelegate,
-    SectionDragDelegate,
-    SectionDropDelegate {
-    // MARK: - BaseSectionController
+                                  SectionDataSource,
+                                  SectionDataSourcePrefetchingDelegate,
+                                  SectionDelegate,
+                                  SectionFlowDelegate,
+                                  SectionDragDelegate,
+                                  SectionDropDelegate {
+    // MARK: - Init
 
     public init () { }
 
@@ -20,6 +21,9 @@ open class BaseSectionController: SectionController,
     open var context: CollectionViewContext?
 
     open var dataSource: SectionDataSource { self }
+
+    @available(iOS 10.0, *)
+    open var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? { self }
 
     open var delegate: SectionDelegate? { self }
 
@@ -69,6 +73,14 @@ open class BaseSectionController: SectionController,
     open func index(for indexTitle: String) -> Int {
         assertionFailure("index(for:) not implemented")
         return 0
+    }
+
+    // MARK: - SectionDataSourcePrefetchingDelegate
+
+    open func prefetchItems(at indexPaths: [SectionIndexPath]) {
+    }
+
+    open func cancelPrefetchingForItems(at indexPaths: [SectionIndexPath]) {
     }
 
     // MARK: - SectionDelegate

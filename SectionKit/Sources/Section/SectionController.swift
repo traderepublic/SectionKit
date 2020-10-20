@@ -8,6 +8,10 @@ public protocol SectionController: AnyObject {
     /// The datasource of this section.
     var dataSource: SectionDataSource { get }
 
+    /// The prefetching delegate of the datasource of this section.
+    @available(iOS 10.0, *)
+    var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? { get }
+
     /// The delegate of this section.
     var delegate: SectionDelegate? { get }
 
@@ -27,6 +31,9 @@ public protocol SectionController: AnyObject {
 }
 
 extension SectionController {
+    @available(iOS 10.0, *)
+    public var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? { nil }
+
     public var delegate: SectionDelegate? { nil }
 
     public var flowDelegate: SectionFlowDelegate? { nil }
