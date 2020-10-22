@@ -10,8 +10,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             else {
                 return (collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize ?? CGSize(width: 50, height: 50)
         }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return flowDelegate.sizeForItem(at: sectionIndexPath, using: collectionViewLayout)
     }
 

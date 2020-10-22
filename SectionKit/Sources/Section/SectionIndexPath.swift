@@ -3,32 +3,32 @@ import Foundation
 /// A struct containing the internal and external index of an item.
 public struct SectionIndexPath {
     /// The index path of the item in the `UICollectionView`.
-    public let externalRepresentation: IndexPath
+    public let indexInCollectionView: IndexPath
 
-    /// The internal index of the item.
-    public let internalRepresentation: Int
+    /// The index of the item in the current `SectionController`.
+    public let indexInSectionController: Int
 
     /**
      Initialize an instance of `SectionIndexPath`.
 
-     - Parameter externalRepresentation: The index path of the item in the `UICollectionView`.
+     - Parameter indexInCollectionView: The index path of the item in the `UICollectionView`.
 
-     - Parameter internalRepresentation: The internal index of the item.
+     - Parameter indexInSectionController: The index of the item in the current `SectionController`.
      */
-    public init(externalRepresentation: IndexPath, internalRepresentation: Int) {
-        self.externalRepresentation = externalRepresentation
-        self.internalRepresentation = internalRepresentation
+    public init(indexInCollectionView: IndexPath, indexInSectionController: Int) {
+        self.indexInCollectionView = indexInCollectionView
+        self.indexInSectionController = indexInSectionController
     }
 
     /**
      Initialize an instance of `SectionIndexPath`.
 
-     - Parameter externalRepresentation: The index path of the item in the `UICollectionView`.
+     - Parameter indexInCollectionView: The index path of the item in the `UICollectionView`.
 
-     - Parameter internalRepresentation: The internal index of the item.
+     - Parameter indexInSectionController: The index of the item in the current `SectionController`.
      */
     public init(_ indexPath: IndexPath) {
-        self.externalRepresentation = indexPath
-        self.internalRepresentation = indexPath.item
+        self.indexInCollectionView = indexPath
+        self.indexInSectionController = indexPath.item
     }
 }

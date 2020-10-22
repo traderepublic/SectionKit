@@ -95,7 +95,7 @@ Go ahead and add the following code to the `StockSectionController`.
 override func headerView(at indexPath: SectionIndexPath) -> UICollectionReusableView {
     // 2
     guard let headerView = context?.dequeueReusableHeaderView(StockSectionHeaderView.self,
-                                                              for: indexPath.externalRepresentation) else {
+                                                              for: indexPath.indexInCollectionView) else {
             assertionFailure("Failed to dequeue cell from `context`")
             return UICollectionViewCell()
     }
