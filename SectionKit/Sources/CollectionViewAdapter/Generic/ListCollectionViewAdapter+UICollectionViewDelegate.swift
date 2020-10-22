@@ -6,24 +6,24 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return true }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.shouldHighlightItem(at: sectionIndexPath) ?? true
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              didHighlightItemAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.didHighlightItem(at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              didUnhighlightItemAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.didUnhighlightItem(at: sectionIndexPath)
     }
 
@@ -32,32 +32,32 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return true }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.shouldSelectItem(at: sectionIndexPath) ?? true
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              shouldDeselectItemAt indexPath: IndexPath) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return true }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.shouldDeselectItem(at: sectionIndexPath) ?? true
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              didSelectItemAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.didSelectItem(at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              didDeselectItemAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.didDeselectItem(at: sectionIndexPath)
     }
 
@@ -67,8 +67,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              willDisplay cell: UICollectionViewCell,
                              forItemAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.willDisplay(cell: cell, at: sectionIndexPath)
     }
 
@@ -77,8 +77,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              forElementKind elementKind: String,
                              at indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         let delegate = sections[indexPath.section].controller.delegate
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
@@ -94,8 +94,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              didEndDisplaying cell: UICollectionViewCell,
                              forItemAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.didEndDisplaying(cell: cell, at: sectionIndexPath)
     }
 
@@ -104,8 +104,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              forElementOfKind elementKind: String,
                              at indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         let delegate = sections[indexPath.section].controller.delegate
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
@@ -123,8 +123,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return false }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.shouldShowMenuForItem(at: sectionIndexPath) ?? false
     }
 
@@ -134,8 +134,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              forItemAt indexPath: IndexPath,
                              withSender sender: Any?) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return false }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.canPerform(action: action,
                                                                            forItemAt: sectionIndexPath,
                                                                            withSender: sender) ?? false
@@ -147,8 +147,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              forItemAt indexPath: IndexPath,
                              withSender sender: Any?) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.perform(action: action,
                                                                  forItemAt: sectionIndexPath,
                                                                  withSender: sender)
@@ -170,8 +170,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         guard indexPath.isSectionIndexValid(for: sections) else {
             return self.collectionView(collectionView, shouldSelectItemAt: indexPath)
         }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.canFocusItem(at: sectionIndexPath)
             ?? self.collectionView(collectionView, shouldSelectItemAt: indexPath)
     }
@@ -208,8 +208,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              shouldSpringLoadItemAt indexPath: IndexPath,
                              with context: UISpringLoadedInteractionContext) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return true }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.shouldSpringLoadItem(at: sectionIndexPath,
                                                                                      with: context) ?? true
     }
@@ -220,8 +220,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              shouldBeginMultipleSelectionInteractionAt indexPath: IndexPath) -> Bool {
         guard indexPath.isSectionIndexValid(for: sections) else { return false }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?
             .shouldBeginMultipleSelectionInteraction(at: sectionIndexPath) ?? false
     }
@@ -230,8 +230,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              didBeginMultipleSelectionInteractionAt indexPath: IndexPath) {
         guard indexPath.isSectionIndexValid(for: sections) else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.delegate?.didBeginMultipleSelectionInteraction(at: sectionIndexPath)
     }
 
@@ -244,8 +244,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
                              contextMenuConfigurationForItemAt indexPath: IndexPath,
                              point: CGPoint) -> UIContextMenuConfiguration? {
         guard indexPath.isSectionIndexValid(for: sections) else { return nil }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.delegate?.contextMenuConfigurationForItem(at: sectionIndexPath,
                                                                                                 point: point)
     }

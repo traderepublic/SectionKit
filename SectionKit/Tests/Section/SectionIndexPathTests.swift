@@ -3,16 +3,16 @@ import XCTest
 
 internal final class SectionIndexPathTests: XCTestCase {
     internal func testInitializeSectionIndexPath() {
-        let externalRepresentation = IndexPath(item: 0, section: 1)
-        let internalRepresentation = 0
+        let indexInCollectionView = IndexPath(item: 0, section: 1)
+        let indexInSectionController = 0
 
-        var input = SectionIndexPath(externalRepresentation: externalRepresentation,
-                                     internalRepresentation: internalRepresentation)
-        XCTAssertEqual(input.externalRepresentation, externalRepresentation)
-        XCTAssertEqual(input.internalRepresentation, internalRepresentation)
+        var input = SectionIndexPath(indexInCollectionView: indexInCollectionView,
+                                     indexInSectionController: indexInSectionController)
+        XCTAssertEqual(input.indexInCollectionView, indexInCollectionView)
+        XCTAssertEqual(input.indexInSectionController, indexInSectionController)
 
-        input = SectionIndexPath(externalRepresentation)
-        XCTAssertEqual(input.externalRepresentation, externalRepresentation)
-        XCTAssertEqual(input.internalRepresentation, internalRepresentation)
+        input = SectionIndexPath(indexInCollectionView)
+        XCTAssertEqual(input.indexInCollectionView, indexInCollectionView)
+        XCTAssertEqual(input.indexInSectionController, indexInSectionController)
     }
 }
