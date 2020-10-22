@@ -10,8 +10,8 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
             let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return [] }
         session.localContext = sections[indexPath.section].controller
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
     }
 
@@ -24,8 +24,8 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
             session.localContext as? SectionController === sections[indexPath.section].controller,
             let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return [] }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point)
     }
 
@@ -35,8 +35,8 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
             indexPath.isSectionIndexValid(for: sections),
             let dragDelegate = sections[indexPath.section].controller.dragDelegate
             else { return nil }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return dragDelegate.dragPreviewParametersForItem(at: sectionIndexPath)
     }
 

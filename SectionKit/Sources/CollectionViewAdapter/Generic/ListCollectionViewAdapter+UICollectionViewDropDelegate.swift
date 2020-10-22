@@ -21,8 +21,8 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
                 session.localDragSession?.localContext as? SectionController === sections[indexPath.section].controller
                 else { return UICollectionViewDropProposal(operation: .forbidden) }
         }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.dropDelegate?.dropSessionDidUpdate(session,
                                                                                          at: sectionIndexPath)
             ?? UICollectionViewDropProposal(operation: .forbidden)
@@ -34,8 +34,8 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
             let indexPath = coordinator.destinationIndexPath,
             indexPath.isSectionIndexValid(for: sections)
             else { return }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         sections[indexPath.section].controller.dropDelegate?.performDrop(at: sectionIndexPath,
                                                                          with: coordinator)
     }
@@ -55,8 +55,8 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         guard indexPath.isSectionIndexValid(for: sections) else { return nil }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
     }
 }

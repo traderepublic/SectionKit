@@ -20,8 +20,8 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return UICollectionViewCell()
         }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.dataSource.cellForItem(at: sectionIndexPath)
     }
 
@@ -32,8 +32,8 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return UICollectionReusableView()
         }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
 
         let sectionController = sections[indexPath.section]
 
@@ -56,8 +56,8 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return false
         }
-        let sectionIndexPath = SectionIndexPath(externalRepresentation: indexPath,
-                                                internalRepresentation: indexPath.item)
+        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
+                                                indexInSectionController: indexPath.item)
         return sections[indexPath.section].controller.dataSource.canMoveItem(at: sectionIndexPath)
     }
 
@@ -73,10 +73,10 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
         guard moveInsideSection || allowReorderingBetweenDifferentSections else {
             return
         }
-        let sourceSectionIndexPath = SectionIndexPath(externalRepresentation: sourceIndexPath,
-                                                      internalRepresentation: sourceIndexPath.item)
-        let destinationSectionIndexPath = SectionIndexPath(externalRepresentation: destinationIndexPath,
-                                                           internalRepresentation: destinationIndexPath.item)
+        let sourceSectionIndexPath = SectionIndexPath(indexInCollectionView: sourceIndexPath,
+                                                      indexInSectionController: sourceIndexPath.item)
+        let destinationSectionIndexPath = SectionIndexPath(indexInCollectionView: destinationIndexPath,
+                                                           indexInSectionController: destinationIndexPath.item)
         sections[sourceIndexPath.section].controller.dataSource.moveItem(at: sourceSectionIndexPath,
                                                                          to: destinationSectionIndexPath)
     }
