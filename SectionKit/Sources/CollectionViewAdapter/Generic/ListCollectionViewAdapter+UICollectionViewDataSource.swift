@@ -11,7 +11,10 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return 0
         }
-        return sections[section].controller.dataSource.numberOfItems
+        guard let sectionController = sections[section].controller else {
+            return 0
+        }
+        return sectionController.dataSource.numberOfItems
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -20,9 +23,12 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return UICollectionViewCell()
         }
+        guard let sectionController = sections[indexPath.section].controller else {
+            return UICollectionViewCell()
+        }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
-        return sections[indexPath.section].controller.dataSource.cellForItem(at: sectionIndexPath)
+        return sectionController.dataSource.cellForItem(at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -32,17 +38,17 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return UICollectionReusableView()
         }
+        guard let sectionController = sections[indexPath.section].controller else {
+            return UICollectionReusableView()
+        }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
-
-        let sectionController = sections[indexPath.section]
-
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            return sectionController.controller.dataSource.headerView(at: sectionIndexPath)
+            return sectionController.dataSource.headerView(at: sectionIndexPath)
 
         case UICollectionView.elementKindSectionFooter:
-            return sectionController.controller.dataSource.footerView(at: sectionIndexPath)
+            return sectionController.dataSource.footerView(at: sectionIndexPath)
 
         default:
             assertionFailure("Unsupported supplementary view kind.")
@@ -56,9 +62,10 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return false
         }
+        guard let sectionController = sections[indexPath.section].controller else { return false }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
-        return sections[indexPath.section].controller.dataSource.canMoveItem(at: sectionIndexPath)
+        return sectionController.dataSource.canMoveItem(at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -68,6 +75,7 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
             assertionFailure("Could not find the specified section")
             return
         }
+        guard let sectionController = sections[sourceIndexPath.section].controller else { return }
         let moveInsideSection = destinationIndexPath.isSectionIndexValid(for: sections)
             && sourceIndexPath.section == destinationIndexPath.section
         guard moveInsideSection || allowReorderingBetweenDifferentSections else {
@@ -77,8 +85,7 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
                                                       indexInSectionController: sourceIndexPath.item)
         let destinationSectionIndexPath = SectionIndexPath(indexInCollectionView: destinationIndexPath,
                                                            indexInSectionController: destinationIndexPath.item)
-        sections[sourceIndexPath.section].controller.dataSource.moveItem(at: sourceSectionIndexPath,
-                                                                         to: destinationSectionIndexPath)
+        sectionController.dataSource.moveItem(at: sourceSectionIndexPath, to: destinationSectionIndexPath)
     }
 
     open func indexTitles(for collectionView: UICollectionView) -> [String]? {

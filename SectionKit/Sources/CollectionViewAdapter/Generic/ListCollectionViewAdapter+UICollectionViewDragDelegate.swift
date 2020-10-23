@@ -7,7 +7,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
                              at indexPath: IndexPath) -> [UIDragItem] {
         guard
             indexPath.isSectionIndexValid(for: sections),
-            let dragDelegate = sections[indexPath.section].controller.dragDelegate
+            let dragDelegate = sections[indexPath.section].controller?.dragDelegate
             else { return [] }
         session.localContext = sections[indexPath.section].controller
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
@@ -22,7 +22,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
         guard
             indexPath.isSectionIndexValid(for: sections),
             session.localContext as? SectionController === sections[indexPath.section].controller,
-            let dragDelegate = sections[indexPath.section].controller.dragDelegate
+            let dragDelegate = sections[indexPath.section].controller?.dragDelegate
             else { return [] }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
@@ -33,7 +33,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
                              dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
         guard
             indexPath.isSectionIndexValid(for: sections),
-            let dragDelegate = sections[indexPath.section].controller.dragDelegate
+            let dragDelegate = sections[indexPath.section].controller?.dragDelegate
             else { return nil }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)

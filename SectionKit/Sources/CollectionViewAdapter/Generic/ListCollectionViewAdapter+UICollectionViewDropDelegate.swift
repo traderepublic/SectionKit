@@ -4,7 +4,7 @@ import UIKit
 extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              canHandle session: UIDropSession) -> Bool {
-        return sections.contains { $0.controller.dropDelegate?.canHandle(drop: session) ?? true }
+        return sections.contains { $0.controller?.dropDelegate?.canHandle(drop: session) ?? true }
     }
 
     open func collectionView(
@@ -23,8 +23,8 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
-        return sections[indexPath.section].controller.dropDelegate?.dropSessionDidUpdate(session,
-                                                                                         at: sectionIndexPath)
+        return sections[indexPath.section].controller?.dropDelegate?.dropSessionDidUpdate(session,
+                                                                                          at: sectionIndexPath)
             ?? UICollectionViewDropProposal(operation: .forbidden)
     }
 
@@ -36,8 +36,8 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
             else { return }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
-        sections[indexPath.section].controller.dropDelegate?.performDrop(at: sectionIndexPath,
-                                                                         with: coordinator)
+        sections[indexPath.section].controller?.dropDelegate?.performDrop(at: sectionIndexPath,
+                                                                          with: coordinator)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -57,6 +57,6 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         guard indexPath.isSectionIndexValid(for: sections) else { return nil }
         let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
                                                 indexInSectionController: indexPath.item)
-        return sections[indexPath.section].controller.dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
+        return sections[indexPath.section].controller?.dropDelegate?.dropPreviewParametersForItem(at: sectionIndexPath)
     }
 }

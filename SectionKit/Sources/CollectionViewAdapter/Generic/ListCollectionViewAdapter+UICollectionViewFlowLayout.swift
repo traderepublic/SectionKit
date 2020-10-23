@@ -6,7 +6,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
                              sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard
             indexPath.isSectionIndexValid(for: sections),
-            let flowDelegate = sections[indexPath.section].controller.flowDelegate
+            let flowDelegate = sections[indexPath.section].controller?.flowDelegate
             else {
                 return (collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize ?? CGSize(width: 50, height: 50)
         }
@@ -20,7 +20,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
                              insetForSectionAt section: Int) -> UIEdgeInsets {
         guard
             section >= 0 && section < sections.count,
-            let flowDelegate = sections[section].controller.flowDelegate
+            let flowDelegate = sections[section].controller?.flowDelegate
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero }
         return flowDelegate.inset(using: collectionViewLayout)
     }
@@ -30,7 +30,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
                              minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         guard
             section >= 0 && section < sections.count,
-            let flowDelegate = sections[section].controller.flowDelegate
+            let flowDelegate = sections[section].controller?.flowDelegate
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing ?? 10 }
         return flowDelegate.minimumLineSpacing(using: collectionViewLayout)
     }
@@ -40,7 +40,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
                              minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         guard
             section >= 0 && section < sections.count,
-            let flowDelegate = sections[section].controller.flowDelegate
+            let flowDelegate = sections[section].controller?.flowDelegate
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10 }
         return flowDelegate.minimumInteritemSpacing(using: collectionViewLayout)
     }
@@ -50,7 +50,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
                              referenceSizeForHeaderInSection section: Int) -> CGSize {
         guard
             section >= 0 && section < sections.count,
-            let flowDelegate = sections[section].controller.flowDelegate
+            let flowDelegate = sections[section].controller?.flowDelegate
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.headerReferenceSize ?? .zero }
         return flowDelegate.referenceSizeForHeader(using: collectionViewLayout)
     }
@@ -60,7 +60,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
                              referenceSizeForFooterInSection section: Int) -> CGSize {
         guard
             section >= 0 && section < sections.count,
-            let flowDelegate = sections[section].controller.flowDelegate
+            let flowDelegate = sections[section].controller?.flowDelegate
             else { return (collectionViewLayout as? UICollectionViewFlowLayout)?.footerReferenceSize ?? .zero }
         return flowDelegate.referenceSizeForFooter(using: collectionViewLayout)
     }
