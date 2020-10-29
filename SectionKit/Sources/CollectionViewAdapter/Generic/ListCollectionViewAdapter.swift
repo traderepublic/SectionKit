@@ -51,10 +51,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      */
     open var collectionViewSections: [Section] = [] {
         willSet {
-            collectionViewSections.forEach { $0.controller.context = nil }
+            collectionViewSections.forEach { $0.controller?.context = nil }
         }
         didSet {
-            collectionViewSections.forEach { $0.controller.context = collectionContext }
+            collectionViewSections.forEach { $0.controller?.context = collectionContext }
         }
     }
 
@@ -95,7 +95,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
             if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
                 section = Section(model: model, controller: existingSection.controller)
                 if !model.isEqual(to: existingSection.model) {
-                    existingSection.controller.didUpdate(model: model)
+                    existingSection.controller?.didUpdate(model: model)
                 }
             } else {
                 section = Section(model: model) { [unowned self] in
