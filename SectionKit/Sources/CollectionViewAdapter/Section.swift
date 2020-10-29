@@ -5,10 +5,10 @@ public class Section {
     /// The model of the section.
     public let model: SectionModel
 
-    private let controllerAccessor: () -> SectionController
+    private let controllerAccessor: () -> SectionController?
 
     /// A lazily computed `SectionController` for this section.
-    public private(set) lazy var controller: SectionController = controllerAccessor()
+    public private(set) lazy var controller: SectionController? = controllerAccessor()
 
     /**
      Initialize an instance of `CollectionViewUpdate`.
@@ -18,7 +18,7 @@ public class Section {
      - Parameter controllerAccessor: A handler that produces the `SectionController` for this section.
      */
     public init(model: SectionModel,
-                controllerAccessor: @escaping () -> SectionController) {
+                controllerAccessor: @escaping () -> SectionController?) {
         self.model = model
         self.controllerAccessor = controllerAccessor
     }
@@ -30,7 +30,7 @@ public class Section {
 
      - Parameter controller: The `SectionController` for this section.
      */
-    public init(model: SectionModel, controller: SectionController) {
+    public init(model: SectionModel, controller: SectionController?) {
         self.model = model
         self.controllerAccessor = { controller }
     }

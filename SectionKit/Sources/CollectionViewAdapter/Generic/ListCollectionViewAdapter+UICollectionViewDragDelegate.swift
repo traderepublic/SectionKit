@@ -5,13 +5,11 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              itemsForBeginning session: UIDragSession,
                              at indexPath: IndexPath) -> [UIDragItem] {
-        guard
-            indexPath.isSectionIndexValid(for: sections),
-            let dragDelegate = sections[indexPath.section].controller.dragDelegate
-            else { return [] }
-        session.localContext = sections[indexPath.section].controller
-        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
-                                                indexInSectionController: indexPath.item)
+        guard let dragDelegate = dragDelegate(at: indexPath) else {
+            return []
+        }
+        session.localContext = controller(at: indexPath)
+        let sectionIndexPath = SectionIndexPath(indexPath)
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
     }
 
@@ -19,24 +17,19 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
                              itemsForAddingTo session: UIDragSession,
                              at indexPath: IndexPath,
                              point: CGPoint) -> [UIDragItem] {
-        guard
-            indexPath.isSectionIndexValid(for: sections),
-            session.localContext as? SectionController === sections[indexPath.section].controller,
-            let dragDelegate = sections[indexPath.section].controller.dragDelegate
-            else { return [] }
-        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
-                                                indexInSectionController: indexPath.item)
+        guard let dragDelegate = dragDelegate(at: indexPath) else {
+            return []
+        }
+        let sectionIndexPath = SectionIndexPath(indexPath)
         return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        guard
-            indexPath.isSectionIndexValid(for: sections),
-            let dragDelegate = sections[indexPath.section].controller.dragDelegate
-            else { return nil }
-        let sectionIndexPath = SectionIndexPath(indexInCollectionView: indexPath,
-                                                indexInSectionController: indexPath.item)
+        guard let dragDelegate = dragDelegate(at: indexPath) else {
+            return nil
+        }
+        let sectionIndexPath = SectionIndexPath(indexPath)
         return dragDelegate.dragPreviewParametersForItem(at: sectionIndexPath)
     }
 

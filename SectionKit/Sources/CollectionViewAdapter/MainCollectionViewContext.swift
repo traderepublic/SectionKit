@@ -144,7 +144,7 @@ open class MainCollectionViewContext: CollectionViewContext {
 
     open func sectionControllerWithAdjustedIndexPath(
         for indexPath: IndexPath
-    ) -> (SectionController, SectionIndexPath)? {
+    ) -> (SectionController?, SectionIndexPath)? {
         guard let sectionAdapter = sectionAdapter else {
             fatalError("`sectionAdapter` is no set")
         }

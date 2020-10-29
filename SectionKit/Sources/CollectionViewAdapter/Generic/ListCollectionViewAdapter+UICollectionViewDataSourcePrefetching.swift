@@ -3,24 +3,22 @@ import UIKit
 @available(iOS 10.0, *)
 extension ListCollectionViewAdapter: UICollectionViewDataSourcePrefetching {
     open func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        let validIndexPaths = indexPaths.filter { $0.isSectionIndexValid(for: sections) }
-        validIndexPaths.group(by: \.section).forEach { sectionIndex, indexPaths in
-            guard let prefetchingDelegate = sections[sectionIndex].controller.dataSourcePrefetchingDelegate else {
+        indexPaths.filter(\.isValid).group(by: \.section).forEach { sectionIndex, indexPaths in
+            guard let dataSourcePrefetchingDelegate = dataSourcePrefetchingDelegate(at: sectionIndex) else {
                 return
             }
             let sectionIndexPaths = indexPaths.map(SectionIndexPath.init)
-            prefetchingDelegate.prefetchItems(at: sectionIndexPaths)
+            dataSourcePrefetchingDelegate.prefetchItems(at: sectionIndexPaths)
         }
     }
 
     open func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        let validIndexPaths = indexPaths.filter { $0.isSectionIndexValid(for: sections) }
-        validIndexPaths.group(by: \.section).forEach { sectionIndex, indexPaths in
-            guard let prefetchingDelegate = sections[sectionIndex].controller.dataSourcePrefetchingDelegate else {
+        indexPaths.filter(\.isValid).group(by: \.section).forEach { sectionIndex, indexPaths in
+            guard let dataSourcePrefetchingDelegate = dataSourcePrefetchingDelegate(at: sectionIndex) else {
                 return
             }
             let sectionIndexPaths = indexPaths.map(SectionIndexPath.init)
-            prefetchingDelegate.cancelPrefetchingForItems(at: sectionIndexPaths)
+            dataSourcePrefetchingDelegate.cancelPrefetchingForItems(at: sectionIndexPaths)
         }
     }
 }

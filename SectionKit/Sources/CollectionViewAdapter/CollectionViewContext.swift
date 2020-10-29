@@ -89,5 +89,5 @@ public protocol CollectionViewContext: AnyObject {
      - Returns: The `SectionController` which is responsible for the given `IndexPath` and
      the corresponding `SectionIndexPath`.
      */
-    func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController, SectionIndexPath)?
+    func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController?, SectionIndexPath)?
 }
