@@ -35,7 +35,7 @@ open class BaseSectionController: SectionController,
     @available(iOS 11.0, *)
     open var dropDelegate: SectionDropDelegate? { self }
 
-    open func didUpdate(model: SectionModel) { }
+    open func didUpdate(model: Any) { }
 
     // MARK: - SectionDataSource
 

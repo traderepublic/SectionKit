@@ -65,7 +65,7 @@ open class MainCollectionViewContext: CollectionViewContext {
             return collectionView.reloadData()
         }
         let sections = sectionAdapter.sections.enumerated()
-        guard let (sectionIndex, _) = sections.first(where: { $1.model.sectionId == update.sectionId }) else {
+        guard let (sectionIndex, _) = sections.first(where: { $1.controller === update.controller }) else {
             assertionFailure("No section was found for the specified id")
             return collectionView.reloadData()
         }

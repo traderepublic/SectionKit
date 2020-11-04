@@ -12,7 +12,7 @@ import SectionKit
  `Item` type, instead it requires closures to get diffing information for an item.
  */
 open class ManualDiffingListSectionController<
-    Model: SectionModel,
+    Model,
     Item,
     ItemId: Hashable
 >: ListSectionController<Model, Item> {
@@ -40,7 +40,7 @@ open class ManualDiffingListSectionController<
             source: oldData.map { DifferentiableBox(value: $0, id: itemId, isContentEqual: itemContentIsEqual) },
             target: newData.map { DifferentiableBox(value: $0, id: itemId, isContentEqual: itemContentIsEqual) }
         )
-        return CollectionViewSectionUpdate(sectionId: model.sectionId,
+        return CollectionViewSectionUpdate(controller: self,
                                            batchOperations: changeSet.mapData(\.value).map(\.sectionBatchOperation),
                                            setData: { [weak self] in self?.collectionViewItems = $0 },
                                            shouldReload: { $0.changes.count > 100 })

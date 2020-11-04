@@ -8,8 +8,8 @@ import Foundation
 open class FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(from oldData: [Section],
                                        to newData: [Section]) -> CollectionViewUpdate<[Section]> {
-        let difference = newData.map(\.model.sectionId)
-            .difference(from: oldData.map(\.model.sectionId))
+        let difference = newData.map(\.id)
+            .difference(from: oldData.map(\.id))
             .inferringMoves()
         return CollectionViewUpdate(changes: difference.collectionViewChanges,
                                     data: newData,

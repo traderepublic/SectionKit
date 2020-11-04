@@ -59,7 +59,6 @@
 		OBJ_161 /* CollectionViewChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* CollectionViewChange.swift */; };
 		OBJ_162 /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* CollectionViewUpdate.swift */; };
 		OBJ_163 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* CollectionViewAdapter.swift */; };
-		OBJ_164 /* CollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* CollectionViewAdapterDataSource.swift */; };
 		OBJ_165 /* CollectionViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* CollectionViewContext.swift */; };
 		OBJ_166 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* FoundationDiffingListCollectionViewAdapter.swift */; };
 		OBJ_167 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */; };
@@ -71,9 +70,6 @@
 		OBJ_173 /* ListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* ListCollectionViewAdapter.swift */; };
 		OBJ_174 /* MainCollectionViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* MainCollectionViewContext.swift */; };
 		OBJ_175 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* Section.swift */; };
-		OBJ_176 /* SectionEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* SectionEquatable.swift */; };
-		OBJ_177 /* SectionIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* SectionIdentifiable.swift */; };
-		OBJ_178 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* SectionModel.swift */; };
 		OBJ_179 /* BaseSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* BaseSectionController.swift */; };
 		OBJ_180 /* FoundationDiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* FoundationDiffingListSectionController.swift */; };
 		OBJ_181 /* ListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* ListSectionController.swift */; };
@@ -193,7 +189,6 @@
 		OBJ_20 /* CollectionViewChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewChange.swift; sourceTree = "<group>"; };
 		OBJ_21 /* CollectionViewUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdate.swift; sourceTree = "<group>"; };
 		OBJ_22 /* CollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapter.swift; sourceTree = "<group>"; };
-		OBJ_23 /* CollectionViewAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapterDataSource.swift; sourceTree = "<group>"; };
 		OBJ_24 /* CollectionViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewContext.swift; sourceTree = "<group>"; };
 		OBJ_26 /* FoundationDiffingListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDiffingListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_27 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
@@ -205,9 +200,6 @@
 		OBJ_33 /* ListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_34 /* MainCollectionViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewContext.swift; sourceTree = "<group>"; };
 		OBJ_35 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		OBJ_36 /* SectionEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionEquatable.swift; sourceTree = "<group>"; };
-		OBJ_37 /* SectionIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIdentifiable.swift; sourceTree = "<group>"; };
-		OBJ_38 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		OBJ_41 /* BaseSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionController.swift; sourceTree = "<group>"; };
 		OBJ_42 /* FoundationDiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDiffingListSectionController.swift; sourceTree = "<group>"; };
 		OBJ_43 /* ListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionController.swift; sourceTree = "<group>"; };
@@ -337,9 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_35 /* Section.swift */,
-				OBJ_36 /* SectionEquatable.swift */,
-				OBJ_37 /* SectionIdentifiable.swift */,
-				OBJ_38 /* SectionModel.swift */,
 			);
 			path = SectionModel;
 			sourceTree = "<group>";
@@ -376,7 +365,6 @@
 				5ABE04C12551C826007611D5 /* CollectionViewContext */,
 				5ABE04C22551C83B007611D5 /* SectionModel */,
 				OBJ_22 /* CollectionViewAdapter.swift */,
-				OBJ_23 /* CollectionViewAdapterDataSource.swift */,
 			);
 			path = CollectionViewAdapter;
 			sourceTree = "<group>";
@@ -395,6 +383,7 @@
 		OBJ_39 /* Section */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_53 /* SectionUpdate */,
 				OBJ_40 /* Generic */,
 				OBJ_46 /* SectionController.swift */,
 				OBJ_47 /* SectionDataSource.swift */,
@@ -404,7 +393,6 @@
 				OBJ_50 /* SectionDropDelegate.swift */,
 				OBJ_51 /* SectionFlowDelegate.swift */,
 				OBJ_52 /* SectionIndexPath.swift */,
-				OBJ_53 /* SectionUpdate */,
 			);
 			path = Section;
 			sourceTree = "<group>";
@@ -743,7 +731,6 @@
 				5ABE04882551C52C007611D5 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
 				5AD17C8A252C575D009DEF3F /* Sequence+Group.swift in Sources */,
 				OBJ_163 /* CollectionViewAdapter.swift in Sources */,
-				OBJ_164 /* CollectionViewAdapterDataSource.swift in Sources */,
 				OBJ_165 /* CollectionViewContext.swift in Sources */,
 				OBJ_166 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */,
 				OBJ_167 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
@@ -761,9 +748,6 @@
 				5ABE04C92552A5A1007611D5 /* Optional+Extensions.swift in Sources */,
 				OBJ_174 /* MainCollectionViewContext.swift in Sources */,
 				OBJ_175 /* Section.swift in Sources */,
-				OBJ_176 /* SectionEquatable.swift in Sources */,
-				OBJ_177 /* SectionIdentifiable.swift in Sources */,
-				OBJ_178 /* SectionModel.swift in Sources */,
 				5ABE045E2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
 				OBJ_179 /* BaseSectionController.swift in Sources */,
 				OBJ_180 /* FoundationDiffingListSectionController.swift in Sources */,

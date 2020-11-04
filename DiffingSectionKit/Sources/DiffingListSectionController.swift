@@ -8,11 +8,11 @@ import SectionKit
  This `SectionController` is typically used when there are multiple semantically similar items
  of a model to be displayed and the list of items may dynamically change.
  */
-open class DiffingListSectionController<Model: SectionModel, Item: Differentiable>: ListSectionController<Model, Item> {
+open class DiffingListSectionController<Model, Item: Differentiable>: ListSectionController<Model, Item> {
     override open func calculateUpdate(from oldData: [Item],
                                        to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
         let changeSet = StagedChangeset(source: oldData, target: newData)
-        return CollectionViewSectionUpdate(sectionId: model.sectionId,
+        return CollectionViewSectionUpdate(controller: self,
                                            batchOperations: changeSet.map(\.sectionBatchOperation),
                                            setData: { [weak self] in self?.collectionViewItems = $0 },
                                            shouldReload: { $0.changes.count > 100 })

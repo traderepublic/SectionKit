@@ -4,8 +4,8 @@ import Foundation
 public struct CollectionViewSectionUpdate<SectionData> {
     public typealias BatchOperation = CollectionViewSectionBatchOperation<SectionData>
 
-    /// The id of the section that wants to perform the changes.
-    public let sectionId: AnyHashable
+    /// The controller of the section that wants to perform the changes.
+    public let controller: SectionController
 
     /// The batch operations that should be performed in succession.
     public let batchOperations: [BatchOperation]
@@ -25,7 +25,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     /**
      Initialize an instance of `CollectionViewSectionUpdate`.
      
-     - Parameter sectionId: The id of the section where changes should be performed.
+     - Parameter controller: The controller of the section where changes should be performed.
      
      - Parameter batchOperations: The batch operations that should be performed in succession.
      
@@ -37,11 +37,11 @@ public struct CollectionViewSectionUpdate<SectionData> {
      It is recommended to perform a reload instead of separate inserts/deletes/moves if more than 100 changes
      are applied in a single batch operation.
      */
-    public init(sectionId: AnyHashable,
+    public init(controller: SectionController,
                 batchOperations: [BatchOperation],
                 setData: @escaping (SectionData) -> Void,
                 shouldReload: @escaping (BatchOperation) -> Bool = { _ in false }) {
-        self.sectionId = sectionId
+        self.controller = controller
         self.batchOperations = batchOperations
         self.setData = setData
         self.shouldReload = shouldReload
@@ -50,7 +50,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     /**
      Initialize an instance of `CollectionViewSectionUpdate`.
      
-     - Parameter sectionId: The id of the section where changes should be performed.
+     - Parameter controller: The controller of the section where changes should be performed.
      
      - Parameter changes: The changes to perform to the list of items in a section.
      
@@ -69,14 +69,14 @@ public struct CollectionViewSectionUpdate<SectionData> {
      or `false` if they were interrupted.
      */
     @inlinable
-    public init(sectionId: AnyHashable,
+    public init(controller: SectionController,
                 changes: Set<CollectionViewSectionChange>,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
                 shouldReload: @escaping (BatchOperation) -> Bool = { _ in false },
                 completion: ((Bool) -> Void)? = nil) {
         let batchOperation = BatchOperation(changes: changes, data: data, completion: completion)
-        self.init(sectionId: sectionId,
+        self.init(controller: controller,
                   batchOperations: [batchOperation],
                   setData: setData,
                   shouldReload: shouldReload)
@@ -85,7 +85,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     /**
      Initialize an instance of `CollectionViewSectionUpdate`.
      
-     - Parameter sectionId: The id of the section where changes should be performed.
+     - Parameter controller: The controller of the section where changes should be performed.
      
      - Parameter data: The data of the section after the `changes` have been performed.
      
@@ -97,11 +97,11 @@ public struct CollectionViewSectionUpdate<SectionData> {
      or `false` if they were interrupted.
      */
     @inlinable
-    public init(sectionId: AnyHashable,
+    public init(controller: SectionController,
                 data: SectionData,
                 setData: @escaping (SectionData) -> Void,
                 completion: ((Bool) -> Void)? = nil) {
-        self.init(sectionId: sectionId,
+        self.init(controller: controller,
                   changes: [],
                   data: data,
                   setData: setData,

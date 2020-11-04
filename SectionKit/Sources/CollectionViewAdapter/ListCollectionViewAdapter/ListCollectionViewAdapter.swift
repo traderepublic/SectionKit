@@ -96,19 +96,15 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
     private func querySections(from dataSource: ListCollectionViewAdapterDataSource) -> [Section] {
         var newSections: [Section] = []
-        for model in dataSource.models(for: self) {
-            let section: Section
-            if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
-                section = Section(model: model, controller: existingSection.controller)
-                if !model.isEqual(to: existingSection.model) {
-                    existingSection.controller?.didUpdate(model: model)
-                }
+        for newSection in dataSource.sections(for: self) {
+            if let existingSection = sections.first(where: { $0.id == newSection.id }),
+               let existingController = existingSection.controller {
+                newSection.controller = existingController
+                existingController.didUpdate(model: newSection.model)
             } else {
-                section = Section(model: model) { [unowned self] in
-                    dataSource.sectionController(with: model, for: self)
-                }
+                newSection.controller = newSection.controllerAccessor()
             }
-            newSections.append(section)
+            newSections.append(newSection)
         }
         return newSections
     }
