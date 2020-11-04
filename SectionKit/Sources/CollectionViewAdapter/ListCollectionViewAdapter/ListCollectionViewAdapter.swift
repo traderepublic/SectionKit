@@ -17,14 +17,18 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter collectionView: The `UICollectionView` to use to display the data.
      
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
+
+     - Parameter dataSource: The datasource of this adapter responsible for creating `SectionControllers`.
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
-                scrollViewDelegate: UIScrollViewDelegate? = nil) {
+                scrollViewDelegate: UIScrollViewDelegate? = nil,
+                dataSource: ListCollectionViewAdapterDataSource? = nil) {
         let collectionContext = MainCollectionViewContext(viewController: viewController,
                                                           collectionView: collectionView)
         self.collectionContext = collectionContext
         self.scrollViewDelegate = scrollViewDelegate
+        self.dataSource = dataSource
         super.init()
         collectionContext.sectionAdapter = self
         collectionView.dataSource = self
@@ -33,13 +37,14 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
             collectionView.dragDelegate = self
             collectionView.dropDelegate = self
         }
+        invalidateDataSource()
     }
 
     public let collectionContext: CollectionViewContext
 
     open weak var scrollViewDelegate: UIScrollViewDelegate?
 
-    open weak var dataSource: CollectionViewAdapterDataSource? {
+    open weak var dataSource: ListCollectionViewAdapterDataSource? {
         didSet { invalidateDataSource() }
     }
 
@@ -68,7 +73,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     /**
-     Calculate the `UICollectionView` events using the difference from the old to the new data
+     Calculate the `UICollectionView` events using the difference from the old to the new data.
      
      - Parameter oldData: The old data currently displayed in the `UICollectionView`
      
@@ -81,6 +86,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
     }
 
+    /// If reordering is allowed between different sections.
     open var allowReorderingBetweenDifferentSections: Bool = false
 
     open func invalidateDataSource() {
@@ -88,7 +94,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         sections = querySections(from: dataSource)
     }
 
-    private func querySections(from dataSource: CollectionViewAdapterDataSource) -> [Section] {
+    private func querySections(from dataSource: ListCollectionViewAdapterDataSource) -> [Section] {
         var newSections: [Section] = []
         for model in dataSource.models(for: self) {
             let section: Section

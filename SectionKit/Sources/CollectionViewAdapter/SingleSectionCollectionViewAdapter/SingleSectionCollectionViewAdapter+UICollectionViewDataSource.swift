@@ -1,8 +1,8 @@
 import UIKit
 
-extension ListCollectionViewAdapter: UICollectionViewDataSource {
+extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
     open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
+        section.isSome ? 1 : 0
     }
 
     open func collectionView(_ collectionView: UICollectionView,
@@ -57,9 +57,11 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
         guard let dataSource = dataSource(at: sourceIndexPath) else {
             return
         }
-        let moveInsideSection = sourceIndexPath.isValid && destinationIndexPath.isValid
-            && sourceIndexPath.section == destinationIndexPath.section
-        guard moveInsideSection || allowReorderingBetweenDifferentSections else {
+        guard sourceIndexPath.isValid && destinationIndexPath.isValid else {
+            return
+        }
+        let moveInsideSection = sourceIndexPath.section == destinationIndexPath.section
+        guard moveInsideSection else {
             return
         }
         let sourceSectionIndexPath = SectionIndexPath(sourceIndexPath)
