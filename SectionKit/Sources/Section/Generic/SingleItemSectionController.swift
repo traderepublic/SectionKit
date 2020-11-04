@@ -8,7 +8,7 @@ import UIKit
 
  - Warning: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
  */
-open class SingleItemSectionController<Model, Item: Equatable>: BaseSectionController {
+open class SingleItemSectionController<Model, Item>: BaseSectionController {
     /**
      Initialize an instance of `SingleItemSectionController`.
 
@@ -100,12 +100,8 @@ open class SingleItemSectionController<Model, Item: Equatable>: BaseSectionContr
                               to newData: Item?) -> CollectionViewSectionUpdate<Item?>? {
         let changes: Set<CollectionViewSectionChange>
         switch (oldData, newData) {
-        case let (.some(old), .some(new)):
-            if old == new {
-                changes = []
-            } else {
-                changes = [.reloadItem(at: 0)]
-            }
+        case (.some, .some):
+            changes = [.reloadItem(at: 0)]
 
         case (.some, .none):
             changes = [.deleteItem(at: 0)]
