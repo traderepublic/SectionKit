@@ -20,13 +20,13 @@ public class Section {
 
      - Parameter model: The model of the section.
 
-     - Parameter controllerAccessor: A handler that produces the `SectionController` for this section.
+     - Parameter controller: A handler that produces the `SectionController` for this section.
      */
     public init(id: AnyHashable,
                 model: Any,
-                controllerAccessor: @autoclosure @escaping () -> SectionController?) {
+                controller: @autoclosure @escaping () -> SectionController?) {
         self.id = id
         self.model = model
-        self.controllerAccessor = controllerAccessor
+        self.controllerAccessor = controller
     }
 }
