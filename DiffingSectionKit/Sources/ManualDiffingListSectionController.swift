@@ -13,10 +13,9 @@ import SectionKit
  */
 open class ManualDiffingListSectionController<
     Model,
-    Item,
-    ItemId: Hashable
+    Item
 >: ListSectionController<Model, Item> {
-    private let itemId: (Item) -> ItemId
+    private let itemId: (Item) -> AnyHashable
     private let itemContentIsEqual: (Item, Item) -> Bool
 
     /**
@@ -28,8 +27,10 @@ open class ManualDiffingListSectionController<
 
      - Parameter itemContentIsEqual: A closure that checks two items for equality.
      */
-    public init(model: Model, itemId: @escaping (Item) -> ItemId, itemContentIsEqual: @escaping (Item, Item) -> Bool) {
-        self.itemId = itemId
+    public init<ItemId: Hashable>(model: Model,
+                                  itemId: @escaping (Item) -> ItemId,
+                                  itemContentIsEqual: @escaping (Item, Item) -> Bool) {
+        self.itemId = { itemId($0) }
         self.itemContentIsEqual = itemContentIsEqual
         super.init(model: model)
     }
@@ -55,13 +56,13 @@ extension ManualDiffingListSectionController where Item: Equatable {
 
      - Parameter itemId: A closure that returns the identifier for a given item.
      */
-    public convenience init(model: Model, itemId: @escaping (Item) -> ItemId) {
+    public convenience init<ItemId: Hashable>(model: Model, itemId: @escaping (Item) -> ItemId) {
         self.init(model: model, itemId: itemId, itemContentIsEqual: ==)
     }
 }
 
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
-extension ManualDiffingListSectionController where Item: Identifiable, Item.ID == ItemId {
+extension ManualDiffingListSectionController where Item: Identifiable {
     /**
      Initialize an instance of `ManualDiffingListSectionController`.
 
