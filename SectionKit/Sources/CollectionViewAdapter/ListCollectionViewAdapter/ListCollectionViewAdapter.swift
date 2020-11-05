@@ -66,6 +66,16 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var sections: [Section] {
         get { collectionViewSections }
         set {
+            for newSection in newValue {
+                if let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }),
+                   let existingController = existingSection.controller {
+                    newSection.controller = existingController
+                    existingController.didUpdate(model: newSection.model)
+                } else {
+                    newSection.controller = newSection.controllerAccessor()
+                }
+            }
+
             let collectionUpdate = calculateUpdate(from: collectionViewSections,
                                                    to: newValue)
             collectionContext.apply(update: collectionUpdate)
@@ -91,21 +101,6 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
-        sections = querySections(from: dataSource)
-    }
-
-    private func querySections(from dataSource: ListCollectionViewAdapterDataSource) -> [Section] {
-        var newSections: [Section] = []
-        for newSection in dataSource.sections(for: self) {
-            if let existingSection = sections.first(where: { $0.id == newSection.id }),
-               let existingController = existingSection.controller {
-                newSection.controller = existingController
-                existingController.didUpdate(model: newSection.model)
-            } else {
-                newSection.controller = newSection.controllerAccessor()
-            }
-            newSections.append(newSection)
-        }
-        return newSections
+        sections = dataSource.sections(for: self)
     }
 }
