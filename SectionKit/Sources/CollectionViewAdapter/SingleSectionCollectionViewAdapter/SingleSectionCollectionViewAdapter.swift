@@ -73,8 +73,6 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
                    let existingController = existingSection.controller {
                     newSection.controller = existingController
                     existingController.didUpdate(model: newSection.model)
-                } else {
-                    newSection.controller = newSection.controllerAccessor()
                 }
             }
 

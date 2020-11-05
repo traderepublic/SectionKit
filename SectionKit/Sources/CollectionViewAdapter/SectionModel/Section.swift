@@ -11,7 +11,7 @@ public class Section {
     internal let controllerAccessor: () -> SectionController?
 
     /// A `SectionController` for this section.
-    public internal(set) var controller: SectionController?
+    public internal(set) lazy var controller: SectionController? = controllerAccessor()
 
     /**
      Initialize an instance of `Section`.

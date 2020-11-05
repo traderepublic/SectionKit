@@ -35,6 +35,7 @@
 		5ABE04A52551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04A42551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift */; };
 		5ABE04B62551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04B52551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift */; };
 		5ABE04C92552A5A1007611D5 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */; };
+		5ABE06962554631E007611D5 /* SingleSectionCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE06952554631E007611D5 /* SingleSectionCollectionViewAdapterTests.swift */; };
 		5AD17C77252B6DF5009DEF3F /* IndexPath+IsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */; };
 		5AD17C7E252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C7D252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift */; };
 		5AD17C8A252C575D009DEF3F /* Sequence+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C89252C575D009DEF3F /* Sequence+Group.swift */; };
@@ -168,6 +169,7 @@
 		5ABE04A42551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionCollectionViewAdapterDataSource.swift; sourceTree = "<group>"; };
 		5ABE04B52551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewAdapterDataSource.swift; sourceTree = "<group>"; };
 		5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		5ABE06952554631E007611D5 /* SingleSectionCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
 		5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+IsValid.swift"; sourceTree = "<group>"; };
 		5AD17C7D252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSourcePrefetchingDelegate.swift; sourceTree = "<group>"; };
 		5AD17C89252C575D009DEF3F /* Sequence+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Group.swift"; sourceTree = "<group>"; };
@@ -333,6 +335,14 @@
 			path = SectionModel;
 			sourceTree = "<group>";
 		};
+		5ABE0694255462F4007611D5 /* CollectionViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				5ABE06952554631E007611D5 /* SingleSectionCollectionViewAdapterTests.swift */,
+			);
+			path = CollectionViewAdapter;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +485,7 @@
 		OBJ_65 /* SectionKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				5ABE0694255462F4007611D5 /* CollectionViewAdapter */,
 				OBJ_66 /* Section */,
 			);
 			name = SectionKitTests;
@@ -794,6 +805,7 @@
 			files = (
 				OBJ_216 /* SectionIndexPathTests.swift in Sources */,
 				OBJ_217 /* SectionBatchOperationTests.swift in Sources */,
+				5ABE06962554631E007611D5 /* SingleSectionCollectionViewAdapterTests.swift in Sources */,
 				OBJ_218 /* SectionUpdateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
