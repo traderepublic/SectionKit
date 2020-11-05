@@ -24,10 +24,22 @@
 /* Begin PBXBuildFile section */
 		5A7C9FD02509250900A32BE6 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; };
 		5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */; };
+		5ABE045E2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */; };
+		5ABE04652551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
+		5ABE046C2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */; };
+		5ABE04732551C4F0007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04722551C4F0007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
+		5ABE047A2551C4FD007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04792551C4FD007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift */; };
+		5ABE04812551C518007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04802551C518007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */; };
+		5ABE04882551C52C007611D5 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04872551C52C007611D5 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift */; };
+		5ABE048F2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE048E2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift */; };
+		5ABE04A52551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04A42551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift */; };
+		5ABE04B62551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04B52551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift */; };
+		5ABE04C92552A5A1007611D5 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */; };
 		5AD17C77252B6DF5009DEF3F /* IndexPath+IsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */; };
 		5AD17C7E252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C7D252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift */; };
 		5AD17C8A252C575D009DEF3F /* Sequence+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C89252C575D009DEF3F /* Sequence+Group.swift */; };
 		5AD17C91252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD17C90252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
+		5ADFD67A254C4AAB000C68C2 /* SingleSectionCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADFD679254C4AAB000C68C2 /* SingleSectionCollectionViewAdapter.swift */; };
 		5AEC5D87254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEC5D86254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift */; };
 		5AED5914250A34B600E97796 /* DifferenceKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5AF1A3E7253F13E4000058C6 /* ManualDiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF1A3E6253F13E4000058C6 /* ManualDiffingListSectionController.swift */; };
@@ -54,7 +66,7 @@
 		OBJ_168 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift */; };
 		OBJ_169 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
 		OBJ_170 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift */; };
-		OBJ_171 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift */; };
+		OBJ_171 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */; };
 		OBJ_172 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift */; };
 		OBJ_173 /* ListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* ListCollectionViewAdapter.swift */; };
 		OBJ_174 /* MainCollectionViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* MainCollectionViewContext.swift */; };
@@ -149,10 +161,22 @@
 /* Begin PBXFileReference section */
 		5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
+		5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
+		5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		5ABE04722551C4F0007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift"; sourceTree = "<group>"; };
+		5ABE04792551C4FD007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift"; sourceTree = "<group>"; };
+		5ABE04802551C518007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
+		5ABE04872551C52C007611D5 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		5ABE048E2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+Convenience.swift"; sourceTree = "<group>"; };
+		5ABE04A42551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionCollectionViewAdapterDataSource.swift; sourceTree = "<group>"; };
+		5ABE04B52551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewAdapterDataSource.swift; sourceTree = "<group>"; };
+		5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+IsValid.swift"; sourceTree = "<group>"; };
 		5AD17C7D252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSourcePrefetchingDelegate.swift; sourceTree = "<group>"; };
 		5AD17C89252C575D009DEF3F /* Sequence+Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Group.swift"; sourceTree = "<group>"; };
 		5AD17C90252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
+		5ADFD679254C4AAB000C68C2 /* SingleSectionCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		5AEC5D86254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+Convenience.swift"; sourceTree = "<group>"; };
 		5AF1A3E6253F13E4000058C6 /* ManualDiffingListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualDiffingListSectionController.swift; sourceTree = "<group>"; };
 		5AF1A400253F33F8000058C6 /* DifferentiableBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentiableBox.swift; sourceTree = "<group>"; };
@@ -176,7 +200,7 @@
 		OBJ_28 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 		OBJ_29 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDragDelegate.swift"; sourceTree = "<group>"; };
 		OBJ_30 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDropDelegate.swift"; sourceTree = "<group>"; };
-		OBJ_31 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewFlowLayout.swift"; sourceTree = "<group>"; };
+		OBJ_31 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		OBJ_32 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionViewAdapter+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		OBJ_33 /* ListCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		OBJ_34 /* MainCollectionViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewContext.swift; sourceTree = "<group>"; };
@@ -265,6 +289,61 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5ABE045B2551C403007611D5 /* ListCollectionViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_26 /* FoundationDiffingListCollectionViewAdapter.swift */,
+				OBJ_33 /* ListCollectionViewAdapter.swift */,
+				5ABE04B52551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift */,
+				5AEC5D86254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift */,
+				OBJ_27 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */,
+				5AD17C90252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */,
+				OBJ_28 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift */,
+				OBJ_29 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */,
+				OBJ_30 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift */,
+				OBJ_31 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */,
+				OBJ_32 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift */,
+			);
+			path = ListCollectionViewAdapter;
+			sourceTree = "<group>";
+		};
+		5ABE045C2551C420007611D5 /* SingleSectionCollectionViewAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				5ADFD679254C4AAB000C68C2 /* SingleSectionCollectionViewAdapter.swift */,
+				5ABE04A42551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift */,
+				5ABE048E2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift */,
+				5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */,
+				5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */,
+				5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */,
+				5ABE04722551C4F0007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift */,
+				5ABE04792551C4FD007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift */,
+				5ABE04802551C518007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */,
+				5ABE04872551C52C007611D5 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift */,
+			);
+			path = SingleSectionCollectionViewAdapter;
+			sourceTree = "<group>";
+		};
+		5ABE04C12551C826007611D5 /* CollectionViewContext */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_24 /* CollectionViewContext.swift */,
+				OBJ_34 /* MainCollectionViewContext.swift */,
+			);
+			path = CollectionViewContext;
+			sourceTree = "<group>";
+		};
+		5ABE04C22551C83B007611D5 /* SectionModel */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_35 /* Section.swift */,
+				OBJ_36 /* SectionEquatable.swift */,
+				OBJ_37 /* SectionIdentifiable.swift */,
+				OBJ_38 /* SectionModel.swift */,
+			);
+			path = SectionModel;
+			sourceTree = "<group>";
+		};
 		OBJ_11 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,16 +370,13 @@
 		OBJ_17 /* CollectionViewAdapter */ = {
 			isa = PBXGroup;
 			children = (
+				5ABE045B2551C403007611D5 /* ListCollectionViewAdapter */,
+				5ABE045C2551C420007611D5 /* SingleSectionCollectionViewAdapter */,
 				OBJ_18 /* CollectionUpdate */,
+				5ABE04C12551C826007611D5 /* CollectionViewContext */,
+				5ABE04C22551C83B007611D5 /* SectionModel */,
 				OBJ_22 /* CollectionViewAdapter.swift */,
 				OBJ_23 /* CollectionViewAdapterDataSource.swift */,
-				OBJ_24 /* CollectionViewContext.swift */,
-				OBJ_25 /* Generic */,
-				OBJ_34 /* MainCollectionViewContext.swift */,
-				OBJ_35 /* Section.swift */,
-				OBJ_36 /* SectionEquatable.swift */,
-				OBJ_37 /* SectionIdentifiable.swift */,
-				OBJ_38 /* SectionModel.swift */,
 			);
 			path = CollectionViewAdapter;
 			sourceTree = "<group>";
@@ -314,23 +390,6 @@
 				5AFC546D250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift */,
 			);
 			path = CollectionUpdate;
-			sourceTree = "<group>";
-		};
-		OBJ_25 /* Generic */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_26 /* FoundationDiffingListCollectionViewAdapter.swift */,
-				OBJ_27 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */,
-				5AD17C90252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */,
-				OBJ_28 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift */,
-				OBJ_29 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */,
-				OBJ_30 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift */,
-				OBJ_31 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift */,
-				OBJ_32 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift */,
-				OBJ_33 /* ListCollectionViewAdapter.swift */,
-				5AEC5D86254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift */,
-			);
-			path = Generic;
 			sourceTree = "<group>";
 		};
 		OBJ_39 /* Section */ = {
@@ -402,6 +461,7 @@
 				OBJ_61 /* UICollectionView+Apply.swift */,
 				5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */,
 				5AD17C89252C575D009DEF3F /* Sequence+Group.swift */,
+				5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -678,26 +738,33 @@
 			files = (
 				OBJ_160 /* CollectionViewBatchOperation.swift in Sources */,
 				OBJ_161 /* CollectionViewChange.swift in Sources */,
+				5ABE04652551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				OBJ_162 /* CollectionViewUpdate.swift in Sources */,
+				5ABE04882551C52C007611D5 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
 				5AD17C8A252C575D009DEF3F /* Sequence+Group.swift in Sources */,
 				OBJ_163 /* CollectionViewAdapter.swift in Sources */,
 				OBJ_164 /* CollectionViewAdapterDataSource.swift in Sources */,
 				OBJ_165 /* CollectionViewContext.swift in Sources */,
 				OBJ_166 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */,
 				OBJ_167 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
+				5ABE04812551C518007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				OBJ_168 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
+				5ABE047A2551C4FD007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */,
 				OBJ_169 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */,
 				OBJ_170 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */,
-				OBJ_171 /* ListCollectionViewAdapter+UICollectionViewFlowLayout.swift in Sources */,
+				OBJ_171 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				5AD17C7E252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift in Sources */,
 				5AFC546E250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift in Sources */,
 				OBJ_172 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
 				OBJ_173 /* ListCollectionViewAdapter.swift in Sources */,
+				5ABE04732551C4F0007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */,
+				5ABE04C92552A5A1007611D5 /* Optional+Extensions.swift in Sources */,
 				OBJ_174 /* MainCollectionViewContext.swift in Sources */,
 				OBJ_175 /* Section.swift in Sources */,
 				OBJ_176 /* SectionEquatable.swift in Sources */,
 				OBJ_177 /* SectionIdentifiable.swift in Sources */,
 				OBJ_178 /* SectionModel.swift in Sources */,
+				5ABE045E2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
 				OBJ_179 /* BaseSectionController.swift in Sources */,
 				OBJ_180 /* FoundationDiffingListSectionController.swift in Sources */,
 				OBJ_181 /* ListSectionController.swift in Sources */,
@@ -708,15 +775,20 @@
 				OBJ_185 /* SectionDataSource.swift in Sources */,
 				OBJ_186 /* SectionDelegate.swift in Sources */,
 				5AD17C91252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
+				5ABE048F2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */,
 				OBJ_187 /* SectionDragDelegate.swift in Sources */,
 				OBJ_188 /* SectionDropDelegate.swift in Sources */,
 				5AFC546C250BBB250099E3BD /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */,
 				5AD17C77252B6DF5009DEF3F /* IndexPath+IsValid.swift in Sources */,
 				OBJ_189 /* SectionFlowDelegate.swift in Sources */,
 				OBJ_190 /* SectionIndexPath.swift in Sources */,
+				5ABE046C2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
 				OBJ_191 /* CollectionViewSectionBatchOperation.swift in Sources */,
 				OBJ_192 /* CollectionViewSectionChange.swift in Sources */,
+				5ABE04A52551C770007611D5 /* SingleSectionCollectionViewAdapterDataSource.swift in Sources */,
+				5ADFD67A254C4AAB000C68C2 /* SingleSectionCollectionViewAdapter.swift in Sources */,
 				OBJ_193 /* CollectionViewSectionUpdate.swift in Sources */,
+				5ABE04B62551C7EB007611D5 /* ListCollectionViewAdapterDataSource.swift in Sources */,
 				OBJ_194 /* Collection+Extensions.swift in Sources */,
 				OBJ_195 /* CollectionDifference+Changes.swift in Sources */,
 				OBJ_196 /* Move.swift in Sources */,
