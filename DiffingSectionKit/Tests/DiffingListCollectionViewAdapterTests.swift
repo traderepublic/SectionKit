@@ -3,15 +3,17 @@ import SectionKit
 import XCTest
 
 internal final class DiffingListCollectionViewAdapterTests: XCTestCase {
-    private struct MockSectionModel: SectionModel, Equatable {
+    private struct MockSectionModel: Equatable {
         let sectionId: AnyHashable = UUID()
     }
 
     internal func testCalculateUpdate() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = DiffingListCollectionViewAdapter(viewController: nil, collectionView: collectionView)
-        let firstSection = Section(model: MockSectionModel(), controller: BaseSectionController())
-        let secondSection = Section(model: MockSectionModel(), controller: BaseSectionController())
+        let firstModel = MockSectionModel()
+        let firstSection = Section(id: firstModel.sectionId, model: firstModel, controller: BaseSectionController())
+        let secondModel = MockSectionModel()
+        let secondSection = Section(id: secondModel.sectionId, model: secondModel, controller: BaseSectionController())
         let oldData = [firstSection, secondSection]
         let newData = [secondSection]
         let actualUpdate = adapter.calculateUpdate(from: oldData, to: newData)
