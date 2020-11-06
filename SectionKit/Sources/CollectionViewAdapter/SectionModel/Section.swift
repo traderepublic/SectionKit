@@ -8,7 +8,7 @@ public class Section {
     /// The model of the section.
     public let model: Any
 
-    internal let controllerAccessor: () -> SectionController?
+    private let controllerAccessor: () -> SectionController?
 
     /// A `SectionController` for this section.
     public internal(set) lazy var controller: SectionController? = controllerAccessor()
