@@ -74,9 +74,12 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 }
             }
 
-            let collectionUpdate = calculateUpdate(from: collectionViewSections,
-                                                   to: newValue)
-            collectionContext.apply(update: collectionUpdate)
+            guard let update = calculateUpdate(from: collectionViewSections,
+                                               to: newValue) else {
+                collectionViewSections = newValue
+                return
+            }
+            collectionContext.apply(update: update)
         }
     }
 
@@ -90,7 +93,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Returns: The update that should be performed on the `UICollectionView`
      */
     open func calculateUpdate(from oldData: [Section],
-                              to newData: [Section]) -> CollectionViewUpdate<[Section]> {
+                              to newData: [Section]) -> CollectionViewUpdate<[Section]>? {
         return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
     }
 

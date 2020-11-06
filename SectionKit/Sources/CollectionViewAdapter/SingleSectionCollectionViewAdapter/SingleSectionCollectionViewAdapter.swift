@@ -76,9 +76,12 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 }
             }
 
-            let collectionUpdate = calculateUpdate(from: collectionViewSection,
-                                                   to: newValue)
-            collectionContext.apply(update: collectionUpdate)
+            guard let update = calculateUpdate(from: collectionViewSection,
+                                               to: newValue) else {
+                collectionViewSection = newValue
+                return
+            }
+            collectionContext.apply(update: update)
         }
     }
 
@@ -97,7 +100,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Returns: The update that should be performed on the `UICollectionView`
      */
     open func calculateUpdate(from oldData: Section?,
-                              to newData: Section?) -> CollectionViewUpdate<Section?> {
+                              to newData: Section?) -> CollectionViewUpdate<Section?>? {
         let changes: Set<CollectionViewChange>
         switch (oldData, newData) {
         case let (.some(oldSection), .some(newSection)):
