@@ -1,13 +1,13 @@
 import Foundation
 
-/// A datasource which provides a list of section controllers for a `CollectionViewAdapter`.
-public protocol ListCollectionViewAdapterDataSource: CollectionViewAdapterDataSource {
+/// A datasource which provides a list of sections for a `CollectionViewAdapter`.
+public protocol ListCollectionViewAdapterDataSource: AnyObject {
     /**
-     Queries the list of models for each section in the `UICollectionView`.
+     Queries the list of sections in the `UICollectionView`.
 
      - Parameter adapter: The adapter for which the section models are queried.
 
-     - Returns: A list of models for each section in the `UICollectionView`.
+     - Returns: A list of sections in the `UICollectionView`.
      */
-    func models(for adapter: CollectionViewAdapter) -> [SectionModel]
+    func sections(for adapter: CollectionViewAdapter) -> [Section]
 }

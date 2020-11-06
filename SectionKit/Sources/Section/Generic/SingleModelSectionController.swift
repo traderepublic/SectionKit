@@ -10,7 +10,7 @@ import UIKit
 
  - Warning: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
  */
-open class SingleModelSectionController<Model: SectionModel>: BaseSectionController {
+open class SingleModelSectionController<Model>: BaseSectionController {
     /**
      Initialize an instance of `SingleModelSectionController`.
 
@@ -21,7 +21,7 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
         super.init()
     }
 
-    override open func didUpdate(model: SectionModel) {
+    override open func didUpdate(model: Any) {
         guard let model = model as? Model else {
             assertionFailure("Could not cast model to \(String(describing: Model.self))")
             return
@@ -61,14 +61,8 @@ open class SingleModelSectionController<Model: SectionModel>: BaseSectionControl
      */
     open func calculateUpdate(from oldData: Model,
                               to newData: Model) -> CollectionViewSectionUpdate<Model>? {
-        let changes: Set<CollectionViewSectionChange>
-        if oldData.isEqual(to: newData) {
-            changes = []
-        } else {
-            changes = [.reloadItem(at: 0)]
-        }
-        return CollectionViewSectionUpdate(sectionId: model.sectionId,
-                                           changes: changes,
+        return CollectionViewSectionUpdate(controller: self,
+                                           changes: [.reloadItem(at: 0)],
                                            data: newData,
                                            setData: { [weak self] in self?.collectionViewModel = $0 })
     }

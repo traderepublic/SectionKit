@@ -8,13 +8,13 @@ import Foundation
  */
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
 open class FoundationDiffingListSectionController<
-    Model: SectionModel,
+    Model,
     Item: Hashable
 >: ListSectionController<Model, Item> {
     override open func calculateUpdate(from oldData: [Item],
                                        to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
         let difference = newData.difference(from: oldData).inferringMoves()
-        return CollectionViewSectionUpdate(sectionId: model.sectionId,
+        return CollectionViewSectionUpdate(controller: self,
                                            changes: difference.sectionChanges,
                                            data: newData,
                                            setData: { [weak self] in self?.collectionViewItems = $0 },

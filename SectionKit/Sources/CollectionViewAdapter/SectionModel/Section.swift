@@ -2,36 +2,31 @@ import Foundation
 
 /// Represents a section in the `UICollectionView`.
 public class Section {
+    /// An identifier that uniquely identifies this section.
+    public let id: AnyHashable
+
     /// The model of the section.
-    public let model: SectionModel
+    public let model: Any
 
     private let controllerAccessor: () -> SectionController?
 
-    /// A lazily computed `SectionController` for this section.
-    public private(set) lazy var controller: SectionController? = controllerAccessor()
+    /// A `SectionController` for this section.
+    public internal(set) lazy var controller: SectionController? = controllerAccessor()
 
     /**
-     Initialize an instance of `CollectionViewUpdate`.
+     Initialize an instance of `Section`.
+
+     - Parameter id: An identifier that uniquely identifies this section.
 
      - Parameter model: The model of the section.
 
-     - Parameter controllerAccessor: A handler that produces the `SectionController` for this section.
+     - Parameter controller: A handler that produces the `SectionController` for this section.
      */
-    public init(model: SectionModel,
-                controllerAccessor: @escaping () -> SectionController?) {
+    public init(id: AnyHashable,
+                model: Any,
+                controller: @autoclosure @escaping () -> SectionController?) {
+        self.id = id
         self.model = model
-        self.controllerAccessor = controllerAccessor
-    }
-
-    /**
-     Initialize an instance of `CollectionViewUpdate`.
-
-     - Parameter model: The model of the section.
-
-     - Parameter controller: The `SectionController` for this section.
-     */
-    public init(model: SectionModel, controller: SectionController?) {
-        self.model = model
-        self.controllerAccessor = { controller }
+        self.controllerAccessor = controller
     }
 }

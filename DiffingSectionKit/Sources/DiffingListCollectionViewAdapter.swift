@@ -8,7 +8,7 @@ import SectionKit
  */
 open class DiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(from oldData: [Section],
-                                       to newData: [Section]) -> CollectionViewUpdate<[Section]> {
+                                       to newData: [Section]) -> CollectionViewUpdate<[Section]>? {
         let changeSet = StagedChangeset(source: oldData, target: newData)
         return CollectionViewUpdate(batchOperations: changeSet.map(\.collectionBatchOperation),
                                     setData: { [weak self] in self?.collectionViewSections = $0 },

@@ -5,24 +5,32 @@ internal final class SectionUpdateTests: XCTestCase {
     internal func testInitializeSectionUpdate() {
         let setData: ([Int]) -> Void = { _ in }
 
-        let input = CollectionViewSectionUpdate<[Int]>(sectionId: "1", data: [1, 2, 3], setData: setData)
+        let firstController = BaseSectionController()
+        let secondController = BaseSectionController()
 
-        let output1 = CollectionViewSectionUpdate<[Int]>(sectionId: "2", data: [1, 2, 3], setData: setData)
-        let output2 = CollectionViewSectionUpdate<[Int]>(sectionId: "1", changes: [], data: [1, 2], setData: setData)
-        let output3 = CollectionViewSectionUpdate<[Int]>(sectionId: "1",
+        let input = CollectionViewSectionUpdate<[Int]>(controller: firstController, data: [1, 2, 3], setData: setData)
+
+        let output1 = CollectionViewSectionUpdate<[Int]>(controller: secondController,
+                                                         data: [1, 2, 3],
+                                                         setData: setData)
+        let output2 = CollectionViewSectionUpdate<[Int]>(controller: firstController,
+                                                         changes: [],
+                                                         data: [1, 2],
+                                                         setData: setData)
+        let output3 = CollectionViewSectionUpdate<[Int]>(controller: firstController,
                                                          changes: [],
                                                          data: [1, 2, 3],
                                                          setData: setData,
                                                          shouldReload: { _ in true })
 
-        let output4 = CollectionViewSectionUpdate<[Int]>(sectionId: "1",
+        let output4 = CollectionViewSectionUpdate<[Int]>(controller: firstController,
                                                          changes: [],
                                                          data: [1, 2, 3],
                                                          setData: setData,
                                                          shouldReload: { _ in true })
 
         let output5BatchOperations = [CollectionViewSectionBatchOperation(changes: [], data: [1, 2, 3])]
-        let output5 = CollectionViewSectionUpdate<[Int]>(sectionId: "2",
+        let output5 = CollectionViewSectionUpdate<[Int]>(controller: secondController,
                                                          batchOperations: output5BatchOperations,
                                                          setData: setData,
                                                          shouldReload: { _ in true })
@@ -38,7 +46,7 @@ internal final class SectionUpdateTests: XCTestCase {
 extension CollectionViewSectionUpdate: Equatable where SectionData: Equatable {
     public static func == (lhs: CollectionViewSectionUpdate<SectionData>,
                            rhs: CollectionViewSectionUpdate<SectionData>) -> Bool {
-        return lhs.sectionId == rhs.sectionId
+        return lhs.controller === rhs.controller
             && lhs.batchOperations == rhs.batchOperations
     }
 }

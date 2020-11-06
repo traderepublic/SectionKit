@@ -67,9 +67,20 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var section: Section? {
         get { collectionViewSection }
         set {
-            let collectionUpdate = calculateUpdate(from: collectionViewSection,
-                                                   to: newValue)
-            collectionContext.apply(update: collectionUpdate)
+            if let newSection = newValue,
+               let existingSection = collectionViewSection,
+               existingSection.id == newSection.id,
+               let existingController = existingSection.controller {
+                newSection.controller = existingController
+                existingController.didUpdate(model: newSection.model)
+            }
+
+            guard let update = calculateUpdate(from: collectionViewSection,
+                                               to: newValue) else {
+                collectionViewSection = newValue
+                return
+            }
+            collectionContext.apply(update: update)
         }
     }
 
@@ -88,13 +99,13 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Returns: The update that should be performed on the `UICollectionView`
      */
     open func calculateUpdate(from oldData: Section?,
-                              to newData: Section?) -> CollectionViewUpdate<Section?> {
+                              to newData: Section?) -> CollectionViewUpdate<Section?>? {
         let changes: Set<CollectionViewChange>
         switch (oldData, newData) {
         case let (.some(oldSection), .some(newSection)):
             // only check for id since we do not want to reload a section that already exists in the collection view
             // changes to the section will instead be handled by the sectioncontroller
-            if oldSection.model.sectionId == newSection.model.sectionId {
+            if oldSection.id == newSection.id {
                 changes = []
             } else {
                 changes = [.reloadSection(at: 0)]
@@ -116,22 +127,6 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
-        section = querySection(from: dataSource)
-    }
-
-    private func querySection(from dataSource: SingleSectionCollectionViewAdapterDataSource) -> Section? {
-        guard let model = dataSource.model(for: self) else { return nil }
-        let newSection: Section
-        if let existingSection = section, existingSection.model.sectionId == model.sectionId {
-            newSection = Section(model: model, controller: existingSection.controller)
-            if !model.isEqual(to: existingSection.model) {
-                existingSection.controller?.didUpdate(model: model)
-            }
-        } else {
-            newSection = Section(model: model) { [unowned self] in
-                dataSource.sectionController(with: model, for: self)
-            }
-        }
-        return newSection
+        section = dataSource.section(for: self)
     }
 }

@@ -66,9 +66,20 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var sections: [Section] {
         get { collectionViewSections }
         set {
-            let collectionUpdate = calculateUpdate(from: collectionViewSections,
-                                                   to: newValue)
-            collectionContext.apply(update: collectionUpdate)
+            for newSection in newValue {
+                if let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }),
+                   let existingController = existingSection.controller {
+                    newSection.controller = existingController
+                    existingController.didUpdate(model: newSection.model)
+                }
+            }
+
+            guard let update = calculateUpdate(from: collectionViewSections,
+                                               to: newValue) else {
+                collectionViewSections = newValue
+                return
+            }
+            collectionContext.apply(update: update)
         }
     }
 
@@ -82,7 +93,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Returns: The update that should be performed on the `UICollectionView`
      */
     open func calculateUpdate(from oldData: [Section],
-                              to newData: [Section]) -> CollectionViewUpdate<[Section]> {
+                              to newData: [Section]) -> CollectionViewUpdate<[Section]>? {
         return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
     }
 
@@ -91,25 +102,6 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
-        sections = querySections(from: dataSource)
-    }
-
-    private func querySections(from dataSource: ListCollectionViewAdapterDataSource) -> [Section] {
-        var newSections: [Section] = []
-        for model in dataSource.models(for: self) {
-            let section: Section
-            if let existingSection = sections.first(where: { $0.model.sectionId == model.sectionId }) {
-                section = Section(model: model, controller: existingSection.controller)
-                if !model.isEqual(to: existingSection.model) {
-                    existingSection.controller?.didUpdate(model: model)
-                }
-            } else {
-                section = Section(model: model) { [unowned self] in
-                    dataSource.sectionController(with: model, for: self)
-                }
-            }
-            newSections.append(section)
-        }
-        return newSections
+        sections = dataSource.sections(for: self)
     }
 }

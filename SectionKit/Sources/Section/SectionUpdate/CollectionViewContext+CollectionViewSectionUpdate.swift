@@ -4,7 +4,7 @@ extension CollectionViewContext {
     /**
      Perform a batch operation on the specified section in the underlying `UICollectionView`.
 
-     - Parameter sectionId: The id of the section where changes should be performed.
+     - Parameter controller: The controller of the section where changes should be performed.
 
      - Parameter changes: The changes to perform to the list of items in a section.
 
@@ -24,14 +24,14 @@ extension CollectionViewContext {
      */
     @inlinable
     public func performBatchUpdates<SectionData>(
-        sectionId: AnyHashable,
+        controller: SectionController,
         changes: Set<CollectionViewSectionChange>,
         data: SectionData,
         setData: @escaping (SectionData) -> Void,
         shouldReload: @escaping (CollectionViewSectionBatchOperation<SectionData>) -> Bool = { _ in false },
         completion: ((Bool) -> Void)? = nil
     ) {
-        let update = CollectionViewSectionUpdate(sectionId: sectionId,
+        let update = CollectionViewSectionUpdate(controller: controller,
                                                  changes: changes,
                                                  data: data,
                                                  setData: setData,
@@ -43,7 +43,7 @@ extension CollectionViewContext {
     /**
      Perform multiple batch operations on the specified section in the underlying `UICollectionView`.
 
-     - Parameter sectionId: The id of the section where changes should be performed.
+     - Parameter controller: The controller of the section where changes should be performed.
 
      - Parameter batchOperations: The batch operations that should be performed in succession.
 
@@ -57,12 +57,12 @@ extension CollectionViewContext {
      */
     @inlinable
     public func perform<SectionData>(
-        sectionId: AnyHashable,
+        controller: SectionController,
         batchOperations: [CollectionViewSectionBatchOperation<SectionData>],
         setData: @escaping (SectionData) -> Void,
         shouldReload: @escaping (CollectionViewSectionBatchOperation<SectionData>) -> Bool = { _ in false }
     ) {
-        let update = CollectionViewSectionUpdate(sectionId: sectionId,
+        let update = CollectionViewSectionUpdate(controller: controller,
                                                  batchOperations: batchOperations,
                                                  setData: setData,
                                                  shouldReload: shouldReload)
@@ -72,7 +72,7 @@ extension CollectionViewContext {
     /**
      Reload the specified section in the underlying `UICollectionView`.
 
-     - Parameter sectionId: The id of the section where changes should be performed.
+     - Parameter controller: The controller of the section where changes should be performed.
 
      - Parameter data: The data of the section after the `changes` have been performed.
 
@@ -85,12 +85,12 @@ extension CollectionViewContext {
      */
     @inlinable
     public func reloadSection<SectionData>(
-        sectionId: AnyHashable,
+        controller: SectionController,
         data: SectionData,
         setData: @escaping (SectionData) -> Void,
         completion: ((Bool) -> Void)? = nil
     ) {
-        let update = CollectionViewSectionUpdate(sectionId: sectionId,
+        let update = CollectionViewSectionUpdate(controller: controller,
                                                  data: data,
                                                  setData: setData,
                                                  completion: completion)
