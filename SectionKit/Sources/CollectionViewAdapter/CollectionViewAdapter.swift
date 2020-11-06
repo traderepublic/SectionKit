@@ -12,13 +12,7 @@ public protocol CollectionViewAdapter: AnyObject {
     var scrollViewDelegate: UIScrollViewDelegate? { get set }
 
     /// The sections in the `UICollectionView`.
-    var sections: [Section] { get set }
-
-    /// The datasource of this adapter responsible for creating `SectionControllers`.
-    var dataSource: CollectionViewAdapterDataSource? { get set }
-
-    /// If reordering is allowed between different sections.
-    var allowReorderingBetweenDifferentSections: Bool { get set }
+    var sections: [Section] { get }
 
     /// Invalidate the current set of sections by requerying the `dataSource`.
     func invalidateDataSource()

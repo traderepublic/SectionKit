@@ -27,7 +27,7 @@ public protocol SectionController: AnyObject {
     var dropDelegate: SectionDropDelegate? { get }
 
     /// The model of this section controller changed.
-    func didUpdate(model: SectionModel)
+    func didUpdate(model: Any)
 }
 
 extension SectionController {

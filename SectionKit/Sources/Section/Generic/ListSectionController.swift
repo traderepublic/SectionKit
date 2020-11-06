@@ -7,7 +7,7 @@ import UIKit
  This `SectionController` is typically used when there are multiple semantically similar items
  of a model to be displayed and the list of items (almost) never changes or should not perform animated updates.
  */
-open class ListSectionController<Model: SectionModel, Item>: BaseSectionController {
+open class ListSectionController<Model, Item>: BaseSectionController {
     /**
      Initialize an instance of `ListSectionController`.
 
@@ -21,7 +21,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
         }
     }
 
-    override open func didUpdate(model: SectionModel) {
+    override open func didUpdate(model: Any) {
         guard let model = model as? Model else {
             assertionFailure("Could not cast model to \(String(describing: Model.self))")
             return
@@ -97,7 +97,7 @@ open class ListSectionController<Model: SectionModel, Item>: BaseSectionControll
      */
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
-        return CollectionViewSectionUpdate(sectionId: model.sectionId,
+        return CollectionViewSectionUpdate(controller: self,
                                            data: newData,
                                            setData: { [weak self] in self?.collectionViewItems = $0 })
     }
