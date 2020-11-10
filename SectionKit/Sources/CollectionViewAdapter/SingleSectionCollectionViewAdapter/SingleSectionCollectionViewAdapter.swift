@@ -72,7 +72,9 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
                existingSection.id == newSection.id,
                let existingController = existingSection.controller {
                 newSection.controller = existingController
-                existingController.didUpdate(model: newSection.model)
+                if !newSection.isModelEqual(newSection.model, existingSection.model) {
+                    existingController.didUpdate(model: newSection.model)
+                }
             }
 
             guard let update = calculateUpdate(from: collectionViewSection,

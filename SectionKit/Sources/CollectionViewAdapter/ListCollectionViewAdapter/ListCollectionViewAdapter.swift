@@ -70,7 +70,9 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 if let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }),
                    let existingController = existingSection.controller {
                     newSection.controller = existingController
-                    existingController.didUpdate(model: newSection.model)
+                    if !newSection.isModelEqual(newSection.model, existingSection.model) {
+                        existingController.didUpdate(model: newSection.model)
+                    }
                 }
             }
 
