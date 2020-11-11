@@ -1,8 +1,4 @@
-included:
-    - Sources
-    - Tests
-
-whitelist_rules:
+only_rules:
     - anyobject_protocol
     - array_init
     - attributes
@@ -156,7 +152,6 @@ whitelist_rules:
     - type_name
     - unavailable_function
     - unneeded_break_in_switch
-    - unneeded_notification_center_removal
     - unneeded_parentheses_in_closure_argument
     - untyped_error_in_catch
     - unused_capture_list
