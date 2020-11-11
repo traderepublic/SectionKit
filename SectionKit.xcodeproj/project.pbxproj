@@ -685,7 +685,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --config \"$SRCROOT\"/.swiftlint.yml --path \"$SRCROOT\"/DiffingSectionKit\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null && [ \"${CONFIGURATION}\" != \"Release\" ]; then\n  swiftlint --config \"$SRCROOT\"/.swiftlint.yml --path \"$SRCROOT\"/DiffingSectionKit\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		5A7C9FD4250A1B4A00A32BE6 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -703,7 +703,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --config \"$SRCROOT\"/.swiftlint.yml --path \"$SRCROOT\"/SectionKit\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null && [ \"${CONFIGURATION}\" != \"Release\" ]; then\n  swiftlint --config \"$SRCROOT\"/.swiftlint.yml --path \"$SRCROOT\"/SectionKit\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
