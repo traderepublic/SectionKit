@@ -34,6 +34,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         collectionViewSections = dataSource?.sections(for: self) ?? []
         collectionViewSections.forEach { $0.controller?.context = collectionContext }
         collectionView.dataSource = self
+        if #available(iOS 10.0, *) {
+            collectionView.prefetchDataSource = self
+            collectionView.isPrefetchingEnabled = true
+        }
         collectionView.delegate = self
         if #available(iOS 11.0, *) {
             collectionView.dragDelegate = self
@@ -66,6 +70,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         collectionViewSections = sections
         collectionViewSections.forEach { $0.controller?.context = collectionContext }
         collectionView.dataSource = self
+        if #available(iOS 10.0, *) {
+            collectionView.prefetchDataSource = self
+            collectionView.isPrefetchingEnabled = true
+        }
         collectionView.delegate = self
         if #available(iOS 11.0, *) {
             collectionView.dragDelegate = self
