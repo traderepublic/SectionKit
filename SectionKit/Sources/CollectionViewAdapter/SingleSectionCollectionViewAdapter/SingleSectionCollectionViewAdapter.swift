@@ -23,7 +23,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
                 scrollViewDelegate: UIScrollViewDelegate? = nil,
-                dataSource: SingleSectionCollectionViewAdapterDataSource) {
+                dataSource: SingleSectionCollectionViewAdapterDataSource?) {
         let collectionContext = MainCollectionViewContext(viewController: viewController,
                                                           collectionView: collectionView)
         self.collectionContext = collectionContext
@@ -31,7 +31,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.dataSource = dataSource
         super.init()
         collectionContext.sectionAdapter = self
-        collectionViewSection = dataSource.section(for: self)
+        collectionViewSection = dataSource?.section(for: self)
         collectionViewSection?.controller?.context = collectionContext
         collectionView.dataSource = self
         collectionView.delegate = self
