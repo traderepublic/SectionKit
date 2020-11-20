@@ -99,9 +99,6 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
     }
 
-    /// If reordering is allowed between different sections.
-    open var allowReorderingBetweenDifferentSections: Bool = false
-
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }
         sections = dataSource.sections(for: self)

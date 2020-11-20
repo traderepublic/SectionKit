@@ -21,7 +21,7 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Returns: A proposal if and how the drop should be performed at the given location.
      */
-    func dropSessionDidUpdate(_ session: UIDropSession, at indexPath: SectionIndexPath) -> UICollectionViewDropProposal
+    func dropSessionDidUpdate(_ session: UIDropSession, at indexPath: SectionIndexPath?) -> UICollectionViewDropProposal
 
     /**
      Perform the drop at the given index path.
@@ -30,7 +30,7 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Parameter coordinator: The coordinator containing information about the drop.
      */
-    func performDrop(at indexPath: SectionIndexPath, with coordinator: UICollectionViewDropCoordinator)
+    func performDrop(at indexPath: SectionIndexPath?, with coordinator: UICollectionViewDropCoordinator)
 
     /**
      Returns information on how the item at the given index path should be displayed during the drop.

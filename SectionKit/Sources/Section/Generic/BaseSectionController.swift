@@ -205,12 +205,12 @@ open class BaseSectionController: SectionController,
 
     @available(iOS 11.0, *)
     open func dropSessionDidUpdate(_ session: UIDropSession,
-                                   at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
+                                   at indexPath: SectionIndexPath?) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
 
     @available(iOS 11.0, *)
-    open func performDrop(at indexPath: SectionIndexPath,
+    open func performDrop(at indexPath: SectionIndexPath?,
                           with coordinator: UICollectionViewDropCoordinator) {
     }
 
