@@ -70,7 +70,7 @@ extension SectionDropDelegate {
     }
 
     public func dropSessionDidUpdate(_ session: UIDropSession,
-                                     at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
+                                     at indexPath: SectionIndexPath?) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
 
