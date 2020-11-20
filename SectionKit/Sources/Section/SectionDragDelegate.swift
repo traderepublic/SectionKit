@@ -52,6 +52,24 @@ public protocol SectionDragDelegate: AnyObject {
      - Returns: Information on how the item at the given index path should be displayed during the drag.
      */
     func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters?
+
+    /**
+     Returns if the drag session supports a move operation.
+
+     - Parameter session: The session of the drag.
+
+     - Returns: If the drag session supports a move operation.
+     */
+    func dragSessionAllowsMoveOperation(_ session: UIDragSession) -> Bool
+
+    /**
+     Returns if the drag session is restricted to remain in the current app.
+
+     - Parameter session: The session of the drag.
+
+     - Returns: If the drag session is restricted to remain in the current app.
+     */
+    func dragSessionIsRestrictedToDraggingApplication(_ session: UIDragSession) -> Bool
 }
 
 @available(iOS 11.0, *)
@@ -70,5 +88,13 @@ extension SectionDragDelegate {
 
     public func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
+    }
+
+    public func dragSessionAllowsMoveOperation(_ session: UIDragSession) -> Bool {
+        return true
+    }
+
+    public func dragSessionIsRestrictedToDraggingApplication(_ session: UIDragSession) -> Bool {
+        return false
     }
 }

@@ -51,11 +51,23 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
-        return true
+        guard let sectionController = session.localContext as? SectionController else {
+            return false
+        }
+        guard let dragDelegate = sectionController.dragDelegate else {
+            return false
+        }
+        return dragDelegate.dragSessionAllowsMoveOperation(session)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionIsRestrictedToDraggingApplication session: UIDragSession) -> Bool {
-        return false
+        guard let sectionController = session.localContext as? SectionController else {
+            return false
+        }
+        guard let dragDelegate = sectionController.dragDelegate else {
+            return false
+        }
+        return dragDelegate.dragSessionIsRestrictedToDraggingApplication(session)
     }
 }

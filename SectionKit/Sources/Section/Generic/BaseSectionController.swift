@@ -204,6 +204,16 @@ open class BaseSectionController: SectionController,
         return nil
     }
 
+    @available(iOS 11.0, *)
+    open func dragSessionAllowsMoveOperation(_ session: UIDragSession) -> Bool {
+        return true
+    }
+
+    @available(iOS 11.0, *)
+    open func dragSessionIsRestrictedToDraggingApplication(_ session: UIDragSession) -> Bool {
+        return false
+    }
+
     // MARK: - SectionDropDelegate
 
     @available(iOS 11.0, *)
