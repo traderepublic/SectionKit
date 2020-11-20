@@ -22,8 +22,8 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
-                scrollViewDelegate: UIScrollViewDelegate? = nil,
-                dataSource: ListCollectionViewAdapterDataSource?) {
+                dataSource: ListCollectionViewAdapterDataSource?,
+                scrollViewDelegate: UIScrollViewDelegate? = nil) {
         let collectionContext = MainCollectionViewContext(viewController: viewController,
                                                           collectionView: collectionView)
         self.collectionContext = collectionContext
@@ -55,8 +55,8 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
-                scrollViewDelegate: UIScrollViewDelegate? = nil,
-                sections: [Section] = []) {
+                sections: [Section] = [],
+                scrollViewDelegate: UIScrollViewDelegate? = nil) {
         let collectionContext = MainCollectionViewContext(viewController: viewController,
                                                           collectionView: collectionView)
         self.collectionContext = collectionContext
