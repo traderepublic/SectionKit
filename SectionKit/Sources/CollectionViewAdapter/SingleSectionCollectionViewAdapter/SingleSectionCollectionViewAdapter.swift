@@ -16,9 +16,9 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Parameter collectionView: The `UICollectionView` to use to display the data.
 
-     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
-
      - Parameter dataSource: The datasource of this adapter responsible for creating `SectionControllers`.
+
+     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
@@ -49,9 +49,9 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Parameter collectionView: The `UICollectionView` to use to display the data.
 
-     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
-
      - Parameter section: The single section to display in the `UICollectionView`.
+
+     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
