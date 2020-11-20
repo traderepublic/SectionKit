@@ -215,6 +215,18 @@ open class BaseSectionController: SectionController,
     }
 
     @available(iOS 11.0, *)
+    open func dropSessionDidEnter(_ session: UIDropSession) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidExit(_ session: UIDropSession) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidEnd(_ session: UIDropSession) {
+    }
+
+    @available(iOS 11.0, *)
     open func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }

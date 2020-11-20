@@ -33,6 +33,27 @@ public protocol SectionDropDelegate: AnyObject {
     func performDrop(at indexPath: SectionIndexPath?, with coordinator: UICollectionViewDropCoordinator)
 
     /**
+     The drop session entered the area of the `UICollectionView`.
+
+     - Parameter session: The drop session.
+     */
+    func dropSessionDidEnter(_ session: UIDropSession)
+
+    /**
+     The drop session exited the area of the `UICollectionView`.
+
+     - Parameter session: The drop session.
+     */
+    func dropSessionDidExit(_ session: UIDropSession)
+
+    /**
+     The current drop session ended.
+
+     - Parameter session: The drop session.
+     */
+    func dropSessionDidEnd(_ session: UIDropSession)
+
+    /**
      Returns information on how the item at the given index path should be displayed during the drop.
      
      - Parameter indexPath: The index path of the item being dropped.
@@ -51,6 +72,15 @@ extension SectionDropDelegate {
     public func dropSessionDidUpdate(_ session: UIDropSession,
                                      at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
+    }
+
+    public func dropSessionDidEnter(_ session: UIDropSession) {
+    }
+
+    public func dropSessionDidExit(_ session: UIDropSession) {
+    }
+
+    public func dropSessionDidEnd(_ session: UIDropSession) {
     }
 
     public func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {

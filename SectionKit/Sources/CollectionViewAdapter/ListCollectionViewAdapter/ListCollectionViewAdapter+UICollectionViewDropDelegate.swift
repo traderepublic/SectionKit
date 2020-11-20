@@ -62,14 +62,17 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidEnter session: UIDropSession) {
+        sections.compactMap(\.controller?.dropDelegate).forEach { $0.dropSessionDidEnter(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidExit session: UIDropSession) {
+        sections.compactMap(\.controller?.dropDelegate).forEach { $0.dropSessionDidExit(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidEnd session: UIDropSession) {
+        sections.compactMap(\.controller?.dropDelegate).forEach { $0.dropSessionDidEnd(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
