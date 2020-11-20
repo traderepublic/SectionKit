@@ -31,6 +31,20 @@ public protocol SectionDragDelegate: AnyObject {
                    point: CGPoint) -> [UIDragItem]
 
     /**
+     The drag session will begin.
+
+     - Parameter session: The session of the drag.
+     */
+    func dragSessionWillBegin(_ session: UIDragSession)
+
+    /**
+     The drag session did end.
+
+     - Parameter session: The session of the drag.
+     */
+    func dragSessionDidEnd(_ session: UIDragSession)
+
+    /**
      Returns information on how the item at the given index path should be displayed during the drag.
      
      - Parameter indexPath: The index path of the item being dragged.
@@ -46,6 +60,12 @@ extension SectionDragDelegate {
                           at indexPath: SectionIndexPath,
                           point: CGPoint) -> [UIDragItem] {
         return []
+    }
+
+    public func dragSessionWillBegin(_ session: UIDragSession) {
+    }
+
+    public func dragSessionDidEnd(_ session: UIDragSession) {
     }
 
     public func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {

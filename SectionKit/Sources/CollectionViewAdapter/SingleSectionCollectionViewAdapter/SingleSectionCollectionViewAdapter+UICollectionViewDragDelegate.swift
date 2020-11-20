@@ -35,10 +35,12 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionWillBegin session: UIDragSession) {
+        section?.controller?.dragDelegate?.dragSessionWillBegin(session)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionDidEnd session: UIDragSession) {
+        section?.controller?.dragDelegate?.dragSessionDidEnd(session)
     }
 
     open func collectionView(_ collectionView: UICollectionView,

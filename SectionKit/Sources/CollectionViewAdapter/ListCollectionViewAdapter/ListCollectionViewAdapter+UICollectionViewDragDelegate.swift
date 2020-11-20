@@ -35,10 +35,12 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionWillBegin session: UIDragSession) {
+        sections.compactMap(\.controller?.dragDelegate).forEach { $0.dragSessionWillBegin(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionDidEnd session: UIDragSession) {
+        sections.compactMap(\.controller?.dragDelegate).forEach { $0.dragSessionDidEnd(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,

@@ -192,6 +192,14 @@ open class BaseSectionController: SectionController,
     }
 
     @available(iOS 11.0, *)
+    open func dragSessionWillBegin(_ session: UIDragSession) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dragSessionDidEnd(_ session: UIDragSession) {
+    }
+
+    @available(iOS 11.0, *)
     open func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
     }
