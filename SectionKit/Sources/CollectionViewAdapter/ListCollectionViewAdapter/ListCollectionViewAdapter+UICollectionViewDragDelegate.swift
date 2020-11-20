@@ -17,7 +17,13 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
                              itemsForAddingTo session: UIDragSession,
                              at indexPath: IndexPath,
                              point: CGPoint) -> [UIDragItem] {
-        guard let dragDelegate = dragDelegate(at: indexPath) else {
+        guard let sectionController = session.localContext as? SectionController else {
+            return []
+        }
+        guard sectionController === controller(at: indexPath) else {
+            return []
+        }
+        guard let dragDelegate = sectionController.dragDelegate else {
             return []
         }
         let sectionIndexPath = SectionIndexPath(indexPath)

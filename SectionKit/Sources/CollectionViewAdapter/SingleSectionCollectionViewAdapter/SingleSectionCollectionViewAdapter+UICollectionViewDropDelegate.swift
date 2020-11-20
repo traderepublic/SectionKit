@@ -38,19 +38,18 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              performDropWith coordinator: UICollectionViewDropCoordinator) {
-        guard let firstSourceIndexPath = coordinator.items.first?.sourceIndexPath else { return }
-        guard firstSourceIndexPath.isValid else { return }
-        let itemsOriginateFromSameSection = coordinator.items.allSatisfy { item in
-            guard let itemIndexPath = item.sourceIndexPath else { return false }
-            return itemIndexPath.isValid && itemIndexPath.section == firstSourceIndexPath.section
-        }
-        guard itemsOriginateFromSameSection else { return }
-        if let destinationIndexPath = coordinator.destinationIndexPath,
-           destinationIndexPath.isValid,
-           destinationIndexPath.section != firstSourceIndexPath.section {
+        guard let sectionController = coordinator.session.localDragSession?.localContext as? SectionController else {
             return
         }
-        guard let dropDelegate = dropDelegate(at: firstSourceIndexPath) else { return }
+        guard coordinator.items.allSatisfy({ item in
+            guard let itemIndexPath = item.sourceIndexPath else { return false }
+            return controller(at: itemIndexPath) === sectionController
+        }) else { return }
+        if let destinationIndexPath = coordinator.destinationIndexPath,
+           controller(at: destinationIndexPath) !== sectionController {
+            return
+        }
+        guard let dropDelegate = sectionController.dropDelegate else { return }
         let sectionIndexPath: SectionIndexPath?
         if let destinationIndexPath = coordinator.destinationIndexPath, destinationIndexPath.isValid {
             sectionIndexPath = SectionIndexPath(destinationIndexPath)
