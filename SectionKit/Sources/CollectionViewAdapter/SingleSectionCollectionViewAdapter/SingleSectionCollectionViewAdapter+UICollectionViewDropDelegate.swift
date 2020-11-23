@@ -41,10 +41,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         guard let sectionController = coordinator.session.localDragSession?.localContext as? SectionController else {
             return
         }
-        guard coordinator.items.allSatisfy({ item in
+        let allItemsOriginateFromSectionController = coordinator.items.allSatisfy({ item in
             guard let itemIndexPath = item.sourceIndexPath else { return false }
             return controller(at: itemIndexPath) === sectionController
-        }) else { return }
+        })
+        guard allItemsOriginateFromSectionController else { return }
         if let destinationIndexPath = coordinator.destinationIndexPath,
            controller(at: destinationIndexPath) !== sectionController {
             return
