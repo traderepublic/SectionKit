@@ -192,8 +192,26 @@ open class BaseSectionController: SectionController,
     }
 
     @available(iOS 11.0, *)
+    open func dragSessionWillBegin(_ session: UIDragSession) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dragSessionDidEnd(_ session: UIDragSession) {
+    }
+
+    @available(iOS 11.0, *)
     open func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
         return nil
+    }
+
+    @available(iOS 11.0, *)
+    open func dragSessionAllowsMoveOperation(_ session: UIDragSession) -> Bool {
+        return true
+    }
+
+    @available(iOS 11.0, *)
+    open func dragSessionIsRestrictedToDraggingApplication(_ session: UIDragSession) -> Bool {
+        return false
     }
 
     // MARK: - SectionDropDelegate
@@ -205,13 +223,25 @@ open class BaseSectionController: SectionController,
 
     @available(iOS 11.0, *)
     open func dropSessionDidUpdate(_ session: UIDropSession,
-                                   at indexPath: SectionIndexPath) -> UICollectionViewDropProposal {
+                                   at indexPath: SectionIndexPath?) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .forbidden)
     }
 
     @available(iOS 11.0, *)
-    open func performDrop(at indexPath: SectionIndexPath,
+    open func performDrop(at indexPath: SectionIndexPath?,
                           with coordinator: UICollectionViewDropCoordinator) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidEnter(_ session: UIDropSession) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidExit(_ session: UIDropSession) {
+    }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidEnd(_ session: UIDropSession) {
     }
 
     @available(iOS 11.0, *)

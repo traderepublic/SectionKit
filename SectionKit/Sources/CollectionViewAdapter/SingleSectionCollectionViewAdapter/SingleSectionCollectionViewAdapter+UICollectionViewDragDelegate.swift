@@ -17,7 +17,13 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
                              itemsForAddingTo session: UIDragSession,
                              at indexPath: IndexPath,
                              point: CGPoint) -> [UIDragItem] {
-        guard let dragDelegate = dragDelegate(at: indexPath) else {
+        guard let sectionController = session.localContext as? SectionController else {
+            return []
+        }
+        guard sectionController === controller(at: indexPath) else {
+            return []
+        }
+        guard let dragDelegate = sectionController.dragDelegate else {
             return []
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -35,19 +41,33 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionWillBegin session: UIDragSession) {
+        section?.controller?.dragDelegate?.dragSessionWillBegin(session)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionDidEnd session: UIDragSession) {
+        section?.controller?.dragDelegate?.dragSessionDidEnd(session)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
-        return true
+        guard let sectionController = session.localContext as? SectionController else {
+            return false
+        }
+        guard let dragDelegate = sectionController.dragDelegate else {
+            return false
+        }
+        return dragDelegate.dragSessionAllowsMoveOperation(session)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dragSessionIsRestrictedToDraggingApplication session: UIDragSession) -> Bool {
-        return false
+        guard let sectionController = session.localContext as? SectionController else {
+            return false
+        }
+        guard let dragDelegate = sectionController.dragDelegate else {
+            return false
+        }
+        return dragDelegate.dragSessionIsRestrictedToDraggingApplication(session)
     }
 }

@@ -4,7 +4,13 @@ import UIKit
 extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
     open func collectionView(_ collectionView: UICollectionView,
                              canHandle session: UIDropSession) -> Bool {
-        return sections.contains { $0.controller?.dropDelegate?.canHandle(drop: session) ?? true }
+        guard let sectionController = session.localDragSession?.localContext as? SectionController else {
+            return false
+        }
+        guard let dropDelegate = sectionController.dropDelegate else {
+            return false
+        }
+        return dropDelegate.canHandle(drop: session)
     }
 
     open func collectionView(
@@ -12,43 +18,61 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         dropSessionDidUpdate session: UIDropSession,
         withDestinationIndexPath destinationIndexPath: IndexPath?
     ) -> UICollectionViewDropProposal {
-        guard let indexPath = destinationIndexPath else {
+        guard let sectionController = session.localDragSession?.localContext as? SectionController else {
             return UICollectionViewDropProposal(operation: .forbidden)
         }
-        guard let dropDelegate = dropDelegate(at: indexPath) else {
+        if let destinationIndexPath = destinationIndexPath, controller(at: destinationIndexPath) !== sectionController {
             return UICollectionViewDropProposal(operation: .forbidden)
         }
-        if !allowReorderingBetweenDifferentSections {
-            guard session.localDragSession?.localContext as? SectionController === controller(at: indexPath) else {
-                return UICollectionViewDropProposal(operation: .forbidden)
-            }
+        guard let dropDelegate = sectionController.dropDelegate else {
+            return UICollectionViewDropProposal(operation: .forbidden)
         }
-        let sectionIndexPath = SectionIndexPath(indexPath)
+        let sectionIndexPath: SectionIndexPath?
+        if let destinationIndexPath = destinationIndexPath, destinationIndexPath.isValid {
+            sectionIndexPath = SectionIndexPath(destinationIndexPath)
+        } else {
+            sectionIndexPath = nil
+        }
         return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              performDropWith coordinator: UICollectionViewDropCoordinator) {
-        guard let indexPath = coordinator.destinationIndexPath else {
+        guard let sectionController = coordinator.session.localDragSession?.localContext as? SectionController else {
             return
         }
-        guard let dropDelegate = dropDelegate(at: indexPath) else {
+        let allItemsOriginateFromSectionController = coordinator.items.allSatisfy({ item in
+            guard let itemIndexPath = item.sourceIndexPath else { return false }
+            return controller(at: itemIndexPath) === sectionController
+        })
+        guard allItemsOriginateFromSectionController else { return }
+        if let destinationIndexPath = coordinator.destinationIndexPath,
+           controller(at: destinationIndexPath) !== sectionController {
             return
         }
-        let sectionIndexPath = SectionIndexPath(indexPath)
+        guard let dropDelegate = sectionController.dropDelegate else { return }
+        let sectionIndexPath: SectionIndexPath?
+        if let destinationIndexPath = coordinator.destinationIndexPath, destinationIndexPath.isValid {
+            sectionIndexPath = SectionIndexPath(destinationIndexPath)
+        } else {
+            sectionIndexPath = nil
+        }
         dropDelegate.performDrop(at: sectionIndexPath, with: coordinator)
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidEnter session: UIDropSession) {
+        sections.compactMap(\.controller?.dropDelegate).forEach { $0.dropSessionDidEnter(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidExit session: UIDropSession) {
+        sections.compactMap(\.controller?.dropDelegate).forEach { $0.dropSessionDidExit(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
                              dropSessionDidEnd session: UIDropSession) {
+        sections.compactMap(\.controller?.dropDelegate).forEach { $0.dropSessionDidEnd(session) }
     }
 
     open func collectionView(_ collectionView: UICollectionView,
