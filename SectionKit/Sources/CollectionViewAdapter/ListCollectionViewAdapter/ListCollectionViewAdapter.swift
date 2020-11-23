@@ -15,10 +15,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
      
      - Parameter collectionView: The `UICollectionView` to use to display the data.
-     
-     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
 
      - Parameter dataSource: The datasource of this adapter responsible for creating `SectionControllers`.
+     
+     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
@@ -34,6 +34,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         collectionViewSections = dataSource?.sections(for: self) ?? []
         collectionViewSections.forEach { $0.controller?.context = collectionContext }
         collectionView.dataSource = self
+        if #available(iOS 10.0, *) {
+            collectionView.prefetchDataSource = self
+            collectionView.isPrefetchingEnabled = true
+        }
         collectionView.delegate = self
         if #available(iOS 11.0, *) {
             collectionView.dragDelegate = self
@@ -49,9 +53,9 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Parameter collectionView: The `UICollectionView` to use to display the data.
 
-     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
-
      - Parameter sections: The sections to display in the `UICollectionView`.
+
+     - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(viewController: UIViewController?,
                 collectionView: UICollectionView,
@@ -66,6 +70,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         collectionViewSections = sections
         collectionViewSections.forEach { $0.controller?.context = collectionContext }
         collectionView.dataSource = self
+        if #available(iOS 10.0, *) {
+            collectionView.prefetchDataSource = self
+            collectionView.isPrefetchingEnabled = true
+        }
         collectionView.delegate = self
         if #available(iOS 11.0, *) {
             collectionView.dragDelegate = self
@@ -131,9 +139,6 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                               to newData: [Section]) -> CollectionViewUpdate<[Section]>? {
         return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
     }
-
-    /// If reordering is allowed between different sections.
-    open var allowReorderingBetweenDifferentSections: Bool = false
 
     open func invalidateDataSource() {
         guard let dataSource = dataSource else { return }

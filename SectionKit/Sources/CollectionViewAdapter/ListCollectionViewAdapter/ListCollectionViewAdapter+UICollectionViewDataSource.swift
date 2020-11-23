@@ -60,8 +60,7 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
         guard sourceIndexPath.isValid && destinationIndexPath.isValid else {
             return
         }
-        let moveInsideSection = sourceIndexPath.section == destinationIndexPath.section
-        guard moveInsideSection || allowReorderingBetweenDifferentSections else {
+        guard sourceIndexPath.section == destinationIndexPath.section else {
             return
         }
         let sourceSectionIndexPath = SectionIndexPath(sourceIndexPath)
