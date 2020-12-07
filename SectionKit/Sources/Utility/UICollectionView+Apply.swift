@@ -57,10 +57,13 @@ extension UICollectionView {
     @inlinable
     public func apply<T>(update: CollectionViewUpdate<T>) {
         guard update.batchOperations.isNotEmpty else { return }
-
-        if case .none = window, let data = update.batchOperations.last?.data {
-            update.setData(data)
-            return reloadData()
+        guard window != nil else {
+            for batchOperation in update.batchOperations {
+                update.setData(batchOperation.data)
+                reloadData()
+                batchOperation.completion?(true)
+            }
+            return
         }
 
         for batchOperation in update.batchOperations {
