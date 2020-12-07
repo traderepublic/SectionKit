@@ -97,7 +97,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      */
     open var collectionViewSections: [Section] = [] {
         willSet {
-            if collectionViewSections.unique(by: \.id).count != collectionViewSections.count {
+            guard collectionViewSections.map(\.id).isUnique() else {
                 fatalError(
                     """
                     The list of sections contains two or more sections with the same id.
