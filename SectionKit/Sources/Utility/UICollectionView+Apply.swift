@@ -61,7 +61,7 @@ extension UICollectionView {
             for batchOperation in update.batchOperations {
                 update.setData(batchOperation.data)
                 reloadData()
-                batchOperation.completion?(true)
+                batchOperation.completion?(false)
             }
             return
         }
