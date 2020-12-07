@@ -24,6 +24,7 @@
 /* Begin PBXBuildFile section */
 		5A7C9FD02509250900A32BE6 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; };
 		5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */; };
+		5A86AB91257E3005009F798A /* Sequence+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86AB90257E3005009F798A /* Sequence+Unique.swift */; };
 		5ABE045E2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */; };
 		5ABE04652551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		5ABE046C2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */; };
@@ -158,6 +159,7 @@
 /* Begin PBXFileReference section */
 		5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
+		5A86AB90257E3005009F798A /* Sequence+Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Unique.swift"; sourceTree = "<group>"; };
 		5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
 		5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */,
 				5AD17C89252C575D009DEF3F /* Sequence+Group.swift */,
 				5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */,
+				5A86AB90257E3005009F798A /* Sequence+Unique.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -768,6 +771,7 @@
 				5AEC5D87254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift in Sources */,
 				OBJ_184 /* SectionController.swift in Sources */,
 				OBJ_185 /* SectionDataSource.swift in Sources */,
+				5A86AB91257E3005009F798A /* Sequence+Unique.swift in Sources */,
 				OBJ_186 /* SectionDelegate.swift in Sources */,
 				5AD17C91252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				5ABE048F2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */,

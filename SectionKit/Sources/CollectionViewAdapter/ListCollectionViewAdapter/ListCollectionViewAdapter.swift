@@ -97,6 +97,14 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      */
     open var collectionViewSections: [Section] = [] {
         willSet {
+            if collectionViewSections.unique(by: \.id).count != collectionViewSections.count {
+                fatalError(
+                    """
+                    The list of sections contains two or more sections with the same id.
+                    This will result in undefined behaviour.
+                    """
+                )
+            }
             collectionViewSections.forEach { $0.controller?.context = nil }
         }
         didSet {
