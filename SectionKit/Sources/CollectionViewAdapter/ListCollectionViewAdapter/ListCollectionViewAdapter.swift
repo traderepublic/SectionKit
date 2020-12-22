@@ -89,27 +89,41 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         didSet { invalidateDataSource() }
     }
 
+    private var _collectionViewSections: [Section] = []
     /**
      The list of sections currently displayed in the `UICollectionView`.
      
      - Warning: Only set this property inside an update block of `performBatchUpdates` and
      if `UICollectionView` insertions and deletions are handled, otherwise use `sections` instead.
      */
-    open var collectionViewSections: [Section] = [] {
-        willSet {
-            guard collectionViewSections.map(\.id).isUnique() else {
-                fatalError(
-                    """
-                    The list of sections contains two or more sections with the same id.
-                    This will result in undefined behaviour.
-                    """
-                )
-            }
-            collectionViewSections.forEach { $0.controller?.context = nil }
+    open var collectionViewSections: [Section] {
+        get {
+            return _collectionViewSections
         }
-        didSet {
-            collectionViewSections.forEach { $0.controller?.context = collectionContext }
+
+        set {
+            let uniqueSections = checkOrFilterDuplicateSectionIds(sections: newValue)
+            _collectionViewSections.forEach { $0.controller?.context = nil }
+            _collectionViewSections = uniqueSections
+            uniqueSections.forEach { $0.controller?.context = collectionContext }
         }
+    }
+
+    /// Check for duplicate section IDs and fail gracefully if some are found.
+    /// For debug builds, crash if the section IDs are not unique.
+    /// For production builds, remove sections with duplicate IDs.
+    /// - Parameter sections: The collectionview sections that have just been set by the user
+    /// - Returns: The same sections with additional duplicates removed. Only the first section with
+    ///            a duplicate ID is kept.
+    private func checkOrFilterDuplicateSectionIds(sections: [Section]) -> [Section] {
+        let filtered = sections.unique(for: \.id)
+        assert(filtered.count == sections.count,
+               """
+               The list of sections contains two or more sections with the same id.
+               This would result in undefined behaviour.
+               """
+        )
+        return filtered
     }
 
     open var sections: [Section] {
