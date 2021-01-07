@@ -62,7 +62,7 @@ extension UICollectionView {
     @inlinable
     public func apply<T>(update: CollectionViewUpdate<T>) {
         guard update.batchOperations.isNotEmpty else { return }
-        
+
         // reload data when the collection wasn't added to a window yet
         guard window != nil else {
             for batchOperation in update.batchOperations {
