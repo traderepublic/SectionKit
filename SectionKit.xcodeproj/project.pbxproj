@@ -22,9 +22,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		376528FC25A6040000E3123D /* Sequence+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376528FB25A6040000E3123D /* Sequence+Unique.swift */; };
+		3765291F25A70C6F00E3123D /* SequenceExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765291E25A70C6F00E3123D /* SequenceExtensionsTests.swift */; };
 		5A7C9FD02509250900A32BE6 /* DifferenceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */; };
 		5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */; };
-		5A86AB91257E3005009F798A /* Collection+IsUnique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A86AB90257E3005009F798A /* Collection+IsUnique.swift */; };
 		5ABE045E2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */; };
 		5ABE04652551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		5ABE046C2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */; };
@@ -157,9 +158,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		376528FB25A6040000E3123D /* Sequence+Unique.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Unique.swift"; sourceTree = "<group>"; };
+		3765291E25A70C6F00E3123D /* SequenceExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceExtensionsTests.swift; sourceTree = "<group>"; };
 		5A7C9FCF2509250900A32BE6 /* DifferenceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DifferenceKit.framework; path = Carthage/Build/iOS/DifferenceKit.framework; sourceTree = "<group>"; };
 		5A7C9FD5250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
-		5A86AB90257E3005009F798A /* Collection+IsUnique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+IsUnique.swift"; sourceTree = "<group>"; };
 		5ABE045D2551C471007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		5ABE04642551C4A6007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
 		5ABE046B2551C4CB007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3765291D25A70C6F00E3123D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3765291E25A70C6F00E3123D /* SequenceExtensionsTests.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		5A7C9FCE2509250900A32BE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +465,7 @@
 		OBJ_57 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				376528FB25A6040000E3123D /* Sequence+Unique.swift */,
 				OBJ_58 /* Collection+Extensions.swift */,
 				OBJ_59 /* CollectionDifference+Changes.swift */,
 				OBJ_60 /* Move.swift */,
@@ -462,7 +473,6 @@
 				5AD17C76252B6DF5009DEF3F /* IndexPath+IsValid.swift */,
 				5AD17C89252C575D009DEF3F /* Sequence+Group.swift */,
 				5ABE04C82552A5A1007611D5 /* Optional+Extensions.swift */,
-				5A86AB90257E3005009F798A /* Collection+IsUnique.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -490,6 +500,7 @@
 			children = (
 				5ABE0694255462F4007611D5 /* CollectionViewAdapter */,
 				OBJ_66 /* Section */,
+				3765291D25A70C6F00E3123D /* Utility */,
 			);
 			name = SectionKitTests;
 			path = SectionKit/Tests;
@@ -730,6 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				3765291F25A70C6F00E3123D /* SequenceExtensionsTests.swift in Sources */,
 				5A7C9FD6250A2ECC00A32BE6 /* DiffingListCollectionViewAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,6 +769,7 @@
 				5AD17C7E252C5174009DEF3F /* SectionDataSourcePrefetchingDelegate.swift in Sources */,
 				5AFC546E250BBF3A0099E3BD /* CollectionViewContext+CollectionViewUpdate.swift in Sources */,
 				OBJ_172 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
+				376528FC25A6040000E3123D /* Sequence+Unique.swift in Sources */,
 				OBJ_173 /* ListCollectionViewAdapter.swift in Sources */,
 				5ABE04732551C4F0007611D5 /* SingleSectionCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */,
 				5ABE04C92552A5A1007611D5 /* Optional+Extensions.swift in Sources */,
@@ -771,7 +784,6 @@
 				5AEC5D87254ADE2E0041B078 /* ListCollectionViewAdapter+Convenience.swift in Sources */,
 				OBJ_184 /* SectionController.swift in Sources */,
 				OBJ_185 /* SectionDataSource.swift in Sources */,
-				5A86AB91257E3005009F798A /* Collection+IsUnique.swift in Sources */,
 				OBJ_186 /* SectionDelegate.swift in Sources */,
 				5AD17C91252C5780009DEF3F /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				5ABE048F2551C542007611D5 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */,

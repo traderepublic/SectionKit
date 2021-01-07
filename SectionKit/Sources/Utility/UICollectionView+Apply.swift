@@ -12,9 +12,14 @@ extension UICollectionView {
     public func apply<T>(update: CollectionViewSectionUpdate<T>, at section: Int) {
         guard update.batchOperations.isNotEmpty else { return }
 
-        if case .none = window, let data = update.batchOperations.last?.data {
-            update.setData(data)
-            return reloadSections(IndexSet(integer: section))
+        // reload data when the collection wasn't added to a window yet
+        guard window != nil else {
+            for batchOperation in update.batchOperations {
+                update.setData(batchOperation.data)
+                reloadData()
+                batchOperation.completion?(false)
+            }
+            return
         }
 
         for batchOperation in update.batchOperations {
@@ -58,9 +63,14 @@ extension UICollectionView {
     public func apply<T>(update: CollectionViewUpdate<T>) {
         guard update.batchOperations.isNotEmpty else { return }
 
-        if case .none = window, let data = update.batchOperations.last?.data {
-            update.setData(data)
-            return reloadData()
+        // reload data when the collection wasn't added to a window yet
+        guard window != nil else {
+            for batchOperation in update.batchOperations {
+                update.setData(batchOperation.data)
+                reloadData()
+                batchOperation.completion?(false)
+            }
+            return
         }
 
         for batchOperation in update.batchOperations {
