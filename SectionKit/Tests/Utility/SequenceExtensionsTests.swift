@@ -1,7 +1,7 @@
 @testable import SectionKit
 import XCTest
 
-internal class ArrayExtensionsTests: XCTestCase {
+internal class SequenceExtensionsTests: XCTestCase {
     internal struct Section: Equatable {
         internal let id: Int
         internal let data: Int
@@ -14,7 +14,7 @@ internal class ArrayExtensionsTests: XCTestCase {
             Section(id: 3, data: 1)
         ]
 
-        let output = input.unique(for: \.id)
+        let output = input.unique(by: { $0.id })
         XCTAssertEqual(output, input)
     }
 
@@ -29,7 +29,7 @@ internal class ArrayExtensionsTests: XCTestCase {
             Section(id: 1, data: 1)
         ]
 
-        let output = input.unique(for: \.id)
+        let output = input.unique(by: { $0.id })
         XCTAssertEqual(output, expectation)
     }
 
@@ -45,7 +45,7 @@ internal class ArrayExtensionsTests: XCTestCase {
             Section(id: 2, data: 2)
         ]
 
-        let output = input.unique(for: \.id)
+        let output = input.unique(by: { $0.id })
         XCTAssertEqual(output, expectation)
     }
 }

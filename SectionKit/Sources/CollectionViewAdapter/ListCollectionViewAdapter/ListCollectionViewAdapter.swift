@@ -116,7 +116,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /// - Returns: The same sections with additional duplicates removed. Only the first section with
     ///            a duplicate ID is kept.
     private func checkOrFilterDuplicateSectionIds(sections: [Section]) -> [Section] {
-        let filtered = sections.unique(for: \.id)
+        let filtered = sections.unique(by: { $0.id })
         assert(filtered.count == sections.count,
                """
                The list of sections contains two or more sections with the same id.
