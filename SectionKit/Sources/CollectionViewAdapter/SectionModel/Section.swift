@@ -11,10 +11,10 @@ public class Section {
     /// A closure to determine if two model instances are equal.
     public let isModelEqual: (Any, Any) -> Bool
 
-    private let controllerAccessor: () -> SectionController?
+    private let controllerAccessor: () -> SectionController
 
     /// A `SectionController` for this section.
-    public internal(set) lazy var controller: SectionController? = controllerAccessor()
+    public internal(set) lazy var controller: SectionController = controllerAccessor()
 
     /**
      Initialize an instance of `Section`.
@@ -30,7 +30,7 @@ public class Section {
     public init<Model>(id: AnyHashable,
                        model: Model,
                        isModelEqual: @escaping (Model, Model) -> Bool,
-                       controller: @autoclosure @escaping () -> SectionController?) {
+                       controller: @autoclosure @escaping () -> SectionController) {
         self.id = id
         self.model = model
         self.isModelEqual = { lhs, rhs in
@@ -51,7 +51,7 @@ public class Section {
      */
     public init<Model: Equatable>(id: AnyHashable,
                                   model: Model,
-                                  controller: @autoclosure @escaping () -> SectionController?) {
+                                  controller: @autoclosure @escaping () -> SectionController) {
         self.id = id
         self.model = model
         self.isModelEqual = { lhs, rhs in

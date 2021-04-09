@@ -15,10 +15,7 @@ extension ListCollectionViewAdapter {
         guard index >= 0 && index < sections.count else {
             return nil
         }
-        guard let controller = sections[index].controller else {
-            return nil
-        }
-        return controller
+        return sections[index].controller
     }
 }
 

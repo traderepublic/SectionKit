@@ -32,7 +32,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         super.init()
         collectionContext.sectionAdapter = self
         collectionViewSections = dataSource?.sections(for: self) ?? []
-        collectionViewSections.forEach { $0.controller?.context = collectionContext }
+        collectionViewSections.forEach { $0.controller.context = collectionContext }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -68,7 +68,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         super.init()
         collectionContext.sectionAdapter = self
         collectionViewSections = sections
-        collectionViewSections.forEach { $0.controller?.context = collectionContext }
+        collectionViewSections.forEach { $0.controller.context = collectionContext }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -90,6 +90,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     private var _collectionViewSections: [Section] = []
+
     /**
      The list of sections currently displayed in the `UICollectionView`.
      
@@ -103,9 +104,9 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
         set {
             let uniqueSections = checkOrFilterDuplicateSectionIds(sections: newValue)
-            _collectionViewSections.forEach { $0.controller?.context = nil }
+            _collectionViewSections.forEach { $0.controller.context = nil }
             _collectionViewSections = uniqueSections
-            uniqueSections.forEach { $0.controller?.context = collectionContext }
+            uniqueSections.forEach { $0.controller.context = collectionContext }
         }
     }
 
@@ -116,12 +117,13 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /// - Returns: The same sections with additional duplicates removed. Only the first section with
     ///            a duplicate ID is kept.
     private func checkOrFilterDuplicateSectionIds(sections: [Section]) -> [Section] {
-        let filtered = sections.unique(by: { $0.id })
-        assert(filtered.count == sections.count,
-               """
+        let filtered = sections.unique(by: \.id)
+        assert(
+            filtered.count == sections.count,
+            """
                The list of sections contains two or more sections with the same id.
                This would result in undefined behaviour.
-               """
+            """
         )
         return filtered
     }
@@ -130,12 +132,12 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         get { collectionViewSections }
         set {
             for newSection in newValue {
-                if let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }),
-                   let existingController = existingSection.controller {
-                    newSection.controller = existingController
-                    if !newSection.isModelEqual(newSection.model, existingSection.model) {
-                        existingController.didUpdate(model: newSection.model)
-                    }
+                guard let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }) else {
+                    continue
+                }
+                newSection.controller = existingSection.controller
+                if !newSection.isModelEqual(newSection.model, existingSection.model) {
+                    newSection.controller.didUpdate(model: newSection.model)
                 }
             }
 
