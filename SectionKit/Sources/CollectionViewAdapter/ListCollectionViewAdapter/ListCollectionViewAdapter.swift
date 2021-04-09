@@ -136,13 +136,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                     continue
                 }
                 newSection.controller = existingSection.controller
-                if !newSection.isModelEqual(newSection.model, existingSection.model) {
-                    newSection.controller.didUpdate(model: newSection.model)
-                }
+                newSection.controller.didUpdate(model: newSection.model)
             }
 
-            guard let update = calculateUpdate(from: collectionViewSections,
-                                               to: newValue) else {
+            guard let update = calculateUpdate(from: collectionViewSections, to: newValue) else {
                 collectionViewSections = newValue
                 return
             }

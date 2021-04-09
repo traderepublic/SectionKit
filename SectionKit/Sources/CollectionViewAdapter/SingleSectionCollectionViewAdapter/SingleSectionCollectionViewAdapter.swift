@@ -108,17 +108,12 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var section: Section? {
         get { collectionViewSection }
         set {
-            if let newSection = newValue,
-               let existingSection = collectionViewSection,
-               existingSection.id == newSection.id {
-                newSection.controller = existingSection.controller
-                if !newSection.isModelEqual(newSection.model, existingSection.model) {
-                    newSection.controller.didUpdate(model: newSection.model)
-                }
+            if let new = newValue, let existing = collectionViewSection, existing.id == new.id {
+                new.controller = existing.controller
+                new.controller.didUpdate(model: new.model)
             }
 
-            guard let update = calculateUpdate(from: collectionViewSection,
-                                               to: newValue) else {
+            guard let update = calculateUpdate(from: collectionViewSection, to: newValue) else {
                 collectionViewSection = newValue
                 return
             }
