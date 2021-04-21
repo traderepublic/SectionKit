@@ -7,7 +7,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         let adapter = SingleSectionCollectionViewAdapter(viewController: nil, collectionView: collectionView)
 
         let firstSection = Section(id: "", model: "", controller: BaseSectionController())
-        let secondSection = Section(id: "", model: "", controller: { () -> SectionController? in
+        let secondSection = Section(id: "", model: "", controller: {
             XCTFail("Second section controller should not be initialized")
             return BaseSectionController()
         }())
