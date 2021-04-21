@@ -64,12 +64,11 @@ open class MainCollectionViewContext: CollectionViewContext {
             assertionFailure("`sectionAdapter` is no set")
             return collectionView.reloadData()
         }
-        let sections = sectionAdapter.sections.enumerated()
-        guard let (sectionIndex, _) = sections.first(where: { $1.controller === update.controller }) else {
+        guard let index = sectionAdapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
             assertionFailure("No section was found for the specified id")
             return collectionView.reloadData()
         }
-        collectionView.apply(update: update, at: sectionIndex)
+        collectionView.apply(update: update, at: index)
     }
 
     open func apply<T>(update: CollectionViewUpdate<T>) {
@@ -77,9 +76,11 @@ open class MainCollectionViewContext: CollectionViewContext {
     }
 
     // MARK: - Dequeueing reusable cells/views
-
-    open func dequeueReusableCell<Cell: UICollectionViewCell>(_ cellType: Cell.Type,
-                                                              for indexPath: IndexPath) -> Cell {
+    
+    open func dequeueReusableCell<Cell: UICollectionViewCell>(
+        _ cellType: Cell.Type,
+        for indexPath: IndexPath
+    ) -> Cell {
         let identifier = String(describing: cellType)
         if !registeredCellTypes.contains(where: { $0 == cellType }) {
             collectionView.register(cellType, forCellWithReuseIdentifier: identifier)
