@@ -12,8 +12,10 @@ public protocol SectionDragDelegate: AnyObject {
      
      - Returns: The initial list of items to drag.
      */
-    func dragItems(forBeginning session: UIDragSession,
-                   at indexPath: SectionIndexPath) -> [UIDragItem]
+    func dragItems(
+        forBeginning session: UIDragSession,
+        at indexPath: SectionIndexPath
+    ) -> [UIDragItem]
 
     /**
      Returns drag items which should be added to an existing drag.
@@ -26,9 +28,11 @@ public protocol SectionDragDelegate: AnyObject {
      
      - Returns: Drag items which should be added to an existing drag.
      */
-    func dragItems(forAddingTo session: UIDragSession,
-                   at indexPath: SectionIndexPath,
-                   point: CGPoint) -> [UIDragItem]
+    func dragItems(
+        forAddingTo session: UIDragSession,
+        at indexPath: SectionIndexPath,
+        point: CGPoint
+    ) -> [UIDragItem]
 
     /**
      The drag session will begin.
@@ -74,27 +78,19 @@ public protocol SectionDragDelegate: AnyObject {
 
 @available(iOS 11.0, *)
 extension SectionDragDelegate {
-    public func dragItems(forAddingTo session: UIDragSession,
-                          at indexPath: SectionIndexPath,
-                          point: CGPoint) -> [UIDragItem] {
-        return []
-    }
+    public func dragItems(
+        forAddingTo session: UIDragSession,
+        at indexPath: SectionIndexPath,
+        point: CGPoint
+    ) -> [UIDragItem] { [] }
 
-    public func dragSessionWillBegin(_ session: UIDragSession) {
-    }
+    public func dragSessionWillBegin(_ session: UIDragSession) { }
 
-    public func dragSessionDidEnd(_ session: UIDragSession) {
-    }
+    public func dragSessionDidEnd(_ session: UIDragSession) { }
 
-    public func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
-        return nil
-    }
+    public func dragPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? { nil }
 
-    public func dragSessionAllowsMoveOperation(_ session: UIDragSession) -> Bool {
-        return true
-    }
+    public func dragSessionAllowsMoveOperation(_ session: UIDragSession) -> Bool { true }
 
-    public func dragSessionIsRestrictedToDraggingApplication(_ session: UIDragSession) -> Bool {
-        return false
-    }
+    public func dragSessionIsRestrictedToDraggingApplication(_ session: UIDragSession) -> Bool { false }
 }

@@ -32,18 +32,20 @@ extension UICollectionView {
 
                 let deletes = batchOperation.deletes
                 if deletes.isNotEmpty {
-                    deleteItems(at: deletes.map { IndexPath(item: $0, section: section) })
+                    deleteItems(at: deletes.sorted(by: >).map { IndexPath(item: $0, section: section) })
                 }
 
                 let inserts = batchOperation.inserts
                 if inserts.isNotEmpty {
-                    insertItems(at: inserts.map { IndexPath(item: $0, section: section) })
+                    insertItems(at: inserts.sorted(by: <).map { IndexPath(item: $0, section: section) })
                 }
 
                 let moves = batchOperation.moves
                 for move in moves {
-                    moveItem(at: IndexPath(item: move.at, section: section),
-                             to: IndexPath(item: move.to, section: section))
+                    moveItem(
+                        at: IndexPath(item: move.at, section: section),
+                        to: IndexPath(item: move.to, section: section)
+                    )
                 }
 
                 let reloads = batchOperation.reloads

@@ -13,12 +13,16 @@ extension ListCollectionViewAdapter: UIScrollViewDelegate {
         scrollViewDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
 
-    open func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                        withVelocity velocity: CGPoint,
-                                        targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        scrollViewDelegate?.scrollViewWillEndDragging?(scrollView,
-                                                       withVelocity: velocity,
-                                                       targetContentOffset: targetContentOffset)
+    open func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        scrollViewDelegate?.scrollViewWillEndDragging?(
+            scrollView,
+            withVelocity: velocity,
+            targetContentOffset: targetContentOffset
+        )
     }
 
     open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -45,9 +49,11 @@ extension ListCollectionViewAdapter: UIScrollViewDelegate {
         scrollViewDelegate?.scrollViewWillBeginZooming?(scrollView, with: view)
     }
 
-    open func scrollViewDidEndZooming(_ scrollView: UIScrollView,
-                                      with view: UIView?,
-                                      atScale scale: CGFloat) {
+    open func scrollViewDidEndZooming(
+        _ scrollView: UIScrollView,
+        with view: UIView?,
+        atScale scale: CGFloat
+    ) {
         scrollViewDelegate?.scrollViewDidEndZooming?(scrollView, with: view, atScale: scale)
     }
 

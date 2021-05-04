@@ -14,6 +14,6 @@ public protocol CollectionViewAdapter: AnyObject {
     /// The sections in the `UICollectionView`.
     var sections: [Section] { get }
 
-    /// Invalidate the current set of sections by requerying the `dataSource`.
+    /// Invalidate the current set of sections by querying the `dataSource` again.
     func invalidateDataSource()
 }

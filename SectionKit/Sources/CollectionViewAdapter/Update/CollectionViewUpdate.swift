@@ -14,8 +14,8 @@ public struct CollectionViewUpdate<CollectionViewData> {
      A predicate that determines if instead of applying the given batch operation
      the `UICollectionView` should be reloaded.
 
-     It is recommended to perform a reload instead of separate inserts/deletes if more than 100 changes
-     are applied in a single batch operation.
+     - Note: For performance reasons it is recommended to perform a reload instead of separate inserts/deletes,
+     if more than `100` changes are applied in a single batch operation.
      */
     public let shouldReload: (CollectionViewBatchOperation<CollectionViewData>) -> Bool
 
@@ -29,50 +29,71 @@ public struct CollectionViewUpdate<CollectionViewData> {
 
      - Parameter shouldReload: A predicate that determines if instead of applying the given batch operation
      the `UICollectionView` should be reloaded.
-     It is recommended to perform a reload instead of separate inserts/deletes/moves if more than 100 changes
-     are applied in a single batch operation.
+     For performance reasons it is recommended to perform a reload instead of separate inserts/deletes,
+     if more than `100` changes are applied in a single batch operation.
      */
-    public init(batchOperations: [BatchOperation],
-                setData: @escaping (CollectionViewData) -> Void,
-                shouldReload: @escaping (BatchOperation) -> Bool = { _ in false }) {
+    public init(
+        batchOperations: [BatchOperation],
+        setData: @escaping (CollectionViewData) -> Void,
+        shouldReload: @escaping (BatchOperation) -> Bool = { _ in false }
+    ) {
         self.batchOperations = batchOperations
         self.setData = setData
         self.shouldReload = shouldReload
     }
 
     /**
-     Initialize an instance of `CollectionViewUpdate`.
-
-     - Parameter changes: The changes to perform to the list of sections in a `UICollectionView`.
+     Initialize an instance of `CollectionViewUpdate` with a single batch operation.
 
      - Parameter data: The data of the `UICollectionView` after the `changes` have been performed.
+
+     - Parameter deletes: Indices of sections to delete.
+
+     - Parameter inserts: Indices of sections to insert.
+
+     - Parameter moves: Indices of sections to move.
+
+     - Parameter reloads: Indices of sections to reload.
 
      - Parameter setData: A handler that gets executed inside a batch operation to set the backing data
      of the current batch of updates.
 
      - Parameter shouldReload: A predicate that determines if instead of applying the given batch operation
      the `UICollectionView` should be reloaded.
-     It is recommended to perform a reload instead of separate inserts/deletes/moves if more than 100 changes
-     are applied in a single batch operation.
+     For performance reasons it is recommended to perform a reload instead of separate inserts/deletes,
+     if more than `100` changes are applied in a single batch operation.
 
      - Parameter completion: A completion handler that gets called after the updates have been applied.
      The parameter may be `true` if all of the related animations completed successfully
      or `false` if they were interrupted.
      */
-    @inlinable
-    public init(changes: Set<CollectionViewChange>,
-                data: CollectionViewData,
-                setData: @escaping (CollectionViewData) -> Void,
-                shouldReload: @escaping (BatchOperation) -> Bool = { _ in false },
-                completion: ((Bool) -> Void)? = nil) {
-        let batchOperation = BatchOperation(changes: changes, data: data, completion: completion)
-        self.init(batchOperations: [batchOperation],
-                  setData: setData,
-                  shouldReload: shouldReload)
+    public init(
+        data: CollectionViewData,
+        deletes: Set<Int> = [],
+        inserts: Set<Int> = [],
+        moves: Set<Move> = [],
+        reloads: Set<Int> = [],
+        setData: @escaping (CollectionViewData) -> Void,
+        shouldReload: @escaping (BatchOperation) -> Bool = { _ in false },
+        completion: ((Bool) -> Void)? = nil
+    ) {
+        let batchOperation = BatchOperation(
+            data: data,
+            deletes: deletes,
+            inserts: inserts,
+            moves: moves,
+            reloads: reloads,
+            completion: completion
+        )
+        self.init(
+            batchOperations: [batchOperation],
+            setData: setData,
+            shouldReload: shouldReload
+        )
     }
 
     /**
-     Initialize an instance of `CollectionViewUpdate`.
+     Initialize an instance of `CollectionViewUpdate` which always reloads the `UICollectionView`.
 
      - Parameter data: The data of the `UICollectionView` after the `changes` have been performed.
 
@@ -83,14 +104,16 @@ public struct CollectionViewUpdate<CollectionViewData> {
      The parameter may be `true` if all of the related animations completed successfully
      or `false` if they were interrupted.
      */
-    @inlinable
-    public init(data: CollectionViewData,
-                setData: @escaping (CollectionViewData) -> Void,
-                completion: ((Bool) -> Void)? = nil) {
-        self.init(changes: [],
-                  data: data,
-                  setData: setData,
-                  shouldReload: { _ in true },
-                  completion: completion)
+    public init(
+        data: CollectionViewData,
+        setData: @escaping (CollectionViewData) -> Void,
+        completion: ((Bool) -> Void)? = nil
+    ) {
+        self.init(
+            data: data,
+            setData: setData,
+            shouldReload: { _ in true },
+            completion: completion
+        )
     }
 }

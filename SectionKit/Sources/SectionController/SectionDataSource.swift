@@ -48,8 +48,10 @@ public protocol SectionDataSource: AnyObject {
      
      - Parameter targetIndexPath: The index path of where the move ended.
      */
-    func moveItem(at sourceIndexPath: SectionIndexPath,
-                  to targetIndexPath: SectionIndexPath)
+    func moveItem(
+        at sourceIndexPath: SectionIndexPath,
+        to targetIndexPath: SectionIndexPath
+    )
 }
 
 extension SectionDataSource {
@@ -63,11 +65,10 @@ extension SectionDataSource {
         return UICollectionReusableView()
     }
 
-    public func canMoveItem(at indexPath: SectionIndexPath) -> Bool {
-        return false
-    }
+    public func canMoveItem(at indexPath: SectionIndexPath) -> Bool { false }
 
-    public func moveItem(at sourceIndexPath: SectionIndexPath,
-                         to targetIndexPath: SectionIndexPath) {
-    }
+    public func moveItem(
+        at sourceIndexPath: SectionIndexPath,
+        to targetIndexPath: SectionIndexPath
+    ) { }
 }

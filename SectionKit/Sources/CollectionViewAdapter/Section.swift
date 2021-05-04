@@ -20,15 +20,34 @@ public class Section {
 
      - Parameter model: The model of the section.
 
-     - Parameter controller: A handler that produces the `SectionController` for this section.
+     - Parameter controller: A closure that produces the `SectionController` for this section.
      */
     public init(
         id: AnyHashable,
         model: Any,
-        controller: @autoclosure @escaping () -> SectionController
+        controller: @escaping () -> SectionController
     ) {
         self.id = id
         self.model = model
         self.controllerAccessor = controller
+    }
+}
+
+extension Section {
+    /**
+     Initialize an instance of `Section`.
+
+     - Parameter id: An identifier that uniquely identifies this section.
+
+     - Parameter model: The model of the section.
+
+     - Parameter controller: A handler that produces the `SectionController` for this section.
+     */
+    public convenience init(
+        id: AnyHashable,
+        model: Any,
+        controller: @autoclosure @escaping () -> SectionController
+    ) {
+        self.init(id: id, model: model, controller: controller)
     }
 }

@@ -9,13 +9,16 @@ import UIKit
  - Warning: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
  */
 open class SingleItemSectionController<Model, Item>: BaseSectionController {
+    private let areItemsEqual: (Item, Item) -> Bool
+
     /**
      Initialize an instance of `SingleItemSectionController`.
 
      - Parameter model: The model of this `SectionController`.
      */
-    public init(model: Model) {
+    public init(model: Model, areItemsEqual: @escaping (Item, Item) -> Bool) {
         self.model = model
+        self.areItemsEqual = areItemsEqual
         super.init()
         if shouldUpdateItem(afterModelChangedTo: model) {
             item = item(for: model)
@@ -48,9 +51,7 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController {
 
      - Returns: If the item should be updated after the model was updated to a new value.
      */
-    open func shouldUpdateItem(afterModelChangedTo model: Model) -> Bool {
-        return true
-    }
+    open func shouldUpdateItem(afterModelChangedTo model: Model) -> Bool { true }
 
     /**
      Derives the item from the given `Model`.
@@ -96,29 +97,44 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController {
      
      - Returns: The update that should be performed on the section.
      */
-    open func calculateUpdate(from oldData: Item?,
-                              to newData: Item?) -> CollectionViewSectionUpdate<Item?>? {
-        let changes: Set<CollectionViewSectionChange>
+    open func calculateUpdate(from oldData: Item?, to newData: Item?) -> CollectionViewSectionUpdate<Item?>? {
+        var deletes: Set<Int> = []
+        var inserts: Set<Int> = []
+        var reloads: Set<Int> = []
         switch (oldData, newData) {
-        case (.some, .some):
-            changes = [.reloadItem(at: 0)]
+        case let (.some(oldItem), .some(newItem)):
+            reloads = areItemsEqual(oldItem, newItem) ? [] : [0]
 
         case (.some, .none):
-            changes = [.deleteItem(at: 0)]
+            deletes = [0]
 
         case (.none, .some):
-            changes = [.insertItem(at: 0)]
+            inserts = [0]
 
         case (.none, .none):
-            changes = []
+            break
         }
-        return CollectionViewSectionUpdate(controller: self,
-                                           changes: changes,
-                                           data: newData,
-                                           setData: { [weak self] in self?.collectionViewItem = $0 })
+        return CollectionViewSectionUpdate(
+            controller: self,
+            data: newData,
+            deletes: deletes,
+            inserts: inserts,
+            reloads: reloads,
+            setData: { self.collectionViewItem = $0 }
+        )
     }
 
-    override open var numberOfItems: Int {
-        return item != nil ? 1 : 0
+    override open var numberOfItems: Int { item != nil ? 1 : 0 }
+}
+
+extension SingleItemSectionController where Item: Equatable {
+    /**
+     Initialize an instance of `SingleItemSectionController`
+     which will only reload when the new item is different from the old one.
+
+     - Parameter model: The model of this `SectionController`.
+     */
+    public convenience init(model: Model) {
+        self.init(model: model, areItemsEqual: ==)
     }
 }

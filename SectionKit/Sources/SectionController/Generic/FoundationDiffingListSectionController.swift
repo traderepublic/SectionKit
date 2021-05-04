@@ -1,22 +1,31 @@
-import DifferenceKit
 import Foundation
-import SectionKit
 
 /**
  A `SectionController` that contains a list of items and calculates the difference whenever there is an update.
- 
+
  This `SectionController` is typically used when there are multiple semantically similar items
  of a model to be displayed and the list of items may dynamically change.
  */
-open class DiffingListSectionController<Model, Item: Differentiable>: ListSectionController<Model, Item> {
+@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
+open class FoundationDiffingListSectionController<
+    Model,
+    Item: Hashable
+>: ListSectionController<Model, Item> {
     override open func calculateUpdate(
         from oldData: [Item],
         to newData: [Item]
     ) -> CollectionViewSectionUpdate<[Item]>? {
-        let changeSet = StagedChangeset(source: oldData, target: newData)
+        let changes = newData
+            .difference(from: oldData)
+            .inferringMoves()
+            .changes
         return CollectionViewSectionUpdate(
             controller: self,
-            batchOperations: changeSet.map(\.sectionBatchOperation),
+            data: newData,
+            deletes: changes.deletes,
+            inserts: changes.inserts,
+            moves: changes.moves,
+            reloads: changes.reloads,
             setData: { self.collectionViewItems = $0 },
             shouldReload: { $0.count > 100 }
         )

@@ -2,9 +2,11 @@ import UIKit
 
 @available(iOS 11.0, *)
 extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
-    open func collectionView(_ collectionView: UICollectionView,
-                             itemsForBeginning session: UIDragSession,
-                             at indexPath: IndexPath) -> [UIDragItem] {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        itemsForBeginning session: UIDragSession,
+        at indexPath: IndexPath
+    ) -> [UIDragItem] {
         guard let dragDelegate = dragDelegate(at: indexPath) else {
             return []
         }
@@ -13,10 +15,12 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             itemsForAddingTo session: UIDragSession,
-                             at indexPath: IndexPath,
-                             point: CGPoint) -> [UIDragItem] {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        itemsForAddingTo session: UIDragSession,
+        at indexPath: IndexPath,
+        point: CGPoint
+    ) -> [UIDragItem] {
         guard let sectionController = session.localContext as? SectionController else {
             return []
         }
@@ -30,8 +34,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dragPreviewParametersForItemAt indexPath: IndexPath
+    ) -> UIDragPreviewParameters? {
         guard let dragDelegate = dragDelegate(at: indexPath) else {
             return nil
         }
@@ -39,18 +45,20 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         return dragDelegate.dragPreviewParametersForItem(at: sectionIndexPath)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dragSessionWillBegin session: UIDragSession) {
-        section?.controller.dragDelegate?.dragSessionWillBegin(session)
-    }
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dragSessionWillBegin session: UIDragSession
+    ) { section?.controller.dragDelegate?.dragSessionWillBegin(session) }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dragSessionDidEnd session: UIDragSession) {
-        section?.controller.dragDelegate?.dragSessionDidEnd(session)
-    }
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dragSessionDidEnd session: UIDragSession
+    ) { section?.controller.dragDelegate?.dragSessionDidEnd(session) }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dragSessionAllowsMoveOperation session: UIDragSession
+    ) -> Bool {
         guard let sectionController = session.localContext as? SectionController else {
             return false
         }
@@ -60,8 +68,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         return dragDelegate.dragSessionAllowsMoveOperation(session)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dragSessionIsRestrictedToDraggingApplication session: UIDragSession) -> Bool {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dragSessionIsRestrictedToDraggingApplication session: UIDragSession
+    ) -> Bool {
         guard let sectionController = session.localContext as? SectionController else {
             return false
         }

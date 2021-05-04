@@ -1,7 +1,7 @@
 import DifferenceKit
 import Foundation
 
-public class DifferentiableBox<Value, Id: Hashable>: Differentiable {
+public struct DifferentiableBox<Value, Id: Hashable> {
     public let value: Value
 
     @usableFromInline
@@ -15,7 +15,9 @@ public class DifferentiableBox<Value, Id: Hashable>: Differentiable {
         self.id = id
         self.isContentEqual = isContentEqual
     }
+}
 
+extension DifferentiableBox: Differentiable {
     @inlinable
     public var differenceIdentifier: Id { id(value) }
 

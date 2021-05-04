@@ -2,8 +2,10 @@ import UIKit
 
 @available(iOS 11.0, *)
 extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
-    open func collectionView(_ collectionView: UICollectionView,
-                             canHandle session: UIDropSession) -> Bool {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        canHandle session: UIDropSession
+    ) -> Bool {
         guard let sectionController = session.localDragSession?.localContext as? SectionController else {
             return false
         }
@@ -36,8 +38,10 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             performDropWith coordinator: UICollectionViewDropCoordinator) {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        performDropWith coordinator: UICollectionViewDropCoordinator
+    ) {
         guard let sectionController = coordinator.session.localDragSession?.localContext as? SectionController else {
             return
         }
@@ -60,23 +64,31 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         dropDelegate.performDrop(at: sectionIndexPath, with: coordinator)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dropSessionDidEnter session: UIDropSession) {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dropSessionDidEnter session: UIDropSession
+    ) {
         sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidEnter(session) }
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dropSessionDidExit session: UIDropSession) {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dropSessionDidExit session: UIDropSession
+    ) {
         sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidExit(session) }
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dropSessionDidEnd session: UIDropSession) {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dropSessionDidEnd session: UIDropSession
+    ) {
         sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidEnd(session) }
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             dropPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        dropPreviewParametersForItemAt indexPath: IndexPath
+    ) -> UIDragPreviewParameters? {
         guard let dropDelegate = dropDelegate(at: indexPath) else {
             return nil
         }

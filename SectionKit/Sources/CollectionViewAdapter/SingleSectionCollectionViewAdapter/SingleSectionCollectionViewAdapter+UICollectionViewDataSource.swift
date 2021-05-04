@@ -2,19 +2,23 @@ import UIKit
 
 extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
     open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        section.isSome ? 1 : 0
+        section != nil ? 1 : 0
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         guard let dataSource = dataSource(at: section) else {
             return 0
         }
         return dataSource.numberOfItems
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let dataSource = dataSource(at: indexPath) else {
             return UICollectionViewCell()
         }
@@ -22,9 +26,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         return dataSource.cellForItem(at: sectionIndexPath)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             viewForSupplementaryElementOfKind elementKind: String,
-                             at indexPath: IndexPath) -> UICollectionReusableView {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind elementKind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
         guard let dataSource = dataSource(at: indexPath) else {
             return UICollectionReusableView()
         }
@@ -42,8 +48,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         }
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             canMoveItemAt indexPath: IndexPath) -> Bool {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        canMoveItemAt indexPath: IndexPath
+    ) -> Bool {
         guard let dataSource = dataSource(at: indexPath) else {
             return false
         }
@@ -51,9 +59,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         return dataSource.canMoveItem(at: sectionIndexPath)
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             moveItemAt sourceIndexPath: IndexPath,
-                             to destinationIndexPath: IndexPath) {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        moveItemAt sourceIndexPath: IndexPath,
+        to destinationIndexPath: IndexPath
+    ) {
         guard let dataSource = dataSource(at: sourceIndexPath) else {
             return
         }
@@ -72,9 +82,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         return nil
     }
 
-    open func collectionView(_ collectionView: UICollectionView,
-                             indexPathForIndexTitle title: String,
-                             at index: Int) -> IndexPath {
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        indexPathForIndexTitle title: String,
+        at index: Int
+    ) -> IndexPath {
         assertionFailure("collectionView(_:indexPathForIndexTitle:at:) not implemented")
         return IndexPath(item: 0, section: 0)
     }
