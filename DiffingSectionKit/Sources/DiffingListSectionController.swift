@@ -4,7 +4,7 @@ import SectionKit
 
 /**
  A `SectionController` that contains a list of items and calculates the difference whenever there is an update.
- 
+
  This `SectionController` is typically used when there are multiple semantically similar items
  of a model to be displayed and the list of items may dynamically change.
  */
