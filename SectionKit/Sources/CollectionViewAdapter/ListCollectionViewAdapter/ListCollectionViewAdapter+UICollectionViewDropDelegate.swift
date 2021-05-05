@@ -46,15 +46,21 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
             return
         }
         let allItemsOriginateFromSectionController = coordinator.items.allSatisfy({ item in
-            guard let itemIndexPath = item.sourceIndexPath else { return false }
+            guard let itemIndexPath = item.sourceIndexPath else {
+                return false
+            }
             return controller(at: itemIndexPath) === sectionController
         })
-        guard allItemsOriginateFromSectionController else { return }
+        guard allItemsOriginateFromSectionController else {
+            return
+        }
         if let destinationIndexPath = coordinator.destinationIndexPath,
            controller(at: destinationIndexPath) !== sectionController {
             return
         }
-        guard let dropDelegate = sectionController.dropDelegate else { return }
+        guard let dropDelegate = sectionController.dropDelegate else {
+            return
+        }
         let sectionIndexPath: SectionIndexPath?
         if let destinationIndexPath = coordinator.destinationIndexPath, destinationIndexPath.isValid {
             sectionIndexPath = SectionIndexPath(destinationIndexPath)

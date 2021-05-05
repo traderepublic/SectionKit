@@ -122,7 +122,9 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     open var sections: [Section] {
-        guard let section = section else { return [] }
+        guard let section = section else {
+            return []
+        }
         return [section]
     }
 
@@ -169,7 +171,9 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     open func invalidateDataSource() {
-        guard let dataSource = dataSource else { return }
+        guard let dataSource = dataSource else {
+            return
+        }
         section = dataSource.section(for: self)
     }
 }

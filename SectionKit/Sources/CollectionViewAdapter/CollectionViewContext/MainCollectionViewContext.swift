@@ -142,7 +142,9 @@ open class MainCollectionViewContext: CollectionViewContext {
         }
         let sectionIndex = indexPath.section
         let sections = sectionAdapter.sections
-        guard sectionIndex < sections.count else { return nil }
+        guard sectionIndex < sections.count else {
+            return nil
+        }
         return (sections[sectionIndex].controller, SectionIndexPath(indexPath))
     }
 }

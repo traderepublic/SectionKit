@@ -169,7 +169,9 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     open func invalidateDataSource() {
-        guard let dataSource = dataSource else { return }
+        guard let dataSource = dataSource else {
+            return
+        }
         sections = dataSource.sections(for: self)
     }
 }

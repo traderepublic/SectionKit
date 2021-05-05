@@ -10,7 +10,9 @@ extension UICollectionView {
      */
     @inlinable
     public func apply<T>(update: CollectionViewSectionUpdate<T>, at section: Int) {
-        guard update.batchOperations.isNotEmpty else { return }
+        guard update.batchOperations.isNotEmpty else {
+            return
+        }
 
         // reload data when the collection wasn't added to a window yet
         guard window != nil else {
@@ -63,7 +65,9 @@ extension UICollectionView {
      */
     @inlinable
     public func apply<T>(update: CollectionViewUpdate<T>) {
-        guard update.batchOperations.isNotEmpty else { return }
+        guard update.batchOperations.isNotEmpty else {
+            return
+        }
 
         // reload data when the collection wasn't added to a window yet
         guard window != nil else {
