@@ -21,7 +21,10 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Returns: A proposal if and how the drop should be performed at the given location.
      */
-    func dropSessionDidUpdate(_ session: UIDropSession, at indexPath: SectionIndexPath?) -> UICollectionViewDropProposal
+    func dropSessionDidUpdate(
+        _ session: UIDropSession,
+        at indexPath: SectionIndexPath?
+    ) -> UICollectionViewDropProposal
 
     /**
      Perform the drop at the given index path.
@@ -65,25 +68,20 @@ public protocol SectionDropDelegate: AnyObject {
 
 @available(iOS 11.0, *)
 extension SectionDropDelegate {
-    public func canHandle(drop session: UIDropSession) -> Bool {
-        return true
+    public func canHandle(drop session: UIDropSession) -> Bool { true }
+
+    public func dropSessionDidUpdate(
+        _ session: UIDropSession,
+        at indexPath: SectionIndexPath?
+    ) -> UICollectionViewDropProposal {
+        UICollectionViewDropProposal(operation: .forbidden)
     }
 
-    public func dropSessionDidUpdate(_ session: UIDropSession,
-                                     at indexPath: SectionIndexPath?) -> UICollectionViewDropProposal {
-        return UICollectionViewDropProposal(operation: .forbidden)
-    }
+    public func dropSessionDidEnter(_ session: UIDropSession) { }
 
-    public func dropSessionDidEnter(_ session: UIDropSession) {
-    }
+    public func dropSessionDidExit(_ session: UIDropSession) { }
 
-    public func dropSessionDidExit(_ session: UIDropSession) {
-    }
+    public func dropSessionDidEnd(_ session: UIDropSession) { }
 
-    public func dropSessionDidEnd(_ session: UIDropSession) {
-    }
-
-    public func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? {
-        return nil
-    }
+    public func dropPreviewParametersForItem(at indexPath: SectionIndexPath) -> UIDragPreviewParameters? { nil }
 }

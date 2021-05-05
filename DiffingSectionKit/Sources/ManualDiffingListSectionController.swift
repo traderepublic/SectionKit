@@ -27,24 +27,30 @@ open class ManualDiffingListSectionController<
 
      - Parameter itemContentIsEqual: A closure that checks two items for equality.
      */
-    public init<ItemId: Hashable>(model: Model,
-                                  itemId: @escaping (Item) -> ItemId,
-                                  itemContentIsEqual: @escaping (Item, Item) -> Bool) {
+    public init<ItemId: Hashable>(
+        model: Model,
+        itemId: @escaping (Item) -> ItemId,
+        itemContentIsEqual: @escaping (Item, Item) -> Bool
+    ) {
         self.itemId = { itemId($0) }
         self.itemContentIsEqual = itemContentIsEqual
         super.init(model: model)
     }
 
-    override open func calculateUpdate(from oldData: [Item],
-                                       to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
+    override open func calculateUpdate(
+        from oldData: [Item],
+        to newData: [Item]
+    ) -> CollectionViewSectionUpdate<[Item]>? {
         let changeSet = StagedChangeset(
             source: oldData.map { DifferentiableBox(value: $0, id: itemId, isContentEqual: itemContentIsEqual) },
             target: newData.map { DifferentiableBox(value: $0, id: itemId, isContentEqual: itemContentIsEqual) }
         )
-        return CollectionViewSectionUpdate(controller: self,
-                                           batchOperations: changeSet.mapData(\.value).map(\.sectionBatchOperation),
-                                           setData: { [weak self] in self?.collectionViewItems = $0 },
-                                           shouldReload: { $0.changes.count > 100 })
+        return CollectionViewSectionUpdate(
+            controller: self,
+            batchOperations: changeSet.mapData(\.value).map(\.sectionBatchOperation),
+            setData: { self.collectionViewItems = $0 },
+            shouldReload: { $0.count > 100 }
+        )
     }
 }
 
@@ -75,16 +81,29 @@ extension ManualDiffingListSectionController where Item: Identifiable {
     }
 }
 
-// NOTE: the following unfortunately doesn't compile since declaring `init(model: Model)` would require
-// to override the parent initialiser
-//@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
-//extension ManualDiffingListSectionController where Item: Identifiable & Equatable, Item.ID == ItemId {
-//    /**
-//     Initialize an instance of `ManualDiffingListSectionController`.
-//
-//     - Parameter model: The model of this `SectionController`.
-//     */
-//    public convenience init(model: Model) {
-//        self.init(model: model, itemId: \.id, itemContentIsEqual: ==)
-//    }
-//}
+/*
+ Due to the compiler emitting an error it is only possible to declare default values for the parameters,
+ but not omit the parameters altogether (i.e. `init(model:)`). By using default values,
+ we can still call the init without specifying the parameters, but since the init is similar to
+ the base init (apart from the default values), we have to specify `@_disfavoredOverload` so it doesn't call itself.
+ */
+@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
+extension ManualDiffingListSectionController where Item: Identifiable & Equatable {
+    /**
+     Initialize an instance of `ManualDiffingListSectionController`.
+
+     - Parameter model: The model of this `SectionController`.
+
+     - Parameter itemId: A closure that returns the identifier for a given item.
+
+     - Parameter itemContentIsEqual: A closure that checks two items for equality.
+     */
+    @_disfavoredOverload
+    public convenience init(
+        model: Model,
+        itemId: @escaping (Item) -> Item.ID = { $0.id },
+        itemContentIsEqual: @escaping (Item, Item) -> Bool = { $0 == $1 }
+    ) {
+        self.init(model: model, itemId: itemId, itemContentIsEqual: itemContentIsEqual)
+    }
+}

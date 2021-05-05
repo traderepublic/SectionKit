@@ -47,9 +47,7 @@ open class ListSectionController<Model, Item>: BaseSectionController {
 
      - Returns: If the list of items should be updated after the model was updated to a new value.
      */
-    open func shouldUpdateItems(afterModelChangedTo model: Model) -> Bool {
-        return true
-    }
+    open func shouldUpdateItems(afterModelChangedTo model: Model) -> Bool { true }
 
     /**
      Derives a list of items from the given `Model`.
@@ -97,12 +95,12 @@ open class ListSectionController<Model, Item>: BaseSectionController {
      */
     open func calculateUpdate(from oldData: [Item],
                               to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
-        return CollectionViewSectionUpdate(controller: self,
-                                           data: newData,
-                                           setData: { [weak self] in self?.collectionViewItems = $0 })
+        CollectionViewSectionUpdate(
+            controller: self,
+            data: newData,
+            setData: { self.collectionViewItems = $0 }
+        )
     }
 
-    override open var numberOfItems: Int {
-        return items.count
-    }
+    override open var numberOfItems: Int { items.count }
 }

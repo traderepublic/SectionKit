@@ -59,15 +59,17 @@ open class SingleModelSectionController<Model>: BaseSectionController {
      
      - Returns: The update that should be performed on the section.
      */
-    open func calculateUpdate(from oldData: Model,
-                              to newData: Model) -> CollectionViewSectionUpdate<Model>? {
-        return CollectionViewSectionUpdate(controller: self,
-                                           changes: [.reloadItem(at: 0)],
-                                           data: newData,
-                                           setData: { [weak self] in self?.collectionViewModel = $0 })
+    open func calculateUpdate(
+        from oldData: Model,
+        to newData: Model
+    ) -> CollectionViewSectionUpdate<Model>? {
+        CollectionViewSectionUpdate(
+            controller: self,
+            data: newData,
+            reloads: [0],
+            setData: { self.collectionViewModel = $0 }
+        )
     }
 
-    override open var numberOfItems: Int {
-        return 1
-    }
+    override open var numberOfItems: Int { 1 }
 }

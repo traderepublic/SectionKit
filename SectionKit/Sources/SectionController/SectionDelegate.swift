@@ -219,106 +219,102 @@ public protocol SectionDelegate: AnyObject {
 extension SectionDelegate {
     // MARK: - Default: Highlight
 
-    public func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool {
-        return true
-    }
+    public func shouldHighlightItem(at indexPath: SectionIndexPath) -> Bool { true }
 
-    public func didHighlightItem(at indexPath: SectionIndexPath) {
-    }
+    public func didHighlightItem(at indexPath: SectionIndexPath) { }
 
-    public func didUnhighlightItem(at indexPath: SectionIndexPath) {
-    }
+    public func didUnhighlightItem(at indexPath: SectionIndexPath) { }
 
     // MARK: - Default: Selection
 
-    public func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool {
-        return true
-    }
+    public func shouldSelectItem(at indexPath: SectionIndexPath) -> Bool { true }
 
-    public func shouldDeselectItem(at indexPath: SectionIndexPath) -> Bool {
-        return true
-    }
+    public func shouldDeselectItem(at indexPath: SectionIndexPath) -> Bool { true }
 
-    public func didSelectItem(at indexPath: SectionIndexPath) {
-    }
+    public func didSelectItem(at indexPath: SectionIndexPath) { }
 
-    public func didDeselectItem(at indexPath: SectionIndexPath) {
-    }
+    public func didDeselectItem(at indexPath: SectionIndexPath) { }
 
     // MARK: - Default: Display
 
-    public func willDisplay(cell: UICollectionViewCell,
-                            at indexPath: SectionIndexPath) {
-    }
+    public func willDisplay(
+        cell: UICollectionViewCell,
+        at indexPath: SectionIndexPath
+    ) { }
 
-    public func willDisplay(headerView: UICollectionReusableView,
-                            at indexPath: SectionIndexPath) {
-    }
+    public func willDisplay(
+        headerView: UICollectionReusableView,
+        at indexPath: SectionIndexPath
+    ) { }
 
-    public func willDisplay(footerView: UICollectionReusableView,
-                            at indexPath: SectionIndexPath) {
-    }
+    public func willDisplay(
+        footerView: UICollectionReusableView,
+        at indexPath: SectionIndexPath
+    ) { }
 
-    public func didEndDisplaying(cell: UICollectionViewCell,
-                                 at indexPath: SectionIndexPath) {
-    }
+    public func didEndDisplaying(
+        cell: UICollectionViewCell,
+        at indexPath: SectionIndexPath
+    ) { }
 
-    public func didEndDisplaying(headerView: UICollectionReusableView,
-                                 at indexPath: SectionIndexPath) {
-    }
+    public func didEndDisplaying(
+        headerView: UICollectionReusableView,
+        at indexPath: SectionIndexPath
+    ) { }
 
-    public func didEndDisplaying(footerView: UICollectionReusableView,
-                                 at indexPath: SectionIndexPath) {
-    }
+    public func didEndDisplaying(
+        footerView: UICollectionReusableView,
+        at indexPath: SectionIndexPath
+    ) { }
 
     // MARK: - Default: Copy/Paste
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    public func shouldShowMenuForItem(at indexPath: SectionIndexPath) -> Bool {
-        return false
+    public func shouldShowMenuForItem(at indexPath: SectionIndexPath) -> Bool { false }
+
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
+    public func canPerform(
+        action: Selector,
+        forItemAt indexPath: SectionIndexPath,
+        withSender sender: Any?
+    ) -> Bool {
+        false
     }
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    public func canPerform(action: Selector,
-                           forItemAt indexPath: SectionIndexPath,
-                           withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    @available(iOS, introduced: 6.0, deprecated: 13.0)
-    public func perform(action: Selector,
-                        forItemAt indexPath: SectionIndexPath,
-                        withSender sender: Any?) {
-    }
+    public func perform(
+        action: Selector,
+        forItemAt indexPath: SectionIndexPath,
+        withSender sender: Any?
+    ) { }
 
     // MARK: - Default: Focus
 
-    public func canFocusItem(at indexPath: SectionIndexPath) -> Bool {
-        return shouldSelectItem(at: indexPath)
-    }
+    public func canFocusItem(at indexPath: SectionIndexPath) -> Bool { shouldSelectItem(at: indexPath) }
 
     // MARK: - Default: Spring Loading
 
     @available(iOS 11.0, *)
-    public func shouldSpringLoadItem(at indexPath: SectionIndexPath,
-                                     with context: UISpringLoadedInteractionContext) -> Bool {
-        return true
+    public func shouldSpringLoadItem(
+        at indexPath: SectionIndexPath,
+        with context: UISpringLoadedInteractionContext
+    ) -> Bool {
+        true
     }
 
     // MARK: - Default: Multiple Selection
 
     @available(iOS 13.0, *)
-    public func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) -> Bool {
-        return false
-    }
+    public func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) -> Bool { false }
 
     @available(iOS 13.0, *)
-    public func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) {
-    }
+    public func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) { }
 
     @available(iOS 13.0, *)
-    public func contextMenuConfigurationForItem(at indexPath: SectionIndexPath,
-                                                point: CGPoint) -> UIContextMenuConfiguration? {
-        return nil
+    public func contextMenuConfigurationForItem(
+        at indexPath: SectionIndexPath,
+        point: CGPoint
+    ) -> UIContextMenuConfiguration? {
+        nil
     }
 }
