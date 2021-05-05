@@ -1,152 +1,94 @@
 import UIKit
 
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func controller(at indexPath: IndexPath) -> SectionController? {
         guard indexPath.isValid else {
             return nil
         }
-        guard let controller = controller(at: indexPath.section) else {
-            return nil
-        }
-        return controller
+        return controller(at: indexPath.section)
     }
 
+    @inlinable
     open func controller(at index: Int) -> SectionController? {
         guard index == 0 else {
             return nil
         }
-        guard let controller = section?.controller else {
-            return nil
-        }
-        return controller
+        return section?.controller
     }
 }
 
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func dataSource(at indexPath: IndexPath) -> SectionDataSource? {
-        guard let controller = controller(at: indexPath) else {
-            return nil
-        }
-        return controller.dataSource
+        controller(at: indexPath)?.dataSource
     }
 
+    @inlinable
     open func dataSource(at index: Int) -> SectionDataSource? {
-        guard let controller = controller(at: index) else {
-            return nil
-        }
-        return controller.dataSource
+        controller(at: index)?.dataSource
     }
 }
 
 @available(iOS 10.0, *)
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func dataSourcePrefetchingDelegate(at indexPath: IndexPath) -> SectionDataSourcePrefetchingDelegate? {
-        guard let controller = controller(at: indexPath) else {
-            return nil
-        }
-        guard let dataSourcePrefetchingDelegate = controller.dataSourcePrefetchingDelegate else {
-            return nil
-        }
-        return dataSourcePrefetchingDelegate
+        controller(at: indexPath)?.dataSourcePrefetchingDelegate
     }
 
+    @inlinable
     open func dataSourcePrefetchingDelegate(at index: Int) -> SectionDataSourcePrefetchingDelegate? {
-        guard let controller = controller(at: index) else {
-            return nil
-        }
-        guard let dataSourcePrefetchingDelegate = controller.dataSourcePrefetchingDelegate else {
-            return nil
-        }
-        return dataSourcePrefetchingDelegate
+        controller(at: index)?.dataSourcePrefetchingDelegate
     }
 }
 
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func delegate(at indexPath: IndexPath) -> SectionDelegate? {
-        guard let controller = controller(at: indexPath) else {
-            return nil
-        }
-        guard let delegate = controller.delegate else {
-            return nil
-        }
-        return delegate
+        controller(at: indexPath)?.delegate
     }
 
+    @inlinable
     open func delegate(at index: Int) -> SectionDelegate? {
-        guard let controller = controller(at: index) else {
-            return nil
-        }
-        guard let delegate = controller.delegate else {
-            return nil
-        }
-        return delegate
+        controller(at: index)?.delegate
     }
 }
 
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
-        guard let controller = controller(at: indexPath) else {
-            return nil
-        }
-        guard let flowDelegate = controller.flowDelegate else {
-            return nil
-        }
-        return flowDelegate
+        controller(at: indexPath)?.flowDelegate
     }
 
+    @inlinable
     open func flowDelegate(at index: Int) -> SectionFlowDelegate? {
-        guard let controller = controller(at: index) else {
-            return nil
-        }
-        guard let flowDelegate = controller.flowDelegate else {
-            return nil
-        }
-        return flowDelegate
+        controller(at: index)?.flowDelegate
     }
 }
 
 @available(iOS 11.0, *)
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func dragDelegate(at indexPath: IndexPath) -> SectionDragDelegate? {
-        guard let controller = controller(at: indexPath) else {
-            return nil
-        }
-        guard let dragDelegate = controller.dragDelegate else {
-            return nil
-        }
-        return dragDelegate
+        controller(at: indexPath)?.dragDelegate
     }
 
+    @inlinable
     open func dragDelegate(at index: Int) -> SectionDragDelegate? {
-        guard let controller = controller(at: index) else {
-            return nil
-        }
-        guard let dragDelegate = controller.dragDelegate else {
-            return nil
-        }
-        return dragDelegate
+        controller(at: index)?.dragDelegate
     }
 }
 
 @available(iOS 11.0, *)
 extension SingleSectionCollectionViewAdapter {
+    @inlinable
     open func dropDelegate(at indexPath: IndexPath) -> SectionDropDelegate? {
-        guard let controller = controller(at: indexPath) else {
-            return nil
-        }
-        guard let dropDelegate = controller.dropDelegate else {
-            return nil
-        }
-        return dropDelegate
+        controller(at: indexPath)?.dropDelegate
     }
 
+    @inlinable
     open func dropDelegate(at index: Int) -> SectionDropDelegate? {
-        guard let controller = controller(at: index) else {
-            return nil
-        }
-        guard let dropDelegate = controller.dropDelegate else {
-            return nil
-        }
-        return dropDelegate
+        controller(at: index)?.dropDelegate
     }
 }
