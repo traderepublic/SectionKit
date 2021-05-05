@@ -41,7 +41,7 @@ extension Section {
 
      - Parameter model: The model of the section.
 
-     - Parameter controller: A handler that produces the `SectionController` for this section.
+     - Parameter controller: An autoclosure that produces the `SectionController` for this section.
      */
     public convenience init(
         id: AnyHashable,
