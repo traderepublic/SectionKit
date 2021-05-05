@@ -42,7 +42,7 @@ extension ListCollectionViewAdapter: UIScrollViewDelegate {
     }
 
     open func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return scrollViewDelegate?.viewForZooming?(in: scrollView)
+        scrollViewDelegate?.viewForZooming?(in: scrollView)
     }
 
     open func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
@@ -58,7 +58,7 @@ extension ListCollectionViewAdapter: UIScrollViewDelegate {
     }
 
     open func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        return scrollViewDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
+        scrollViewDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
     }
 
     open func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {

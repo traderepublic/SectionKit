@@ -277,7 +277,9 @@ extension SectionDelegate {
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
         withSender sender: Any?
-    ) -> Bool { false }
+    ) -> Bool {
+        false
+    }
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     public func perform(
@@ -296,7 +298,9 @@ extension SectionDelegate {
     public func shouldSpringLoadItem(
         at indexPath: SectionIndexPath,
         with context: UISpringLoadedInteractionContext
-    ) -> Bool { true }
+    ) -> Bool {
+        true
+    }
 
     // MARK: - Default: Multiple Selection
 
@@ -310,5 +314,7 @@ extension SectionDelegate {
     public func contextMenuConfigurationForItem(
         at indexPath: SectionIndexPath,
         point: CGPoint
-    ) -> UIContextMenuConfiguration? { nil }
+    ) -> UIContextMenuConfiguration? {
+        nil
+    }
 }

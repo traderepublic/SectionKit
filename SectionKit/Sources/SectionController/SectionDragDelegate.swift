@@ -82,7 +82,9 @@ extension SectionDragDelegate {
         forAddingTo session: UIDragSession,
         at indexPath: SectionIndexPath,
         point: CGPoint
-    ) -> [UIDragItem] { [] }
+    ) -> [UIDragItem] {
+        []
+    }
 
     public func dragSessionWillBegin(_ session: UIDragSession) { }
 

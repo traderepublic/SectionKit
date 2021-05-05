@@ -67,17 +67,23 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidEnter session: UIDropSession
-    ) { section?.controller.dropDelegate?.dropSessionDidEnter(session) }
+    ) {
+        section?.controller.dropDelegate?.dropSessionDidEnter(session)
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidExit session: UIDropSession
-    ) { section?.controller.dropDelegate?.dropSessionDidExit(session) }
+    ) {
+        section?.controller.dropDelegate?.dropSessionDidExit(session)
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidEnd session: UIDropSession
-    ) { section?.controller.dropDelegate?.dropSessionDidEnd(session) }
+    ) {
+        section?.controller.dropDelegate?.dropSessionDidEnd(session)
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,

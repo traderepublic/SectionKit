@@ -197,7 +197,9 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         transitionLayoutForOldLayout fromLayout: UICollectionViewLayout,
         newLayout toLayout: UICollectionViewLayout
-    ) -> UICollectionViewTransitionLayout { .init(currentLayout: fromLayout, nextLayout: toLayout) }
+    ) -> UICollectionViewTransitionLayout {
+        UICollectionViewTransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
+    }
 
     // MARK: - Focus
 
@@ -215,7 +217,9 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(
         _ collectionView: UICollectionView,
         shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext
-    ) -> Bool { true }
+    ) -> Bool {
+        true
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,
@@ -229,12 +233,16 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath,
         toProposedIndexPath proposedIndexPath: IndexPath
-    ) -> IndexPath { proposedIndexPath }
+    ) -> IndexPath {
+        proposedIndexPath
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint
-    ) -> CGPoint { proposedContentOffset }
+    ) -> CGPoint {
+        proposedContentOffset
+    }
 
     // MARK: - Spring Loading
 
@@ -297,13 +305,17 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(
         _ collectionView: UICollectionView,
         previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration
-    ) -> UITargetedPreview? { nil }
+    ) -> UITargetedPreview? {
+        nil
+    }
 
     @available(iOS 13.0, *)
     open func collectionView(
         _ collectionView: UICollectionView,
         previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration
-    ) -> UITargetedPreview? { nil }
+    ) -> UITargetedPreview? {
+        nil
+    }
 
     @available(iOS 13.0, *)
     open func collectionView(

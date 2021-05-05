@@ -217,7 +217,9 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(
         _ collectionView: UICollectionView,
         shouldUpdateFocusIn context: UICollectionViewFocusUpdateContext
-    ) -> Bool { true }
+    ) -> Bool {
+        true
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,
@@ -231,12 +233,16 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         targetIndexPathForMoveFromItemAt originalIndexPath: IndexPath,
         toProposedIndexPath proposedIndexPath: IndexPath
-    ) -> IndexPath { proposedIndexPath }
+    ) -> IndexPath {
+        proposedIndexPath
+    }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint
-    ) -> CGPoint { proposedContentOffset }
+    ) -> CGPoint {
+        proposedContentOffset
+    }
 
     // MARK: - Spring Loading
 
@@ -299,13 +305,17 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
     open func collectionView(
         _ collectionView: UICollectionView,
         previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration
-    ) -> UITargetedPreview? { nil }
+    ) -> UITargetedPreview? {
+        nil
+    }
 
     @available(iOS 13.0, *)
     open func collectionView(
         _ collectionView: UICollectionView,
         previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration
-    ) -> UITargetedPreview? { nil }
+    ) -> UITargetedPreview? {
+        nil
+    }
 
     @available(iOS 13.0, *)
     open func collectionView(

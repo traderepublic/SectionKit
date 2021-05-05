@@ -112,7 +112,9 @@ open class BaseSectionController: SectionController,
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
         withSender sender: Any?
-    ) -> Bool { false }
+    ) -> Bool {
+        false
+    }
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     open func perform(
@@ -127,7 +129,9 @@ open class BaseSectionController: SectionController,
     open func shouldSpringLoadItem(
         at indexPath: SectionIndexPath,
         with context: UISpringLoadedInteractionContext
-    ) -> Bool { true }
+    ) -> Bool {
+        true
+    }
 
     @available(iOS 13.0, *)
     open func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath) -> Bool { false }
@@ -139,7 +143,9 @@ open class BaseSectionController: SectionController,
     open func contextMenuConfigurationForItem(
         at indexPath: SectionIndexPath,
         point: CGPoint
-    ) -> UIContextMenuConfiguration? { nil }
+    ) -> UIContextMenuConfiguration? {
+        nil
+    }
 
     // MARK: - SectionDragDelegate
 
@@ -151,7 +157,9 @@ open class BaseSectionController: SectionController,
         forAddingTo session: UIDragSession,
         at indexPath: SectionIndexPath,
         point: CGPoint
-    ) -> [UIDragItem] { [] }
+    ) -> [UIDragItem] {
+        []
+    }
 
     @available(iOS 11.0, *)
     open func dragSessionWillBegin(_ session: UIDragSession) { }
@@ -177,7 +185,9 @@ open class BaseSectionController: SectionController,
     open func dropSessionDidUpdate(
         _ session: UIDropSession,
         at indexPath: SectionIndexPath?
-    ) -> UICollectionViewDropProposal { UICollectionViewDropProposal(operation: .forbidden) }
+    ) -> UICollectionViewDropProposal {
+        UICollectionViewDropProposal(operation: .forbidden)
+    }
 
     @available(iOS 11.0, *)
     open func performDrop(at indexPath: SectionIndexPath?, with coordinator: UICollectionViewDropCoordinator) { }
