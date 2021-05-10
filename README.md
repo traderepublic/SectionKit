@@ -300,7 +300,3 @@ The functionality is split into two packages:
     
     > Note: Compared to `DiffingListSectionController` this class doesn't have a `Differentiable` constraint on the generic
     `Item` type, instead it requires closures in the init to get diffing information for an item.
-    
-## Concept
-
-TODO
