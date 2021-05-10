@@ -1,4 +1,7 @@
-# SectionKit
+<p align="center">
+    <a href="https://github.com/traderepublic/tr-sectionkit/"><img src="Resources/SectionKit.png" alt="SectionKit" /></a>
+</p>
+
 [![Unit Tests](https://github.com/traderepublic/tr-sectionkit/workflows/Unit%20Tests/badge.svg)](https://github.com/traderepublic/tr-sectionkit/actions)
 
 Using **SectionKit** each section in a `UICollectionView` is implemented separately, so the required code is very short and maintainable.
