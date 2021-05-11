@@ -22,7 +22,7 @@ Other APIs can be easily added by extending `ListCollectionViewAdapter` or `Sing
 
 This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but is implemented in Swift and offers a type safe API through the use of generics. 
 As a result, models or items don't need to inherit from `NSObject`. 
-The whole API was designed to be as open as possible and it is easy to implement a custom behaviour. 
+The entire API was designed to be as open as possible and makes it easy to implement a custom behaviour. 
 An example would be the API for calculating updates to the `UICollectionView`: By default, it will just reload without performing any animation, 
 but a subclass overrides the corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit). 
 Since that subclass is defined in a separate module, you don't need to import and include  `DifferenceKit` if you don't need animated updates.
