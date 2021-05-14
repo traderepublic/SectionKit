@@ -15,7 +15,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         let navigationController = UINavigationController()
-        let coordinator = ColorCoordinator(navigationController: navigationController)
+        let coordinator = ExampleListCoordinator(navigationController: navigationController)
         coordinator.present(segue: .push(onto: navigationController))
 
         window.rootViewController = navigationController
