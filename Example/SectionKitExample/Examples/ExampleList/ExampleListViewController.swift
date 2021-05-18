@@ -52,7 +52,7 @@ extension ExampleListViewController: ListCollectionViewAdapterDataSource {
             Section(
                 id: model.sectionId,
                 model: model,
-                controller: ExampleListSectionController(model: model)
+                controller: ExampleSectionController(model: model)
             )
         }
     }

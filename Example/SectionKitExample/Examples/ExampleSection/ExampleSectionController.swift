@@ -1,8 +1,8 @@
 import UIKit
 import SectionKit
 
-final class ExampleListSectionController: ListSectionController<ExampleListSectionViewModelType, ExampleViewModelType> {
-    override func items(for model: ExampleListSectionViewModelType) -> [ExampleViewModelType] {
+final class ExampleSectionController: ListSectionController<ExampleSectionViewModelType, ExampleViewModelType> {
+    override func items(for model: ExampleSectionViewModelType) -> [ExampleViewModelType] {
         model.examples
     }
 
@@ -10,7 +10,7 @@ final class ExampleListSectionController: ListSectionController<ExampleListSecti
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
-        let cell = context.dequeueReusableCell(ExampleCell.self, for: indexPath.indexInCollectionView)
+        let cell: ExampleCell = context.dequeueReusableCell(for: indexPath.indexInCollectionView)
         cell.configure(with: items[indexPath.indexInSectionController])
         return cell
     }
@@ -33,7 +33,7 @@ final class ExampleListSectionController: ListSectionController<ExampleListSecti
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        let headerView = context.dequeueReusableHeaderView(ExampleListHeaderView.self, for: indexPath.indexInCollectionView)
+        let headerView: ExampleSectionHeaderView = context.dequeueReusableHeaderView(for: indexPath.indexInCollectionView)
         headerView.configure(with: model)
         return headerView
     }
@@ -51,7 +51,7 @@ final class ExampleListSectionController: ListSectionController<ExampleListSecti
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        let footerView = context.dequeueReusableFooterView(ExampleListFooterView.self, for: indexPath.indexInCollectionView)
+        let footerView: ExampleSectionFooterView = context.dequeueReusableFooterView(for: indexPath.indexInCollectionView)
         footerView.configure(with: model)
         return footerView
     }

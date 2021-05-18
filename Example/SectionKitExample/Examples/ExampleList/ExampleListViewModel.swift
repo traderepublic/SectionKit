@@ -6,10 +6,10 @@ protocol ExampleListViewModelInputs { }
 
 protocol ExampleListViewModelOutputs {
     var title: String { get }
-    var sections: [ExampleListSectionViewModelType] { get }
+    var sections: [ExampleSectionViewModelType] { get }
 }
 
 struct ExampleListViewModel: ExampleListViewModelType {
     let title = "Examples"
-    let sections: [ExampleListSectionViewModelType]
+    let sections: [ExampleSectionViewModelType]
 }

@@ -3,7 +3,7 @@ import UIKit
 extension ExampleListCoordinator: Presentable {
     private func makeViewController() -> UIViewController {
         let viewModel = ExampleListViewModel(sections: [
-            ExampleListSectionViewModel(
+            ExampleSectionViewModel(
                 sectionId: .vanillaSwift,
                 header: "Swift",
                 footer: nil,
@@ -17,7 +17,7 @@ extension ExampleListCoordinator: Presentable {
                     )
                 ]
             ),
-            ExampleListSectionViewModel(
+            ExampleSectionViewModel(
                 sectionId: .reactiveSwift,
                 header: "ReactiveSwift",
                 footer: "https://github.com/ReactiveCocoa/ReactiveSwift",

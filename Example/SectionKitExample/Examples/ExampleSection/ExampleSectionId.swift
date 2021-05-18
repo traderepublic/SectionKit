@@ -1,6 +1,6 @@
 import Foundation
 
-enum ExampleListSectionId {
+enum ExampleSectionId: Hashable {
     case vanillaSwift
     case reactiveSwift
 }

@@ -10,7 +10,7 @@ final class ColorSectionController: ListSectionController<ColorViewModelType, UI
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
-        let cell = context.dequeueReusableCell(ColorCell.self, for: indexPath.indexInCollectionView)
+        let cell: ColorCell = context.dequeueReusableCell(for: indexPath.indexInCollectionView)
         cell.color = items[indexPath.indexInSectionController]
         return cell
     }

@@ -26,14 +26,14 @@
 		5AFBBE44264E5C08008C095D /* ExampleListCoordinator+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE43264E5C08008C095D /* ExampleListCoordinator+Presentable.swift */; };
 		5AFBBE46264E5C1C008C095D /* ExampleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE45264E5C1C008C095D /* ExampleListViewModel.swift */; };
 		5AFBBE48264E5C27008C095D /* ExampleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE47264E5C27008C095D /* ExampleListViewController.swift */; };
-		5AFBBE4A264E5C33008C095D /* ExampleListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE49264E5C33008C095D /* ExampleListSectionController.swift */; };
+		5AFBBE4A264E5C33008C095D /* ExampleSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE49264E5C33008C095D /* ExampleSectionController.swift */; };
 		5AFBBE4C264E5C45008C095D /* ExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE4B264E5C45008C095D /* ExampleCell.swift */; };
 		5AFBBE4E264E5C53008C095D /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE4D264E5C53008C095D /* ExampleViewModel.swift */; };
-		5AFBBE50264E5CE4008C095D /* ExampleListSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE4F264E5CE3008C095D /* ExampleListSectionViewModel.swift */; };
-		5AFBBE52264E60A2008C095D /* ExampleListSectionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE51264E60A2008C095D /* ExampleListSectionId.swift */; };
+		5AFBBE50264E5CE4008C095D /* ExampleSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE4F264E5CE3008C095D /* ExampleSectionViewModel.swift */; };
+		5AFBBE52264E60A2008C095D /* ExampleSectionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE51264E60A2008C095D /* ExampleSectionId.swift */; };
 		5AFBBE54264E7094008C095D /* ExampleListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE53264E7094008C095D /* ExampleListCoordinator.swift */; };
-		5AFBBE56264E71AD008C095D /* ExampleListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE55264E71AD008C095D /* ExampleListHeaderView.swift */; };
-		5AFBBE58264E71B7008C095D /* ExampleListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE57264E71B7008C095D /* ExampleListFooterView.swift */; };
+		5AFBBE56264E71AD008C095D /* ExampleSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE55264E71AD008C095D /* ExampleSectionHeaderView.swift */; };
+		5AFBBE58264E71B7008C095D /* ExampleSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE57264E71B7008C095D /* ExampleSectionFooterView.swift */; };
 		5AFBBE5A264E7217008C095D /* LabelSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE59264E7217008C095D /* LabelSupplementaryView.swift */; };
 		5AFBBE5C264E72E5008C095D /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFBBE5B264E72E5008C095D /* LabelCell.swift */; };
 /* End PBXBuildFile section */
@@ -60,14 +60,14 @@
 		5AFBBE43264E5C08008C095D /* ExampleListCoordinator+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleListCoordinator+Presentable.swift"; sourceTree = "<group>"; };
 		5AFBBE45264E5C1C008C095D /* ExampleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewModel.swift; sourceTree = "<group>"; };
 		5AFBBE47264E5C27008C095D /* ExampleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListViewController.swift; sourceTree = "<group>"; };
-		5AFBBE49264E5C33008C095D /* ExampleListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListSectionController.swift; sourceTree = "<group>"; };
+		5AFBBE49264E5C33008C095D /* ExampleSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSectionController.swift; sourceTree = "<group>"; };
 		5AFBBE4B264E5C45008C095D /* ExampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCell.swift; sourceTree = "<group>"; };
 		5AFBBE4D264E5C53008C095D /* ExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
-		5AFBBE4F264E5CE3008C095D /* ExampleListSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListSectionViewModel.swift; sourceTree = "<group>"; };
-		5AFBBE51264E60A2008C095D /* ExampleListSectionId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListSectionId.swift; sourceTree = "<group>"; };
+		5AFBBE4F264E5CE3008C095D /* ExampleSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSectionViewModel.swift; sourceTree = "<group>"; };
+		5AFBBE51264E60A2008C095D /* ExampleSectionId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSectionId.swift; sourceTree = "<group>"; };
 		5AFBBE53264E7094008C095D /* ExampleListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListCoordinator.swift; sourceTree = "<group>"; };
-		5AFBBE55264E71AD008C095D /* ExampleListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListHeaderView.swift; sourceTree = "<group>"; };
-		5AFBBE57264E71B7008C095D /* ExampleListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleListFooterView.swift; sourceTree = "<group>"; };
+		5AFBBE55264E71AD008C095D /* ExampleSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSectionHeaderView.swift; sourceTree = "<group>"; };
+		5AFBBE57264E71B7008C095D /* ExampleSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleSectionFooterView.swift; sourceTree = "<group>"; };
 		5AFBBE59264E7217008C095D /* LabelSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSupplementaryView.swift; sourceTree = "<group>"; };
 		5AFBBE5B264E72E5008C095D /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +85,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A2652A72654132300E3A224 /* ExampleSection */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBBE51264E60A2008C095D /* ExampleSectionId.swift */,
+				5AFBBE4F264E5CE3008C095D /* ExampleSectionViewModel.swift */,
+				5AFBBE49264E5C33008C095D /* ExampleSectionController.swift */,
+				5AFBBE55264E71AD008C095D /* ExampleSectionHeaderView.swift */,
+				5AFBBE57264E71B7008C095D /* ExampleSectionFooterView.swift */,
+			);
+			path = ExampleSection;
+			sourceTree = "<group>";
+		};
+		5A2652A8265413A000E3A224 /* ExampleList */ = {
+			isa = PBXGroup;
+			children = (
+				5AFBBE53264E7094008C095D /* ExampleListCoordinator.swift */,
+				5AFBBE43264E5C08008C095D /* ExampleListCoordinator+Presentable.swift */,
+				5AFBBE45264E5C1C008C095D /* ExampleListViewModel.swift */,
+				5AFBBE47264E5C27008C095D /* ExampleListViewController.swift */,
+			);
+			path = ExampleList;
+			sourceTree = "<group>";
+		};
 		5AFBBE05264BEF2B008C095D = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +131,7 @@
 			children = (
 				5AFBBE11264BEF2B008C095D /* AppDelegate.swift */,
 				5AFBBE13264BEF2B008C095D /* SceneDelegate.swift */,
-				5AFBBE40264E5BD4008C095D /* ExampleList */,
-				5AFBBE62264E7437008C095D /* Example */,
+				5AFBBE40264E5BD4008C095D /* Examples */,
 				5AFBBE2C264BF10A008C095D /* Colors */,
 				5AFBBE2F264BF483008C095D /* Utility */,
 				5AFBBE17264BEF2C008C095D /* Assets.xcassets */,
@@ -152,21 +174,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		5AFBBE40264E5BD4008C095D /* ExampleList */ = {
+		5AFBBE40264E5BD4008C095D /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				5AFBBE53264E7094008C095D /* ExampleListCoordinator.swift */,
-				5AFBBE43264E5C08008C095D /* ExampleListCoordinator+Presentable.swift */,
-				5AFBBE45264E5C1C008C095D /* ExampleListViewModel.swift */,
-				5AFBBE51264E60A2008C095D /* ExampleListSectionId.swift */,
-				5AFBBE4F264E5CE3008C095D /* ExampleListSectionViewModel.swift */,
-				5AFBBE47264E5C27008C095D /* ExampleListViewController.swift */,
-				5AFBBE49264E5C33008C095D /* ExampleListSectionController.swift */,
-				5AFBBE4B264E5C45008C095D /* ExampleCell.swift */,
-				5AFBBE55264E71AD008C095D /* ExampleListHeaderView.swift */,
-				5AFBBE57264E71B7008C095D /* ExampleListFooterView.swift */,
+				5A2652A8265413A000E3A224 /* ExampleList */,
+				5A2652A72654132300E3A224 /* ExampleSection */,
+				5AFBBE62264E7437008C095D /* Example */,
 			);
-			path = ExampleList;
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		5AFBBE62264E7437008C095D /* Example */ = {
@@ -174,6 +189,7 @@
 			children = (
 				5AFBBE41264E5BF6008C095D /* ExampleCoordinator.swift */,
 				5AFBBE4D264E5C53008C095D /* ExampleViewModel.swift */,
+				5AFBBE4B264E5C45008C095D /* ExampleCell.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -253,23 +269,23 @@
 			files = (
 				5AFBBE3F264C2F6B008C095D /* ColorCoordinator+Presentable.swift in Sources */,
 				5AFBBE37264BF938008C095D /* ColorCoordinator.swift in Sources */,
-				5AFBBE56264E71AD008C095D /* ExampleListHeaderView.swift in Sources */,
+				5AFBBE56264E71AD008C095D /* ExampleSectionHeaderView.swift in Sources */,
 				5AFBBE5C264E72E5008C095D /* LabelCell.swift in Sources */,
 				5AFBBE44264E5C08008C095D /* ExampleListCoordinator+Presentable.swift in Sources */,
-				5AFBBE58264E71B7008C095D /* ExampleListFooterView.swift in Sources */,
+				5AFBBE58264E71B7008C095D /* ExampleSectionFooterView.swift in Sources */,
 				5AFBBE12264BEF2B008C095D /* AppDelegate.swift in Sources */,
 				5AFBBE3B264BF94B008C095D /* ColorCell.swift in Sources */,
 				5AFBBE46264E5C1C008C095D /* ExampleListViewModel.swift in Sources */,
 				5AFBBE4C264E5C45008C095D /* ExampleCell.swift in Sources */,
-				5AFBBE52264E60A2008C095D /* ExampleListSectionId.swift in Sources */,
+				5AFBBE52264E60A2008C095D /* ExampleSectionId.swift in Sources */,
 				5AFBBE54264E7094008C095D /* ExampleListCoordinator.swift in Sources */,
-				5AFBBE4A264E5C33008C095D /* ExampleListSectionController.swift in Sources */,
+				5AFBBE4A264E5C33008C095D /* ExampleSectionController.swift in Sources */,
 				5AFBBE2E264BF1C0008C095D /* ColorViewController.swift in Sources */,
 				5AFBBE35264BF929008C095D /* ColorViewModel.swift in Sources */,
 				5AFBBE14264BEF2B008C095D /* SceneDelegate.swift in Sources */,
 				5AFBBE33264BF7E9008C095D /* UIViewController+DeselectItems.swift in Sources */,
 				5AFBBE31264BF4AA008C095D /* SelectionCollectionViewCell.swift in Sources */,
-				5AFBBE50264E5CE4008C095D /* ExampleListSectionViewModel.swift in Sources */,
+				5AFBBE50264E5CE4008C095D /* ExampleSectionViewModel.swift in Sources */,
 				5AFBBE4E264E5C53008C095D /* ExampleViewModel.swift in Sources */,
 				5AFBBE5A264E7217008C095D /* LabelSupplementaryView.swift in Sources */,
 				5AFBBE3D264C0C80008C095D /* NavigationSegue.swift in Sources */,
