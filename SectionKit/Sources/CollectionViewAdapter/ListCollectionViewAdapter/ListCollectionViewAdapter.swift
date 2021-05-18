@@ -26,17 +26,17 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         dataSource: ListCollectionViewAdapterDataSource?,
         scrollViewDelegate: UIScrollViewDelegate? = nil
     ) {
-        let collectionContext = MainCollectionViewContext(
+        let context = MainCollectionViewContext(
             viewController: viewController,
             collectionView: collectionView
         )
-        self.collectionContext = collectionContext
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSections = dataSource?.sections(for: self) ?? []
-        collectionViewSections.forEach { $0.controller.context = collectionContext }
+        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -67,16 +67,16 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         sections: [Section] = [],
         scrollViewDelegate: UIScrollViewDelegate? = nil
     ) {
-        let collectionContext = MainCollectionViewContext(
+        let context = MainCollectionViewContext(
             viewController: viewController,
             collectionView: collectionView
         )
-        self.collectionContext = collectionContext
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSections = sections
-        collectionViewSections.forEach { $0.controller.context = collectionContext }
+        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -89,7 +89,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         }
     }
 
-    public let collectionContext: CollectionViewContext
+    public let context: CollectionViewContext
 
     open weak var scrollViewDelegate: UIScrollViewDelegate?
 
@@ -111,7 +111,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
             let uniqueSections = checkOrFilterDuplicateSectionIds(sections: newValue)
             _collectionViewSections.forEach { $0.controller.context = nil }
             _collectionViewSections = uniqueSections
-            uniqueSections.forEach { $0.controller.context = collectionContext }
+            uniqueSections.forEach { $0.controller.context = context }
         }
     }
 
@@ -148,7 +148,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 collectionViewSections = newValue
                 return
             }
-            collectionContext.apply(update: update)
+            context.apply(update: update)
         }
     }
 
