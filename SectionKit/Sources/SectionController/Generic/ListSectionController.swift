@@ -93,8 +93,10 @@ open class ListSectionController<Model, Item>: BaseSectionController {
      
      - Returns: The update that should be performed on the section.
      */
-    open func calculateUpdate(from oldData: [Item],
-                              to newData: [Item]) -> CollectionViewSectionUpdate<[Item]>? {
+    open func calculateUpdate(
+        from oldData: [Item],
+        to newData: [Item]
+    ) -> CollectionViewSectionUpdate<[Item]>? {
         CollectionViewSectionUpdate(
             controller: self,
             data: newData,
@@ -102,5 +104,5 @@ open class ListSectionController<Model, Item>: BaseSectionController {
         )
     }
 
-    override open var numberOfItems: Int { items.count }
+    override open func numberOfItems(in context: CollectionViewContext) -> Int { items.count }
 }

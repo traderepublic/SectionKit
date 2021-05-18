@@ -12,7 +12,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
         }
         session.localContext = controller(at: indexPath)
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath)
+        return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -31,7 +31,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
             return []
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point)
+        return dragDelegate.dragItems(forAddingTo: session, at: sectionIndexPath, point: point, in: context)
     }
 
     open func collectionView(
@@ -42,7 +42,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
             return nil
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dragDelegate.dragPreviewParametersForItem(at: sectionIndexPath)
+        return dragDelegate.dragPreviewParametersForItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -50,7 +50,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
         dragSessionWillBegin session: UIDragSession
     ) {
         sections.compactMap(\.controller.dragDelegate).forEach {
-            $0.dragSessionWillBegin(session)
+            $0.dragSessionWillBegin(session, in: context)
         }
     }
 
@@ -59,7 +59,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
         dragSessionDidEnd session: UIDragSession
     ) {
         sections.compactMap(\.controller.dragDelegate)
-            .forEach { $0.dragSessionDidEnd(session) }
+            .forEach { $0.dragSessionDidEnd(session, in: context) }
     }
 
     open func collectionView(
@@ -72,7 +72,7 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
         guard let dragDelegate = sectionController.dragDelegate else {
             return false
         }
-        return dragDelegate.dragSessionAllowsMoveOperation(session)
+        return dragDelegate.dragSessionAllowsMoveOperation(session, in: context)
     }
 
     open func collectionView(
@@ -85,6 +85,6 @@ extension ListCollectionViewAdapter: UICollectionViewDragDelegate {
         guard let dragDelegate = sectionController.dragDelegate else {
             return false
         }
-        return dragDelegate.dragSessionIsRestrictedToDraggingApplication(session)
+        return dragDelegate.dragSessionIsRestrictedToDraggingApplication(session, in: context)
     }
 }

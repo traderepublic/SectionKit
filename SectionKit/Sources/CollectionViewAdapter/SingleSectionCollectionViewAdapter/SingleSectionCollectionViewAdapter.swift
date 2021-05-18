@@ -22,17 +22,17 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         dataSource: SingleSectionCollectionViewAdapterDataSource?,
         scrollViewDelegate: UIScrollViewDelegate? = nil
     ) {
-        let collectionContext = MainCollectionViewContext(
+        let context = MainCollectionViewContext(
             viewController: viewController,
             collectionView: collectionView
         )
-        self.collectionContext = collectionContext
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSection = dataSource?.section(for: self)
-        collectionViewSection?.controller.context = collectionContext
+        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -63,16 +63,16 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         section: Section? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil
     ) {
-        let collectionContext = MainCollectionViewContext(
+        let context = MainCollectionViewContext(
             viewController: viewController,
             collectionView: collectionView
         )
-        self.collectionContext = collectionContext
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSection = section
-        collectionViewSection?.controller.context = collectionContext
+        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -85,7 +85,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         }
     }
 
-    public let collectionContext: CollectionViewContext
+    public let context: CollectionViewContext
 
     open weak var scrollViewDelegate: UIScrollViewDelegate?
 
@@ -101,7 +101,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
      */
     open var collectionViewSection: Section? = nil {
         willSet { collectionViewSection?.controller.context = nil }
-        didSet { collectionViewSection?.controller.context = collectionContext }
+        didSet { collectionViewSection?.controller.context = context }
     }
 
     /// The single section in the `UICollectionView`.
@@ -117,7 +117,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 collectionViewSection = newValue
                 return
             }
-            collectionContext.apply(update: update)
+            context.apply(update: update)
         }
     }
 

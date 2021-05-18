@@ -71,5 +71,5 @@ open class SingleModelSectionController<Model>: BaseSectionController {
         )
     }
 
-    override open var numberOfItems: Int { 1 }
+    override open func numberOfItems(in context: CollectionViewContext) -> Int { 1 }
 }

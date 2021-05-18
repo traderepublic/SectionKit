@@ -11,7 +11,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return true
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.shouldHighlightItem(at: sectionIndexPath)
+        return delegate.shouldHighlightItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -22,7 +22,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.didHighlightItem(at: sectionIndexPath)
+        delegate.didHighlightItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -33,7 +33,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.didUnhighlightItem(at: sectionIndexPath)
+        delegate.didUnhighlightItem(at: sectionIndexPath, in: context)
     }
 
     // MARK: - Selection
@@ -46,7 +46,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return true
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.shouldSelectItem(at: sectionIndexPath)
+        return delegate.shouldSelectItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -57,7 +57,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return true
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.shouldDeselectItem(at: sectionIndexPath)
+        return delegate.shouldDeselectItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -68,7 +68,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.didSelectItem(at: sectionIndexPath)
+        delegate.didSelectItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -79,7 +79,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.didDeselectItem(at: sectionIndexPath)
+        delegate.didDeselectItem(at: sectionIndexPath, in: context)
     }
 
     // MARK: - Display
@@ -93,7 +93,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.willDisplay(cell: cell, at: sectionIndexPath)
+        delegate.willDisplay(cell: cell, at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -108,10 +108,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
         let sectionIndexPath = SectionIndexPath(indexPath)
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            delegate.willDisplay(headerView: view, at: sectionIndexPath)
+            delegate.willDisplay(headerView: view, at: sectionIndexPath, in: context)
 
         case UICollectionView.elementKindSectionFooter:
-            delegate.willDisplay(footerView: view, at: sectionIndexPath)
+            delegate.willDisplay(footerView: view, at: sectionIndexPath, in: context)
 
         default: break
         }
@@ -126,7 +126,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.didEndDisplaying(cell: cell, at: sectionIndexPath)
+        delegate.didEndDisplaying(cell: cell, at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -141,10 +141,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
         let sectionIndexPath = SectionIndexPath(indexPath)
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            delegate.didEndDisplaying(headerView: view, at: sectionIndexPath)
+            delegate.didEndDisplaying(headerView: view, at: sectionIndexPath, in: context)
 
         case UICollectionView.elementKindSectionFooter:
-            delegate.didEndDisplaying(footerView: view, at: sectionIndexPath)
+            delegate.didEndDisplaying(footerView: view, at: sectionIndexPath, in: context)
+
         default: break
         }
     }
@@ -160,7 +161,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return false
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.shouldShowMenuForItem(at: sectionIndexPath)
+        return delegate.shouldShowMenuForItem(at: sectionIndexPath, in: context)
     }
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
@@ -174,7 +175,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return false
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.canPerform(action: action, forItemAt: sectionIndexPath, withSender: sender)
+        return delegate.canPerform(action: action, forItemAt: sectionIndexPath, withSender: sender, in: context)
     }
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
@@ -188,7 +189,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.perform(action: action, forItemAt: sectionIndexPath, withSender: sender)
+        delegate.perform(action: action, forItemAt: sectionIndexPath, withSender: sender, in: context)
     }
 
     // MARK: - Custom transition layout
@@ -211,7 +212,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return self.collectionView(collectionView, shouldSelectItemAt: indexPath)
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.canFocusItem(at: sectionIndexPath)
+        return delegate.canFocusItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -256,7 +257,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return true
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.shouldSpringLoadItem(at: sectionIndexPath, with: context)
+        return delegate.shouldSpringLoadItem(at: sectionIndexPath, with: context, in: self.context)
     }
 
     // MARK: - Multiple Selection
@@ -270,7 +271,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return false
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.shouldBeginMultipleSelectionInteraction(at: sectionIndexPath)
+        return delegate.shouldBeginMultipleSelectionInteraction(at: sectionIndexPath, in: context)
     }
 
     @available(iOS 13.0, *)
@@ -282,7 +283,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        delegate.didBeginMultipleSelectionInteraction(at: sectionIndexPath)
+        delegate.didBeginMultipleSelectionInteraction(at: sectionIndexPath, in: context)
     }
 
     @available(iOS 13.0, *)
@@ -298,7 +299,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             return nil
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return delegate.contextMenuConfigurationForItem(at: sectionIndexPath, point: point)
+        return delegate.contextMenuConfigurationForItem(at: sectionIndexPath, point: point, in: context)
     }
 
     @available(iOS 13.0, *)

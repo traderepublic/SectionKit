@@ -13,7 +13,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             return flowLayout.itemSize
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return flowDelegate.sizeForItem(at: sectionIndexPath, using: collectionViewLayout)
+        return flowDelegate.sizeForItem(at: sectionIndexPath, using: collectionViewLayout, in: context)
     }
 
     open func collectionView(
@@ -27,7 +27,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             }
             return flowLayout.sectionInset
         }
-        return flowDelegate.inset(using: collectionViewLayout)
+        return flowDelegate.inset(using: collectionViewLayout, in: context)
     }
 
     open func collectionView(
@@ -41,7 +41,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             }
             return flowLayout.minimumLineSpacing
         }
-        return flowDelegate.minimumLineSpacing(using: collectionViewLayout)
+        return flowDelegate.minimumLineSpacing(using: collectionViewLayout, in: context)
     }
 
     open func collectionView(
@@ -55,7 +55,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             }
             return flowLayout.minimumInteritemSpacing
         }
-        return flowDelegate.minimumInteritemSpacing(using: collectionViewLayout)
+        return flowDelegate.minimumInteritemSpacing(using: collectionViewLayout, in: context)
     }
 
     open func collectionView(
@@ -69,7 +69,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             }
             return flowLayout.headerReferenceSize
         }
-        return flowDelegate.referenceSizeForHeader(using: collectionViewLayout)
+        return flowDelegate.referenceSizeForHeader(using: collectionViewLayout, in: context)
     }
 
     open func collectionView(
@@ -83,6 +83,6 @@ extension ListCollectionViewAdapter: UICollectionViewDelegateFlowLayout {
             }
             return flowLayout.footerReferenceSize
         }
-        return flowDelegate.referenceSizeForFooter(using: collectionViewLayout)
+        return flowDelegate.referenceSizeForFooter(using: collectionViewLayout, in: context)
     }
 }

@@ -6,7 +6,7 @@ import UIKit
  */
 public protocol CollectionViewAdapter: AnyObject {
     /// An object providing contextual information.
-    var collectionContext: CollectionViewContext { get }
+    var context: CollectionViewContext { get }
 
     /// A delegate that receives callbacks from the `UIScrollView`.
     var scrollViewDelegate: UIScrollViewDelegate? { get set }

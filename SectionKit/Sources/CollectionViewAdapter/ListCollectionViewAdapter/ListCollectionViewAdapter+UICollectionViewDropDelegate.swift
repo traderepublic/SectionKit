@@ -12,7 +12,7 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         guard let dropDelegate = sectionController.dropDelegate else {
             return false
         }
-        return dropDelegate.canHandle(drop: session)
+        return dropDelegate.canHandle(drop: session, in: context)
     }
 
     open func collectionView(
@@ -35,7 +35,7 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         } else {
             sectionIndexPath = nil
         }
-        return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath)
+        return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -67,28 +67,28 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
         } else {
             sectionIndexPath = nil
         }
-        dropDelegate.performDrop(at: sectionIndexPath, with: coordinator)
+        dropDelegate.performDrop(at: sectionIndexPath, with: coordinator, in: context)
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidEnter session: UIDropSession
     ) {
-        sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidEnter(session) }
+        sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidEnter(session, in: context) }
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidExit session: UIDropSession
     ) {
-        sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidExit(session) }
+        sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidExit(session, in: context) }
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidEnd session: UIDropSession
     ) {
-        sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidEnd(session) }
+        sections.compactMap(\.controller.dropDelegate).forEach { $0.dropSessionDidEnd(session, in: context) }
     }
 
     open func collectionView(
@@ -99,6 +99,6 @@ extension ListCollectionViewAdapter: UICollectionViewDropDelegate {
             return nil
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dropDelegate.dropPreviewParametersForItem(at: sectionIndexPath)
+        return dropDelegate.dropPreviewParametersForItem(at: sectionIndexPath, in: context)
     }
 }
