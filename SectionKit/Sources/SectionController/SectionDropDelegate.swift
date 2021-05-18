@@ -8,7 +8,7 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Parameter session: The drop session.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      
      - Returns: If the section allows drops from the given `UIDropSession`.
      */
@@ -21,7 +21,7 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Parameter indexPath: The current index path where the session would be dropped to.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      
      - Returns: A proposal if and how the drop should be performed at the given location.
      */
@@ -38,7 +38,7 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Parameter coordinator: The coordinator containing information about the drop.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      */
     func performDrop(
         at indexPath: SectionIndexPath?,
@@ -51,7 +51,7 @@ public protocol SectionDropDelegate: AnyObject {
 
      - Parameter session: The drop session.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      */
     func dropSessionDidEnter(_ session: UIDropSession, in context: CollectionViewContext)
 
@@ -60,7 +60,7 @@ public protocol SectionDropDelegate: AnyObject {
 
      - Parameter session: The drop session.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      */
     func dropSessionDidExit(_ session: UIDropSession, in context: CollectionViewContext)
 
@@ -69,7 +69,7 @@ public protocol SectionDropDelegate: AnyObject {
 
      - Parameter session: The drop session.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      */
     func dropSessionDidEnd(_ session: UIDropSession, in context: CollectionViewContext)
 
@@ -78,7 +78,7 @@ public protocol SectionDropDelegate: AnyObject {
      
      - Parameter indexPath: The index path of the item being dropped.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drop delegate is contained in.
      
      - Returns: Information on how the item at the given index path should be displayed during the drop.
      */

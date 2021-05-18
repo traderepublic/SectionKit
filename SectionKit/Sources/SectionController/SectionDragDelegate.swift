@@ -10,7 +10,7 @@ public protocol SectionDragDelegate: AnyObject {
      
      - Parameter indexPath: The index path of the item to be dragged.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
      
      - Returns: The initial list of items to drag.
      */
@@ -29,7 +29,7 @@ public protocol SectionDragDelegate: AnyObject {
      
      - Parameter point: The location inside the `UICollectionView` that the user tapped on.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
      
      - Returns: Drag items which should be added to an existing drag.
      */
@@ -45,7 +45,7 @@ public protocol SectionDragDelegate: AnyObject {
 
      - Parameter session: The session of the drag.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
      */
     func dragSessionWillBegin(_ session: UIDragSession, in context: CollectionViewContext)
 
@@ -54,7 +54,7 @@ public protocol SectionDragDelegate: AnyObject {
 
      - Parameter session: The session of the drag.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
      */
     func dragSessionDidEnd(_ session: UIDragSession, in context: CollectionViewContext)
 
@@ -63,7 +63,7 @@ public protocol SectionDragDelegate: AnyObject {
      
      - Parameter indexPath: The index path of the item being dragged.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
      
      - Returns: Information on how the item at the given index path should be displayed during the drag.
      */
@@ -77,7 +77,7 @@ public protocol SectionDragDelegate: AnyObject {
 
      - Parameter session: The session of the drag.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
 
      - Returns: If the drag session supports a move operation.
      */
@@ -88,7 +88,7 @@ public protocol SectionDragDelegate: AnyObject {
 
      - Parameter session: The session of the drag.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the drag delegate is contained in.
 
      - Returns: If the drag session is restricted to remain in the current app.
      */

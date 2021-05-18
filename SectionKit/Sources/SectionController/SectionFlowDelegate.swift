@@ -9,7 +9,7 @@ public protocol SectionFlowDelegate: AnyObject {
      
      - Parameter layout: The layout used to display the items.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the flow delegate is contained in.
      
      - Returns: The size for the item at the given index path.
      */
@@ -24,7 +24,7 @@ public protocol SectionFlowDelegate: AnyObject {
      
      - Parameter layout: The layout used to display the items.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the flow delegate is contained in.
      
      - Returns: The inset of this section.
      */
@@ -35,7 +35,7 @@ public protocol SectionFlowDelegate: AnyObject {
      
      - Parameter layout: The layout used to display the items.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the flow delegate is contained in.
      
      - Returns: The minimum line spacing of this section.
      */
@@ -46,7 +46,7 @@ public protocol SectionFlowDelegate: AnyObject {
      
      - Parameter layout: The layout used to display the items.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the flow delegate is contained in.
      
      - Returns: The minimum inter-item spacing of this section.
      */
@@ -57,7 +57,7 @@ public protocol SectionFlowDelegate: AnyObject {
      
      - Parameter layout: The layout used to display the items.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the flow delegate is contained in.
      
      - Returns: The size of a header view.
      */
@@ -68,7 +68,7 @@ public protocol SectionFlowDelegate: AnyObject {
      
      - Parameter layout: The layout used to display the items.
 
-     - Parameter context: The context the delegate is contained in.
+     - Parameter context: The context the flow delegate is contained in.
      
      - Returns: The size of a footer view.
      */
