@@ -270,6 +270,8 @@ public protocol SectionDelegate: AnyObject {
      A multi-select gesture started for the given index path.
      
      - Parameter indexPath: The index path of the item where the multi-select gesture started.
+
+     - Parameter context: The context the delegate is contained in.
      */
     @available(iOS 13.0, *)
     func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath, in context: CollectionViewContext)
