@@ -12,7 +12,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         guard let dataSource = dataSource(at: section) else {
             return 0
         }
-        return dataSource.numberOfItems
+        return dataSource.numberOfItems(in: context)
     }
 
     open func collectionView(
@@ -23,7 +23,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dataSource.cellForItem(at: sectionIndexPath)
+        return dataSource.cellForItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -37,10 +37,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         let sectionIndexPath = SectionIndexPath(indexPath)
         switch elementKind {
         case UICollectionView.elementKindSectionHeader:
-            return dataSource.headerView(at: sectionIndexPath)
+            return dataSource.headerView(at: sectionIndexPath, in: context)
 
         case UICollectionView.elementKindSectionFooter:
-            return dataSource.footerView(at: sectionIndexPath)
+            return dataSource.footerView(at: sectionIndexPath, in: context)
 
         default:
             assertionFailure("Unsupported supplementary view kind.")
@@ -56,7 +56,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
             return false
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dataSource.canMoveItem(at: sectionIndexPath)
+        return dataSource.canMoveItem(at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -75,7 +75,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         }
         let sourceSectionIndexPath = SectionIndexPath(sourceIndexPath)
         let destinationSectionIndexPath = SectionIndexPath(destinationIndexPath)
-        dataSource.moveItem(at: sourceSectionIndexPath, to: destinationSectionIndexPath)
+        dataSource.moveItem(at: sourceSectionIndexPath, to: destinationSectionIndexPath, in: context)
     }
 
     open func indexTitles(for collectionView: UICollectionView) -> [String]? { nil }

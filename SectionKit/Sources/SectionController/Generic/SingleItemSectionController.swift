@@ -124,7 +124,7 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController {
         )
     }
 
-    override open var numberOfItems: Int { item != nil ? 1 : 0 }
+    override open func numberOfItems(in context: CollectionViewContext) -> Int { item != nil ? 1 : 0 }
 }
 
 extension SingleItemSectionController where Item: Equatable {

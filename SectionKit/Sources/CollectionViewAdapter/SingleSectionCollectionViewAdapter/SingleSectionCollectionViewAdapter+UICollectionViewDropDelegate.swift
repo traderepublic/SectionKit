@@ -12,7 +12,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         guard let dropDelegate = sectionController.dropDelegate else {
             return false
         }
-        return dropDelegate.canHandle(drop: session)
+        return dropDelegate.canHandle(drop: session, in: context)
     }
 
     open func collectionView(
@@ -35,7 +35,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         } else {
             sectionIndexPath = nil
         }
-        return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath)
+        return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath, in: context)
     }
 
     open func collectionView(
@@ -67,28 +67,28 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         } else {
             sectionIndexPath = nil
         }
-        dropDelegate.performDrop(at: sectionIndexPath, with: coordinator)
+        dropDelegate.performDrop(at: sectionIndexPath, with: coordinator, in: context)
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidEnter session: UIDropSession
     ) {
-        section?.controller.dropDelegate?.dropSessionDidEnter(session)
+        section?.controller.dropDelegate?.dropSessionDidEnter(session, in: context)
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidExit session: UIDropSession
     ) {
-        section?.controller.dropDelegate?.dropSessionDidExit(session)
+        section?.controller.dropDelegate?.dropSessionDidExit(session, in: context)
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dropSessionDidEnd session: UIDropSession
     ) {
-        section?.controller.dropDelegate?.dropSessionDidEnd(session)
+        section?.controller.dropDelegate?.dropSessionDidEnd(session, in: context)
     }
 
     open func collectionView(
@@ -99,6 +99,6 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
             return nil
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
-        return dropDelegate.dropPreviewParametersForItem(at: sectionIndexPath)
+        return dropDelegate.dropPreviewParametersForItem(at: sectionIndexPath, in: context)
     }
 }
