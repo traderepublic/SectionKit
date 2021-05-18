@@ -114,15 +114,15 @@ class FirstSectionController: ListSectionController<FirstSectionModel, String> {
         model.items
     }
 
-    override func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
+    override func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
         // cell types are automatically registered when dequeuing
-        let cell = context!.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
+        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
         cell.label.text = items[indexPath.indexInSectionController]
         return cell
     }
 
-    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout) -> CGSize {
-        CGSize(width: context!.containerSize.width, height: 50)
+    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGSize {
+        CGSize(width: context.containerSize.width, height: 50)
     }
 }
 
@@ -131,15 +131,15 @@ class SecondSectionController: SingleItemSectionController<SecondSectionModel, S
         model.item
     }
 
-    override func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
+    override func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
         // cell types are automatically registered when dequeuing
-        let cell = context!.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
+        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
         cell.label.text = item
         return cell
     }
 
-    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout) -> CGSize {
-        CGSize(width: context!.containerSize.width, height: 50)
+    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGSize {
+        CGSize(width: context.containerSize.width, height: 50)
     }
 }
 ```
