@@ -144,7 +144,8 @@ open class BaseSectionController: SectionController,
     open func perform(
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
-        withSender sender: Any?, in context: CollectionViewContext
+        withSender sender: Any?, 
+        in context: CollectionViewContext
     ) { }
 
     open func canFocusItem(
