@@ -135,7 +135,8 @@ open class BaseSectionController: SectionController,
     open func canPerform(
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
-        withSender sender: Any?, in context: CollectionViewContext
+        withSender sender: Any?,
+        in context: CollectionViewContext
     ) -> Bool {
         false
     }

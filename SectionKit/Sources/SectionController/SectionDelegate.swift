@@ -353,7 +353,10 @@ extension SectionDelegate {
     // MARK: - Default: Copy/Paste
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    public func shouldShowMenuForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> Bool { false }
+    public func shouldShowMenuForItem(
+        at indexPath: SectionIndexPath,
+        in context: CollectionViewContext
+    ) -> Bool { false }
 
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     public func canPerform(
@@ -397,7 +400,8 @@ extension SectionDelegate {
 
     @available(iOS 13.0, *)
     public func shouldBeginMultipleSelectionInteraction(
-        at indexPath: SectionIndexPath, in context: CollectionViewContext
+        at indexPath: SectionIndexPath,
+        in context: CollectionViewContext
     ) -> Bool {
         false
     }
