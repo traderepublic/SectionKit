@@ -1,5 +1,4 @@
 import Foundation
-import UIKit.UIColor
 
 internal typealias ExampleViewModelType = ExampleViewModelInputs & ExampleViewModelOutputs
 

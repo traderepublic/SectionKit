@@ -1,7 +1,7 @@
 import UIKit
 import SectionKit
 
-final class ColorsViewController: UIViewController {
+internal final class ColorsViewController: UIViewController {
     private let viewModel: ColorsViewModelType
 
     private var collectionViewAdapter: CollectionViewAdapter!
@@ -15,21 +15,21 @@ final class ColorsViewController: UIViewController {
         return collectionView
     }()
 
-    init(viewModel: ColorsViewModelType) {
+    internal init(viewModel: ColorsViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required internal init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func loadView() {
+    override internal func loadView() {
         view = collectionView
     }
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
         collectionViewAdapter = SingleSectionCollectionViewAdapter(
@@ -39,14 +39,14 @@ final class ColorsViewController: UIViewController {
         )
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override internal func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         deselectItems(in: collectionView, animated: animated)
     }
 }
 
 extension ColorsViewController: SingleSectionCollectionViewAdapterDataSource {
-    func section(for adapter: CollectionViewAdapter) -> Section? {
+    internal func section(for adapter: CollectionViewAdapter) -> Section? {
         let model = viewModel
         return Section(
             id: "colors",

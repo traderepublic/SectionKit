@@ -1,33 +1,33 @@
 import Foundation
 import UIKit.UIColor
 
-typealias ColorsViewModelType = ColorsViewModelInputs & ColorsViewModelOutputs
+internal typealias ColorsViewModelType = ColorsViewModelInputs & ColorsViewModelOutputs
 
-protocol ColorsViewModelInputs {
+internal protocol ColorsViewModelInputs {
     func select(color: UIColor)
 }
 
-protocol ColorsViewModelOutputs {
+internal protocol ColorsViewModelOutputs {
     var title: String { get }
     var colors: [UIColor] { get }
 }
 
-protocol ColorsNavigation {
+internal protocol ColorsNavigation {
     func show(color: UIColor)
 }
 
-struct ColorsViewModel: ColorsViewModelType {
+internal struct ColorsViewModel: ColorsViewModelType {
     private let navigation: ColorsNavigation
 
-    let title = "Colors"
-    let colors: [UIColor]
+    internal let title = "Colors"
+    internal let colors: [UIColor]
 
-    init(colors: [UIColor], navigation: ColorsNavigation) {
+    internal init(colors: [UIColor], navigation: ColorsNavigation) {
         self.colors = colors
         self.navigation = navigation
     }
 
-    func select(color: UIColor) {
+    internal func select(color: UIColor) {
         navigation.show(color: color)
     }
 }

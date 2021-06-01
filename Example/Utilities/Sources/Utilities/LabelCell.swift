@@ -15,6 +15,10 @@ open class LabelCell: SelectionCollectionViewCell {
 
     private func commonInit() {
         contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(vertical: 16, horizontal: 24)
+        setUpViewHierarchy()
+    }
+
+    private func setUpViewHierarchy() {
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         let guide = contentView.layoutMarginsGuide

@@ -1,12 +1,12 @@
 import UIKit
 import SectionKit
 
-final class NumbersSectionController: ListSectionController<NumbersSectionViewModelType, Int> {
-    override func items(for model: NumbersSectionViewModelType) -> [Int] {
+internal final class NumbersSectionController: ListSectionController<NumbersSectionViewModelType, Int> {
+    override internal func items(for model: NumbersSectionViewModelType) -> [Int] {
         model.numbers
     }
 
-    override func cellForItem(
+    override internal func cellForItem(
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
@@ -15,7 +15,7 @@ final class NumbersSectionController: ListSectionController<NumbersSectionViewMo
         return cell
     }
 
-    override func sizeForItem(
+    override internal func sizeForItem(
         at indexPath: SectionIndexPath,
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
@@ -23,7 +23,7 @@ final class NumbersSectionController: ListSectionController<NumbersSectionViewMo
         CGSize(width: 100, height: 100)
     }
 
-    override func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
+    override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
         model.select(number: items[indexPath.indexInSectionController])
         context.collectionView.deselectItem(at: indexPath.indexInCollectionView, animated: true)
     }

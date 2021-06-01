@@ -1,7 +1,7 @@
 import UIKit
 import SectionKit
 
-final class NumbersViewController: UIViewController {
+internal final class NumbersViewController: UIViewController {
     private let viewModel: NumbersViewModelType
 
     private var collectionViewAdapter: CollectionViewAdapter!
@@ -15,21 +15,21 @@ final class NumbersViewController: UIViewController {
         return collectionView
     }()
 
-    init(viewModel: NumbersViewModelType) {
+    internal init(viewModel: NumbersViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    required internal init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func loadView() {
+    override internal func loadView() {
         view = collectionView
     }
 
-    override func viewDidLoad() {
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
         collectionViewAdapter = ListCollectionViewAdapter(
@@ -39,14 +39,14 @@ final class NumbersViewController: UIViewController {
         )
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override internal func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         deselectItems(in: collectionView, animated: animated)
     }
 }
 
 extension NumbersViewController: ListCollectionViewAdapterDataSource {
-    func sections(for adapter: CollectionViewAdapter) -> [Section] {
+    internal func sections(for adapter: CollectionViewAdapter) -> [Section] {
         viewModel.sections.map {
             Section(
                 id: $0.sectionId,

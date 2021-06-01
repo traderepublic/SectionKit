@@ -1,12 +1,12 @@
 import UIKit
 import SectionKit
 
-final class ColorsSectionController: ListSectionController<ColorsViewModelType, UIColor> {
-    override func items(for model: ColorsViewModelType) -> [UIColor] {
+internal final class ColorsSectionController: ListSectionController<ColorsViewModelType, UIColor> {
+    override internal func items(for model: ColorsViewModelType) -> [UIColor] {
         model.colors
     }
 
-    override func cellForItem(
+    override internal func cellForItem(
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
@@ -15,7 +15,7 @@ final class ColorsSectionController: ListSectionController<ColorsViewModelType, 
         return cell
     }
 
-    override func sizeForItem(
+    override internal func sizeForItem(
         at indexPath: SectionIndexPath,
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
@@ -23,7 +23,7 @@ final class ColorsSectionController: ListSectionController<ColorsViewModelType, 
         CGSize(width: context.containerSize.width, height: 50)
     }
 
-    override func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
+    override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
         model.select(color: items[indexPath.indexInSectionController])
     }
 }

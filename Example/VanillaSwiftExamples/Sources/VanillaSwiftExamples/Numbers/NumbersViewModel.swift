@@ -1,19 +1,19 @@
 import Foundation
 
-typealias NumbersViewModelType = NumbersViewModelInputs & NumbersViewModelOutputs
+internal typealias NumbersViewModelType = NumbersViewModelInputs & NumbersViewModelOutputs
 
-protocol NumbersViewModelInputs { }
+internal protocol NumbersViewModelInputs { }
 
-protocol NumbersViewModelOutputs {
+internal protocol NumbersViewModelOutputs {
     var title: String { get }
     var sections: [NumbersSectionViewModelType] { get }
 }
 
-struct NumbersViewModel: NumbersViewModelType {
-    let title = "Numbers"
-    let sections: [NumbersSectionViewModelType]
+internal struct NumbersViewModel: NumbersViewModelType {
+    internal let title = "Numbers"
+    internal let sections: [NumbersSectionViewModelType]
 
-    init(navigation: NumbersSectionNavigation) {
+    internal init(navigation: NumbersSectionNavigation) {
         sections = [
             NumbersSectionViewModel(numbers: Array(0...1), navigation: navigation),
             NumbersSectionViewModel(numbers: Array(10...19), navigation: navigation),

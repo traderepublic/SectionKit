@@ -1,8 +1,8 @@
 import UIKit
 import Utilities
 
-final class NumberCell: LabelCell {
-    var number: Int? {
+internal final class NumberCell: LabelCell {
+    internal var number: Int? {
         get { Int(label.text ?? "") }
         set {
             if let newValue = newValue {
@@ -13,12 +13,12 @@ final class NumberCell: LabelCell {
         }
     }
 
-    override init(frame: CGRect) {
+    override internal init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required internal init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
@@ -29,7 +29,7 @@ final class NumberCell: LabelCell {
         label.adjustsFontForContentSizeCategory = true
     }
 
-    override func prepareForReuse() {
+    override internal func prepareForReuse() {
         super.prepareForReuse()
         number = nil
     }

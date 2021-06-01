@@ -1,7 +1,7 @@
 import UIKit
 
 extension NumbersCoordinator: NumbersSectionNavigation {
-    func show(number: Int) {
+    internal func show(number: Int) {
         let alertController = UIAlertController(
             title: "Number selected",
             message: "You selected \(number)",

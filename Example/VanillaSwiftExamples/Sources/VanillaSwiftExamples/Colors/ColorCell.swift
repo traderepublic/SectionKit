@@ -1,17 +1,17 @@
 import UIKit
 import Utilities
 
-final class ColorCell: SelectionCollectionViewCell {
-    var color: UIColor = .clear {
+internal final class ColorCell: SelectionCollectionViewCell {
+    internal var color: UIColor = .clear {
         didSet { updateBackgroundColor() }
     }
 
-    override init(frame: CGRect) {
+    override internal init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder: NSCoder) {
+    required internal init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
@@ -24,7 +24,7 @@ final class ColorCell: SelectionCollectionViewCell {
         backgroundColor = color
     }
 
-    override func prepareForReuse() {
+    override internal func prepareForReuse() {
         super.prepareForReuse()
         color = .clear
     }
