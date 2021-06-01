@@ -1,10 +1,5 @@
 import UIKit
 
-public protocol Presentable {
-    @discardableResult
-    func present(segue: NavigationSegue) -> NavigationSegue.RewindAction
-}
-
 public enum NavigationSegue {
     case push(onto: UINavigationController)
     case present(on: UIViewController)

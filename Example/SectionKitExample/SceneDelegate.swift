@@ -17,7 +17,7 @@ final internal class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let navigationController = UINavigationController()
         let coordinator = ExampleListCoordinator(navigationController: navigationController)
-        coordinator.present(segue: .push(onto: navigationController))
+        coordinator.push(onto: navigationController)
 
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
