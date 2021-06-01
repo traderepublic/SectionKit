@@ -4,6 +4,7 @@ extension UIViewController {
     /// Deselects the currently selected rows, but uses the `transitionCoordinator`
     /// for the animation so it is stoppable, resumable and reversable.
     /// This should be called in `viewWillAppear(animated:)`
+    @inlinable
     public func deselectItems(in collectionView: UICollectionView, animated: Bool) {
         guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
 

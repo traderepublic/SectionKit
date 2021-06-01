@@ -1,6 +1,6 @@
 import UIKit
 
-public enum NavigationSegue {
+public enum NavigationSegue: Equatable {
     case push(onto: UINavigationController)
     case present(on: UIViewController)
 

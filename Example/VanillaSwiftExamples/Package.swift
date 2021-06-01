@@ -22,6 +22,12 @@ let package = Package(
                 .product(name: "Utilities", package: "Utilities")
             ]
         ),
-        .testTarget(name: "VanillaSwiftExamplesTests", dependencies: ["VanillaSwiftExamples"])
+        .testTarget(
+            name: "VanillaSwiftExamplesTests",
+            dependencies: [
+                "VanillaSwiftExamples",
+                .product(name: "TestUtilities", package: "Utilities")
+            ]
+        )
     ]
 )

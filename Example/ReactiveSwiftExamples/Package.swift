@@ -24,6 +24,12 @@ let package = Package(
                 .product(name: "ReactiveSwift", package: "ReactiveSwift")
             ]
         ),
-        .testTarget(name: "ReactiveSwiftExamplesTests", dependencies: ["ReactiveSwiftExamples"])
+        .testTarget(
+            name: "ReactiveSwiftExamplesTests",
+            dependencies: [
+                "ReactiveSwiftExamples",
+                .product(name: "TestUtilities", package: "Utilities")
+            ]
+        )
     ]
 )
