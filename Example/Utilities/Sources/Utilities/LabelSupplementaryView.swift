@@ -20,7 +20,7 @@ open class LabelSupplementaryView: UICollectionReusableView {
     }
 
     private func commonInit() {
-        directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 24)
+        directionalLayoutMargins = NSDirectionalEdgeInsets(vertical: 8, horizontal: 24)
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

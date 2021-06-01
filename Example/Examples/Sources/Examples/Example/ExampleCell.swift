@@ -15,7 +15,7 @@ internal final class ExampleCell: SelectionCollectionViewCell {
     }
 
     private func commonInit() {
-        contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24)
+        contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(vertical: 16, horizontal: 24)
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         let guide = contentView.layoutMarginsGuide
