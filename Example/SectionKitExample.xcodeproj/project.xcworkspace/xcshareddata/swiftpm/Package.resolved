@@ -9,6 +9,15 @@
           "revision": "62745d7780deef4a023a792a1f8f763ec7bf9705",
           "version": "1.2.0"
         }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "git@github.com:ReactiveCocoa/ReactiveSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "4a8e1e4a683e96daf658f68132dae781738bc862",
+          "version": "6.6.0"
+        }
       }
     ]
   },

@@ -1,9 +1,10 @@
+import Examples
 import UIKit
 
-final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var window: UIWindow?
+final internal class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    internal var window: UIWindow?
 
-    func scene(
+    internal func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions

@@ -1,15 +1,15 @@
 import UIKit
 
 @main
-final class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(
+final internal class AppDelegate: UIResponder, UIApplicationDelegate {
+    internal func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         true
     }
 
-    func application(
+    internal func application(
         _ application: UIApplication,
         configurationForConnecting connectingSceneSession: UISceneSession,
         options: UIScene.ConnectionOptions
