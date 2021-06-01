@@ -39,4 +39,8 @@ open class LabelSupplementaryView: UICollectionReusableView {
         super.prepareForReuse()
         label.text = nil
     }
+
+    override open var intrinsicContentSize: CGSize {
+        label.intrinsicContentSize.adding(padding: directionalLayoutMargins)
+    }
 }

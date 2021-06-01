@@ -34,4 +34,8 @@ open class LabelCell: SelectionCollectionViewCell {
         super.prepareForReuse()
         label.text = nil
     }
+
+    override open var intrinsicContentSize: CGSize {
+        label.intrinsicContentSize.adding(padding: contentView.directionalLayoutMargins)
+    }
 }
