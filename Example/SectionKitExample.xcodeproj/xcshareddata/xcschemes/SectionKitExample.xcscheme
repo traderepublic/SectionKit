@@ -88,6 +88,16 @@
                ReferencedContainer = "container:ReactiveSwiftExamples">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "VanillaSwiftExamplesSnapshotTests"
+               BuildableName = "VanillaSwiftExamplesSnapshotTests"
+               BlueprintName = "VanillaSwiftExamplesSnapshotTests"
+               ReferencedContainer = "container:VanillaSwiftExamples">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
