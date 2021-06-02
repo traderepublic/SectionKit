@@ -42,36 +42,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ReactiveSwiftExamplesTests"
-               BuildableName = "ReactiveSwiftExamplesTests"
-               BlueprintName = "ReactiveSwiftExamplesTests"
-               ReferencedContainer = "container:ReactiveSwiftExamples">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "VanillaSwiftExamplesTests"
-               BuildableName = "VanillaSwiftExamplesTests"
-               BlueprintName = "VanillaSwiftExamplesTests"
-               ReferencedContainer = "container:VanillaSwiftExamples">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ExamplesTests"
-               BuildableName = "ExamplesTests"
-               BlueprintName = "ExamplesTests"
-               ReferencedContainer = "container:Examples">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "UtilitiesSnapshotTests"
                BuildableName = "UtilitiesSnapshotTests"
                BlueprintName = "UtilitiesSnapshotTests"
