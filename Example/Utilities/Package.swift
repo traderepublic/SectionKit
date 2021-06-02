@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "TestUtilities", targets: ["TestUtilities"])
     ],
     dependencies: [
+        .package(name: "SectionKit", path: "../../"),
         .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0")
     ],
     targets: [
@@ -32,6 +33,11 @@ let package = Package(
             ],
             exclude: ["__Snapshots__"]
         ),
-        .target(name: "TestUtilities"),
+        .target(
+            name: "TestUtilities",
+            dependencies: [
+                .product(name: "SectionKit", package: "SectionKit")
+            ]
+        )
     ]
 )
