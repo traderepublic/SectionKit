@@ -44,9 +44,4 @@ internal final class NumbersViewController: UIViewController {
             }
         )
     }
-
-    override internal func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        deselectItems(in: collectionView, animated: animated)
-    }
 }

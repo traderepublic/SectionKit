@@ -54,9 +54,4 @@ internal final class EmojisViewController: UIViewController {
     private func shufflePressed() {
         viewModel.shufflePressedObserver.send(value: ())
     }
-
-    override internal func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        deselectItems(in: collectionView, animated: animated)
-    }
 }
