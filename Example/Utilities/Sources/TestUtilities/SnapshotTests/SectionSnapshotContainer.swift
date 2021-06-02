@@ -35,9 +35,9 @@ open class SectionSnapshotContainer: UIView {
 
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
             heightAnchor.constraint(greaterThanOrEqualToConstant: 1)
         ])
 
