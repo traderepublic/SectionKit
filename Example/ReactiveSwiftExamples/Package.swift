@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "ReactiveSwiftExamples",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         .library(name: "ReactiveSwiftExamples", targets: ["ReactiveSwiftExamples"])
