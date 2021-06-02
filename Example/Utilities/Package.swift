@@ -29,7 +29,8 @@ let package = Package(
                 "Utilities",
                 "TestUtilities",
                 .product(name: "SnapshotTesting", package: "SnapshotTesting")
-            ]
+            ],
+            exclude: ["__Snapshots__"]
         ),
         .target(name: "TestUtilities"),
     ]
