@@ -18,14 +18,6 @@ internal final class ExampleSectionController: ListSectionController<
         return cell
     }
 
-    override internal func sizeForItem(
-        at indexPath: SectionIndexPath,
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGSize {
-        CGSize(width: context.containerSize.width - 48, height: 50)
-    }
-
     override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
         items[indexPath.indexInSectionController].didSelect()
     }
@@ -41,13 +33,6 @@ internal final class ExampleSectionController: ListSectionController<
         return headerView
     }
 
-    override internal func referenceSizeForHeader(
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGSize {
-        CGSize(width: context.containerSize.width, height: 50)
-    }
-
     // MARK: - Footer
 
     override internal func footerView(
@@ -57,13 +42,5 @@ internal final class ExampleSectionController: ListSectionController<
         let footerView: ExampleSectionFooterView = context.dequeueReusableFooterView(for: indexPath.indexInCollectionView)
         footerView.configure(with: model)
         return footerView
-    }
-
-    override internal func referenceSizeForFooter(
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGSize {
-        guard model.footer != nil else { return .zero }
-        return CGSize(width: context.containerSize.width, height: 50)
     }
 }

@@ -27,14 +27,6 @@ extension ExampleListCoordinator: Presentable {
                             navigationController: navigationController,
                             nextCoordinator: NumbersCoordinator(navigationController: navigationController)
                         )
-                    ),
-                    ExampleViewModel(
-                        name: "Tests",
-                        description: nil,
-                        navigation: ExampleCoordinator(
-                            navigationController: navigationController,
-                            nextCoordinator: NumbersCoordinator(navigationController: navigationController)
-                        )
                     )
                 ]
             ),
@@ -42,7 +34,16 @@ extension ExampleListCoordinator: Presentable {
                 sectionId: .reactiveSwift,
                 header: "ReactiveSwift",
                 footer: "https://github.com/ReactiveCocoa/ReactiveSwift",
-                examples: []
+                examples: [
+                    ExampleViewModel(
+                        name: "Dummy",
+                        description: nil,
+                        navigation: ExampleCoordinator(
+                            navigationController: navigationController,
+                            nextCoordinator: NumbersCoordinator(navigationController: navigationController)
+                        )
+                    )
+                ]
             ),
         ])
         return ExampleListViewController(viewModel: viewModel)

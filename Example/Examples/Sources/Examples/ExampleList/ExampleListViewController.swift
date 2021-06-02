@@ -7,8 +7,10 @@ internal final class ExampleListViewController: UIViewController {
     private var collectionViewAdapter: CollectionViewAdapter!
 
     private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.headerMode = .supplementary
+        config.footerMode = .supplementary
+        let layout = UICollectionViewCompositionalLayout.list(using: config)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
         return collectionView

@@ -43,8 +43,6 @@ internal final class ExampleCell: SelectionCollectionViewCell {
     }
 
     private func commonInit() {
-        cornerRadius = 4
-        backgroundColor = .systemGroupedBackground
         contentView.directionalLayoutMargins = NSDirectionalEdgeInsets(vertical: 16, horizontal: 24)
         setUpViewHierarchy()
     }
