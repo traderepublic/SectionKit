@@ -6,13 +6,9 @@ open class BindingSingleModelSectionController<
 >: SingleModelSectionController<Model> {
     private var bindings: Disposable?
 
-    deinit {
-        bindings?.dispose()
-    }
+    deinit { bindings?.dispose() }
 
-    open func bind() -> Disposable? {
-        return nil
-    }
+    open func bind() -> Disposable? { nil }
 
     override open var collectionViewModel: Model {
         didSet {

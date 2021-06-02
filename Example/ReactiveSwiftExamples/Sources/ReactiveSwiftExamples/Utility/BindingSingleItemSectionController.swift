@@ -7,13 +7,9 @@ open class BindingSingleItemSectionController<
 >: SingleItemSectionController<Model, Item> {
     private var bindings: Disposable?
 
-    deinit {
-        bindings?.dispose()
-    }
+    deinit { bindings?.dispose() }
 
-    open func bind() -> Disposable? {
-        return nil
-    }
+    open func bind() -> Disposable? { nil }
 
     override open func shouldUpdateItem(afterModelChangedTo model: Model) -> Bool {
         bindings?.dispose()
