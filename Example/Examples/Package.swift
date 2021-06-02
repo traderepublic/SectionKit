@@ -8,7 +8,7 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        .library(name: "Examples", targets: ["Examples"]),
+        .library(name: "Examples", targets: ["Examples"])
     ],
     dependencies: [
         .package(name: "SectionKit", path: "../../"),

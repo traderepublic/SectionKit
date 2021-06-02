@@ -14,6 +14,7 @@ extension ExampleListCoordinator: Presentable {
                 examples: [
                     ExampleViewModel(
                         name: "Colors",
+                        description: "A SingleSectionCollectionViewAdapter that shows a single ListSectionController.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
                             nextCoordinator: ColorsCoordinator(navigationController: navigationController)
@@ -21,6 +22,15 @@ extension ExampleListCoordinator: Presentable {
                     ),
                     ExampleViewModel(
                         name: "Numbers",
+                        description: "A ListCollectionViewAdapter that shows multiple ListSectionController.",
+                        navigation: ExampleCoordinator(
+                            navigationController: navigationController,
+                            nextCoordinator: NumbersCoordinator(navigationController: navigationController)
+                        )
+                    ),
+                    ExampleViewModel(
+                        name: "Tests",
+                        description: nil,
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
                             nextCoordinator: NumbersCoordinator(navigationController: navigationController)

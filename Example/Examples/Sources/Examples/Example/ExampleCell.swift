@@ -2,10 +2,33 @@ import UIKit
 import Utilities
 
 internal final class ExampleCell: SelectionCollectionViewCell {
-    private let label: UILabel = {
+    private lazy var labelStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [
+            nameLabel,
+            descriptionLabel
+        ])
+        stack.axis = .vertical
+        stack.spacing = 4
+        return stack
+    }()
+
+    private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .body)
+        label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        return label
+    }()
+
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.textColor = .secondaryLabel
+        label.adjustsFontForContentSizeCategory = true
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         return label
     }()
 
@@ -27,26 +50,27 @@ internal final class ExampleCell: SelectionCollectionViewCell {
     }
 
     private func setUpViewHierarchy() {
-        label.setContentCompressionResistancePriority(.required, for: .horizontal)
-        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        contentView.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(labelStack)
+        labelStack.translatesAutoresizingMaskIntoConstraints = false
         let guide = contentView.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: guide.topAnchor),
-            guide.bottomAnchor.constraint(equalTo: label.bottomAnchor),
-            label.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
-            // greaterThanOrEqualTo constraint is needed so the cell can stretch the full width
-            guide.trailingAnchor.constraint(greaterThanOrEqualTo: label.trailingAnchor),
+            labelStack.topAnchor.constraint(equalTo: guide.topAnchor),
+            guide.bottomAnchor.constraint(equalTo: labelStack.bottomAnchor),
+            labelStack.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+            guide.trailingAnchor.constraint(equalTo: labelStack.trailingAnchor)
         ])
     }
 
     override internal func prepareForReuse() {
         super.prepareForReuse()
-        label.text = nil
+        nameLabel.text = nil
+        descriptionLabel.text = nil
+        descriptionLabel.isHidden = true
     }
 
     internal func configure(with example: ExampleViewModelType) {
-        label.text = example.name
+        nameLabel.text = example.name
+        descriptionLabel.text = example.description
+        descriptionLabel.isHidden = example.description == nil
     }
 }
