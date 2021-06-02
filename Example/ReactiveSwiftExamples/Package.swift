@@ -13,6 +13,7 @@ let package = Package(
     dependencies: [
         .package(name: "SectionKit", path: "../../"),
         .package(name: "Utilities", path: "Utilities"),
+        .package(name: "ReactiveCocoa", url: "git@github.com:ReactiveCocoa/ReactiveCocoa.git", from: "11.2.1"),
         .package(name: "ReactiveSwift", url: "git@github.com:ReactiveCocoa/ReactiveSwift.git", from: "6.6.0")
     ],
     targets: [
@@ -21,6 +22,7 @@ let package = Package(
             dependencies: [
                 .product(name: "SectionKit", package: "SectionKit"),
                 .product(name: "Utilities", package: "Utilities"),
+                .product(name: "ReactiveCocoa", package: "ReactiveCocoa"),
                 .product(name: "ReactiveSwift", package: "ReactiveSwift")
             ]
         ),

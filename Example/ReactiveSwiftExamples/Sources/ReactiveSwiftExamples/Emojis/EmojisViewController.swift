@@ -1,8 +1,9 @@
 import UIKit
+import ReactiveSwift
 import SectionKit
 
-internal final class ColorsViewController: UIViewController {
-    private let viewModel: ColorsViewModelType
+internal final class EmojisViewController: UIViewController {
+    private let viewModel: EmojisViewModelType
 
     private var collectionViewAdapter: CollectionViewAdapter!
 
@@ -15,7 +16,7 @@ internal final class ColorsViewController: UIViewController {
         return collectionView
     }()
 
-    internal init(viewModel: ColorsViewModelType) {
+    internal init(viewModel: EmojisViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,16 +33,26 @@ internal final class ColorsViewController: UIViewController {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .refresh,
+            target: self,
+            action: #selector(shufflePressed)
+        )
         let sectionModel = viewModel
         collectionViewAdapter = SingleSectionCollectionViewAdapter(
             viewController: self,
             collectionView: collectionView,
             section: Section(
-                id: "colors",
+                id: "emojis",
                 model: sectionModel,
-                controller: ColorsSectionController(model: sectionModel)
+                controller: EmojisSectionController(model: sectionModel)
             )
         )
+    }
+
+    @objc
+    private func shufflePressed() {
+        viewModel.shufflePressedObserver.send(value: ())
     }
 
     override internal func viewWillAppear(_ animated: Bool) {

@@ -1,5 +1,5 @@
-import UIKit
 import SectionKit
+import UIKit
 
 internal final class NumbersSectionController: ListSectionController<NumbersSectionViewModelType, Int> {
     override internal func items(for model: NumbersSectionViewModelType) -> [Int] {

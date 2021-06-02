@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "ReactiveCocoa",
+        "repositoryURL": "git@github.com:ReactiveCocoa/ReactiveCocoa.git",
+        "state": {
+          "branch": null,
+          "revision": "376f98e9341bfe4daba01909d51acf47fde456d7",
+          "version": "11.2.1"
+        }
+      },
+      {
         "package": "ReactiveSwift",
         "repositoryURL": "git@github.com:ReactiveCocoa/ReactiveSwift.git",
         "state": {

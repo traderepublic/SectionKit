@@ -36,24 +36,18 @@ internal final class ExampleListViewController: UIViewController {
         collectionViewAdapter = ListCollectionViewAdapter(
             viewController: self,
             collectionView: collectionView,
-            dataSource: self
+            sections: viewModel.sections.map { model in
+                Section(
+                    id: model.sectionId,
+                    model: model,
+                    controller: ExampleSectionController(model: model)
+                )
+            }
         )
     }
 
     override internal func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         deselectItems(in: collectionView, animated: animated)
-    }
-}
-
-extension ExampleListViewController: ListCollectionViewAdapterDataSource {
-    internal func sections(for adapter: CollectionViewAdapter) -> [Section] {
-        viewModel.sections.map { model in
-            Section(
-                id: model.sectionId,
-                model: model,
-                controller: ExampleSectionController(model: model)
-            )
-        }
     }
 }

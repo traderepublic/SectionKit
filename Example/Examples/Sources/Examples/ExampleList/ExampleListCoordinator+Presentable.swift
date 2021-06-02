@@ -36,11 +36,12 @@ extension ExampleListCoordinator: Presentable {
                 footer: "https://github.com/ReactiveCocoa/ReactiveSwift",
                 examples: [
                     ExampleViewModel(
-                        name: "Dummy",
-                        description: nil,
+                        name: "Emojis",
+                        description: "A SingleSectionCollectionViewAdapter that shows a single ListSectionController."
+                            + "It has a shuffle button and the ListSectionController is updated with a binding.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
-                            nextCoordinator: NumbersCoordinator(navigationController: navigationController)
+                            nextCoordinator: EmojisCoordinator(navigationController: navigationController)
                         )
                     )
                 ]

@@ -35,24 +35,18 @@ internal final class NumbersViewController: UIViewController {
         collectionViewAdapter = ListCollectionViewAdapter(
             viewController: self,
             collectionView: collectionView,
-            dataSource: self
+            sections: viewModel.sections.map {
+                Section(
+                    id: $0.sectionId,
+                    model: $0,
+                    controller: NumbersSectionController(model: $0)
+                )
+            }
         )
     }
 
     override internal func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         deselectItems(in: collectionView, animated: animated)
-    }
-}
-
-extension NumbersViewController: ListCollectionViewAdapterDataSource {
-    internal func sections(for adapter: CollectionViewAdapter) -> [Section] {
-        viewModel.sections.map {
-            Section(
-                id: $0.sectionId,
-                model: $0,
-                controller: NumbersSectionController(model: $0)
-            )
-        }
     }
 }

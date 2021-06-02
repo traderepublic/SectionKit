@@ -1,5 +1,5 @@
-import UIKit
 import SectionKit
+import UIKit
 
 internal final class ColorsSectionController: ListSectionController<ColorsViewModelType, UIColor> {
     override internal func items(for model: ColorsViewModelType) -> [UIColor] {
