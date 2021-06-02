@@ -17,7 +17,7 @@ open class MockViewController: UIViewController {
         completion?()
     }
 
-    open override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+    override open func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         events.append(.dismiss(animated: flag))
         completion?()
     }
