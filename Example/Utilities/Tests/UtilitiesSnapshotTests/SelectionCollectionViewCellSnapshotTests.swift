@@ -26,4 +26,20 @@ final class SelectionCollectionViewCellSnapshotTests: XCTestCase {
         cell.isSelected = true
         assertSnapshot(matching: cell, as: .image(size: CGSize(width: 50, height: 50)))
     }
+
+    func testCornerRadiusAffectsBackgroundColor() {
+        let cell = SelectionCollectionViewCell()
+        cell.cornerRadius = 8
+        cell.backgroundColor = .red
+        assertSnapshot(matching: cell, as: .image(size: CGSize(width: 50, height: 50)))
+
+    }
+
+    func testCornerRadiusAffectsSelectedBackgroundColor() {
+        let cell = SelectionCollectionViewCell()
+        cell.cornerRadius = 8
+        cell.selectedBackgroundColor = .red
+        cell.isSelected = true
+        assertSnapshot(matching: cell, as: .image(size: CGSize(width: 50, height: 50)))
+    }
 }
