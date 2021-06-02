@@ -13,7 +13,7 @@ let package = Package(
     dependencies: [
         .package(name: "SectionKit", path: "../../"),
         .package(name: "Utilities", path: "Utilities"),
-        .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0")
+        .package(name: "SnapshotTesting", url: "git@github.com:pointfreeco/swift-snapshot-testing.git", from: "1.9.0")
     ],
     targets: [
         .target(
@@ -21,13 +21,6 @@ let package = Package(
             dependencies: [
                 .product(name: "SectionKit", package: "SectionKit"),
                 .product(name: "Utilities", package: "Utilities")
-            ]
-        ),
-        .testTarget(
-            name: "VanillaSwiftExamplesTests",
-            dependencies: [
-                "VanillaSwiftExamples",
-                .product(name: "TestUtilities", package: "Utilities")
             ]
         ),
         .testTarget(

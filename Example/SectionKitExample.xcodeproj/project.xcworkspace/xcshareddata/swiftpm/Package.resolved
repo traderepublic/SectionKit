@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "DifferenceKit",
-        "repositoryURL": "https://github.com/ra1028/DifferenceKit",
+        "repositoryURL": "git@github.com:ra1028/DifferenceKit",
         "state": {
           "branch": null,
           "revision": "62745d7780deef4a023a792a1f8f763ec7bf9705",
@@ -30,7 +30,7 @@
       },
       {
         "package": "SnapshotTesting",
-        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing.git",
+        "repositoryURL": "git@github.com:pointfreeco/swift-snapshot-testing.git",
         "state": {
           "branch": null,
           "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
