@@ -22,8 +22,6 @@ internal final class ExampleSectionController: ListSectionController<
         items[indexPath.indexInSectionController].didSelect()
     }
 
-    // MARK: - Header
-
     override internal func headerView(
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
@@ -32,8 +30,6 @@ internal final class ExampleSectionController: ListSectionController<
         headerView.configure(with: model)
         return headerView
     }
-
-    // MARK: - Footer
 
     override internal func footerView(
         at indexPath: SectionIndexPath,
