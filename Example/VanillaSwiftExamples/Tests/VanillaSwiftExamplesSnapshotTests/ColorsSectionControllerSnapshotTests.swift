@@ -5,13 +5,15 @@ import XCTest
 
 final class ColorsSectionControllerSnapshotTests: XCTestCase {
     func testDefaultViewModel() {
-        let model = ColorsViewModel(colors: [.red, .green, .blue], navigation: MockColorsSectionNavigation())
+        let model = MockColorsViewModel()
         let sectionController = ColorsSectionController(model: model)
         let container = SectionSnapshotContainer(sectionController: sectionController, width: 375)
         assertSnapshot(matching: container, as: .image(size: container.intrinsicContentSize))
     }
 }
 
-private struct MockColorsSectionNavigation: ColorsNavigation {
-    func show(color: UIColor) { }
+private struct MockColorsViewModel: ColorsViewModelType {
+    let title = ""
+    let colors: [UIColor] = [.red, .green, .blue]
+    func select(color: UIColor) { }
 }

@@ -3,28 +3,7 @@ import Utilities
 
 extension ColorsCoordinator: Presentable {
     private func makeViewController() -> UIViewController {
-        let viewModel = ColorsViewModel(
-            colors: [
-                .systemYellow,
-                .systemOrange,
-                .systemRed,
-                .systemPink,
-                .systemPurple,
-                .systemIndigo,
-                .systemTeal,
-                .systemBlue,
-                .systemGreen,
-                .white,
-                .systemGray,
-                .systemGray2,
-                .systemGray3,
-                .systemGray4,
-                .systemGray5,
-                .systemGray6,
-                .black
-            ],
-            navigation: self
-        )
+        let viewModel = ColorsViewModel(navigation: self)
         return ColorsViewController(viewModel: viewModel)
     }
 

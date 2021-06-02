@@ -20,10 +20,27 @@ internal struct ColorsViewModel: ColorsViewModelType {
     private let navigation: ColorsNavigation
 
     internal let title = "Colors"
-    internal let colors: [UIColor]
+    internal let colors: [UIColor] = [
+        .systemYellow,
+        .systemOrange,
+        .systemRed,
+        .systemPink,
+        .systemPurple,
+        .systemIndigo,
+        .systemTeal,
+        .systemBlue,
+        .systemGreen,
+        .white,
+        .systemGray,
+        .systemGray2,
+        .systemGray3,
+        .systemGray4,
+        .systemGray5,
+        .systemGray6,
+        .black
+    ]
 
-    internal init(colors: [UIColor], navigation: ColorsNavigation) {
-        self.colors = colors
+    internal init(navigation: ColorsNavigation) {
         self.navigation = navigation
     }
 
