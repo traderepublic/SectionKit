@@ -27,12 +27,13 @@ An example would be the API for calculating updates to the `UICollectionView`: B
 but a subclass overrides the corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit). 
 Since that subclass is defined in a separate module, you don't need to import and include  `DifferenceKit` if you don't need animated updates.
 
+To see SectionKit in action please check out the [example project](Example).
+
 #### Contents:
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Overview](#overview)
-- [Concept](#concept)
 
 ## Installation
 
