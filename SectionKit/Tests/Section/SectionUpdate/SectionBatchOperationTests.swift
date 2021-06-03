@@ -8,53 +8,24 @@ internal final class SectionBatchOperationTests: XCTestCase {
         3
     ]
 
-    private let changes: Set<CollectionViewSectionChange> = [
-        .deleteItem(at: 0),
-        .deleteItem(at: 1),
-        .insertItem(at: 0),
-        .insertItem(at: 1),
-        .moveItem(at: 0, to: 1),
-        .moveItem(at: 1, to: 2),
-        .reloadItem(at: 0),
-        .reloadItem(at: 1)
-    ]
-
-    internal func testEquatable() {
-        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
-        XCTAssert(input == CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data))
-    }
-
     internal func testDeletes() {
-        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
-        let output = input.deletes
-        let expected = Set([0, 1])
-        XCTAssertEqual(output, expected)
+        let input = CollectionViewSectionBatchOperation<[Int]>(data: data, deletes: [0, 1])
+        XCTAssertEqual(input.deletes, [0, 1])
     }
 
     internal func testInserts() {
-        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
-        let output = input.inserts
-        let expected = Set([0, 1])
-        XCTAssertEqual(output, expected)
+        let input = CollectionViewSectionBatchOperation<[Int]>(data: data, inserts: [0, 1])
+        XCTAssertEqual(input.inserts, [0, 1])
     }
 
     internal func testMoves() {
-        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
-        let output = input.moves
-
-        let expected = Set([
-            Move(at: 0, to: 1),
-            Move(at: 1, to: 2)
-        ])
-
-        XCTAssertEqual(output, expected)
+        let moves: Set<Move> = [Move(at: 0, to: 1), Move(at: 1, to: 2)]
+        let input = CollectionViewSectionBatchOperation<[Int]>(data: data, moves: moves)
+        XCTAssertEqual(input.moves, moves)
     }
 
     internal func testReloads() {
-        let input = CollectionViewSectionBatchOperation<[Int]>(changes: changes, data: data)
-        let output = input.reloads
-
-        let expected = Set([0, 1])
-        XCTAssertEqual(output, expected)
+        let input = CollectionViewSectionBatchOperation<[Int]>(data: data, reloads: [0, 1])
+        XCTAssertEqual(input.reloads, [0, 1])
     }
 }

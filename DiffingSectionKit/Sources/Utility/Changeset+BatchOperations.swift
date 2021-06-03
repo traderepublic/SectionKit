@@ -6,20 +6,13 @@ extension Changeset {
     /// Create a `CollectionViewBatchOperation` containing updates to the list of sections in the `UICollectionView`.
     @inlinable
     public var collectionBatchOperation: CollectionViewBatchOperation<Collection> {
-        var changes = Set<CollectionViewChange>()
-        for deletion in elementDeleted {
-            changes.insert(.deleteSection(at: deletion.element))
-        }
-        for insertion in elementInserted {
-            changes.insert(.insertSection(at: insertion.element))
-        }
-        for reload in elementUpdated {
-            changes.insert(.reloadSection(at: reload.element))
-        }
-        for (source, target) in elementMoved {
-            changes.insert(.moveSection(at: source.element, to: target.element))
-        }
-        return CollectionViewBatchOperation(changes: changes, data: data)
+        CollectionViewBatchOperation(
+            data: data,
+            deletes: Set(elementDeleted.map(\.element)),
+            inserts: Set(elementInserted.map(\.element)),
+            moves: Set(elementMoved.map { Move(at: $0.element, to: $1.element) }),
+            reloads: Set(elementUpdated.map(\.element))
+        )
     }
 
     /**
@@ -28,19 +21,12 @@ extension Changeset {
      */
     @inlinable
     public var sectionBatchOperation: CollectionViewSectionBatchOperation<Collection> {
-        var changes = Set<CollectionViewSectionChange>()
-        for deletion in elementDeleted {
-            changes.insert(.deleteItem(at: deletion.element))
-        }
-        for insertion in elementInserted {
-            changes.insert(.insertItem(at: insertion.element))
-        }
-        for reload in elementUpdated {
-            changes.insert(.reloadItem(at: reload.element))
-        }
-        for (source, target) in elementMoved {
-            changes.insert(.moveItem(at: source.element, to: target.element))
-        }
-        return CollectionViewSectionBatchOperation(changes: changes, data: data)
+        CollectionViewSectionBatchOperation(
+            data: data,
+            deletes: Set(elementDeleted.map(\.element)),
+            inserts: Set(elementInserted.map(\.element)),
+            moves: Set(elementMoved.map { Move(at: $0.element, to: $1.element) }),
+            reloads: Set(elementUpdated.map(\.element))
+        )
     }
 }

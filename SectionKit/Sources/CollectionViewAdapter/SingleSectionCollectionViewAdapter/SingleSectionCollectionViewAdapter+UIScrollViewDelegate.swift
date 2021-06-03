@@ -13,12 +13,16 @@ extension SingleSectionCollectionViewAdapter: UIScrollViewDelegate {
         scrollViewDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
 
-    open func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                        withVelocity velocity: CGPoint,
-                                        targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        scrollViewDelegate?.scrollViewWillEndDragging?(scrollView,
-                                                       withVelocity: velocity,
-                                                       targetContentOffset: targetContentOffset)
+    open func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        scrollViewDelegate?.scrollViewWillEndDragging?(
+            scrollView,
+            withVelocity: velocity,
+            targetContentOffset: targetContentOffset
+        )
     }
 
     open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -38,21 +42,23 @@ extension SingleSectionCollectionViewAdapter: UIScrollViewDelegate {
     }
 
     open func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return scrollViewDelegate?.viewForZooming?(in: scrollView)
+        scrollViewDelegate?.viewForZooming?(in: scrollView)
     }
 
     open func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
         scrollViewDelegate?.scrollViewWillBeginZooming?(scrollView, with: view)
     }
 
-    open func scrollViewDidEndZooming(_ scrollView: UIScrollView,
-                                      with view: UIView?,
-                                      atScale scale: CGFloat) {
+    open func scrollViewDidEndZooming(
+        _ scrollView: UIScrollView,
+        with view: UIView?,
+        atScale scale: CGFloat
+    ) {
         scrollViewDelegate?.scrollViewDidEndZooming?(scrollView, with: view, atScale: scale)
     }
 
     open func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        return scrollViewDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
+        scrollViewDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
     }
 
     open func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {

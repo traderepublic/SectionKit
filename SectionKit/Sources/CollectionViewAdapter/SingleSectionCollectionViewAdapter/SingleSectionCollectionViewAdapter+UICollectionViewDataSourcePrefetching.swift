@@ -8,7 +8,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSourcePrefetch
                 return
             }
             let sectionIndexPaths = indexPaths.map(SectionIndexPath.init)
-            dataSourcePrefetchingDelegate.prefetchItems(at: sectionIndexPaths)
+            dataSourcePrefetchingDelegate.prefetchItems(at: sectionIndexPaths, in: context)
         }
     }
 
@@ -18,7 +18,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSourcePrefetch
                 return
             }
             let sectionIndexPaths = indexPaths.map(SectionIndexPath.init)
-            dataSourcePrefetchingDelegate.cancelPrefetchingForItems(at: sectionIndexPaths)
+            dataSourcePrefetchingDelegate.cancelPrefetchingForItems(at: sectionIndexPaths, in: context)
         }
     }
 }

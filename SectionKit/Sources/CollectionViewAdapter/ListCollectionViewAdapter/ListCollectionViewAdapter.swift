@@ -20,19 +20,23 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
-    public init(viewController: UIViewController?,
-                collectionView: UICollectionView,
-                dataSource: ListCollectionViewAdapterDataSource?,
-                scrollViewDelegate: UIScrollViewDelegate? = nil) {
-        let collectionContext = MainCollectionViewContext(viewController: viewController,
-                                                          collectionView: collectionView)
-        self.collectionContext = collectionContext
+    public init(
+        viewController: UIViewController?,
+        collectionView: UICollectionView,
+        dataSource: ListCollectionViewAdapterDataSource?,
+        scrollViewDelegate: UIScrollViewDelegate? = nil
+    ) {
+        let context = MainCollectionViewContext(
+            viewController: viewController,
+            collectionView: collectionView
+        )
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSections = dataSource?.sections(for: self) ?? []
-        collectionViewSections.forEach { $0.controller.context = collectionContext }
+        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -57,18 +61,22 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
-    public init(viewController: UIViewController?,
-                collectionView: UICollectionView,
-                sections: [Section] = [],
-                scrollViewDelegate: UIScrollViewDelegate? = nil) {
-        let collectionContext = MainCollectionViewContext(viewController: viewController,
-                                                          collectionView: collectionView)
-        self.collectionContext = collectionContext
+    public init(
+        viewController: UIViewController?,
+        collectionView: UICollectionView,
+        sections: [Section] = [],
+        scrollViewDelegate: UIScrollViewDelegate? = nil
+    ) {
+        let context = MainCollectionViewContext(
+            viewController: viewController,
+            collectionView: collectionView
+        )
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSections = sections
-        collectionViewSections.forEach { $0.controller.context = collectionContext }
+        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -81,7 +89,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         }
     }
 
-    public let collectionContext: CollectionViewContext
+    public let context: CollectionViewContext
 
     open weak var scrollViewDelegate: UIScrollViewDelegate?
 
@@ -98,15 +106,12 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      if `UICollectionView` insertions and deletions are handled, otherwise use `sections` instead.
      */
     open var collectionViewSections: [Section] {
-        get {
-            return _collectionViewSections
-        }
-
+        get { _collectionViewSections }
         set {
             let uniqueSections = checkOrFilterDuplicateSectionIds(sections: newValue)
             _collectionViewSections.forEach { $0.controller.context = nil }
             _collectionViewSections = uniqueSections
-            uniqueSections.forEach { $0.controller.context = collectionContext }
+            uniqueSections.forEach { $0.controller.context = context }
         }
     }
 
@@ -143,26 +148,30 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 collectionViewSections = newValue
                 return
             }
-            collectionContext.apply(update: update)
+            context.apply(update: update)
         }
     }
 
     /**
      Calculate the `UICollectionView` events using the difference from the old to the new data.
      
-     - Parameter oldData: The old data currently displayed in the `UICollectionView`
+     - Parameter oldData: The old data that is currently displayed in the `UICollectionView`
      
      - Parameter newData: The new data that should be displayed in the `UICollectionView`
      
      - Returns: The update that should be performed on the `UICollectionView`
      */
-    open func calculateUpdate(from oldData: [Section],
-                              to newData: [Section]) -> CollectionViewUpdate<[Section]>? {
-        return CollectionViewUpdate(data: newData, setData: { [weak self] in self?.collectionViewSections = $0 })
+    open func calculateUpdate(
+        from oldData: [Section],
+        to newData: [Section]
+    ) -> CollectionViewUpdate<[Section]>? {
+        CollectionViewUpdate(data: newData, setData: { self.collectionViewSections = $0 })
     }
 
     open func invalidateDataSource() {
-        guard let dataSource = dataSource else { return }
+        guard let dataSource = dataSource else {
+            return
+        }
         sections = dataSource.sections(for: self)
     }
 }

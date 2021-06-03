@@ -1,7 +1,7 @@
 import Foundation
 
 extension Sequence {
-    @inlinable
+    @usableFromInline
     internal func group<U: Hashable>(by key: (Iterator.Element) -> U) -> [U: [Iterator.Element]] {
         var categories: [U: [Iterator.Element]] = [:]
         for element in self {

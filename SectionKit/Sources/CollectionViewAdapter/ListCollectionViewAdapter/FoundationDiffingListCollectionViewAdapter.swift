@@ -6,14 +6,22 @@ import Foundation
  */
 @available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
 open class FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter {
-    override open func calculateUpdate(from oldData: [Section],
-                                       to newData: [Section]) -> CollectionViewUpdate<[Section]> {
-        let difference = newData.map(\.id)
+    override open func calculateUpdate(
+        from oldData: [Section],
+        to newData: [Section]
+    ) -> CollectionViewUpdate<[Section]> {
+        let changes = newData.map(\.id)
             .difference(from: oldData.map(\.id))
             .inferringMoves()
-        return CollectionViewUpdate(changes: difference.collectionViewChanges,
-                                    data: newData,
-                                    setData: { [weak self] in self?.collectionViewSections = $0 },
-                                    shouldReload: { $0.changes.count > 100 })
+            .changes
+        return CollectionViewUpdate(
+            data: newData,
+            deletes: changes.deletes,
+            inserts: changes.inserts,
+            moves: changes.moves,
+            reloads: changes.reloads,
+            setData: { self.collectionViewSections = $0 },
+            shouldReload: { $0.count > 100 }
+        )
     }
 }

@@ -6,7 +6,7 @@ import UIKit
  */
 public protocol CollectionViewAdapter: AnyObject {
     /// An object providing contextual information.
-    var collectionContext: CollectionViewContext { get }
+    var context: CollectionViewContext { get }
 
     /// A delegate that receives callbacks from the `UIScrollView`.
     var scrollViewDelegate: UIScrollViewDelegate? { get set }
@@ -14,6 +14,6 @@ public protocol CollectionViewAdapter: AnyObject {
     /// The sections in the `UICollectionView`.
     var sections: [Section] { get }
 
-    /// Invalidate the current set of sections by requerying the `dataSource`.
+    /// Invalidate the current set of sections by querying the `dataSource` again.
     func invalidateDataSource()
 }

@@ -8,18 +8,6 @@ public protocol CollectionViewContext: AnyObject {
     /// The `UICollectionView` of this context.
     var collectionView: UICollectionView { get }
 
-    /// The size of the `UICollectionView`.
-    var containerSize: CGSize { get }
-
-    /// The insets of the content view from the safe area or scroll view edges.
-    var containerInset: UIEdgeInsets { get }
-
-    /// The insets derived from the content insets and the safe area of the scroll view.
-    var adjustedContainerInset: UIEdgeInsets { get }
-
-    /// The size of the `UICollectionView` inset by the `adjustedContainerInset`.
-    var insetContainerSize: CGSize { get }
-
     /**
      Apply an update to the items of the current section.
      
@@ -45,8 +33,10 @@ public protocol CollectionViewContext: AnyObject {
      
      - Returns: The dequeued cell for the given `IndexPath`.
      */
-    func dequeueReusableCell<Cell: UICollectionViewCell>(_ cellType: Cell.Type,
-                                                         for indexPath: IndexPath) -> Cell
+    func dequeueReusableCell<Cell: UICollectionViewCell>(
+        _ cellType: Cell.Type,
+        for indexPath: IndexPath
+    ) -> Cell
 
     /**
      Dequeue a reusable view to be used as a header with the given view type.
@@ -90,4 +80,52 @@ public protocol CollectionViewContext: AnyObject {
      the corresponding `SectionIndexPath`.
      */
     func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController?, SectionIndexPath)?
+}
+
+extension CollectionViewContext {
+    /**
+     Dequeue a reusable cell with the given cell type.
+
+     - Note: The cell type will get registered automatically if it's not already registered.
+
+     - Parameter indexPath: The `IndexPath` where the cell will be displayed.
+
+     - Returns: The dequeued cell for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableCell<Cell: UICollectionViewCell>(for indexPath: IndexPath) -> Cell {
+        dequeueReusableCell(Cell.self, for: indexPath)
+    }
+
+    /**
+     Dequeue a reusable view to be used as a header with the given view type.
+
+     - Note: The view type will get registered automatically if it's not already registered.
+
+     - Parameter indexPath: The `IndexPath` where the header will be displayed.
+
+     - Returns: The dequeued view for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableHeaderView<SupplementaryView: UICollectionReusableView>(
+        for indexPath: IndexPath
+    ) -> SupplementaryView {
+        dequeueReusableHeaderView(SupplementaryView.self, for: indexPath)
+    }
+
+    /**
+     Dequeue a reusable view to be used as a footer with the given view type.
+
+     - Note: The view type will get registered automatically if it's not already registered.
+
+     - Parameter indexPath: The `IndexPath` where the footer will be displayed.
+
+     - Returns: The dequeued view for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableFooterView<SupplementaryView: UICollectionReusableView>(
+        for indexPath: IndexPath
+    ) -> SupplementaryView {
+        dequeueReusableFooterView(SupplementaryView.self, for: indexPath)
+    }
 }

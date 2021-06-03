@@ -1,15 +1,11 @@
 import UIKit
 
 /**
- A `CollectionViewAdapter` that contains a list of sections.
-
- - Note: Every call to `invalidateDataSource` and subsequent change of the `sections` property will result in a call to
- `reloadData()` on the underlying `UICollectionView`. If animated updates should occur, please
- override `calculateUpdate(from:to:)`.
+ A `CollectionViewAdapter` that contains a single section.
  */
 open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
-     Initialize an instance of `ListCollectionAdapter` to use it as the datasource and
+     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -20,19 +16,23 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
-    public init(viewController: UIViewController?,
-                collectionView: UICollectionView,
-                dataSource: SingleSectionCollectionViewAdapterDataSource?,
-                scrollViewDelegate: UIScrollViewDelegate? = nil) {
-        let collectionContext = MainCollectionViewContext(viewController: viewController,
-                                                          collectionView: collectionView)
-        self.collectionContext = collectionContext
+    public init(
+        viewController: UIViewController?,
+        collectionView: UICollectionView,
+        dataSource: SingleSectionCollectionViewAdapterDataSource?,
+        scrollViewDelegate: UIScrollViewDelegate? = nil
+    ) {
+        let context = MainCollectionViewContext(
+            viewController: viewController,
+            collectionView: collectionView
+        )
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSection = dataSource?.section(for: self)
-        collectionViewSection?.controller.context = collectionContext
+        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -46,7 +46,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     /**
-     Initialize an instance of `ListCollectionAdapter` to use it as the datasource and
+     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -57,18 +57,22 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
-    public init(viewController: UIViewController?,
-                collectionView: UICollectionView,
-                section: Section? = nil,
-                scrollViewDelegate: UIScrollViewDelegate? = nil) {
-        let collectionContext = MainCollectionViewContext(viewController: viewController,
-                                                          collectionView: collectionView)
-        self.collectionContext = collectionContext
+    public init(
+        viewController: UIViewController?,
+        collectionView: UICollectionView,
+        section: Section? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil
+    ) {
+        let context = MainCollectionViewContext(
+            viewController: viewController,
+            collectionView: collectionView
+        )
+        self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        collectionContext.sectionAdapter = self
+        context.sectionAdapter = self
         collectionViewSection = section
-        collectionViewSection?.controller.context = collectionContext
+        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -81,7 +85,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         }
     }
 
-    public let collectionContext: CollectionViewContext
+    public let context: CollectionViewContext
 
     open weak var scrollViewDelegate: UIScrollViewDelegate?
 
@@ -96,12 +100,8 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
      if `UICollectionView` insertions and deletions are handled, otherwise use `section` instead.
      */
     open var collectionViewSection: Section? = nil {
-        willSet {
-            collectionViewSection?.controller.context = nil
-        }
-        didSet {
-            collectionViewSection?.controller.context = collectionContext
-        }
+        willSet { collectionViewSection?.controller.context = nil }
+        didSet { collectionViewSection?.controller.context = context }
     }
 
     /// The single section in the `UICollectionView`.
@@ -117,12 +117,14 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 collectionViewSection = newValue
                 return
             }
-            collectionContext.apply(update: update)
+            context.apply(update: update)
         }
     }
 
     open var sections: [Section] {
-        guard let section = section else { return [] }
+        guard let section = section else {
+            return []
+        }
         return [section]
     }
 
@@ -135,35 +137,43 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
 
      - Returns: The update that should be performed on the `UICollectionView`
      */
-    open func calculateUpdate(from oldData: Section?,
-                              to newData: Section?) -> CollectionViewUpdate<Section?>? {
-        let changes: Set<CollectionViewChange>
+    open func calculateUpdate(
+        from oldData: Section?,
+        to newData: Section?
+    ) -> CollectionViewUpdate<Section?>? {
+        var deletes: Set<Int> = []
+        var inserts: Set<Int> = []
+        var reloads: Set<Int> = []
         switch (oldData, newData) {
         case let (.some(oldSection), .some(newSection)):
             // only check for id since we do not want to reload a section that already exists in the collection view
             // changes to the section will instead be handled by the sectioncontroller
-            if oldSection.id == newSection.id {
-                changes = []
-            } else {
-                changes = [.reloadSection(at: 0)]
+            if oldSection.id != newSection.id {
+                reloads = [0]
             }
 
         case (.some, .none):
-            changes = [.deleteSection(at: 0)]
+            deletes = [0]
 
         case (.none, .some):
-            changes = [.insertSection(at: 0)]
+            inserts = [0]
 
         case (.none, .none):
-            changes = []
+            break
         }
-        return CollectionViewUpdate(changes: changes,
-                                    data: newData,
-                                    setData: { [weak self] in self?.collectionViewSection = $0 })
+        return CollectionViewUpdate(
+            data: newData,
+            deletes: deletes,
+            inserts: inserts,
+            reloads: reloads,
+            setData: { self.collectionViewSection = $0 }
+        )
     }
 
     open func invalidateDataSource() {
-        guard let dataSource = dataSource else { return }
+        guard let dataSource = dataSource else {
+            return
+        }
         section = dataSource.section(for: self)
     }
 }
