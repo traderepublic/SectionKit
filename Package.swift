@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -12,20 +12,28 @@ let package = Package(
         .library(name: "DiffingSectionKit", targets: ["DiffingSectionKit"])
     ],
     dependencies: [
-        .package(url: "https://github.com/ra1028/DifferenceKit", from: "1.1.5")
+        .package(name: "DifferenceKit", url: "git@github.com:ra1028/DifferenceKit", from: "1.1.5")
     ],
     targets: [
-        .target(name: "SectionKit",
-                path: "SectionKit/Sources"),
-        .testTarget(name: "SectionKitTests",
-                    dependencies: ["SectionKit"],
-                    path: "SectionKit/Tests"),
-        .target(name: "DiffingSectionKit",
-                dependencies: ["SectionKit", "DifferenceKit"],
-                path: "DiffingSectionKit/Sources"),
-        .testTarget(name: "DiffingSectionKitTests",
-                    dependencies: ["DiffingSectionKit"],
-                    path: "DiffingSectionKit/Tests")
+        .target(name: "SectionKit", path: "SectionKit/Sources"),
+        .testTarget(
+            name: "SectionKitTests",
+            dependencies: ["SectionKit"],
+            path: "SectionKit/Tests"
+        ),
+        .target(
+            name: "DiffingSectionKit",
+            dependencies: [
+                "SectionKit",
+                .product(name: "DifferenceKit", package: "DifferenceKit")
+            ],
+            path: "DiffingSectionKit/Sources"
+        ),
+        .testTarget(
+            name: "DiffingSectionKitTests",
+            dependencies: ["DiffingSectionKit"],
+            path: "DiffingSectionKit/Tests"
+        )
     ],
     swiftLanguageVersions: [
         .v5

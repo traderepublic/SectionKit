@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DifferenceKit",
+        "repositoryURL": "git@github.com:ra1028/DifferenceKit",
+        "state": {
+          "branch": null,
+          "revision": "62745d7780deef4a023a792a1f8f763ec7bf9705",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "ReactiveCocoa",
+        "repositoryURL": "git@github.com:ReactiveCocoa/ReactiveCocoa.git",
+        "state": {
+          "branch": null,
+          "revision": "376f98e9341bfe4daba01909d51acf47fde456d7",
+          "version": "11.2.1"
+        }
+      },
+      {
+        "package": "ReactiveSwift",
+        "repositoryURL": "git@github.com:ReactiveCocoa/ReactiveSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "4a8e1e4a683e96daf658f68132dae781738bc862",
+          "version": "6.6.0"
+        }
+      },
+      {
+        "package": "SnapshotTesting",
+        "repositoryURL": "git@github.com:pointfreeco/swift-snapshot-testing.git",
+        "state": {
+          "branch": null,
+          "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
+          "version": "1.9.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
