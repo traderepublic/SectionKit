@@ -13,6 +13,7 @@ internal final class ExampleListViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout.list(using: config)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
 

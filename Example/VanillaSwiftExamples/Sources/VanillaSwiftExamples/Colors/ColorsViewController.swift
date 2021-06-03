@@ -12,6 +12,7 @@ internal final class ColorsViewController: UIViewController {
         layout.minimumLineSpacing = .zero
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
+        collectionView.alwaysBounceVertical = true
         return collectionView
     }()
 
