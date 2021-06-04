@@ -13,7 +13,7 @@ internal final class ExampleSectionController: ListSectionController<
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
-        let cell: ExampleCell = context.dequeueReusableCell(for: indexPath.indexInCollectionView)
+        let cell: ExampleCell = context.dequeueReusableCell(for: indexPath)
         cell.configure(with: items[indexPath.indexInSectionController])
         return cell
     }
@@ -26,7 +26,7 @@ internal final class ExampleSectionController: ListSectionController<
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        let headerView: ExampleSectionHeaderView = context.dequeueReusableHeaderView(for: indexPath.indexInCollectionView)
+        let headerView: ExampleSectionHeaderView = context.dequeueReusableHeaderView(for: indexPath)
         headerView.configure(with: model)
         return headerView
     }
@@ -35,7 +35,7 @@ internal final class ExampleSectionController: ListSectionController<
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        let footerView: ExampleSectionFooterView = context.dequeueReusableFooterView(for: indexPath.indexInCollectionView)
+        let footerView: ExampleSectionFooterView = context.dequeueReusableFooterView(for: indexPath)
         footerView.configure(with: model)
         return footerView
     }
