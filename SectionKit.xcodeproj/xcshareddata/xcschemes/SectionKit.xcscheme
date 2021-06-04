@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "9999"
+   LastUpgradeVersion = "1250"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,21 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SectionKit::DiffingSectionKit"
-               BuildableName = "DiffingSectionKit.framework"
-               BlueprintName = "DiffingSectionKit"
-               ReferencedContainer = "container:SectionKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SectionKit::SectionKit"
+               BlueprintIdentifier = "5AE1754A2667D60000D4DCE1"
                BuildableName = "SectionKit.framework"
                BlueprintName = "SectionKit"
                ReferencedContainer = "container:SectionKit.xcodeproj">
@@ -46,19 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SectionKit::SectionKitTests"
+               BlueprintIdentifier = "5AE175532667D60000D4DCE1"
                BuildableName = "SectionKitTests.xctest"
                BlueprintName = "SectionKitTests"
-               ReferencedContainer = "container:SectionKit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SectionKit::DiffingSectionKitTests"
-               BuildableName = "DiffingSectionKitTests.xctest"
-               BlueprintName = "DiffingSectionKitTests"
                ReferencedContainer = "container:SectionKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -81,6 +57,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5AE1754A2667D60000D4DCE1"
+            BuildableName = "SectionKit.framework"
+            BlueprintName = "SectionKit"
+            ReferencedContainer = "container:SectionKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
