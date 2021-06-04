@@ -3,6 +3,9 @@ ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "10"
 
 lane :unittest do
 	scan(
-	  scheme: "SectionKit-Package"
+	  scheme: "SectionKit"
+	)
+	scan(
+	  scheme: "DiffingSectionKit"
 	)
 end

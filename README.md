@@ -27,12 +27,13 @@ An example would be the API for calculating updates to the `UICollectionView`: B
 but a subclass overrides the corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit). 
 Since that subclass is defined in a separate module, you don't need to import and include  `DifferenceKit` if you don't need animated updates.
 
+To see SectionKit in action please check out the [example project](Example).
+
 #### Contents:
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Overview](#overview)
-- [Concept](#concept)
 
 ## Installation
 
@@ -114,15 +115,15 @@ class FirstSectionController: ListSectionController<FirstSectionModel, String> {
         model.items
     }
 
-    override func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
+    override func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
         // cell types are automatically registered when dequeuing
-        let cell = context!.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
+        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
         cell.label.text = items[indexPath.indexInSectionController]
         return cell
     }
 
-    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout) -> CGSize {
-        CGSize(width: context!.containerSize.width, height: 50)
+    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGSize {
+        CGSize(width: context.containerSize.width, height: 50)
     }
 }
 
@@ -131,15 +132,15 @@ class SecondSectionController: SingleItemSectionController<SecondSectionModel, S
         model.item
     }
 
-    override func cellForItem(at indexPath: SectionIndexPath) -> UICollectionViewCell {
+    override func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
         // cell types are automatically registered when dequeuing
-        let cell = context!.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
+        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
         cell.label.text = item
         return cell
     }
 
-    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout) -> CGSize {
-        CGSize(width: context!.containerSize.width, height: 50)
+    override func sizeForItem(at indexPath: SectionIndexPath, using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGSize {
+        CGSize(width: context.containerSize.width, height: 50)
     }
 }
 ```
