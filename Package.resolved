@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "DifferenceKit",
-        "repositoryURL": "git@github.com:ra1028/DifferenceKit",
+        "repositoryURL": "https://github.com/ra1028/DifferenceKit.git",
         "state": {
           "branch": null,
-          "revision": "14c66681e12a38b81045f44c6c29724a0d4b0e72",
-          "version": "1.1.5"
+          "revision": "62745d7780deef4a023a792a1f8f763ec7bf9705",
+          "version": "1.2.0"
         }
       }
     ]

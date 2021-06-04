@@ -10,7 +10,7 @@ internal final class NumbersSectionController: ListSectionController<NumbersSect
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
-        let cell: NumberCell = context.dequeueReusableCell(for: indexPath.indexInCollectionView)
+        let cell: NumberCell = context.dequeueReusableCell(for: indexPath)
         cell.number = items[indexPath.indexInSectionController]
         return cell
     }

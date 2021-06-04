@@ -98,6 +98,39 @@ extension CollectionViewContext {
     }
 
     /**
+     Dequeue a reusable cell with the given cell type.
+
+     - Note: The cell type will get registered automatically if it's not already registered.
+
+     - Parameter cellType: The type of cell to dequeue.
+
+     - Parameter indexPath: The `IndexPath` where the cell will be displayed.
+
+     - Returns: The dequeued cell for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableCell<Cell: UICollectionViewCell>(
+        _ cellType: Cell.Type,
+        for indexPath: SectionIndexPath
+    ) -> Cell {
+        dequeueReusableCell(cellType, for: indexPath.indexInCollectionView)
+    }
+
+    /**
+     Dequeue a reusable cell with the given cell type.
+
+     - Note: The cell type will get registered automatically if it's not already registered.
+
+     - Parameter indexPath: The `IndexPath` where the cell will be displayed.
+
+     - Returns: The dequeued cell for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableCell<Cell: UICollectionViewCell>(for indexPath: SectionIndexPath) -> Cell {
+        dequeueReusableCell(Cell.self, for: indexPath.indexInCollectionView)
+    }
+
+    /**
      Dequeue a reusable view to be used as a header with the given view type.
 
      - Note: The view type will get registered automatically if it's not already registered.
@@ -114,6 +147,41 @@ extension CollectionViewContext {
     }
 
     /**
+     Dequeue a reusable view to be used as a header with the given view type.
+
+     - Note: The view type will get registered automatically if it's not already registered.
+
+     - Parameter viewType: The type of view to dequeue.
+
+     - Parameter indexPath: The `IndexPath` where the header will be displayed.
+
+     - Returns: The dequeued view for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableHeaderView<SupplementaryView: UICollectionReusableView>(
+        _ viewType: SupplementaryView.Type,
+        for indexPath: SectionIndexPath
+    ) -> SupplementaryView {
+        dequeueReusableHeaderView(viewType, for: indexPath.indexInCollectionView)
+    }
+
+    /**
+     Dequeue a reusable view to be used as a header with the given view type.
+
+     - Note: The view type will get registered automatically if it's not already registered.
+
+     - Parameter indexPath: The `IndexPath` where the header will be displayed.
+
+     - Returns: The dequeued view for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableHeaderView<SupplementaryView: UICollectionReusableView>(
+        for indexPath: SectionIndexPath
+    ) -> SupplementaryView {
+        dequeueReusableHeaderView(SupplementaryView.self, for: indexPath.indexInCollectionView)
+    }
+
+    /**
      Dequeue a reusable view to be used as a footer with the given view type.
 
      - Note: The view type will get registered automatically if it's not already registered.
@@ -127,5 +195,40 @@ extension CollectionViewContext {
         for indexPath: IndexPath
     ) -> SupplementaryView {
         dequeueReusableFooterView(SupplementaryView.self, for: indexPath)
+    }
+
+    /**
+     Dequeue a reusable view to be used as a footer with the given view type.
+
+     - Note: The view type will get registered automatically if it's not already registered.
+
+     - Parameter viewType: The type of view to dequeue.
+
+     - Parameter indexPath: The `IndexPath` where the footer will be displayed.
+
+     - Returns: The dequeued view for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableFooterView<SupplementaryView: UICollectionReusableView>(
+        _ viewType: SupplementaryView.Type,
+        for indexPath: SectionIndexPath
+    ) -> SupplementaryView {
+        dequeueReusableFooterView(viewType, for: indexPath.indexInCollectionView)
+    }
+
+    /**
+     Dequeue a reusable view to be used as a footer with the given view type.
+
+     - Note: The view type will get registered automatically if it's not already registered.
+
+     - Parameter indexPath: The `IndexPath` where the footer will be displayed.
+
+     - Returns: The dequeued view for the given `IndexPath`.
+     */
+    @inlinable
+    public func dequeueReusableFooterView<SupplementaryView: UICollectionReusableView>(
+        for indexPath: SectionIndexPath
+    ) -> SupplementaryView {
+        dequeueReusableFooterView(SupplementaryView.self, for: indexPath.indexInCollectionView)
     }
 }
