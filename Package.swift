@@ -12,14 +12,23 @@ let package = Package(
         .library(name: "DiffingSectionKit", targets: ["DiffingSectionKit"])
     ],
     dependencies: [
-        .package(name: "DifferenceKit", url: "git@github.com:ra1028/DifferenceKit", from: "1.1.5")
+        .package(name: "DifferenceKit", url: "https://github.com/ra1028/DifferenceKit.git", from: "1.1.5")
     ],
     targets: [
-        .target(name: "SectionKit", path: "SectionKit/Sources"),
+        .target(
+            name: "SectionKit",
+            path: "SectionKit/Sources",
+            exclude: [
+                "Info.plist"
+            ]
+        ),
         .testTarget(
             name: "SectionKitTests",
             dependencies: ["SectionKit"],
-            path: "SectionKit/Tests"
+            path: "SectionKit/Tests",
+            exclude: [
+                "Info.plist"
+            ]
         ),
         .target(
             name: "DiffingSectionKit",
@@ -27,12 +36,18 @@ let package = Package(
                 "SectionKit",
                 .product(name: "DifferenceKit", package: "DifferenceKit")
             ],
-            path: "DiffingSectionKit/Sources"
+            path: "DiffingSectionKit/Sources",
+            exclude: [
+                "Info.plist"
+            ]
         ),
         .testTarget(
             name: "DiffingSectionKitTests",
             dependencies: ["DiffingSectionKit"],
-            path: "DiffingSectionKit/Tests"
+            path: "DiffingSectionKit/Tests",
+            exclude: [
+                "Info.plist"
+            ]
         )
     ],
     swiftLanguageVersions: [
