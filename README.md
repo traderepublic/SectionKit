@@ -117,7 +117,7 @@ class FirstSectionController: ListSectionController<FirstSectionModel, String> {
 
     override func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
         // cell types are automatically registered when dequeuing
-        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
+        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath)
         cell.label.text = items[indexPath.indexInSectionController]
         return cell
     }
@@ -134,7 +134,7 @@ class SecondSectionController: SingleItemSectionController<SecondSectionModel, S
 
     override func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
         // cell types are automatically registered when dequeuing
-        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath.indexInCollectionView)
+        let cell = context.dequeueReusableCell(StringCell.self, for: indexPath)
         cell.label.text = item
         return cell
     }
