@@ -14,12 +14,12 @@ internal final class ExampleSectionController: ListSectionController<
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
         let cell: ExampleCell = context.dequeueReusableCell(for: indexPath)
-        cell.configure(with: items[indexPath.indexInSectionController])
+        cell.configure(with: items[indexPath])
         return cell
     }
 
     override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
-        items[indexPath.indexInSectionController].didSelect()
+        items[indexPath].didSelect()
     }
 
     override internal func headerView(

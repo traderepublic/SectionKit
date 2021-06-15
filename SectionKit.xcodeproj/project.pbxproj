@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */; };
 		5AE175552667D60000D4DCE1 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE1754B2667D60000D4DCE1 /* SectionKit.framework */; };
 		5AE175DE2667DA3F00D4DCE1 /* Sequence+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A22667DA3E00D4DCE1 /* Sequence+Unique.swift */; };
 		5AE175DF2667DA3F00D4DCE1 /* CollectionDifference+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A32667DA3E00D4DCE1 /* CollectionDifference+Changes.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SectionIndexPath.swift"; sourceTree = "<group>"; };
 		5AE1754B2667D60000D4DCE1 /* SectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE1754F2667D60000D4DCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE175542667D60000D4DCE1 /* SectionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 				5AE175A62667DA3E00D4DCE1 /* Sequence+Group.swift */,
 				5AE175A72667DA3E00D4DCE1 /* UICollectionView+Apply.swift */,
 				5AE175A82667DA3E00D4DCE1 /* Collection+Extensions.swift */,
+				5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				5AE175FD2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */,
 				5AE176092667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
 				5AE1760C2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
+				5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */,
 				5AE175FA2667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewUpdate.swift in Sources */,
 				5AE175E72667DA3F00D4DCE1 /* SectionFlowDelegate.swift in Sources */,
 				5AE175E32667DA3F00D4DCE1 /* UICollectionView+Apply.swift in Sources */,
