@@ -67,7 +67,7 @@ extension ManualDiffingListSectionController where Item: Equatable {
     }
 }
 
-@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension ManualDiffingListSectionController where Item: Identifiable {
     /**
      Initialize an instance of `ManualDiffingListSectionController`.
@@ -87,7 +87,7 @@ extension ManualDiffingListSectionController where Item: Identifiable {
  we can still call the init without specifying the parameters, but since the init is similar to
  the base init (apart from the default values), we have to specify `@_disfavoredOverload` so it doesn't call itself.
  */
-@available(OSX 10.15, iOS 13, tvOS 13, watchOS 6, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension ManualDiffingListSectionController where Item: Identifiable & Equatable {
     /**
      Initialize an instance of `ManualDiffingListSectionController`.

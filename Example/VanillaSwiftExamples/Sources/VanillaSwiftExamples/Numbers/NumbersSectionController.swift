@@ -11,7 +11,7 @@ internal final class NumbersSectionController: ListSectionController<NumbersSect
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
         let cell: NumberCell = context.dequeueReusableCell(for: indexPath)
-        cell.number = items[indexPath.indexInSectionController]
+        cell.number = items[indexPath]
         return cell
     }
 
@@ -24,7 +24,7 @@ internal final class NumbersSectionController: ListSectionController<NumbersSect
     }
 
     override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
-        model.select(number: items[indexPath.indexInSectionController])
+        model.select(number: items[indexPath])
         context.collectionView.deselectItem(at: indexPath.indexInCollectionView, animated: true)
     }
 }

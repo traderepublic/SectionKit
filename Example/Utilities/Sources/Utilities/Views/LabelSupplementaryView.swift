@@ -31,7 +31,7 @@ open class LabelSupplementaryView: UICollectionReusableView {
             label.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
             layoutMarginsGuide.bottomAnchor.constraint(equalTo: label.bottomAnchor),
             label.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            layoutMarginsGuide.trailingAnchor.constraint(equalTo: label.trailingAnchor),
+            layoutMarginsGuide.trailingAnchor.constraint(equalTo: label.trailingAnchor)
         ])
     }
 
