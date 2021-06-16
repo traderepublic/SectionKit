@@ -14,7 +14,7 @@ internal final class EmojisSectionController: BindingListSectionController<Emoji
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
         let cell: LabelCell = context.dequeueReusableCell(for: indexPath)
-        cell.label.text = items[indexPath.indexInSectionController]
+        cell.label.text = items[indexPath]
         return cell
     }
 

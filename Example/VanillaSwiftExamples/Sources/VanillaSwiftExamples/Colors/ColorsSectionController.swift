@@ -11,7 +11,7 @@ internal final class ColorsSectionController: ListSectionController<ColorsViewMo
         in context: CollectionViewContext
     ) -> UICollectionViewCell {
         let cell: ColorCell = context.dequeueReusableCell(for: indexPath)
-        cell.color = items[indexPath.indexInSectionController]
+        cell.color = items[indexPath]
         return cell
     }
 
@@ -24,6 +24,6 @@ internal final class ColorsSectionController: ListSectionController<ColorsViewMo
     }
 
     override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
-        model.select(color: items[indexPath.indexInSectionController])
+        model.select(color: items[indexPath])
     }
 }
