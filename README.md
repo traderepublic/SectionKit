@@ -1,8 +1,13 @@
 <p align="center">
-    <a href="https://github.com/traderepublic/tr-sectionkit/"><img src="Resources/SectionKit.png" alt="SectionKit" /></a>
+    <a href="https://github.com/traderepublic/tr-sectionkit"><img src="Resources/SectionKit.svg" alt="SectionKit" width="66%"/></a>
+    <br><br>
+    <a href="https://github.com/traderepublic/tr-sectionkit/actions"><img src="https://github.com/traderepublic/tr-sectionkit/workflows/Unit%20Tests/badge.svg" alt="Unit Tests"/></a>
+    <a href="#swift-package-manager"><img src="https://img.shields.io/badge/SwiftPM-compatible-orange.svg" alt="SwiftPM compatible"/></a>
+    <a href="#carthage"><img src="https://img.shields.io/badge/Carthage-compatible-orange.svg" alt="Carthage compatible"/></a>
+    <a href="https://github.com/traderepublic/tr-sectionkit/releases"><img src="https://img.shields.io/github/release/traderepublic/tr-sectionkit.svg" alt="Release"/></a>
 </p>
 
-[![Unit Tests](https://github.com/traderepublic/tr-sectionkit/workflows/Unit%20Tests/badge.svg)](https://github.com/traderepublic/tr-sectionkit/actions)
+
 
 Using **SectionKit** each section in a `UICollectionView` is implemented separately, so the required code is very short and maintainable.
 Sections can be combined like building blocks to build very complex layouts. 
@@ -46,9 +51,28 @@ To see SectionKit in action please check out the [example project](Example).
 
 #### Manually in your `Package.swift` file:
 
+On the package:
 ```swift
-.package(url: "https://github.com/traderepublic/tr-sectionkit", from: "0.12")
+dependencies: [
+    .package(name: "SectionKit", url: "https://github.com/traderepublic/tr-sectionkit", from: "1.0")
+]
 ```
+
+On a target:
+```swift
+dependencies: [
+    .product(name: "SectionKit", package: "SectionKit"),
+    .product(name: "DiffingSectionKit", package: "SectionKit") // optionally, includes diffing via DifferenceKit
+]
+```
+
+### Carthage
+
+Add this to your `Cartfile`:
+```
+github "traderepublic/tr-sectionkit" ~> 1.0
+```
+> Note: Since the xcframework variant of `DifferenceKit` is linked against, make sure to build Carthage dependencies using the `--use-xcframeworks` option.
 
 ## Quick Start
 
