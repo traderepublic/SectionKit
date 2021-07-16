@@ -9,24 +9,12 @@
 
 
 
-Using **SectionKit** each section in a `UICollectionView` is implemented separately, so the required code is very short and maintainable.
-Sections can be combined like building blocks to build very complex layouts. 
+By using **SectionKit** each section in a `UICollectionView` is implemented separately, so you can keep your classes small and maintainable.
+Sections can be combined like building blocks to build complex layouts. 
 This also makes it possible to test them independently and to reuse them in another `UICollectionView`.
 Making changes to a specific section doesn't affect other sections and working on complex datasources becomes manageable.
 
-The currently supported APIs are:
-- `UICollectionViewDataSource`
-- `UICollectionViewDataSourcePrefetching`
-- `UICollectionViewDelegate`
-- `UICollectionViewDragDelegate`
-- `UICollectionViewDropDelegate`
-- `UICollectionViewDelegateFlowLayout`
-- `UIScrollViewDelegate`
-
-Other APIs can be easily added by extending `ListCollectionViewAdapter` or `SingleSectionCollectionViewAdapter`.
-
 This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but is implemented in Swift and offers a type safe API through the use of generics. 
-As a result, models or items don't need to inherit from `NSObject`. 
 The entire API was designed to be as open as possible and makes it easy to implement a custom behaviour. 
 An example would be the API for calculating updates to the `UICollectionView`: By default, it will just reload without performing any animation, 
 but a subclass overrides the corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit). 
@@ -73,11 +61,15 @@ Add this to your `Cartfile`:
 github "traderepublic/tr-sectionkit" ~> 1.0
 ```
 > Note: Since the xcframework variant of `DifferenceKit` is linked against, make sure to build Carthage dependencies using the `--use-xcframeworks` option.
+For more information please visit the [Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) repository.
 
 ## Quick Start
 
-To get started, we need to initialize a `CollectionViewAdapter`. 
+To get started, we need to initialise a `CollectionViewAdapter`. 
 That object handles the communication to and from the `UICollectionView`.
+Since we want to have multiple sections we'll use the `ListCollectionViewAdapter`, 
+but if there would only be a single section we could also use the `SingleSectionCollectionViewAdapter`.
+
 ```swift
 import SectionKit
 
@@ -105,31 +97,19 @@ final class MyCollectionViewController: UIViewController {
 }
 ```
 
-In this example we're going to have two sections `FirstSectionModel` and `SecondSectionModel`. 
-They both need an identifier, so the underlying `SectionController` can be recycled, which is necessary for animating updates:
+In this example we're going to have two sections and we'll now define their respective models `FirstSectionModel` and `SecondSectionModel`:
 
 ```swift
-enum MyCollectionSectionId: Hashable {
-    case first
-    case second
-}
-
-protocol MyCollectionSection {
-    var sectionId: MyCollectionSectionId { get }
-}
-
-struct FirstSectionModel: MyCollectionSection {
-    let sectionId: MyCollectionSectionId = .first
+struct FirstSectionModel {
     let items = ["Hello", "world"]
 }
 
-struct SecondSectionModel: MyCollectionSection {
-    let sectionId: MyCollectionSectionId = .second
+struct SecondSectionModel {
     let item = "Single item"
 }
 ```
 
-The next thing we want to do is to implement the `SectionController`. 
+The next thing we want to do is to implement their corresponding `SectionController`. 
 In this example, the first section shows a list of strings and the second section shows a single string. 
 For both cases there are base classes we can inherit from:
 
@@ -169,9 +149,30 @@ class SecondSectionController: SingleItemSectionController<SecondSectionModel, S
 }
 ```
 
-At last we want to implement the `ListCollectionViewAdapterDataSource` protocol:
+At last we want to implement the `ListCollectionViewAdapterDataSource` protocol. Here we're providing the `SectionController` for each model.
+
+The sections both need a unique identifier, so the underlying `SectionController` can be recycled, which is necessary for animating updates. 
+> Please note: Although the identifier needs to be unique across the list of sections, it also needs to be persistent across updates so the previous `SectionController` can be reused.
 
 ```swift
+
+enum MyCollectionSectionId: Hashable {
+    case first
+    case second
+}
+
+protocol MyCollectionSection {
+    var sectionId: MyCollectionSectionId { get }
+}
+
+extension FirstSectionModel: MyCollectionSection {
+    var sectionId: MyCollectionSectionId { .first }
+}
+
+extension SecondSectionModel: MyCollectionSection {
+    var sectionId: MyCollectionSectionId { .second }
+}
+
 extension MyCollectionViewController: ListCollectionViewAdapterDataSource {
     // this can be implemented in a viewmodel instead
     private func createSectionModels() -> [MyCollectionSection] {
@@ -196,7 +197,7 @@ extension MyCollectionViewController: ListCollectionViewAdapterDataSource {
                 )
 
             default:
-                assertionFailure("\(#function): unknown object type: \($0)")
+                assertionFailure("\(#function): unknown section model: \($0)")
                 return nil
             }
         }
@@ -207,25 +208,24 @@ extension MyCollectionViewController: ListCollectionViewAdapterDataSource {
 That's it! Since both sections are completely decoupled from each other, they can be easily reused in other places in the app and 
 writing unit tests becomes much easier!
 
-As a final bonus, if you want animated updates, you can define your item as `Differentiable` (import DifferenceKit) and 
-use the `DiffingListSectionController` (import DiffingSectionKit) instead of the "normal" `ListSectionController`. 
-If you're running iOS 13+ you may also use the `FoundationDiffingListSectionController` already contained in the SectionKit module.
+As a final bonus, if you want animated updates, you can use the `DiffingListSectionController` (import DiffingSectionKit) instead of the "normal" `ListSectionController`. 
+If you're running iOS 13+ you may also use the `FoundationDiffingListSectionController` that is already contained in the SectionKit module.
 
 ## Overview
 
-The functionality is split into two packages:
+The functionality is split into two modules:
 - `SectionKit`:
 
     This package contains the core functionality. 
 
     **Please note**: `ListCollectionViewAdapter` and `ListSectionController` will not animate updates to the list of sections/items 
-    and call `reloadData()`/`reloadSections(_:)` instead. 
-    On iOS 13+ you may use `FoundationDiffingListCollectionViewAdapter` or `FoundationDiffingListSectionController` 
-    respectively to get animated updates. 
+    and call `reloadData()`/`reloadSections(_:)` respectively. 
+    On iOS 13+ you can use the `FoundationDiffingListCollectionViewAdapter` or `FoundationDiffingListSectionController`  
+    to get animated updates. 
     When targeting iOS versions lower than 13, you can implement your own difference calculation by overriding 
     `calculateUpdate(from:to:)` or you can use a class contained in `DiffingSectionKit`.
 
-    Besides that, `SingleSectionCollectionViewAdapter`, `SingleModelSectionController` and 
+    Besides that, the `SingleSectionCollectionViewAdapter`, `SingleModelSectionController` and 
     `SingleItemSectionController` support animated updates out of the box.
 
 - `DiffingSectionKit`:
@@ -235,6 +235,19 @@ The functionality is split into two packages:
     They simply override `calculateUpdate(from:to:)` where the difference between the old and new data is calculated 
     using [DifferenceKit](https://github.com/ra1028/DifferenceKit). Therefore, animations are performed
     when the list of sections/items is updated (separate inserts/deletes/moves instead of `reloadData()`/`reloadSections(_:)`).
+    
+### Supported APIs
+
+The currently supported APIs are:
+- `UICollectionViewDataSource`
+- `UICollectionViewDataSourcePrefetching`
+- `UICollectionViewDelegate`
+- `UICollectionViewDragDelegate`
+- `UICollectionViewDropDelegate`
+- `UICollectionViewDelegateFlowLayout`
+- `UIScrollViewDelegate`
+
+Other APIs can be easily added by extending `ListCollectionViewAdapter` or `SingleSectionCollectionViewAdapter`.
 
 ### CollectionViewAdapter
 
@@ -281,8 +294,8 @@ The functionality is split into two packages:
     **Warning**: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
     
     This `SectionController` is typically used when there are one or multiple **different** cells from
-    a single model. If however all items are the semantically similar and one could derive an array of models,
-    it is recommended to use `ListSectionController` instead.
+    a single model. If however all items are semantically similar and one could derive an array of them,
+    it is recommended to use the `ListSectionController` instead.
 
 - `SingleItemSectionController<Model, Item>`:
 
@@ -292,7 +305,7 @@ The functionality is split into two packages:
     **Warning**: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
     
     This `SectionController` is typically used when one item should be displayed conditionally.
-    If multiple items should be displayed, it is recommended to use `ListSectionController` instead.
+    If multiple items should be displayed, it is recommended to use the `ListSectionController` instead.
 
 - `ListSectionController<Model, Item>`:
 
@@ -323,5 +336,5 @@ The functionality is split into two packages:
     This `SectionController` is typically used when there are multiple semantically similar items
     of a model to be displayed and the list of items may dynamically change.
     
-    > Note: Compared to `DiffingListSectionController` this class doesn't have a `Differentiable` constraint on the generic
+    > Note: Compared to the `DiffingListSectionController` this class doesn't have a `Differentiable` constraint on the generic
     `Item` type, instead it requires closures in the init to get diffing information for an item.
