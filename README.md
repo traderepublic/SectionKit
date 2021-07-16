@@ -24,9 +24,16 @@ To see SectionKit in action please check out the [example project](Example).
 
 #### Contents:
 
+- [SectionKit @ Trade Republic](#sectionkit--trade-republic)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Overview](#overview)
+
+## SectionKit @ Trade Republic
+
+At [Trade Republic](https://traderepublic.com) we are using SectionKit extensively. 
+It powers most of our screens, with some of them containing up to 30 different types of sections.
+By combining SectionKit with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and a reactive network protocol we are able to provide truly dynamic experiences.
 
 ## Installation
 
