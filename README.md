@@ -14,17 +14,12 @@ Sections can be combined like building blocks to build complex layouts.
 This also makes it possible to test them independently and to reuse them in another `UICollectionView`.
 Making changes to a specific section doesn't affect other sections and working on complex datasources becomes manageable.
 
-This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but is implemented in Swift and offers a type safe API through the use of generics. 
-The entire API was designed to be as open as possible and makes it easy to implement a custom behaviour. 
-An example would be the API for calculating updates to the `UICollectionView`: By default, it will just reload without performing any animation, 
-but a subclass overrides the corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit). 
-Since that subclass is defined in a separate module, you don't need to import and include  `DifferenceKit` if you don't need animated updates.
-
 To see SectionKit in action please check out the [example project](Example).
 
 #### Contents:
 
 - [SectionKit @ Trade Republic](#sectionkit--trade-republic)
+- [Inspiration](https://github.com/traderepublic/SectionKit/tree/improve_readme#inspiration)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Overview](#overview)
@@ -34,6 +29,13 @@ To see SectionKit in action please check out the [example project](Example).
 At [Trade Republic](https://traderepublic.com) we are using SectionKit extensively. 
 It powers most of our screens, with some of them containing up to 30 different types of sections.
 By combining SectionKit with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and a reactive network protocol we are able to provide truly dynamic experiences.
+
+## Inspiration
+
+This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but is implemented in Swift and offers a type safe API through the use of generics. 
+The entire API was designed to be as open as possible and makes it easy to implement a custom behaviour.
+An example would be the API for calculating updates to the `UICollectionView`: By default, it will just reload without performing any animation, 
+but subclasses in `DiffingSectionKit` override a corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit).
 
 ## Installation
 
