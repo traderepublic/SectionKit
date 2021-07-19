@@ -21,7 +21,7 @@ This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit),
 
 To see SectionKit in action please check out the [example project](Example).
 
-#### Contents:
+**Contents:**
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
