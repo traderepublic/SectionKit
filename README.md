@@ -11,7 +11,6 @@
 
 By using **SectionKit** each section in a `UICollectionView` is implemented separately, so you can keep your classes small and maintainable.
 Sections can be combined like building blocks and creating screens with otherwise complex datasources becomes manageable.
-This also makes it possible to test each section independently and to reuse them in another `UICollectionView`.
 
 To see SectionKit in action please check out the [example project](Example).
 
