@@ -33,8 +33,6 @@ we are able to provide truly dynamic experiences.
 
 This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but it is implemented in Swift and offers a type safe API through the use of generics. 
 The entire API was designed to be as open as possible and makes it easy to implement a custom behaviour.
-An example would be the API for calculating updates to the `UICollectionView`: By default, it will just reload without performing any animation, 
-but subclasses in `DiffingSectionKit` override a corresponding function to provide rich diffs by using [DifferenceKit](https://github.com/ra1028/DifferenceKit).
 
 ## Installation
 
