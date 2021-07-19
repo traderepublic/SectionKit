@@ -12,27 +12,20 @@
 By using **SectionKit** each section in a `UICollectionView` is implemented separately, so you can keep your classes small and maintainable.
 Sections can be combined like building blocks and creating screens with otherwise complex datasources becomes manageable.
 
-To see SectionKit in action please check out the [example project](Example).
-
-#### Contents:
-
-- [SectionKit @ Trade Republic](#sectionkit--trade-republic)
-- [Inspiration](#inspiration)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Overview](#overview)
-
-## SectionKit @ Trade Republic
-
 At [Trade Republic](https://traderepublic.com) we are using SectionKit extensively. 
 It powers most of our screens, with some of them containing up to 30 different types of sections.
 By combining SectionKit with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and a reactive network protocol 
 we are able to provide truly dynamic experiences.
 
-## Inspiration
+This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but it is implemented in Swift and it offers a type safe API through the use of generics.
 
-This library is inspired by [IGListKit](https://github.com/Instagram/IGListKit), but it is implemented in Swift and offers a type safe API through the use of generics. 
-The entire API was designed to be as open as possible and makes it easy to implement a custom behaviour.
+To see SectionKit in action please check out the [example project](Example).
+
+#### Contents:
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Overview](#overview)
 
 ## Installation
 
