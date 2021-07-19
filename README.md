@@ -10,9 +10,8 @@
 
 
 By using **SectionKit** each section in a `UICollectionView` is implemented separately, so you can keep your classes small and maintainable.
-Sections can be combined like building blocks to build complex layouts. 
-This also makes it possible to test them independently and to reuse them in another `UICollectionView`.
-Making changes to a specific section doesn't affect other sections and working on complex datasources becomes manageable.
+Sections can be combined like building blocks and creating screens with otherwise complex datasources becomes manageable.
+This also makes it possible to test each section independently and to reuse them in another `UICollectionView`.
 
 To see SectionKit in action please check out the [example project](Example).
 
@@ -28,7 +27,8 @@ To see SectionKit in action please check out the [example project](Example).
 
 At [Trade Republic](https://traderepublic.com) we are using SectionKit extensively. 
 It powers most of our screens, with some of them containing up to 30 different types of sections.
-By combining SectionKit with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and a reactive network protocol we are able to provide truly dynamic experiences.
+By combining SectionKit with [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) and a reactive network protocol 
+we are able to provide truly dynamic experiences.
 
 ## Inspiration
 
