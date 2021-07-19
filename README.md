@@ -17,7 +17,7 @@ To see SectionKit in action please check out the [example project](Example).
 #### Contents:
 
 - [SectionKit @ Trade Republic](#sectionkit--trade-republic)
-- [Inspiration](https://github.com/traderepublic/SectionKit/tree/improve_readme#inspiration)
+- [Inspiration](#inspiration)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Overview](#overview)
