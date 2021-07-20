@@ -1,10 +1,10 @@
 <p align="center">
-    <a href="https://github.com/traderepublic/tr-sectionkit"><img src="Resources/SectionKit.svg" alt="SectionKit" width="66%"/></a>
+    <a href="https://github.com/traderepublic/SectionKit"><img src="Resources/SectionKit.svg" alt="SectionKit" width="66%"/></a>
     <br><br>
-    <a href="https://github.com/traderepublic/tr-sectionkit/actions"><img src="https://github.com/traderepublic/tr-sectionkit/workflows/Unit%20Tests/badge.svg" alt="Unit Tests"/></a>
+    <a href="https://github.com/traderepublic/SectionKit/actions"><img src="https://github.com/traderepublic/SectionKit/workflows/Unit%20Tests/badge.svg" alt="Unit Tests"/></a>
     <a href="#swift-package-manager"><img src="https://img.shields.io/badge/SwiftPM-compatible-orange.svg" alt="SwiftPM compatible"/></a>
     <a href="#carthage"><img src="https://img.shields.io/badge/Carthage-compatible-orange.svg" alt="Carthage compatible"/></a>
-    <a href="https://github.com/traderepublic/tr-sectionkit/releases"><img src="https://img.shields.io/github/release/traderepublic/tr-sectionkit.svg" alt="Release"/></a>
+    <a href="https://github.com/traderepublic/SectionKit/releases"><img src="https://img.shields.io/github/release/traderepublic/SectionKit.svg" alt="Release"/></a>
 </p>
 
 
@@ -33,14 +33,14 @@ To see SectionKit in action please check out the [example project](Example).
 #### Automatically in Xcode:
 
 - Click **File > Swift Packages > Add Package Dependency...**  
-- Use the package URL `https://github.com/traderepublic/tr-sectionkit` to add SectionKit/DiffingSectionKit to your project.
+- Use the package URL `https://github.com/traderepublic/SectionKit` to add SectionKit/DiffingSectionKit to your project.
 
 #### Manually in your `Package.swift` file:
 
 On the package:
 ```swift
 dependencies: [
-    .package(name: "SectionKit", url: "https://github.com/traderepublic/tr-sectionkit", from: "1.0")
+    .package(name: "SectionKit", url: "https://github.com/traderepublic/SectionKit", from: "1.0")
 ]
 ```
 
@@ -56,7 +56,7 @@ dependencies: [
 
 Add this to your `Cartfile`:
 ```
-github "traderepublic/tr-sectionkit" ~> 1.0
+github "traderepublic/SectionKit" ~> 1.0
 ```
 > Note: Since the xcframework variant of `DifferenceKit` is linked against, make sure to build Carthage dependencies using the `--use-xcframeworks` option.
 For more information please visit the [Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) repository.
