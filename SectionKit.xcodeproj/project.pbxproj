@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */; };
+		5AB6644426A85463004DC230 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6644326A85463004DC230 /* Error.swift */; };
+		5AB6644626A854A9004DC230 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB6644526A854A9004DC230 /* ErrorHandling.swift */; };
 		5AE175552667D60000D4DCE1 /* SectionKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE1754B2667D60000D4DCE1 /* SectionKit.framework */; };
 		5AE175DE2667DA3F00D4DCE1 /* Sequence+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A22667DA3E00D4DCE1 /* Sequence+Unique.swift */; };
 		5AE175DF2667DA3F00D4DCE1 /* CollectionDifference+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A32667DA3E00D4DCE1 /* CollectionDifference+Changes.swift */; };
@@ -80,6 +82,8 @@
 
 /* Begin PBXFileReference section */
 		5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SectionIndexPath.swift"; sourceTree = "<group>"; };
+		5AB6644326A85463004DC230 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		5AB6644526A854A9004DC230 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		5AE1754B2667D60000D4DCE1 /* SectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE1754F2667D60000D4DCE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE175542667D60000D4DCE1 /* SectionKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SectionKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AB6644226A8544C004DC230 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				5AB6644326A85463004DC230 /* Error.swift */,
+				5AB6644526A854A9004DC230 /* ErrorHandling.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		5AE175412667D60000D4DCE1 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		5AE1754D2667D60000D4DCE1 /* SectionKit */ = {
 			isa = PBXGroup;
 			children = (
+				5AB6644226A8544C004DC230 /* Error */,
 				5AE175BC2667DA3F00D4DCE1 /* CollectionViewAdapter */,
 				5AE175A92667DA3E00D4DCE1 /* SectionController */,
 				5AE175A12667DA3E00D4DCE1 /* Utility */,
@@ -484,6 +498,7 @@
 				5AE175F32667DA3F00D4DCE1 /* SectionController.swift in Sources */,
 				5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift in Sources */,
 				5AE176042667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */,
+				5AB6644626A854A9004DC230 /* ErrorHandling.swift in Sources */,
 				5AE176052667DA3F00D4DCE1 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */,
 				5AE175E92667DA3F00D4DCE1 /* CollectionViewSectionBatchOperation.swift in Sources */,
 				5AE175E02667DA3F00D4DCE1 /* Move.swift in Sources */,
@@ -501,6 +516,7 @@
 				5AE175FF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				5AE176102667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */,
 				5AE175DE2667DA3F00D4DCE1 /* Sequence+Unique.swift in Sources */,
+				5AB6644426A85463004DC230 /* Error.swift in Sources */,
 				5AE175F72667DA3F00D4DCE1 /* CollectionViewContext.swift in Sources */,
 				5AE176082667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				5AE175E82667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */,

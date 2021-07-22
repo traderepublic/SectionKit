@@ -26,6 +26,9 @@ public protocol SectionController: AnyObject {
     @available(iOS 11.0, *)
     var dropDelegate: SectionDropDelegate? { get }
 
+    /// The error handler of this section.
+    var errorHandler: ErrorHandling { get }
+
     /// The model of this section controller changed.
     func didUpdate(model: Any)
 }
@@ -43,4 +46,6 @@ extension SectionController {
 
     @available(iOS 11.0, *)
     public var dropDelegate: SectionDropDelegate? { nil }
+
+    public var errorHandler: ErrorHandling { self as? ErrorHandling ?? AssertionFailureErrorHandler() }
 }

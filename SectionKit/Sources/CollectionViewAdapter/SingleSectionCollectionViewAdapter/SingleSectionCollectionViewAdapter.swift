@@ -93,6 +93,19 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         didSet { invalidateDataSource() }
     }
 
+    private var _errorHandler: ErrorHandling?
+
+    /**
+     The error handler of this adapter.
+
+     If no custom error handler is set and self isn't implementing the `ErrorHandling` protocol,
+     the default instance calls `assertionFailure` every time an error occurs.
+     */
+    open var errorHandler: ErrorHandling {
+        get { _errorHandler ?? self as? ErrorHandling ?? AssertionFailureErrorHandler() }
+        set { _errorHandler = newValue }
+    }
+
     /**
      The single section currently displayed in the `UICollectionView`.
 
