@@ -4,7 +4,12 @@ import Foundation
 public protocol ErrorHandling {
     /**
      A function that is called when an error is encountered.
+
      - Parameter error: The error that is encountered.
+
+     - Parameter file: The file name where the error occurred.
+
+     - Parameter line: The line number where the error occurred in the file.
      */
     func on(error: @autoclosure () -> Error, file: StaticString, line: UInt)
 }
