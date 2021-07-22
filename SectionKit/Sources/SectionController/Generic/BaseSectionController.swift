@@ -35,19 +35,6 @@ open class BaseSectionController: SectionController,
     @available(iOS 11.0, *)
     open var dropDelegate: SectionDropDelegate? { self }
 
-    private var _errorHandler: ErrorHandling?
-
-    /**
-     The error handler of this section.
-
-     If no custom error handler is set and self isn't implementing the `ErrorHandling` protocol,
-     the default instance calls `assertionFailure` every time an error occurs.
-     */
-    open var errorHandler: ErrorHandling {
-        get { _errorHandler ?? self as? ErrorHandling ?? AssertionFailureErrorHandler() }
-        set { _errorHandler = newValue }
-    }
-
     open func didUpdate(model: Any) { }
 
     // MARK: - SectionDataSource
