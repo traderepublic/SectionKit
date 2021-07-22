@@ -7,7 +7,7 @@ open class MainCollectionViewContext: CollectionViewContext {
     /// The adapter that is responsible for this context.
     public weak var sectionAdapter: CollectionViewAdapter?
 
-    /// The `UIViewController` which contains the `viewController`.
+    /// The `UIViewController` which contains the `collectionView`.
     public private(set) weak var viewController: UIViewController?
 
     /// The `UICollectionView` of which this context is responsible for.
