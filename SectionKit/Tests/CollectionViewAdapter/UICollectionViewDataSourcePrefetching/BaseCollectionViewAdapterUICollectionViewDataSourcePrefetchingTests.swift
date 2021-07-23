@@ -50,11 +50,11 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPrefetchItemsWithInvalidIndizes() throws {
+    internal func testPrefetchItemsWithInvalidIndices() throws {
         let testExpectation = expectation(description: "Should invoke datasource prefetching delegate")
         let collectionView = createCollectionView()
         let itemsToPrefetch = [IndexPath(item: 0, section: 0), IndexPath(item: 1, section: 0)]
-        let invalidIndizes = [IndexPath(), IndexPath(item: 0, section: 1)]
+        let invalidIndices = [IndexPath(), IndexPath(item: 0, section: 1)]
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
             sections: [
@@ -72,7 +72,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
                 })
             ]
         )
-        adapter.collectionView(collectionView, prefetchItemsAt: itemsToPrefetch + invalidIndizes)
+        adapter.collectionView(collectionView, prefetchItemsAt: itemsToPrefetch + invalidIndices)
         waitForExpectations(timeout: 1)
     }
 
@@ -101,11 +101,11 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCancelPrefetchingForItemsWithInvalidIndizes() throws {
+    internal func testCancelPrefetchingForItemsWithInvalidIndices() throws {
         let testExpectation = expectation(description: "Should invoke datasource prefetching delegate")
         let collectionView = createCollectionView()
         let itemsToCancel = [IndexPath(item: 0, section: 0), IndexPath(item: 1, section: 0)]
-        let invalidIndizes = [IndexPath(), IndexPath(item: 0, section: 1)]
+        let invalidIndices = [IndexPath(), IndexPath(item: 0, section: 1)]
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
             sections: [
@@ -123,7 +123,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
                 })
             ]
         )
-        adapter.collectionView?(collectionView, cancelPrefetchingForItemsAt: itemsToCancel + invalidIndizes)
+        adapter.collectionView?(collectionView, cancelPrefetchingForItemsAt: itemsToCancel + invalidIndices)
         waitForExpectations(timeout: 1)
     }
 }
