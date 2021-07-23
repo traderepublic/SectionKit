@@ -13,13 +13,13 @@ public enum Error: Swift.Error {
     case missingDataSource(section: Int)
 
     /// The given supplementary view kind is not supported.
-    case unsupportedSupplementaryViewKind
+    case unsupportedSupplementaryViewKind(elementKind: String)
 
     /// The given `IndexPath` is not valid (does not contain exactly 2 values).
     case invalidIndexPath(IndexPath)
 
     /// Move is not supported inside the same section.
-    case moveIsNotInTheSameSection
+    case moveIsNotInTheSameSection(sourceSection: Int, destinationSection: Int)
 }
 
 extension Error: CustomStringConvertible {
@@ -34,14 +34,14 @@ extension Error: CustomStringConvertible {
         case let .missingDataSource(section: section):
             return "There is no datasource for section with index \(section)."
 
-        case .unsupportedSupplementaryViewKind:
-            return "Unsupported supplementary view kind."
+        case let .unsupportedSupplementaryViewKind(kind):
+            return "Unsupported supplementary view kind \"\(kind)\"."
 
         case let .invalidIndexPath(indexPath):
             return "The given IndexPath \(indexPath) is not valid (does not contain exactly 2 values)."
 
-        case .moveIsNotInTheSameSection:
-            return "Move is not supported inside the same section."
+        case let .moveIsNotInTheSameSection(sourceSection, destinationSection):
+            return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection)."
         }
     }
 }
