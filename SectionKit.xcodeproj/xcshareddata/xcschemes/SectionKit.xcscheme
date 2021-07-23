@@ -50,6 +50,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests">
+               </Test>
+               <Test
                   Identifier = "BaseCollectionViewAdapterUICollectionViewDataSourceTests">
                </Test>
             </SkippedTests>
