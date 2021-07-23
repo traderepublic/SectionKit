@@ -3,6 +3,11 @@ import UIKit
 import XCTest
 
 internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+    }
+
     internal func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout = UICollectionViewFlowLayout()

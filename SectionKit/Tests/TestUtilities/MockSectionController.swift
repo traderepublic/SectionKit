@@ -1,29 +1,51 @@
 import SectionKit
+import XCTest
 
 internal class MockSectionController: SectionController {
     internal var context: CollectionViewContext?
 
-    internal lazy var dataSource: SectionDataSource = { fatalError("datasource is not set") }()
-
-    internal lazy var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? = {
-        fatalError("dataSourcePrefetchingDelegate is not set")
+    internal lazy var dataSource: SectionDataSource = {
+        XCTFail("datasource is not set")
+        return MockSectionDataSource()
     }()
 
-    internal lazy var delegate: SectionDelegate? = { fatalError("delegate is not set") }()
+    internal lazy var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? = {
+        XCTFail("dataSourcePrefetchingDelegate is not set")
+        return nil
+    }()
 
-    internal lazy var flowDelegate: SectionFlowDelegate? = { fatalError("flowDelegate is not set") }()
+    internal lazy var delegate: SectionDelegate? = {
+        XCTFail("delegate is not set")
+        return nil
+    }()
 
-    internal lazy var dragDelegate: SectionDragDelegate? = { fatalError("dragDelegate is not set") }()
+    internal lazy var flowDelegate: SectionFlowDelegate? = {
+        XCTFail("flow delegate is not set")
+        return nil
+    }()
 
-    internal lazy var dropDelegate: SectionDropDelegate? = { fatalError("dropDelegate is not set") }()
+    internal lazy var dragDelegate: SectionDragDelegate? = {
+        XCTFail("dragDelegate is not set")
+        return nil
+    }()
 
-    internal lazy var errorHandler: ErrorHandling = { fatalError("errorHandler is not set") }()
+    internal lazy var dropDelegate: SectionDropDelegate? = {
+        XCTFail("dropDelegate is not set")
+        return nil
+    }()
+
+    internal lazy var errorHandler: ErrorHandling = {
+        XCTFail("errorHandler is not set")
+        return AssertionFailureErrorHandler()
+    }()
 
     // MARK: - didUpdate
 
     internal typealias DidUpdateBlock = (Any) -> Void
 
-    internal var _didUpdate: DidUpdateBlock = { _ in fatalError("not implemented") }
+    internal var _didUpdate: DidUpdateBlock = { _ in
+        XCTFail("not implemented")
+    }
 
     internal func didUpdate(model: Any) {
         _didUpdate(model)
