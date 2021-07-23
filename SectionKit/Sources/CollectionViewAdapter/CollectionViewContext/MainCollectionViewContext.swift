@@ -4,11 +4,17 @@ import UIKit
 open class MainCollectionViewContext: CollectionViewContext {
     // MARK: - Properties
 
+    /// The adapter that is responsible for this context.
     public weak var sectionAdapter: CollectionViewAdapter?
 
+    /// The `UIViewController` which contains the `collectionView`.
     public private(set) weak var viewController: UIViewController?
 
+    /// The `UICollectionView` of which this context is responsible for.
     public let collectionView: UICollectionView
+
+    /// The error handler of this context.
+    public let errorHandler: ErrorHandling
 
     @usableFromInline
     internal var registeredCellTypes: Set<String> = []
@@ -26,14 +32,18 @@ open class MainCollectionViewContext: CollectionViewContext {
 
      - Parameter viewController: The `UIViewController` which contains the `UICollectionView`.
 
-     - Parameter collectionView: The `UICollectionView` of this context.
+     - Parameter collectionView: The `UICollectionView` of which this context is responsible for.
+
+     - Parameter errorHandler: The error handler of this context.
      */
     public init(
         viewController: UIViewController?,
-        collectionView: UICollectionView
+        collectionView: UICollectionView,
+        errorHandler: ErrorHandling
     ) {
         self.viewController = viewController
         self.collectionView = collectionView
+        self.errorHandler = errorHandler
     }
 
     // MARK: - Apply

@@ -21,21 +21,23 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(
-        viewController: UIViewController?,
         collectionView: UICollectionView,
-        dataSource: ListCollectionViewAdapterDataSource?,
-        scrollViewDelegate: UIScrollViewDelegate? = nil
+        dataSource: ListCollectionViewAdapterDataSource,
+        viewController: UIViewController? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil,
+        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
-            collectionView: collectionView
+            collectionView: collectionView,
+            errorHandler: errorHandler
         )
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
         context.sectionAdapter = self
-        collectionViewSections = dataSource?.sections(for: self) ?? []
+        collectionViewSections = dataSource.sections(for: self)
         collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
@@ -62,14 +64,16 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(
-        viewController: UIViewController?,
         collectionView: UICollectionView,
         sections: [Section] = [],
-        scrollViewDelegate: UIScrollViewDelegate? = nil
+        viewController: UIViewController? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil,
+        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
-            collectionView: collectionView
+            collectionView: collectionView,
+            errorHandler: errorHandler
         )
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate

@@ -9,7 +9,7 @@ internal final class DiffingListCollectionViewAdapterTests: XCTestCase {
 
     internal func testCalculateUpdate() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        let adapter = DiffingListCollectionViewAdapter(viewController: nil, collectionView: collectionView)
+        let adapter = DiffingListCollectionViewAdapter(collectionView: collectionView)
         let firstModel = MockSectionModel()
         let firstSection = Section(
             id: firstModel.sectionId,
