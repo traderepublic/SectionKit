@@ -2,7 +2,7 @@
 import UIKit
 import XCTest
 
-internal class SingleSectionCollectionViewAdapterUICollectionViewDataSourceTests: BaseCollectionViewAdapterUICollectionViewDataSourceTests {
+internal final class SingleSectionCollectionViewAdapterUICollectionViewDataSourceTests: BaseCollectionViewAdapterUICollectionViewDataSourceTests {
     override func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
