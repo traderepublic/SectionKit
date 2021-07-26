@@ -56,6 +56,9 @@
                   Identifier = "BaseCollectionViewAdapterUICollectionViewDataSourceTests">
                </Test>
                <Test
+                  Identifier = "BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests">
+               </Test>
+               <Test
                   Identifier = "BaseCollectionViewAdapterUICollectionViewDelegateTests">
                </Test>
             </SkippedTests>
