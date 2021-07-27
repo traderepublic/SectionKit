@@ -62,6 +62,9 @@
                   Identifier = "BaseCollectionViewAdapterUICollectionViewDelegateTests">
                </Test>
                <Test
+                  Identifier = "BaseCollectionViewAdapterUICollectionViewDropDelegateTests">
+               </Test>
+               <Test
                   Identifier = "BaseCollectionViewAdapterUIScrollViewDelegateTests">
                </Test>
             </SkippedTests>
