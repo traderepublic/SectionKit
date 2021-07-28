@@ -38,7 +38,6 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         super.init()
         context.sectionAdapter = self
         collectionViewSections = dataSource.sections(for: self)
-        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -80,7 +79,6 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         super.init()
         context.sectionAdapter = self
         collectionViewSections = sections
-        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -112,28 +110,30 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var collectionViewSections: [Section] {
         get { _collectionViewSections }
         set {
-            let uniqueSections = checkOrFilterDuplicateSectionIds(sections: newValue)
+            let uniqueSections = filterDuplicateSectionIds(sections: newValue)
             _collectionViewSections.forEach { $0.controller.context = nil }
             _collectionViewSections = uniqueSections
             uniqueSections.forEach { $0.controller.context = context }
         }
     }
 
-    /// Check for duplicate section IDs and fail gracefully if some are found.
-    /// For debug builds, crash if the section IDs are not unique.
-    /// For production builds, remove sections with duplicate IDs.
-    /// - Parameter sections: The collectionview sections that have just been set by the user
-    /// - Returns: The same sections with additional duplicates removed. Only the first section with
-    ///            a duplicate ID is kept.
-    private func checkOrFilterDuplicateSectionIds(sections: [Section]) -> [Section] {
+    /**
+     Check for duplicate section IDs and remove all but the first.
+
+     - Parameter sections: The collectionview sections that have just been set by the user
+
+     - Returns: The same sections with additional duplicates removed. Only the first section with
+     a duplicate ID is kept.
+     */
+    private func filterDuplicateSectionIds(sections: [Section]) -> [Section] {
         let filtered = sections.unique(by: \.id)
-        assert(
-            filtered.count == sections.count,
-            """
-               The list of sections contains two or more sections with the same id.
-               This would result in undefined behaviour.
-            """
-        )
+        if filtered.count != sections.count {
+            let duplicateIds = sections
+                .group(by: \.id)
+                .filter { $0.value.count > 1 }
+                .map(\.key)
+            context.errorHandler(error: .duplicateSectionIds(duplicateIds))
+        }
         return filtered
     }
 

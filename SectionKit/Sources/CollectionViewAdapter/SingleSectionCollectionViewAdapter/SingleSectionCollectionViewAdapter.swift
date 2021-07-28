@@ -34,7 +34,6 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         super.init()
         context.sectionAdapter = self
         collectionViewSection = dataSource.section(for: self)
-        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -76,7 +75,6 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         super.init()
         context.sectionAdapter = self
         collectionViewSection = section
-        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -97,15 +95,21 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         didSet { invalidateDataSource() }
     }
 
+    private var _collectionViewSection: Section?
+
     /**
      The single section currently displayed in the `UICollectionView`.
 
      - Warning: Only set this property inside an update block of `performBatchUpdates` and
      if `UICollectionView` insertions and deletions are handled, otherwise use `section` instead.
      */
-    open var collectionViewSection: Section? = nil {
-        willSet { collectionViewSection?.controller.context = nil }
-        didSet { collectionViewSection?.controller.context = context }
+    open var collectionViewSection: Section? {
+        get { _collectionViewSection }
+        set {
+            _collectionViewSection?.controller.context = nil
+            _collectionViewSection = newValue
+            newValue?.controller.context = context
+        }
     }
 
     /// The single section in the `UICollectionView`.
