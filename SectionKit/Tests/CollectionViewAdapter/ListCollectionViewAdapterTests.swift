@@ -527,15 +527,3 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         XCTAssert(adapter.collectionViewSections.first === section)
     }
 }
-
-private class MockListCollectionViewAdapterDataSource: ListCollectionViewAdapterDataSource {
-    internal var _sections: (CollectionViewAdapter) -> [Section]
-
-    init(sections: @escaping (CollectionViewAdapter) -> [Section]) {
-        self._sections = sections
-    }
-
-    func sections(for adapter: CollectionViewAdapter) -> [Section] {
-        _sections(adapter)
-    }
-}

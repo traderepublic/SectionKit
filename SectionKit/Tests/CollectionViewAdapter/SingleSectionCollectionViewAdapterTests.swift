@@ -569,15 +569,3 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(adapter.collectionViewSection === section)
     }
 }
-
-internal class MockSingleSectionCollectionViewAdapterDataSource: SingleSectionCollectionViewAdapterDataSource {
-    internal var _section: (CollectionViewAdapter) -> Section?
-
-    init(section: @escaping (CollectionViewAdapter) -> Section?) {
-        self._section = section
-    }
-
-    func section(for adapter: CollectionViewAdapter) -> Section? {
-        _section(adapter)
-    }
-}
