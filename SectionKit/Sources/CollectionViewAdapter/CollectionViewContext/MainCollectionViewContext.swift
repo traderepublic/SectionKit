@@ -51,11 +51,11 @@ open class MainCollectionViewContext: CollectionViewContext {
     @inlinable
     open func apply<T>(update: CollectionViewSectionUpdate<T>) {
         guard let sectionAdapter = sectionAdapter else {
-            assertionFailure("`sectionAdapter` is no set")
+            errorHandler(error: .sectionAdapterIsNotSet)
             return collectionView.reloadData()
         }
         guard let index = sectionAdapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
-            assertionFailure("No section was found for the specified id")
+            errorHandler(error: .sectionControllerNotPartOfAdapter)
             return collectionView.reloadData()
         }
         collectionView.apply(update: update, at: index)
@@ -78,11 +78,17 @@ open class MainCollectionViewContext: CollectionViewContext {
             collectionView.register(cellType, forCellWithReuseIdentifier: identifier)
             registeredCellTypes.insert(identifier)
         }
-        guard let cell = collectionView.dequeueReusableCell(
+        let dequeuedCell = collectionView.dequeueReusableCell(
             withReuseIdentifier: identifier,
             for: indexPath
-        ) as? Cell else {
-            assertionFailure("Could not cast the cell to the specified type")
+        )
+        guard let cell = dequeuedCell as? Cell else {
+            errorHandler(
+                error: .dequeuedViewIsNotTheCorrectType(
+                    expected: Cell.self,
+                    actual: type(of: dequeuedCell)
+                )
+            )
             return Cell()
         }
         return cell
@@ -103,12 +109,18 @@ open class MainCollectionViewContext: CollectionViewContext {
             )
             registeredHeaderViewTypes.insert(identifier)
         }
-        guard let view = collectionView.dequeueReusableSupplementaryView(
+        let dequeuedView = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: identifier,
             for: indexPath
-        ) as? SupplementaryView else {
-            assertionFailure("Could not cast the header view to the specified type")
+        )
+        guard let view = dequeuedView as? SupplementaryView else {
+            errorHandler(
+                error: .dequeuedViewIsNotTheCorrectType(
+                    expected: SupplementaryView.self,
+                    actual: type(of: dequeuedView)
+                )
+            )
             return SupplementaryView()
         }
         return view
@@ -129,12 +141,18 @@ open class MainCollectionViewContext: CollectionViewContext {
             )
             registeredFooterViewTypes.insert(identifier)
         }
-        guard let view = collectionView.dequeueReusableSupplementaryView(
+        let dequeuedView = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: identifier,
             for: indexPath
-        ) as? SupplementaryView else {
-            assertionFailure("Could not cast the footer view to the specified type")
+        )
+        guard let view = dequeuedView as? SupplementaryView else {
+            errorHandler(
+                error: .dequeuedViewIsNotTheCorrectType(
+                    expected: SupplementaryView.self,
+                    actual: type(of: dequeuedView)
+                )
+            )
             return SupplementaryView()
         }
         return view
@@ -147,7 +165,7 @@ open class MainCollectionViewContext: CollectionViewContext {
         for indexPath: IndexPath
     ) -> (SectionController?, SectionIndexPath)? {
         guard let sectionAdapter = sectionAdapter else {
-            assertionFailure("`sectionAdapter` is no set")
+            errorHandler(error: .sectionAdapterIsNotSet)
             return nil
         }
         let sectionIndex = indexPath.section
