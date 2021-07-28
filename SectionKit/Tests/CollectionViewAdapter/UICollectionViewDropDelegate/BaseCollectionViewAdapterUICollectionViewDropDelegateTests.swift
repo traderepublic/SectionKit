@@ -619,7 +619,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
     }
 }
 
-private class MockCollectionViewDropItem: NSObject, UICollectionViewDropItem {
+private final class MockCollectionViewDropItem: NSObject, UICollectionViewDropItem {
     var dragItem = UIDragItem(itemProvider: NSItemProvider(object: NSString()))
 
     var sourceIndexPath: IndexPath?
@@ -669,7 +669,7 @@ private final class MockDropSession: NSObject, UIDropSession {
     }
 }
 
-private class MockCollectionViewDropCoordinator: NSObject, UICollectionViewDropCoordinator {
+private final class MockCollectionViewDropCoordinator: NSObject, UICollectionViewDropCoordinator {
     var items: [UICollectionViewDropItem] = []
 
     var destinationIndexPath: IndexPath?
@@ -700,13 +700,13 @@ private class MockCollectionViewDropCoordinator: NSObject, UICollectionViewDropC
     ) -> UIDragAnimating { MockDragAnimating() }
 }
 
-private class MockDragAnimating: NSObject, UIDragAnimating {
+private final class MockDragAnimating: NSObject, UIDragAnimating {
     func addAnimations(_ animations: @escaping () -> Void) { }
 
     func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void) { }
 }
 
-private class MockCollectionViewDropPlaceholderContext: NSObject, UICollectionViewDropPlaceholderContext {
+private final class MockCollectionViewDropPlaceholderContext: NSObject, UICollectionViewDropPlaceholderContext {
     var dragItem: UIDragItem = .init(itemProvider: NSItemProvider(object: "" as NSString))
 
     func commitInsertion(dataSourceUpdates: (IndexPath) -> Void) -> Bool { false }
