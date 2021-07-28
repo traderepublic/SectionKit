@@ -71,31 +71,6 @@ public protocol SectionDragDelegate: AnyObject {
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UIDragPreviewParameters?
-
-    /**
-     Returns if the drag session supports a move operation.
-
-     - Parameter session: The session of the drag.
-
-     - Parameter context: The context the drag delegate is contained in.
-
-     - Returns: If the drag session supports a move operation.
-     */
-    func dragSessionAllowsMoveOperation(_ session: UIDragSession, in context: CollectionViewContext) -> Bool
-
-    /**
-     Returns if the drag session is restricted to remain in the current app.
-
-     - Parameter session: The session of the drag.
-
-     - Parameter context: The context the drag delegate is contained in.
-
-     - Returns: If the drag session is restricted to remain in the current app.
-     */
-    func dragSessionIsRestrictedToDraggingApplication(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool
 }
 
 @available(iOS 11.0, *)
@@ -118,19 +93,5 @@ extension SectionDragDelegate {
         in context: CollectionViewContext
     ) -> UIDragPreviewParameters? {
         nil
-    }
-
-    public func dragSessionAllowsMoveOperation(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool {
-        true
-    }
-
-    public func dragSessionIsRestrictedToDraggingApplication(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool {
-        false
     }
 }

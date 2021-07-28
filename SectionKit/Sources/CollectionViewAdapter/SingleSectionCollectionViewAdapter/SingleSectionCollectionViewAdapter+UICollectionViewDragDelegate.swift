@@ -10,7 +10,6 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         guard let dragDelegate = dragDelegate(at: indexPath) else {
             return []
         }
-        session.localContext = controller(at: indexPath)
         let sectionIndexPath = SectionIndexPath(indexPath)
         return dragDelegate.dragItems(forBeginning: session, at: sectionIndexPath, in: context)
     }
@@ -21,13 +20,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         at indexPath: IndexPath,
         point: CGPoint
     ) -> [UIDragItem] {
-        guard let sectionController = session.localContext as? SectionController else {
-            return []
-        }
-        guard sectionController === controller(at: indexPath) else {
-            return []
-        }
-        guard let dragDelegate = sectionController.dragDelegate else {
+        guard let dragDelegate = dragDelegate(at: indexPath) else {
             return []
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -63,25 +56,13 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDragDelegate {
         _ collectionView: UICollectionView,
         dragSessionAllowsMoveOperation session: UIDragSession
     ) -> Bool {
-        guard let sectionController = session.localContext as? SectionController else {
-            return false
-        }
-        guard let dragDelegate = sectionController.dragDelegate else {
-            return false
-        }
-        return dragDelegate.dragSessionAllowsMoveOperation(session, in: context)
+        true
     }
 
     open func collectionView(
         _ collectionView: UICollectionView,
         dragSessionIsRestrictedToDraggingApplication session: UIDragSession
     ) -> Bool {
-        guard let sectionController = session.localContext as? SectionController else {
-            return false
-        }
-        guard let dragDelegate = sectionController.dragDelegate else {
-            return false
-        }
-        return dragDelegate.dragSessionIsRestrictedToDraggingApplication(session, in: context)
+        false
     }
 }
