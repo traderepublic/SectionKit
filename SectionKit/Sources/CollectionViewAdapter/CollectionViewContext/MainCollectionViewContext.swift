@@ -84,7 +84,7 @@ open class MainCollectionViewContext: CollectionViewContext {
         )
         guard let cell = dequeuedCell as? Cell else {
             errorHandler(
-                error: .dequeuedViewIsNotTheCorrectType(
+                error: .dequeuedViewHasNotTheCorrectType(
                     expected: Cell.self,
                     actual: type(of: dequeuedCell)
                 )
@@ -116,7 +116,7 @@ open class MainCollectionViewContext: CollectionViewContext {
         )
         guard let view = dequeuedView as? SupplementaryView else {
             errorHandler(
-                error: .dequeuedViewIsNotTheCorrectType(
+                error: .dequeuedViewHasNotTheCorrectType(
                     expected: SupplementaryView.self,
                     actual: type(of: dequeuedView)
                 )
@@ -148,7 +148,7 @@ open class MainCollectionViewContext: CollectionViewContext {
         )
         guard let view = dequeuedView as? SupplementaryView else {
             errorHandler(
-                error: .dequeuedViewIsNotTheCorrectType(
+                error: .dequeuedViewHasNotTheCorrectType(
                     expected: SupplementaryView.self,
                     actual: type(of: dequeuedView)
                 )

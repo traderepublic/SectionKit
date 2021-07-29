@@ -76,7 +76,7 @@ extension SectionDataSource {
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        assertionFailure("headerView(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionReusableView()
     }
 
@@ -84,7 +84,7 @@ extension SectionDataSource {
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        assertionFailure("footerView(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionReusableView()
     }
 

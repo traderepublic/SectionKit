@@ -42,7 +42,7 @@ open class BaseSectionController: SectionController,
     open func numberOfItems(in context: CollectionViewContext) -> Int { 0 }
 
     open func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
-        assertionFailure("cellForItem(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionViewCell()
     }
 
@@ -50,7 +50,7 @@ open class BaseSectionController: SectionController,
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        assertionFailure("headerView(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionReusableView()
     }
 
@@ -58,7 +58,7 @@ open class BaseSectionController: SectionController,
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        assertionFailure("footerView(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionReusableView()
     }
 
