@@ -677,7 +677,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testShouldShowMenuForItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
@@ -708,7 +708,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testShouldShowMenuForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
@@ -729,7 +729,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testCanPerform() throws {
         class Mock {
@@ -772,7 +772,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testCanPerformWithoutDelegate() throws {
         class Mock {
@@ -803,7 +803,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testPerform() throws {
         class Mock {
@@ -842,7 +842,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testPerformWithoutDelegate() throws {
         class Mock {

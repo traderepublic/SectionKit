@@ -37,6 +37,7 @@
 		5A0B778026B299FF00B054D4 /* ListSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */; };
 		5A0B778226B2A92C00B054D4 /* SingleItemSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */; };
 		5A0B778426B2AA2000B054D4 /* SingleModelSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */; };
+		5A0B778626B2AB7800B054D4 /* BaseSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */; };
 		5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */; };
 		5AA9D95226AAA5E000679D88 /* MockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9D95126AAA5E000679D88 /* MockCollectionViewCell.swift */; };
 		5AA9D95426AAA5EA00679D88 /* MockCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9D95326AAA5EA00679D88 /* MockCollectionReusableView.swift */; };
@@ -155,6 +156,7 @@
 		5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModelSectionControllerTests.swift; sourceTree = "<group>"; };
+		5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SectionIndexPath.swift"; sourceTree = "<group>"; };
 		5AA9D95126AAA5E000679D88 /* MockCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCollectionViewCell.swift; sourceTree = "<group>"; };
 		5AA9D95326AAA5EA00679D88 /* MockCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 			children = (
 				5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */,
 				5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */,
+				5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */,
 				5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */,
 				5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */,
 				5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */,
@@ -747,6 +750,7 @@
 				5A0B776626B146EC00B054D4 /* ListCollectionViewAdapterUICollectionViewDragDelegateTests.swift in Sources */,
 				5A0B777226B1A13B00B054D4 /* SequenceGroupTests.swift in Sources */,
 				5AA9D96A26AACACF00679D88 /* MockSectionDelegate.swift in Sources */,
+				5A0B778626B2AB7800B054D4 /* BaseSectionControllerTests.swift in Sources */,
 				5A0B777026B19EB300B054D4 /* MockListCollectionViewAdapterDataSource.swift in Sources */,
 				5AA9D96E26AAD06100679D88 /* SingleSectionCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
 				5AE1761E2667DA7000D4DCE1 /* SequenceUniqueTests.swift in Sources */,
