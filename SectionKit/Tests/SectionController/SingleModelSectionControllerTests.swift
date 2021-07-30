@@ -30,6 +30,22 @@ internal final class SingleModelSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
+    internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
+        let sectionController = SingleModelSectionController<Int>(model: 1)
+        let update = try XCTUnwrap(
+            sectionController.calculateUpdate(
+                from: 1,
+                to: 2
+            )
+        )
+        XCTAssertEqual(update.batchOperations.count, 1)
+        let batchOperation = update.batchOperations.first!
+        XCTAssert(batchOperation.deletes.isEmpty)
+        XCTAssert(batchOperation.inserts.isEmpty)
+        XCTAssertEqual(batchOperation.reloads, [0])
+        XCTAssert(batchOperation.moves.isEmpty)
+    }
+
     internal func testNumberOfItems() {
         let sectionController = SingleModelSectionController(model: "1")
         let context = MainCollectionViewContext(

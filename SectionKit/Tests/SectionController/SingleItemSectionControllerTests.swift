@@ -105,7 +105,87 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testNumberOfItems() {
+    internal func testCalculateUpdateFromSomeToSomeWithEqualItems() throws {
+        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let update = try XCTUnwrap(
+            sectionController.calculateUpdate(
+                from: 1,
+                to: 1
+            )
+        )
+        XCTAssertEqual(update.batchOperations.count, 1)
+        let batchOperation = update.batchOperations.first!
+        XCTAssert(batchOperation.deletes.isEmpty)
+        XCTAssert(batchOperation.inserts.isEmpty)
+        XCTAssert(batchOperation.reloads.isEmpty)
+        XCTAssert(batchOperation.moves.isEmpty)
+    }
+
+    internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
+        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let update = try XCTUnwrap(
+            sectionController.calculateUpdate(
+                from: 1,
+                to: 2
+            )
+        )
+        XCTAssertEqual(update.batchOperations.count, 1)
+        let batchOperation = update.batchOperations.first!
+        XCTAssert(batchOperation.deletes.isEmpty)
+        XCTAssert(batchOperation.inserts.isEmpty)
+        XCTAssertEqual(batchOperation.reloads, [0])
+        XCTAssert(batchOperation.moves.isEmpty)
+    }
+
+    internal func testCalculateUpdateFromNoneToSome() throws {
+        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let update = try XCTUnwrap(
+            sectionController.calculateUpdate(
+                from: nil,
+                to: 1
+            )
+        )
+        XCTAssertEqual(update.batchOperations.count, 1)
+        let batchOperation = update.batchOperations.first!
+        XCTAssert(batchOperation.deletes.isEmpty)
+        XCTAssertEqual(batchOperation.inserts, [0])
+        XCTAssert(batchOperation.reloads.isEmpty)
+        XCTAssert(batchOperation.moves.isEmpty)
+    }
+
+    internal func testCalculateUpdateFromSomeToNone() throws {
+        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let update = try XCTUnwrap(
+            sectionController.calculateUpdate(
+                from: 1,
+                to: nil
+            )
+        )
+        XCTAssertEqual(update.batchOperations.count, 1)
+        let batchOperation = update.batchOperations.first!
+        XCTAssertEqual(batchOperation.deletes, [0])
+        XCTAssert(batchOperation.inserts.isEmpty)
+        XCTAssert(batchOperation.reloads.isEmpty)
+        XCTAssert(batchOperation.moves.isEmpty)
+    }
+
+    internal func testCalculateUpdateFromNoneToNone() throws {
+        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let update = try XCTUnwrap(
+            sectionController.calculateUpdate(
+                from: nil,
+                to: nil
+            )
+        )
+        XCTAssertEqual(update.batchOperations.count, 1)
+        let batchOperation = update.batchOperations.first!
+        XCTAssert(batchOperation.deletes.isEmpty)
+        XCTAssert(batchOperation.inserts.isEmpty)
+        XCTAssert(batchOperation.reloads.isEmpty)
+        XCTAssert(batchOperation.moves.isEmpty)
+    }
+
+    internal func testNumberOfItemsWithItem() {
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         sectionController.item = "1"
         let context = MainCollectionViewContext(
@@ -114,5 +194,16 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
             errorHandler: MockErrorHandler { _ in }
         )
         XCTAssertEqual(sectionController.numberOfItems(in: context), 1)
+    }
+
+    internal func testNumberOfItemsWithoutItem() {
+        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        sectionController.item = nil
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
+            errorHandler: MockErrorHandler { _ in }
+        )
+        XCTAssertEqual(sectionController.numberOfItems(in: context), 0)
     }
 }
