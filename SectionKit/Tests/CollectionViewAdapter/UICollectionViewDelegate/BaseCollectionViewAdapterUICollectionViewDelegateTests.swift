@@ -464,8 +464,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     internal func testWillDisplaySupplementaryViewWithInvalidElementKind() throws {
-        let dataSourceExpectation = expectation(description: "Should not invoke delegate")
-        dataSourceExpectation.fulfill()
+        let delegateExpectation = expectation(description: "Should not invoke delegate")
+        delegateExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -478,10 +478,10 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     sectionController.delegate = {
                         let delegate = MockSectionDelegate()
                         delegate._willDisplayHeaderView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         delegate._willDisplayFooterView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         return delegate
                     }()
@@ -636,8 +636,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     internal func testDidEndDisplayingSupplementaryWithInvalidElementKind() throws {
-        let dataSourceExpectation = expectation(description: "Should not invoke delegate")
-        dataSourceExpectation.fulfill()
+        let delegateExpectation = expectation(description: "Should not invoke delegate")
+        delegateExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -650,10 +650,10 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     sectionController.delegate = {
                         let delegate = MockSectionDelegate()
                         delegate._didEndDisplayingHeaderView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         delegate._didEndDisplayingFooterView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         return delegate
                     }()
