@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 /// An enumeration of all SectionKit errors.
 public enum Error: Swift.Error {
@@ -20,6 +20,12 @@ public enum Error: Swift.Error {
 
     /// Move is not supported inside the same section.
     case moveIsNotInTheSameSection(sourceSection: Int, destinationSection: Int)
+
+    case sectionAdapterIsNotSet
+
+    case adapterDoesNotContainSectionController
+
+    case dequeuedViewIsNotTheCorrectType(expected: UICollectionReusableView.Type, actual: UICollectionReusableView.Type)
 }
 
 extension Error: CustomStringConvertible {
@@ -42,6 +48,15 @@ extension Error: CustomStringConvertible {
 
         case let .moveIsNotInTheSameSection(sourceSection, destinationSection):
             return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection)."
+
+        case .sectionAdapterIsNotSet:
+            return "`sectionAdapter` is no set on the context."
+
+        case .adapterDoesNotContainSectionController:
+            return "The given controller is not child of this adapter."
+
+        case let .dequeuedViewIsNotTheCorrectType(expected, actual):
+            return "The dequeued view is not the correct type. Expected: \(expected) Actual: \(actual)"
         }
     }
 }
