@@ -7,7 +7,7 @@ internal class MockSectionDataSource: SectionDataSource {
 
     internal typealias NumberOfItemsBlock = (CollectionViewContext) -> Int
 
-    internal var _numberOfItems: NumberOfItemsBlock = { _ in
+    internal lazy var _numberOfItems: NumberOfItemsBlock = { _ in
         XCTFail("not implemented")
         return 0
     }
@@ -20,7 +20,7 @@ internal class MockSectionDataSource: SectionDataSource {
 
     internal typealias CellForItemBlock = (SectionIndexPath, CollectionViewContext) -> UICollectionViewCell
 
-    internal var _cellForItem: CellForItemBlock = { _, _ in
+    internal lazy var _cellForItem: CellForItemBlock = { _, _ in
         XCTFail("not implemented")
         return UICollectionViewCell()
     }
@@ -33,7 +33,7 @@ internal class MockSectionDataSource: SectionDataSource {
 
     internal typealias HeaderViewBlock = (SectionIndexPath, CollectionViewContext) -> UICollectionReusableView
 
-    internal var _headerView: HeaderViewBlock = { _, _ in
+    internal lazy var _headerView: HeaderViewBlock = { _, _ in
         XCTFail("not implemented")
         return UICollectionReusableView()
     }
@@ -46,7 +46,7 @@ internal class MockSectionDataSource: SectionDataSource {
 
     internal typealias FooterViewBlock = (SectionIndexPath, CollectionViewContext) -> UICollectionReusableView
 
-    internal var _footerView: FooterViewBlock = { _, _ in
+    internal lazy var _footerView: FooterViewBlock = { _, _ in
         XCTFail("not implemented")
         return UICollectionReusableView()
     }
@@ -59,7 +59,7 @@ internal class MockSectionDataSource: SectionDataSource {
 
     internal typealias CanMoveItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _canMoveItem: CanMoveItemBlock = { _, _ in
+    internal lazy var _canMoveItem: CanMoveItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
@@ -72,7 +72,7 @@ internal class MockSectionDataSource: SectionDataSource {
 
     internal typealias MoveItemBlock = (SectionIndexPath, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _moveItem: MoveItemBlock = { _, _, _ in
+    internal lazy var _moveItem: MoveItemBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 

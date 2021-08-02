@@ -7,7 +7,7 @@ internal class MockSectionFlowDelegate: SectionFlowDelegate {
 
     internal typealias SizeForItemBlock = (SectionIndexPath, UICollectionViewLayout, CollectionViewContext) -> CGSize
 
-    internal var _sizeForItem: SizeForItemBlock = { _, _, _ in
+    internal lazy var _sizeForItem: SizeForItemBlock = { _, _, _ in
         XCTFail("not implemented")
         return .zero
     }
@@ -24,7 +24,7 @@ internal class MockSectionFlowDelegate: SectionFlowDelegate {
 
     internal typealias InsetBlock = (UICollectionViewLayout, CollectionViewContext) -> UIEdgeInsets
 
-    internal var _inset: InsetBlock = { _, _ in
+    internal lazy var _inset: InsetBlock = { _, _ in
         XCTFail("not implemented")
         return .zero
     }
@@ -37,7 +37,7 @@ internal class MockSectionFlowDelegate: SectionFlowDelegate {
 
     internal typealias MinimumLineSpacingBlock = (UICollectionViewLayout, CollectionViewContext) -> CGFloat
 
-    internal var _minimumLineSpacing: MinimumLineSpacingBlock = { _, _ in
+    internal lazy var _minimumLineSpacing: MinimumLineSpacingBlock = { _, _ in
         XCTFail("not implemented")
         return .zero
     }
@@ -53,7 +53,7 @@ internal class MockSectionFlowDelegate: SectionFlowDelegate {
 
     internal typealias MinimumInteritemSpacingBlock = (UICollectionViewLayout, CollectionViewContext) -> CGFloat
 
-    internal var _minimumInteritemSpacing: MinimumInteritemSpacingBlock = { _, _ in
+    internal lazy var _minimumInteritemSpacing: MinimumInteritemSpacingBlock = { _, _ in
         XCTFail("not implemented")
         return .zero
     }
@@ -69,7 +69,7 @@ internal class MockSectionFlowDelegate: SectionFlowDelegate {
 
     internal typealias ReferenceSizeForHeaderBlock = (UICollectionViewLayout, CollectionViewContext) -> CGSize
 
-    internal var _referenceSizeForHeader: ReferenceSizeForHeaderBlock = { _, _ in
+    internal lazy var _referenceSizeForHeader: ReferenceSizeForHeaderBlock = { _, _ in
         XCTFail("not implemented")
         return .zero
     }
@@ -85,7 +85,7 @@ internal class MockSectionFlowDelegate: SectionFlowDelegate {
 
     internal typealias ReferenceSizeForFooterBlock = (UICollectionViewLayout, CollectionViewContext) -> CGSize
 
-    internal var _referenceSizeForFooter: ReferenceSizeForFooterBlock = { _, _ in
+    internal lazy var _referenceSizeForFooter: ReferenceSizeForFooterBlock = { _, _ in
         XCTFail("not implemented")
         return .zero
     }

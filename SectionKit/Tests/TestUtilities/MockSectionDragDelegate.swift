@@ -8,7 +8,7 @@ internal class MockSectionDragDelegate: SectionDragDelegate {
 
     internal typealias DragItemsForBeginningBlock = (UIDragSession, SectionIndexPath, CollectionViewContext) -> [UIDragItem]
 
-    internal var _dragItemsForBeginning: DragItemsForBeginningBlock = { _, _, _ in
+    internal lazy var _dragItemsForBeginning: DragItemsForBeginningBlock = { _, _, _ in
         XCTFail("not implemented")
         return []
     }
@@ -25,7 +25,7 @@ internal class MockSectionDragDelegate: SectionDragDelegate {
 
     internal typealias DragItemsForAddingBlock = (UIDragSession, SectionIndexPath, CGPoint, CollectionViewContext) -> [UIDragItem]
 
-    internal var _dragItemsForAdding: DragItemsForAddingBlock = { _, _, _, _ in
+    internal lazy var _dragItemsForAdding: DragItemsForAddingBlock = { _, _, _, _ in
         XCTFail("not implemented")
         return []
     }
@@ -43,7 +43,7 @@ internal class MockSectionDragDelegate: SectionDragDelegate {
 
     internal typealias DragSessionWillBeginBlock = (UIDragSession, CollectionViewContext) -> Void
 
-    internal var _dragSessionWillBegin: DragSessionWillBeginBlock = { _, _ in
+    internal lazy var _dragSessionWillBegin: DragSessionWillBeginBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -55,7 +55,7 @@ internal class MockSectionDragDelegate: SectionDragDelegate {
 
     internal typealias DragSessionDidEndBlock = (UIDragSession, CollectionViewContext) -> Void
 
-    internal var _dragSessionDidEnd: DragSessionDidEndBlock = { _, _ in
+    internal lazy var _dragSessionDidEnd: DragSessionDidEndBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -67,7 +67,7 @@ internal class MockSectionDragDelegate: SectionDragDelegate {
 
     internal typealias DragPreviewParametersForItemBlock = (SectionIndexPath, CollectionViewContext) -> UIDragPreviewParameters?
 
-    internal var _dragPreviewParametersForItem: DragPreviewParametersForItemBlock = { _, _ in
+    internal lazy var _dragPreviewParametersForItem: DragPreviewParametersForItemBlock = { _, _ in
         XCTFail("not implemented")
         return nil
     }

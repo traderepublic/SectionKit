@@ -6,7 +6,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidScrollBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewDidScroll: ScrollViewDidScrollBlock = { _ in
+    internal lazy var _scrollViewDidScroll: ScrollViewDidScrollBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -18,7 +18,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidZoomBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewDidZoom: ScrollViewDidZoomBlock = { _ in
+    internal lazy var _scrollViewDidZoom: ScrollViewDidZoomBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -30,7 +30,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewWillBeginDraggingBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewWillBeginDragging: ScrollViewWillBeginDraggingBlock = { _ in
+    internal lazy var _scrollViewWillBeginDragging: ScrollViewWillBeginDraggingBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -42,7 +42,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewWillEndDraggingBlock = (UIScrollView, CGPoint, UnsafeMutablePointer<CGPoint>) -> Void
 
-    internal var _scrollViewWillEndDragging: ScrollViewWillEndDraggingBlock = { _, _, _ in
+    internal lazy var _scrollViewWillEndDragging: ScrollViewWillEndDraggingBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -58,7 +58,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidEndDraggingBlock = (UIScrollView, Bool) -> Void
 
-    internal var _scrollViewDidEndDragging: ScrollViewDidEndDraggingBlock = { _, _ in
+    internal lazy var _scrollViewDidEndDragging: ScrollViewDidEndDraggingBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -70,7 +70,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewWillBeginDeceleratingBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewWillBeginDecelerating: ScrollViewWillBeginDeceleratingBlock = { _ in
+    internal lazy var _scrollViewWillBeginDecelerating: ScrollViewWillBeginDeceleratingBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -82,7 +82,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidEndDeceleratingBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewDidEndDecelerating: ScrollViewDidEndDeceleratingBlock = { _ in
+    internal lazy var _scrollViewDidEndDecelerating: ScrollViewDidEndDeceleratingBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -94,7 +94,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidEndScrollingAnimationBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewDidEndScrollingAnimation: ScrollViewDidEndScrollingAnimationBlock = { _ in
+    internal lazy var _scrollViewDidEndScrollingAnimation: ScrollViewDidEndScrollingAnimationBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -106,7 +106,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ViewForZoomingBlock = (UIScrollView) -> UIView?
 
-    internal var _viewForZooming: ViewForZoomingBlock = { _ in
+    internal lazy var _viewForZooming: ViewForZoomingBlock = { _ in
         XCTFail("not implemented")
         return nil
     }
@@ -119,7 +119,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewWillBeginZoomingBlock = (UIScrollView, UIView?) -> Void
 
-    internal var _scrollViewWillBeginZooming: ScrollViewWillBeginZoomingBlock = { _, _ in
+    internal lazy var _scrollViewWillBeginZooming: ScrollViewWillBeginZoomingBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -131,7 +131,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidEndZoomingBlock = (UIScrollView, UIView?, CGFloat) -> Void
 
-    internal var _scrollViewDidEndZooming: ScrollViewDidEndZoomingBlock = { _, _, _ in
+    internal lazy var _scrollViewDidEndZooming: ScrollViewDidEndZoomingBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -147,7 +147,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewShouldScrollToTopBlock = (UIScrollView) -> Bool
 
-    internal var _scrollViewShouldScrollToTop: ScrollViewShouldScrollToTopBlock = { _ in
+    internal lazy var _scrollViewShouldScrollToTop: ScrollViewShouldScrollToTopBlock = { _ in
         XCTFail("not implemented")
         return false
     }
@@ -160,7 +160,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias ScrollViewDidScrollToTopBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewDidScrollToTop: ScrollViewDidScrollToTopBlock = { _ in
+    internal lazy var _scrollViewDidScrollToTop: ScrollViewDidScrollToTopBlock = { _ in
         XCTFail("not implemented")
     }
 
@@ -172,7 +172,7 @@ internal class MockScrollViewDelegate: NSObject, UIScrollViewDelegate {
 
     internal typealias scrollViewDidChangeAdjustedContentInsetBlock = (UIScrollView) -> Void
 
-    internal var _scrollViewDidChangeAdjustedContentInset: scrollViewDidChangeAdjustedContentInsetBlock = { _ in
+    internal lazy var _scrollViewDidChangeAdjustedContentInset: scrollViewDidChangeAdjustedContentInsetBlock = { _ in
         XCTFail("not implemented")
     }
 

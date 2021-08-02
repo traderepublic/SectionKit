@@ -8,7 +8,7 @@ internal class MockSectionDataSourcePrefetchingDelegate: SectionDataSourcePrefet
 
     internal typealias PrefetchItemsBlock = ([SectionIndexPath], CollectionViewContext) -> Void
 
-    internal var _prefetchItems: PrefetchItemsBlock = { _, _ in
+    internal lazy var _prefetchItems: PrefetchItemsBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -20,7 +20,7 @@ internal class MockSectionDataSourcePrefetchingDelegate: SectionDataSourcePrefet
 
     internal typealias CancelPrefetchingForItemsBlock = ([SectionIndexPath], CollectionViewContext) -> Void
 
-    internal var _cancelPrefetchingForItems: CancelPrefetchingForItemsBlock = { _, _ in
+    internal lazy var _cancelPrefetchingForItems: CancelPrefetchingForItemsBlock = { _, _ in
         XCTFail("not implemented")
     }
 

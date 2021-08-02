@@ -46,7 +46,7 @@ internal class MockSectionController: SectionController {
 
     internal typealias DidUpdateBlock = (Any) -> Void
 
-    internal var _didUpdate: DidUpdateBlock = { _ in
+    internal lazy var _didUpdate: DidUpdateBlock = { _ in
         XCTFail("not implemented")
     }
 
