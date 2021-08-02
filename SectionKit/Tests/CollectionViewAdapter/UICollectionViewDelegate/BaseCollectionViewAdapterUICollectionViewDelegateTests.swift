@@ -1019,6 +1019,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testShouldSpringLoadItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
@@ -1054,6 +1055,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 11.0, *)
     internal func testShouldSpringLoadItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1078,6 +1080,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testShouldBeginMultipleSelectionInteraction() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
@@ -1110,6 +1113,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 13.0, *)
     internal func testShouldBeginMultipleSelectionInteractionWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1132,6 +1136,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testDidBeginMultipleSelectionInteraction() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
@@ -1160,6 +1165,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 13.0, *)
     internal func testDidBeginMultipleSelectionInteractionWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1179,6 +1185,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testDidEndMultipleSelectionInteraction() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -1190,6 +1197,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionViewDidEndMultipleSelectionInteraction?(collectionView)
     }
 
+    @available(iOS 13.0, *)
     internal func testContextMenuConfigurationForItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
@@ -1225,6 +1233,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 13.0, *)
     internal func testContextMenuConfigurationForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1248,6 +1257,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testPreviewForHighlightingContextMenuWithConfiguration() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -1264,6 +1274,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testPreviewForDismissingContextMenuWithConfiguration() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -1280,6 +1291,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testWillPerformPreviewActionForMenu() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -1296,6 +1308,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockSpringLoadedInteractionContext: NSObject, UISpringLoadedInteractionContext {
     var state: UISpringLoadedInteractionEffectState = .activated
 
@@ -1308,6 +1321,7 @@ private final class MockSpringLoadedInteractionContext: NSObject, UISpringLoaded
     }
 }
 
+@available(iOS 13.0, *)
 private class MockContextMenuInteractionCommitAnimating: NSObject, UIContextMenuInteractionCommitAnimating {
     var preferredCommitStyle: UIContextMenuInteractionCommitStyle = .dismiss
 

@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTestCase {
     override func setUp() {
         super.setUp()
@@ -299,6 +300,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockDragSession: NSObject, UIDragSession {
     var localContext: Any?
 

@@ -188,26 +188,32 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldShowMenuForItem
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal typealias ShouldShowMenuForItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal var _shouldShowMenuForItem: ShouldShowMenuForItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func shouldShowMenuForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> Bool {
         _shouldShowMenuForItem(indexPath, context)
     }
 
     // MARK: - canPerform
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal typealias CanPerformBlock = (Selector, SectionIndexPath, Any?, CollectionViewContext) -> Bool
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal var _canPerform: CanPerformBlock = { _, _, _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func canPerform(
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
@@ -219,12 +225,15 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - perform
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal typealias PerformBlock = (Selector, SectionIndexPath, Any?, CollectionViewContext) -> Void
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal var _perform: PerformBlock = { _, _, _, _ in
         XCTFail("not implemented")
     }
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func perform(
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
@@ -249,13 +258,16 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldSpringLoadItem
 
+    @available(iOS 11.0, *)
     internal typealias ShouldSpringLoadItemBlock = (SectionIndexPath, UISpringLoadedInteractionContext, CollectionViewContext) -> Bool
 
+    @available(iOS 11.0, *)
     internal var _shouldSpringLoadItem: ShouldSpringLoadItemBlock = { _, _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS 11.0, *)
     internal func shouldSpringLoadItem(
         at indexPath: SectionIndexPath,
         with interactionContext: UISpringLoadedInteractionContext,
@@ -266,38 +278,47 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldBeginMultipleSelectionInteraction
 
+    @available(iOS 13.0, *)
     internal typealias ShouldBeginMultipleSelectionInteractionBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
+    @available(iOS 13.0, *)
     internal var _shouldBeginMultipleSelectionInteraction: ShouldBeginMultipleSelectionInteractionBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS 13.0, *)
     internal func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> Bool {
         _shouldBeginMultipleSelectionInteraction(indexPath, context)
     }
 
     // MARK: - didBeginMultipleSelectionInteraction
 
+    @available(iOS 13.0, *)
     internal typealias DidBeginMultipleSelectionInteractionBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
+    @available(iOS 13.0, *)
     internal var _didBeginMultipleSelectionInteraction: DidBeginMultipleSelectionInteractionBlock = { _, _ in
         XCTFail("not implemented")
     }
 
+    @available(iOS 13.0, *)
     internal func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
         _didBeginMultipleSelectionInteraction(indexPath, context)
     }
 
     // MARK: - contextMenuConfigurationForItem
 
+    @available(iOS 13.0, *)
     internal typealias ContextMenuConfigurationForItemBlock = (SectionIndexPath, CGPoint, CollectionViewContext) -> UIContextMenuConfiguration?
 
+    @available(iOS 13.0, *)
     internal var _contextMenuConfigurationForItem: ContextMenuConfigurationForItemBlock = { _, _, _ in
         XCTFail("not implemented")
         return nil
     }
 
+    @available(iOS 13.0, *)
     internal func contextMenuConfigurationForItem(
         at indexPath: SectionIndexPath,
         point: CGPoint,

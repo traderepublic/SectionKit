@@ -2,6 +2,7 @@ import SectionKit
 import UIKit
 import XCTest
 
+@available(iOS 10.0, *)
 internal class MockSectionDataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate {
     // MARK: - prefetchItems
 

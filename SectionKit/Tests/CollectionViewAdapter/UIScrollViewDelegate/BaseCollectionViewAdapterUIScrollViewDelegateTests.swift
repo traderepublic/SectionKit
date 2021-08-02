@@ -251,6 +251,7 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 11.0, *)
     internal func testScrollViewDidChangeAdjustedContentInset() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()

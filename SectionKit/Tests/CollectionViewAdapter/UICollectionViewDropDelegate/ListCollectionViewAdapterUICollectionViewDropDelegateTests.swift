@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal final class ListCollectionViewAdapterUICollectionViewDropDelegateTests: BaseCollectionViewAdapterUICollectionViewDropDelegateTests {
     override internal func createCollectionViewAdapter(
         collectionView: UICollectionView,

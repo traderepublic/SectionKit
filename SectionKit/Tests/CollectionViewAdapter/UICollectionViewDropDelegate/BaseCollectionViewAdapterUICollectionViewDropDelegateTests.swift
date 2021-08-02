@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTestCase {
     override func setUp() {
         super.setUp()
@@ -619,6 +620,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropItem: NSObject, UICollectionViewDropItem {
     var dragItem = UIDragItem(itemProvider: NSItemProvider(object: NSString()))
 
@@ -637,6 +639,7 @@ private final class MockCollectionView: UICollectionView {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockDropSession: NSObject, UIDropSession {
     var localDragSession: UIDragSession?
 
@@ -669,6 +672,7 @@ private final class MockDropSession: NSObject, UIDropSession {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropCoordinator: NSObject, UICollectionViewDropCoordinator {
     var items: [UICollectionViewDropItem] = []
 
@@ -700,12 +704,14 @@ private final class MockCollectionViewDropCoordinator: NSObject, UICollectionVie
     ) -> UIDragAnimating { MockDragAnimating() }
 }
 
+@available(iOS 11.0, *)
 private final class MockDragAnimating: NSObject, UIDragAnimating {
     func addAnimations(_ animations: @escaping () -> Void) { }
 
     func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void) { }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropPlaceholderContext: NSObject, UICollectionViewDropPlaceholderContext {
     var dragItem: UIDragItem = .init(itemProvider: NSItemProvider(object: "" as NSString))
 

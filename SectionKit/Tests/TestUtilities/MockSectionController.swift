@@ -9,6 +9,7 @@ internal class MockSectionController: SectionController {
         return MockSectionDataSource()
     }()
 
+    @available(iOS 10.0, *)
     internal lazy var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? = {
         XCTFail("dataSourcePrefetchingDelegate is not set")
         return nil
@@ -24,11 +25,13 @@ internal class MockSectionController: SectionController {
         return nil
     }()
 
+    @available(iOS 11.0, *)
     internal lazy var dragDelegate: SectionDragDelegate? = {
         XCTFail("dragDelegate is not set")
         return nil
     }()
 
+    @available(iOS 11.0, *)
     internal lazy var dropDelegate: SectionDropDelegate? = {
         XCTFail("dropDelegate is not set")
         return nil

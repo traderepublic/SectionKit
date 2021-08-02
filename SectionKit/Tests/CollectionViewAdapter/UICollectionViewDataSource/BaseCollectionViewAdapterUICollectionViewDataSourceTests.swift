@@ -476,12 +476,14 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 14.0, *)
     internal func testIndexTitlesIsNil() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(collectionView: collectionView)
         XCTAssertNil(adapter.indexTitles?(for: collectionView))
     }
 
+    @available(iOS 14.0, *)
     internal func testIndexPathForIndexTitle() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()

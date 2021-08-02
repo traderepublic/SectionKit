@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 10.0, *)
 internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests: XCTestCase {
     override func setUp() {
         super.setUp()

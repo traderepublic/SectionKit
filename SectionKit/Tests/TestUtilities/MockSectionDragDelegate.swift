@@ -2,6 +2,7 @@ import SectionKit
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal class MockSectionDragDelegate: SectionDragDelegate {
     // MARK: - dragItemsForBeginning
 
