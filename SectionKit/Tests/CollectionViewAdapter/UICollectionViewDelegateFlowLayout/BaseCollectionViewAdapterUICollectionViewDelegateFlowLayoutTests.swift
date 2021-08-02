@@ -22,7 +22,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDelegateFlowLayout {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     // MARK: - sizeForItem

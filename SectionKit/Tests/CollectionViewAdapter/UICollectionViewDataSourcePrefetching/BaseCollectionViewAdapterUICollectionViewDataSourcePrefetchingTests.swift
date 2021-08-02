@@ -23,7 +23,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSourcePrefetching {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func testPrefetchItems() throws {

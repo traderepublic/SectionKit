@@ -23,7 +23,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDragDelegate {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     // MARK: - itemsForBeginning

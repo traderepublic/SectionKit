@@ -22,7 +22,7 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UIScrollViewDelegate {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func testScrollViewDidScroll() throws {

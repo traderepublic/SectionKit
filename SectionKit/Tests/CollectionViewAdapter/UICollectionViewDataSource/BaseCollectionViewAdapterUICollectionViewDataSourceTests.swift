@@ -22,7 +22,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSource {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func testNumberOfSections() throws {

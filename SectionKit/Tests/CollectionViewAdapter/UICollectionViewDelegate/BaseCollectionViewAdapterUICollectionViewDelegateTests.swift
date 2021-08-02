@@ -22,7 +22,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDelegate {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func testShouldHighlightItem() throws {
