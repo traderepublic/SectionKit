@@ -34,7 +34,6 @@ internal final class NumbersViewController: UIViewController {
         super.viewDidLoad()
         title = viewModel.title
         collectionViewAdapter = ListCollectionViewAdapter(
-            viewController: self,
             collectionView: collectionView,
             sections: viewModel.sections.map {
                 Section(
