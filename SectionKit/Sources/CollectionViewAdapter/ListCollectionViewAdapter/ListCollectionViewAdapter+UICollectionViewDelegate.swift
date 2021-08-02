@@ -113,7 +113,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         case UICollectionView.elementKindSectionFooter:
             delegate.willDisplay(footerView: view, at: sectionIndexPath, in: context)
 
-        default: break
+        default:
+            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
         }
     }
 
@@ -146,7 +147,8 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
         case UICollectionView.elementKindSectionFooter:
             delegate.didEndDisplaying(footerView: view, at: sectionIndexPath, in: context)
 
-        default: break
+        default:
+            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
         }
     }
 
