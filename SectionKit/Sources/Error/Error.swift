@@ -23,7 +23,7 @@ public enum Error: Swift.Error {
 
     case sectionAdapterIsNotSet
 
-    case sectionControllerNotPartOfAdapter
+    case adapterDoesNotContainSectionController
 
     case dequeuedViewIsNotTheCorrectType(expected: UICollectionReusableView.Type, actual: UICollectionReusableView.Type)
 }
@@ -52,7 +52,7 @@ extension Error: CustomStringConvertible {
         case .sectionAdapterIsNotSet:
             return "`sectionAdapter` is no set on the context."
 
-        case .sectionControllerNotPartOfAdapter:
+        case .adapterDoesNotContainSectionController:
             return "The given controller is not child of this adapter."
 
         case let .dequeuedViewIsNotTheCorrectType(expected, actual):
