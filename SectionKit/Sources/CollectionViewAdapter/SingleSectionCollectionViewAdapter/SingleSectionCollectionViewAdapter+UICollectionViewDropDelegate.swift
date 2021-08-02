@@ -6,10 +6,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         _ collectionView: UICollectionView,
         canHandle session: UIDropSession
     ) -> Bool {
-        guard let sectionController = session.localDragSession?.localContext as? SectionController else {
-            return false
-        }
-        guard let dropDelegate = sectionController.dropDelegate else {
+        guard let dropDelegate = section?.controller.dropDelegate else {
             return false
         }
         return dropDelegate.canHandle(drop: session, in: context)
@@ -20,19 +17,29 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         dropSessionDidUpdate session: UIDropSession,
         withDestinationIndexPath destinationIndexPath: IndexPath?
     ) -> UICollectionViewDropProposal {
-        guard let sectionController = session.localDragSession?.localContext as? SectionController else {
-            return UICollectionViewDropProposal(operation: .forbidden)
-        }
-        if let destinationIndexPath = destinationIndexPath, controller(at: destinationIndexPath) !== sectionController {
-            return UICollectionViewDropProposal(operation: .forbidden)
-        }
-        guard let dropDelegate = sectionController.dropDelegate else {
-            return UICollectionViewDropProposal(operation: .forbidden)
-        }
+        let dropDelegate: SectionDropDelegate
         let sectionIndexPath: SectionIndexPath?
         if let destinationIndexPath = destinationIndexPath, destinationIndexPath.isValid {
+            guard let sectionController = controller(at: destinationIndexPath) else {
+                return UICollectionViewDropProposal(operation: .forbidden)
+            }
+            guard let delegate = sectionController.dropDelegate else {
+                return UICollectionViewDropProposal(operation: .forbidden)
+            }
+            dropDelegate = delegate
             sectionIndexPath = SectionIndexPath(destinationIndexPath)
         } else {
+            let dropLocation = session.location(in: context.collectionView)
+            guard let dropIndexPath = collectionView.indexPathForItem(at: dropLocation) else {
+                return UICollectionViewDropProposal(operation: .forbidden)
+            }
+            guard let sectionController = controller(at: dropIndexPath) else {
+                return UICollectionViewDropProposal(operation: .forbidden)
+            }
+            guard let delegate = sectionController.dropDelegate else {
+                return UICollectionViewDropProposal(operation: .forbidden)
+            }
+            dropDelegate = delegate
             sectionIndexPath = nil
         }
         return dropDelegate.dropSessionDidUpdate(session, at: sectionIndexPath, in: context)
@@ -42,31 +49,26 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDropDelegate {
         _ collectionView: UICollectionView,
         performDropWith coordinator: UICollectionViewDropCoordinator
     ) {
-        guard let sectionController = coordinator.session.localDragSession?.localContext as? SectionController else {
+        guard let destinationIndexPath = coordinator.destinationIndexPath, destinationIndexPath.isValid else {
             return
         }
-        let allItemsOriginateFromSectionController = coordinator.items.allSatisfy({ item in
-            guard let itemIndexPath = item.sourceIndexPath else {
-                return false
+        guard coordinator.items.allSatisfy({ item in
+            guard let itemIndexPath = item.sourceIndexPath, itemIndexPath.isValid else {
+                return true // if the item doesn't originate from the collectionview, we support the drop anyways
             }
-            return controller(at: itemIndexPath) === sectionController
-        })
-        guard allItemsOriginateFromSectionController else {
+            // since it has a source index, we validate that it originates from the same section
+            // if it's from a different section it would involve a second sectioncontroller, which is not yet supported
+            return itemIndexPath.section == destinationIndexPath.section
+        }) else {
             return
         }
-        if let destinationIndexPath = coordinator.destinationIndexPath,
-           controller(at: destinationIndexPath) !== sectionController {
+        guard let sectionController = controller(at: destinationIndexPath) else {
             return
         }
         guard let dropDelegate = sectionController.dropDelegate else {
             return
         }
-        let sectionIndexPath: SectionIndexPath?
-        if let destinationIndexPath = coordinator.destinationIndexPath, destinationIndexPath.isValid {
-            sectionIndexPath = SectionIndexPath(destinationIndexPath)
-        } else {
-            sectionIndexPath = nil
-        }
+        let sectionIndexPath = SectionIndexPath(destinationIndexPath)
         dropDelegate.performDrop(at: sectionIndexPath, with: coordinator, in: context)
     }
 
