@@ -51,9 +51,9 @@ internal class ErrorTests: XCTestCase {
         )
     }
 
-    internal func testDescriptionOfSectionControllerNotPartOfAdapter() {
+    internal func testDescriptionOfAdapterDoesNotContainSectionController() {
         XCTAssertEqual(
-            Error.sectionControllerNotPartOfAdapter.description,
+            Error.adapterDoesNotContainSectionController.description,
             "The given controller is not child of this adapter."
         )
     }

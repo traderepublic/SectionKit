@@ -55,7 +55,7 @@ open class MainCollectionViewContext: CollectionViewContext {
             return collectionView.reloadData()
         }
         guard let index = sectionAdapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
-            errorHandler(error: .sectionControllerNotPartOfAdapter)
+            errorHandler(error: .adapterDoesNotContainSectionController)
             return collectionView.reloadData()
         }
         collectionView.apply(update: update, at: index)

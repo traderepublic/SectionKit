@@ -85,8 +85,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler { error in
-                guard case .sectionControllerNotPartOfAdapter = error else {
-                    XCTFail("The error should be sectionControllerNotPartOfAdapter")
+                guard case .adapterDoesNotContainSectionController = error else {
+                    XCTFail("The error should be adapterDoesNotContainSectionController")
                     return
                 }
                 errorExpectation.fulfill()
