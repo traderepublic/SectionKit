@@ -7,7 +7,7 @@ public enum Error: Swift.Error {
 
     /// The list of sections contains two or more sections with the same id.
     /// This is not supported and would result in undefined behaviour.
-    case duplicateSectionIds
+    case duplicateSectionIds([AnyHashable])
 
     /// There is no datasource for section with given index.
     case missingDataSource(section: Int)
@@ -28,8 +28,8 @@ extension Error: CustomStringConvertible {
         case let .notImplemented(function):
             return "\(function) not implemented."
 
-        case .duplicateSectionIds:
-            return "The list of sections contains two or more sections with the same id."
+        case let .duplicateSectionIds(duplicateIds):
+            return "The list of sections contains two or more sections with the same id. Affected section id(s): \(duplicateIds)"
 
         case let .missingDataSource(section: section):
             return "There is no datasource for section with index \(section)."
