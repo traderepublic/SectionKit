@@ -223,22 +223,6 @@ open class BaseSectionController: SectionController,
         nil
     }
 
-    @available(iOS 11.0, *)
-    open func dragSessionAllowsMoveOperation(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool {
-        true
-    }
-
-    @available(iOS 11.0, *)
-    open func dragSessionIsRestrictedToDraggingApplication(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool {
-        false
-    }
-
     // MARK: - SectionDropDelegate
 
     @available(iOS 11.0, *)
