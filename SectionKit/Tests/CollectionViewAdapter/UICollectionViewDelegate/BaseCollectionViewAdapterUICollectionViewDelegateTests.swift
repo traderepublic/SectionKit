@@ -464,8 +464,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     internal func testWillDisplaySupplementaryViewWithInvalidElementKind() throws {
-        let dataSourceExpectation = expectation(description: "Should not invoke delegate")
-        dataSourceExpectation.fulfill()
+        let delegateExpectation = expectation(description: "Should not invoke delegate")
+        delegateExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -478,10 +478,10 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     sectionController.delegate = {
                         let delegate = MockSectionDelegate()
                         delegate._willDisplayHeaderView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         delegate._willDisplayFooterView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         return delegate
                     }()
@@ -636,8 +636,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     internal func testDidEndDisplayingSupplementaryWithInvalidElementKind() throws {
-        let dataSourceExpectation = expectation(description: "Should not invoke delegate")
-        dataSourceExpectation.fulfill()
+        let delegateExpectation = expectation(description: "Should not invoke delegate")
+        delegateExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -650,10 +650,10 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     sectionController.delegate = {
                         let delegate = MockSectionDelegate()
                         delegate._didEndDisplayingHeaderView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         delegate._didEndDisplayingFooterView = { headerView, indexPath, _ in
-                            dataSourceExpectation.fulfill()
+                            delegateExpectation.fulfill()
                         }
                         return delegate
                     }()
@@ -677,7 +677,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testShouldShowMenuForItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
@@ -708,7 +708,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testShouldShowMenuForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
@@ -729,7 +729,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testCanPerform() throws {
         class Mock {
@@ -772,7 +772,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testCanPerformWithoutDelegate() throws {
         class Mock {
@@ -803,7 +803,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testPerform() throws {
         class Mock {
@@ -842,7 +842,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    // the availability attribute is needed to silence a warning
+    // availability attribute is needed because of deprecation warning
     @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func testPerformWithoutDelegate() throws {
         class Mock {

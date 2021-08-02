@@ -21,11 +21,17 @@ public enum Error: Swift.Error {
     /// Move is not supported inside the same section.
     case moveIsNotInTheSameSection(sourceSection: Int, destinationSection: Int)
 
+    /// The `sectionAdapter` is not set on the context.
     case sectionAdapterIsNotSet
 
+    /// The given controller is not child of this adapter.
     case adapterDoesNotContainSectionController
 
-    case dequeuedViewIsNotTheCorrectType(expected: UICollectionReusableView.Type, actual: UICollectionReusableView.Type)
+    /// The dequeued view has not the correct type.
+    case dequeuedViewHasNotTheCorrectType(expected: UICollectionReusableView.Type, actual: UICollectionReusableView.Type)
+
+    /// The model that was given to the sectioncontroller has not the correct type.
+    case sectionControllerModelTypeMismatch(expected: Any.Type, actual: Any.Type)
 }
 
 extension Error: CustomStringConvertible {
@@ -47,16 +53,19 @@ extension Error: CustomStringConvertible {
             return "The given IndexPath \(indexPath) is not valid (does not contain exactly 2 values)."
 
         case let .moveIsNotInTheSameSection(sourceSection, destinationSection):
-            return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection)."
+            return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection))."
 
         case .sectionAdapterIsNotSet:
-            return "`sectionAdapter` is no set on the context."
+            return "The `sectionAdapter` is not set on the context."
 
         case .adapterDoesNotContainSectionController:
             return "The given controller is not child of this adapter."
 
-        case let .dequeuedViewIsNotTheCorrectType(expected, actual):
-            return "The dequeued view is not the correct type. Expected: \(expected) Actual: \(actual)"
+        case let .dequeuedViewHasNotTheCorrectType(expected, actual):
+            return "The dequeued view has not the correct type. Expected: \(expected) Actual: \(actual)"
+
+        case let .sectionControllerModelTypeMismatch(expected, actual):
+            return "The model that was given to the sectioncontroller has not the correct type. Expected: \(expected) Actual: \(actual)"
         }
     }
 }

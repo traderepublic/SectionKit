@@ -23,7 +23,12 @@ open class SingleModelSectionController<Model>: BaseSectionController {
 
     override open func didUpdate(model: Any) {
         guard let model = model as? Model else {
-            assertionFailure("Could not cast model to \(String(describing: Model.self))")
+            context?.errorHandler(
+                error: .sectionControllerModelTypeMismatch(
+                    expected: Model.self,
+                    actual: type(of: model)
+                )
+            )
             return
         }
         self.model = model

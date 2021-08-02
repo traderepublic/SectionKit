@@ -39,14 +39,14 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
                 Section(id: "", model: "", controller: {
                     let sectionController = MockSectionController()
                     sectionController.dragDelegate = {
-                        let dropDelegate = MockSectionDragDelegate()
-                        dropDelegate._dragItemsForBeginning = { session, indexPath, _ in
+                        let dragDelegate = MockSectionDragDelegate()
+                        dragDelegate._dragItemsForBeginning = { session, indexPath, _ in
                             XCTAssert(session === mockSession)
                             XCTAssertEqual(indexPath.indexInCollectionView, itemIndexPath)
                             testExpectation.fulfill()
                             return [dragItem]
                         }
-                        return dropDelegate
+                        return dragDelegate
                     }()
                     return sectionController
                 })
@@ -98,15 +98,15 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
                 Section(id: "", model: "", controller: {
                     let sectionController = MockSectionController()
                     sectionController.dragDelegate = {
-                        let dropDelegate = MockSectionDragDelegate()
-                        dropDelegate._dragItemsForAdding = { session, indexPath, point, _ in
+                        let dragDelegate = MockSectionDragDelegate()
+                        dragDelegate._dragItemsForAdding = { session, indexPath, point, _ in
                             XCTAssert(session === mockSession)
                             XCTAssertEqual(indexPath.indexInCollectionView, itemIndexPath)
                             XCTAssertEqual(point, mockPoint)
                             testExpectation.fulfill()
                             return [dragItem]
                         }
-                        return dropDelegate
+                        return dragDelegate
                     }()
                     return sectionController
                 })
@@ -162,13 +162,13 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
                 Section(id: "", model: "", controller: {
                     let sectionController = MockSectionController()
                     sectionController.dragDelegate = {
-                        let dropDelegate = MockSectionDragDelegate()
-                        dropDelegate._dragPreviewParametersForItem = { indexPath, _ in
+                        let dragDelegate = MockSectionDragDelegate()
+                        dragDelegate._dragPreviewParametersForItem = { indexPath, _ in
                             XCTAssertEqual(indexPath.indexInCollectionView, itemIndexPath)
                             testExpectation.fulfill()
                             return previewParameters
                         }
-                        return dropDelegate
+                        return dragDelegate
                     }()
                     return sectionController
                 })
@@ -216,12 +216,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
                 Section(id: "", model: "", controller: {
                     let sectionController = MockSectionController()
                     sectionController.dragDelegate = {
-                        let dropDelegate = MockSectionDragDelegate()
-                        dropDelegate._dragSessionWillBegin = { session, _ in
+                        let dragDelegate = MockSectionDragDelegate()
+                        dragDelegate._dragSessionWillBegin = { session, _ in
                             XCTAssert(session === mockSession)
                             testExpectation.fulfill()
                         }
-                        return dropDelegate
+                        return dragDelegate
                     }()
                     return sectionController
                 })
@@ -246,12 +246,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
                 Section(id: "", model: "", controller: {
                     let sectionController = MockSectionController()
                     sectionController.dragDelegate = {
-                        let dropDelegate = MockSectionDragDelegate()
-                        dropDelegate._dragSessionDidEnd = { session, _ in
+                        let dragDelegate = MockSectionDragDelegate()
+                        dragDelegate._dragSessionDidEnd = { session, _ in
                             XCTAssert(session === mockSession)
                             testExpectation.fulfill()
                         }
-                        return dropDelegate
+                        return dragDelegate
                     }()
                     return sectionController
                 })

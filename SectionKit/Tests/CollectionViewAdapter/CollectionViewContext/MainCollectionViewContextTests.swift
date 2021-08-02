@@ -182,8 +182,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler { error in
-                guard case let .dequeuedViewIsNotTheCorrectType(expected: expected, actual: actual) = error else {
-                    XCTFail("The error should be dequeuedViewIsNotTheCorrectType")
+                guard case let .dequeuedViewHasNotTheCorrectType(expected: expected, actual: actual) = error else {
+                    XCTFail("The error should be dequeuedViewHasNotTheCorrectType")
                     return
                 }
                 XCTAssert(expected === MockCollectionViewCell.self)
@@ -281,8 +281,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler { error in
-                guard case let .dequeuedViewIsNotTheCorrectType(expected: expected, actual: actual) = error else {
-                    XCTFail("The error should be dequeuedViewIsNotTheCorrectType")
+                guard case let .dequeuedViewHasNotTheCorrectType(expected: expected, actual: actual) = error else {
+                    XCTFail("The error should be dequeuedViewHasNotTheCorrectType")
                     return
                 }
                 XCTAssert(expected === MockCollectionReusableView.self)
@@ -380,8 +380,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler { error in
-                guard case let .dequeuedViewIsNotTheCorrectType(expected: expected, actual: actual) = error else {
-                    XCTFail("The error should be dequeuedViewIsNotTheCorrectType")
+                guard case let .dequeuedViewHasNotTheCorrectType(expected: expected, actual: actual) = error else {
+                    XCTFail("The error should be dequeuedViewHasNotTheCorrectType")
                     return
                 }
                 XCTAssert(expected === MockCollectionReusableView.self)
