@@ -22,7 +22,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
             collectionView: collectionView,
             errorHandler: AssertionFailureErrorHandler()
         )
-        XCTAssertEqual(context.containerInset, insets)
+        XCTAssertEqual(context.customContainerInset, insets)
     }
 
     internal func testAdjustedContainerInset() {
