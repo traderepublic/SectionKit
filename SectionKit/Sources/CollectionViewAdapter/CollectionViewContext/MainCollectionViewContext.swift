@@ -28,7 +28,7 @@ open class MainCollectionViewContext: CollectionViewContext {
     // MARK: - Init
 
     /**
-     Initialize an instance of `MainCollectionViewContext`.
+     Initialise an instance of `MainCollectionViewContext`.
 
      - Parameter viewController: The `UIViewController` which contains the `UICollectionView`.
 

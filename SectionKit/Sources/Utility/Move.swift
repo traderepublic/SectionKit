@@ -9,7 +9,7 @@ public struct Move: Hashable {
     public let to: Int
 
     /**
-     Initialize an instance of `Move`.
+     Initialise an instance of `Move`.
 
      - Parameter at: The index before the move.
 

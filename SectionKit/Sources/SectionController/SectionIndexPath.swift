@@ -9,7 +9,7 @@ public struct SectionIndexPath: Equatable {
     public let indexInSectionController: Int
 
     /**
-     Initialize an instance of `SectionIndexPath`.
+     Initialise an instance of `SectionIndexPath`.
 
      - Parameter indexInCollectionView: The index path of the item in the `UICollectionView`.
 
@@ -21,7 +21,7 @@ public struct SectionIndexPath: Equatable {
     }
 
     /**
-     Initialize an instance of `SectionIndexPath`.
+     Initialise an instance of `SectionIndexPath`.
 
      - Parameter indexInCollectionView: The index path of the item in the `UICollectionView`.
 

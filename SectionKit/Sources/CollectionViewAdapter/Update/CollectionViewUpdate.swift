@@ -20,7 +20,7 @@ public struct CollectionViewUpdate<CollectionViewData> {
     public let shouldReload: (CollectionViewBatchOperation<CollectionViewData>) -> Bool
 
     /**
-     Initialize an instance of `CollectionViewUpdate`.
+     Initialise an instance of `CollectionViewUpdate`.
 
      - Parameter batchOperations: The batch operations that should be performed in succession.
 
@@ -43,7 +43,7 @@ public struct CollectionViewUpdate<CollectionViewData> {
     }
 
     /**
-     Initialize an instance of `CollectionViewUpdate` with a single batch operation.
+     Initialise an instance of `CollectionViewUpdate` with a single batch operation.
 
      - Parameter data: The data of the `UICollectionView` after the `changes` have been performed.
 
@@ -93,7 +93,7 @@ public struct CollectionViewUpdate<CollectionViewData> {
     }
 
     /**
-     Initialize an instance of `CollectionViewUpdate` which always reloads the `UICollectionView`.
+     Initialise an instance of `CollectionViewUpdate` which always reloads the `UICollectionView`.
 
      - Parameter data: The data of the `UICollectionView` after the `changes` have been performed.
 

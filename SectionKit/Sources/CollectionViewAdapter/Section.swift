@@ -14,7 +14,7 @@ public class Section {
     public internal(set) lazy var controller: SectionController = controllerAccessor()
 
     /**
-     Initialize an instance of `Section`.
+     Initialise an instance of `Section`.
 
      - Parameter id: An identifier that uniquely identifies this section.
 
@@ -35,7 +35,7 @@ public class Section {
 
 extension Section {
     /**
-     Initialize an instance of `Section`.
+     Initialise an instance of `Section`.
 
      - Parameter id: An identifier that uniquely identifies this section.
 

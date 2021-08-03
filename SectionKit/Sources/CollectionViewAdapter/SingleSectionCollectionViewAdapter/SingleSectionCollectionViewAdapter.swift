@@ -5,7 +5,7 @@ import UIKit
  */
 open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
-     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
+     Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -47,7 +47,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     /**
-     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
+     Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.

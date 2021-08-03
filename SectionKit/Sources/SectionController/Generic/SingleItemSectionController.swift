@@ -12,7 +12,7 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController {
     private let areItemsEqual: (Item, Item) -> Bool
 
     /**
-     Initialize an instance of `SingleItemSectionController`.
+     Initialise an instance of `SingleItemSectionController`.
 
      - Parameter model: The model of this `SectionController`.
      */
@@ -134,7 +134,7 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController {
 
 extension SingleItemSectionController where Item: Equatable {
     /**
-     Initialize an instance of `SingleItemSectionController`
+     Initialise an instance of `SingleItemSectionController`
      which will only reload when the new item is different from the old one.
 
      - Parameter model: The model of this `SectionController`.

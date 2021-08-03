@@ -19,7 +19,7 @@ open class ManualDiffingListSectionController<
     private let itemContentIsEqual: (Item, Item) -> Bool
 
     /**
-     Initialize an instance of `ManualDiffingListSectionController`.
+     Initialise an instance of `ManualDiffingListSectionController`.
 
      - Parameter model: The model of this `SectionController`.
 
@@ -56,7 +56,7 @@ open class ManualDiffingListSectionController<
 
 extension ManualDiffingListSectionController where Item: Equatable {
     /**
-     Initialize an instance of `ManualDiffingListSectionController`.
+     Initialise an instance of `ManualDiffingListSectionController`.
 
      - Parameter model: The model of this `SectionController`.
 
@@ -70,7 +70,7 @@ extension ManualDiffingListSectionController where Item: Equatable {
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension ManualDiffingListSectionController where Item: Identifiable {
     /**
-     Initialize an instance of `ManualDiffingListSectionController`.
+     Initialise an instance of `ManualDiffingListSectionController`.
 
      - Parameter model: The model of this `SectionController`.
 
@@ -90,7 +90,7 @@ extension ManualDiffingListSectionController where Item: Identifiable {
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension ManualDiffingListSectionController where Item: Identifiable & Equatable {
     /**
-     Initialize an instance of `ManualDiffingListSectionController`.
+     Initialise an instance of `ManualDiffingListSectionController`.
 
      - Parameter model: The model of this `SectionController`.
 
