@@ -32,7 +32,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSection = dataSource.section(for: self)
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
@@ -73,7 +73,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSection = section
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {

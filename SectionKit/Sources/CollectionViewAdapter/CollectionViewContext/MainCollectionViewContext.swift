@@ -5,7 +5,7 @@ open class MainCollectionViewContext: CollectionViewContext {
     // MARK: - Properties
 
     /// The adapter that is responsible for this context.
-    public weak var sectionAdapter: CollectionViewAdapter?
+    public weak var adapter: CollectionViewAdapter?
 
     /// The `UIViewController` which contains the `collectionView`.
     public private(set) weak var viewController: UIViewController?
@@ -50,11 +50,11 @@ open class MainCollectionViewContext: CollectionViewContext {
 
     @inlinable
     open func apply<T>(update: CollectionViewSectionUpdate<T>) {
-        guard let sectionAdapter = sectionAdapter else {
-            errorHandler(error: .sectionAdapterIsNotSet)
+        guard let adapter = adapter else {
+            errorHandler(error: .adapterIsNotSetOnContext)
             return collectionView.reloadData()
         }
-        guard let index = sectionAdapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
+        guard let index = adapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
             errorHandler(error: .adapterDoesNotContainSectionController)
             return collectionView.reloadData()
         }
@@ -164,12 +164,12 @@ open class MainCollectionViewContext: CollectionViewContext {
     open func sectionControllerWithAdjustedIndexPath(
         for indexPath: IndexPath
     ) -> (SectionController?, SectionIndexPath)? {
-        guard let sectionAdapter = sectionAdapter else {
-            errorHandler(error: .sectionAdapterIsNotSet)
+        guard let adapter = adapter else {
+            errorHandler(error: .adapterIsNotSetOnContext)
             return nil
         }
         let sectionIndex = indexPath.section
-        let sections = sectionAdapter.sections
+        let sections = adapter.sections
         guard sectionIndex < sections.count else {
             return nil
         }

@@ -2,7 +2,7 @@
 import XCTest
 
 internal final class MainCollectionViewContextTests: XCTestCase {
-    internal func testSectionAdapterIsWeakReferenced() {
+    internal func testAdapterIsWeakReferenced() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -10,9 +10,9 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             errorHandler: AssertionFailureErrorHandler()
         )
         var adapter: CollectionViewAdapter? = ListCollectionViewAdapter(collectionView: collectionView)
-        context.sectionAdapter = adapter
+        context.adapter = adapter
         adapter = nil
-        XCTAssertNil(context.sectionAdapter)
+        XCTAssertNil(context.adapter)
     }
 
     internal func testViewControllerIsWeakReferenced() {
@@ -41,7 +41,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
                 Section(id: "", model: "", controller: sectionController)
             ]
         )
-        context.sectionAdapter = adapter
+        context.adapter = adapter
         let update = CollectionViewSectionUpdate(
             controller: sectionController,
             data: "",
@@ -51,7 +51,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testApplySectionUpdateWhenSectionAdapterIsNotSetThenReloadDataIsCalled() {
+    internal func testApplySectionUpdateWhenAdapterIsNotSetThenReloadDataIsCalled() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let collectionViewExpectation = expectation(description: "reloadData should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -60,8 +60,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler { error in
-                guard case .sectionAdapterIsNotSet = error else {
-                    XCTFail("The error should be sectionAdapterIsNotSet")
+                guard case .adapterIsNotSetOnContext = error else {
+                    XCTFail("The error should be adapterIsNotSetOnContext")
                     return
                 }
                 errorExpectation.fulfill()
@@ -93,7 +93,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             }
         )
         let adapter = ListCollectionViewAdapter(collectionView: collectionView)
-        context.sectionAdapter = adapter
+        context.adapter = adapter
         let update = CollectionViewSectionUpdate(
             controller: MockSectionController(),
             data: "",
@@ -410,7 +410,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
                 Section(id: "", model: "", controller: sectionController)
             ]
         )
-        context.sectionAdapter = adapter
+        context.adapter = adapter
         let indexPath = IndexPath(item: 0, section: 0)
         let actual = context.sectionControllerWithAdjustedIndexPath(for: indexPath)
         XCTAssert(actual?.0 === sectionController)
@@ -425,19 +425,19 @@ internal final class MainCollectionViewContextTests: XCTestCase {
             errorHandler: MockErrorHandler { _ in }
         )
         let adapter = ListCollectionViewAdapter(collectionView: collectionView)
-        context.sectionAdapter = adapter
+        context.adapter = adapter
         XCTAssertNil(context.sectionControllerWithAdjustedIndexPath(for: IndexPath(item: 0, section: 0)))
     }
 
-    internal func testSectionControllerWithAdjustedIndexPathWhenSectionAdapterIsNotSet() {
+    internal func testSectionControllerWithAdjustedIndexPathWhenAdapterIsNotSet() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler { error in
-                guard case .sectionAdapterIsNotSet = error else {
-                    XCTFail("The error should be sectionAdapterIsNotSet")
+                guard case .adapterIsNotSetOnContext = error else {
+                    XCTFail("The error should be adapterIsNotSetOnContext")
                     return
                 }
                 errorExpectation.fulfill()

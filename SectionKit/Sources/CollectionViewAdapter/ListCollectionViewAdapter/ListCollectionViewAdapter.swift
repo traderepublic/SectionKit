@@ -36,7 +36,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSections = dataSource.sections(for: self)
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
@@ -77,7 +77,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSections = sections
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {

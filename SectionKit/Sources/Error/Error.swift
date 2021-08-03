@@ -21,8 +21,8 @@ public enum Error: Swift.Error {
     /// Move is not supported inside the same section.
     case moveIsNotInTheSameSection(sourceSection: Int, destinationSection: Int)
 
-    /// The `sectionAdapter` is not set on the context.
-    case sectionAdapterIsNotSet
+    /// The `adapter` is not set on the context.
+    case adapterIsNotSetOnContext
 
     /// The given controller is not child of this adapter.
     case adapterDoesNotContainSectionController
@@ -55,8 +55,8 @@ extension Error: CustomStringConvertible {
         case let .moveIsNotInTheSameSection(sourceSection, destinationSection):
             return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection))."
 
-        case .sectionAdapterIsNotSet:
-            return "The `sectionAdapter` is not set on the context."
+        case .adapterIsNotSetOnContext:
+            return "The `adapter` is not set on the context."
 
         case .adapterDoesNotContainSectionController:
             return "The given controller is not child of this adapter."

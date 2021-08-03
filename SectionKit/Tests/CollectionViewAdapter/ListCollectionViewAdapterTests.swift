@@ -137,14 +137,14 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dropDelegate === adapter)
     }
 
-    internal func testInitWithDataSourceSetsContextSectionAdapterToSelf() {
+    internal func testInitWithDataSourceSetsContextAdapterToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockListCollectionViewAdapterDataSource { _ in [] }
         let adapter = ListCollectionViewAdapter(
             collectionView: collectionView,
             dataSource: dataSource
         )
-        XCTAssert((adapter.context as? MainCollectionViewContext)?.sectionAdapter === adapter)
+        XCTAssert((adapter.context as? MainCollectionViewContext)?.adapter === adapter)
     }
 
     // MARK: - Init with sections
@@ -270,13 +270,13 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dropDelegate === adapter)
     }
 
-    internal func testInitWithSectionsSetsContextSectionAdapterToSelf() {
+    internal func testInitWithSectionsSetsContextAdapterToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = ListCollectionViewAdapter(
             collectionView: collectionView,
             sections: []
         )
-        XCTAssert((adapter.context as? MainCollectionViewContext)?.sectionAdapter === adapter)
+        XCTAssert((adapter.context as? MainCollectionViewContext)?.adapter === adapter)
     }
 
     // MARK: - Weak references
