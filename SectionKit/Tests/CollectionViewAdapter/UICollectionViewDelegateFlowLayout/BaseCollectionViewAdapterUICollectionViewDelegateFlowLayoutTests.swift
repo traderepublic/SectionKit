@@ -48,7 +48,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._sizeForItem = { indexPath, layout, _ in
                             XCTAssertEqual(indexPath.indexInCollectionView, itemIndexPath)
-                            XCTAssert(layout !== mockLayout)
+                            XCTAssert(layout === mockLayout)
                             testExpectation.fulfill()
                             return itemSize
                         }
