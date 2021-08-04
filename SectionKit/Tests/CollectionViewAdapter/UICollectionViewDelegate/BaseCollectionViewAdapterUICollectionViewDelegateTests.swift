@@ -3,9 +3,15 @@ import UIKit
 import XCTest
 
 internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUICollectionViewDelegateTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(

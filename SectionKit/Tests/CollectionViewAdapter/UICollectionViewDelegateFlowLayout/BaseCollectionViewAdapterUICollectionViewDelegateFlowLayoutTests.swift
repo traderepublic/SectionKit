@@ -3,9 +3,15 @@ import UIKit
 import XCTest
 
 internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(
@@ -42,7 +48,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._sizeForItem = { indexPath, layout, _ in
                             XCTAssertEqual(indexPath.indexInCollectionView, itemIndexPath)
-                            XCTAssert(layout === mockLayout)
+                            XCTAssert(layout !== mockLayout)
                             testExpectation.fulfill()
                             return itemSize
                         }
