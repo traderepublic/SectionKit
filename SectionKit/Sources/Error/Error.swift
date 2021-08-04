@@ -5,8 +5,11 @@ public enum Error: Swift.Error {
     /// The function hasn't been implemented.
     case notImplemented(function: StaticString = #function)
 
-    /// The list of sections contains two or more sections with the same id.
-    /// This is not supported and would result in undefined behaviour.
+    /**
+     The list of sections contains two or more sections with the same id.
+
+     This is not supported and would result in undefined behaviour.
+     */
     case duplicateSectionIds([AnyHashable])
 
     /// There is no datasource for section with given index.
