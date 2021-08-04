@@ -7,7 +7,6 @@ internal final class ProtocolDefaultValuesSectionDataSourceTests: BaseSectionDat
             func numberOfItems(in context: CollectionViewContext) -> Int {
                 0
             }
-
             func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
                 UICollectionViewCell()
             }
