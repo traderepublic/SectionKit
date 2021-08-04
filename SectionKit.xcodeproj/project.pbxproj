@@ -641,16 +641,16 @@
 			isa = PBXGroup;
 			children = (
 				5A31B8AF26BAE81000036A3F /* SectionDataSource */,
-				5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */,
 				5A31B8B026BAE82200036A3F /* SectionDataSourcePrefetchingDelegate */,
-				5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */,
 				5A31B8B126BAE82D00036A3F /* SectionDelegate */,
-				5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */,
 				5A31B8B226BAE83F00036A3F /* SectionDragDelegate */,
-				5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */,
 				5A31B8B326BAE85800036A3F /* SectionDropDelegate */,
-				5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */,
 				5A31B8B426BAE86700036A3F /* SectionFlowDelegate */,
+				5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */,
+				5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */,
+				5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */,
+				5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */,
+				5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */,
 				5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */,
 			);
 			path = SectionController;
