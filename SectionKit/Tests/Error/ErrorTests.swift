@@ -44,10 +44,10 @@ internal class ErrorTests: XCTestCase {
         )
     }
 
-    internal func testDescriptionOfSectionAdapterIsNotSet() {
+    internal func testDescriptionOfAdapterIsNotSetOnContext() {
         XCTAssertEqual(
-            Error.sectionAdapterIsNotSet.description,
-            "The `sectionAdapter` is not set on the context."
+            Error.adapterIsNotSetOnContext.description,
+            "The `adapter` is not set on the context."
         )
     }
 

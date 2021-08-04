@@ -83,6 +83,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dataSource === adapter)
     }
 
+    @available(iOS 10.0, *)
     internal func testInitWithDataSourceSetsCollectionViewDataSourcePrefetchingToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockSingleSectionCollectionViewAdapterDataSource { _ in nil }
@@ -93,6 +94,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.prefetchDataSource === adapter)
     }
 
+    @available(iOS 10.0, *)
     internal func testInitWithDataSourceEnablesDataSourcePrefetchingOnCollectionView() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockSingleSectionCollectionViewAdapterDataSource { _ in nil }
@@ -113,6 +115,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.delegate === adapter)
     }
 
+    @available(iOS 11.0, *)
     internal func testInitWithDataSourceSetsCollectionViewDragDelegateToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockSingleSectionCollectionViewAdapterDataSource { _ in nil }
@@ -123,6 +126,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dragDelegate === adapter)
     }
 
+    @available(iOS 11.0, *)
     internal func testInitWithDataSourceSetsCollectionViewDropDelegateToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockSingleSectionCollectionViewAdapterDataSource { _ in nil }
@@ -133,14 +137,14 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dropDelegate === adapter)
     }
 
-    internal func testInitWithDataSourceSetsContextSectionAdapterToSelf() {
+    internal func testInitWithDataSourceSetsContextAdapterToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockSingleSectionCollectionViewAdapterDataSource { _ in nil }
         let adapter = SingleSectionCollectionViewAdapter(
             collectionView: collectionView,
             dataSource: dataSource
         )
-        XCTAssert((adapter.context as? MainCollectionViewContext)?.sectionAdapter === adapter)
+        XCTAssert((adapter.context as? MainCollectionViewContext)?.adapter === adapter)
     }
 
     // MARK: - Init with sections
@@ -217,6 +221,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dataSource === adapter)
     }
 
+    @available(iOS 10.0, *)
     internal func testInitWithSectionsSetsCollectionViewDataSourcePrefetchingToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = SingleSectionCollectionViewAdapter(
@@ -226,6 +231,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.prefetchDataSource === adapter)
     }
 
+    @available(iOS 10.0, *)
     internal func testInitWithSectionsEnablesDataSourcePrefetchingOnCollectionView() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let _ = SingleSectionCollectionViewAdapter(
@@ -244,6 +250,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.delegate === adapter)
     }
 
+    @available(iOS 11.0, *)
     internal func testInitWithSectionsSetsCollectionViewDragDelegateToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = SingleSectionCollectionViewAdapter(
@@ -253,6 +260,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dragDelegate === adapter)
     }
 
+    @available(iOS 11.0, *)
     internal func testInitWithSectionsSetsCollectionViewDropDelegateToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = SingleSectionCollectionViewAdapter(
@@ -262,13 +270,13 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(collectionView.dropDelegate === adapter)
     }
 
-    internal func testInitWithSectionsSetsContextSectionAdapterToSelf() {
+    internal func testInitWithSectionsSetsContextAdapterToSelf() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = SingleSectionCollectionViewAdapter(
             collectionView: collectionView,
             section: nil
         )
-        XCTAssert((adapter.context as? MainCollectionViewContext)?.sectionAdapter === adapter)
+        XCTAssert((adapter.context as? MainCollectionViewContext)?.adapter === adapter)
     }
 
     // MARK: - Weak references

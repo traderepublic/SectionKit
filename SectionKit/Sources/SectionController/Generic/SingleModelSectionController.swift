@@ -12,7 +12,7 @@ import UIKit
  */
 open class SingleModelSectionController<Model>: BaseSectionController {
     /**
-     Initialize an instance of `SingleModelSectionController`.
+     Initialise an instance of `SingleModelSectionController`.
 
      - Parameter model: The model of this `SectionController`.
      */

@@ -2,10 +2,17 @@
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUICollectionViewDropDelegateTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(
@@ -22,7 +29,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDropDelegate {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     // MARK: - canHandle
@@ -619,6 +626,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropItem: NSObject, UICollectionViewDropItem {
     var dragItem = UIDragItem(itemProvider: NSItemProvider(object: NSString()))
 
@@ -637,6 +645,7 @@ private final class MockCollectionView: UICollectionView {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockDropSession: NSObject, UIDropSession {
     var localDragSession: UIDragSession?
 
@@ -669,6 +678,7 @@ private final class MockDropSession: NSObject, UIDropSession {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropCoordinator: NSObject, UICollectionViewDropCoordinator {
     var items: [UICollectionViewDropItem] = []
 
@@ -700,12 +710,14 @@ private final class MockCollectionViewDropCoordinator: NSObject, UICollectionVie
     ) -> UIDragAnimating { MockDragAnimating() }
 }
 
+@available(iOS 11.0, *)
 private final class MockDragAnimating: NSObject, UIDragAnimating {
     func addAnimations(_ animations: @escaping () -> Void) { }
 
     func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void) { }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropPlaceholderContext: NSObject, UICollectionViewDropPlaceholderContext {
     var dragItem: UIDragItem = .init(itemProvider: NSItemProvider(object: "" as NSString))
 

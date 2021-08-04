@@ -3,9 +3,15 @@ import UIKit
 import XCTest
 
 internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUICollectionViewDataSourceTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(
@@ -22,7 +28,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSource {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func testNumberOfSections() throws {
@@ -476,12 +482,14 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 14.0, *)
     internal func testIndexTitlesIsNil() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(collectionView: collectionView)
         XCTAssertNil(adapter.indexTitles?(for: collectionView))
     }
 
+    @available(iOS 14.0, *)
     internal func testIndexPathForIndexTitle() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()

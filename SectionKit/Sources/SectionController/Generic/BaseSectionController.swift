@@ -72,8 +72,10 @@ open class BaseSectionController: SectionController,
 
     // MARK: - SectionDataSourcePrefetchingDelegate
 
+    @available(iOS 10.0, *)
     open func prefetchItems(at indexPaths: [SectionIndexPath], in context: CollectionViewContext) { }
 
+    @available(iOS 10.0, *)
     open func cancelPrefetchingForItems(at indexPaths: [SectionIndexPath], in context: CollectionViewContext) { }
 
     // MARK: - SectionDelegate

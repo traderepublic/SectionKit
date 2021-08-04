@@ -3,9 +3,15 @@ import UIKit
 import XCTest
 
 internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUIScrollViewDelegateTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(
@@ -22,7 +28,7 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UIScrollViewDelegate {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func testScrollViewDidScroll() throws {
@@ -251,6 +257,7 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
+    @available(iOS 11.0, *)
     internal func testScrollViewDidChangeAdjustedContentInset() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()

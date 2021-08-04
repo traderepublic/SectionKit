@@ -14,6 +14,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         XCTAssert(sectionController.dataSource === sectionController)
     }
 
+    @available(iOS 10.0, *)
     internal func testDataSourcePrefetchingDelegateIsSelf() {
         let sectionController = BaseSectionController()
         XCTAssert(sectionController.dataSourcePrefetchingDelegate === sectionController)
@@ -29,11 +30,13 @@ internal final class BaseSectionControllerTests: XCTestCase {
         XCTAssert(sectionController.flowDelegate === sectionController)
     }
 
+    @available(iOS 11.0, *)
     internal func testDragDelegateIsSelf() {
         let sectionController = BaseSectionController()
         XCTAssert(sectionController.dragDelegate === sectionController)
     }
 
+    @available(iOS 11.0, *)
     internal func testDropDelegateIsSelf() {
         let sectionController = BaseSectionController()
         XCTAssert(sectionController.dropDelegate === sectionController)
@@ -156,6 +159,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
 
     // MARK: - SectionDataSourcePrefetchingDelegate
 
+    @available(iOS 10.0, *)
     internal func testPrefetchItems() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -166,6 +170,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         sectionController.prefetchItems(at: [], in: context)
     }
 
+    @available(iOS 10.0, *)
     internal func testCancelPrefetchingForItems() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -427,6 +432,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testShouldSpringLoadItem() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -443,6 +449,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         ))
     }
 
+    @available(iOS 13.0, *)
     internal func testShouldBeginMultipleSelectionInteraction() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -457,6 +464,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         ))
     }
 
+    @available(iOS 13.0, *)
     internal func testDidBeginMultipleSelectionInteraction() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -471,6 +479,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 13.0, *)
     internal func testContextMenuConfigurationForItem() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -488,6 +497,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
 
     // MARK: - SectionDragDelegate
 
+    @available(iOS 11.0, *)
     internal func testDragItemsForBeginning() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -504,6 +514,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         ).isEmpty)
     }
 
+    @available(iOS 11.0, *)
     internal func testDragItemsForAdding() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -521,6 +532,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         ).isEmpty)
     }
 
+    @available(iOS 11.0, *)
     internal func testDragSessionWillBegin() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -535,6 +547,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testDragSessionDidEnd() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -549,6 +562,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testDragPreviewParametersForItem() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -565,6 +579,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
 
     // MARK: - SectionDropDelegate
 
+    @available(iOS 11.0, *)
     internal func testCanHandle() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -579,6 +594,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         ))
     }
 
+    @available(iOS 11.0, *)
     internal func testDropSessionDidUpdate() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -598,6 +614,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testPerformDrop() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -614,6 +631,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testDropSessionDidEnter() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -628,6 +646,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testDropSessionDidExit() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -642,6 +661,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testDropSessionDidEnd() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -656,6 +676,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
         )
     }
 
+    @available(iOS 11.0, *)
     internal func testDropPreviewParametersForItem() {
         let sectionController = BaseSectionController()
         let context = MainCollectionViewContext(
@@ -891,6 +912,7 @@ internal final class BaseSectionControllerTests: XCTestCase {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockSpringLoadedInteractionContext: NSObject, UISpringLoadedInteractionContext {
     var state: UISpringLoadedInteractionEffectState = .activated
 
@@ -903,6 +925,7 @@ private final class MockSpringLoadedInteractionContext: NSObject, UISpringLoaded
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockDragSession: NSObject, UIDragSession {
     var localContext: Any?
 
@@ -925,6 +948,7 @@ private final class MockDragSession: NSObject, UIDragSession {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockDropSession: NSObject, UIDropSession {
     var localDragSession: UIDragSession?
 
@@ -957,6 +981,7 @@ private final class MockDropSession: NSObject, UIDropSession {
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropCoordinator: NSObject, UICollectionViewDropCoordinator {
     var items: [UICollectionViewDropItem] = []
 
@@ -988,12 +1013,14 @@ private final class MockCollectionViewDropCoordinator: NSObject, UICollectionVie
     ) -> UIDragAnimating { MockDragAnimating() }
 }
 
+@available(iOS 11.0, *)
 private final class MockDragAnimating: NSObject, UIDragAnimating {
     func addAnimations(_ animations: @escaping () -> Void) { }
 
     func addCompletion(_ completion: @escaping (UIViewAnimatingPosition) -> Void) { }
 }
 
+@available(iOS 11.0, *)
 private final class MockCollectionViewDropPlaceholderContext: NSObject, UICollectionViewDropPlaceholderContext {
     var dragItem: UIDragItem = .init(itemProvider: NSItemProvider(object: "" as NSString))
 

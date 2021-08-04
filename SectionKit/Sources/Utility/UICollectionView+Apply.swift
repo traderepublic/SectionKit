@@ -2,11 +2,11 @@ import UIKit
 
 extension UICollectionView {
     /**
-     Reloads the specified section in the `UICollectionView` using the given update.
+     Update the specified section in the `UICollectionView` using the given update.
      
      - Parameter update: The update to apply to the specified section.
      
-     - Parameter section: The section in the `UICollectionView` to modify.
+     - Parameter section: The index of the section in the `UICollectionView` which should be modified.
      */
     @inlinable
     public func apply<T>(update: CollectionViewSectionUpdate<T>, at section: Int) {
@@ -59,9 +59,9 @@ extension UICollectionView {
     }
 
     /**
-     Reloads the sections in the `UICollectionView` using the given update.
+     Update the list of sections in the `UICollectionView` using the given update.
      
-     - Parameter update: The update to apply to the sections.
+     - Parameter update: The update to apply to the list of sections.
      */
     @inlinable
     public func apply<T>(update: CollectionViewUpdate<T>) {

@@ -106,8 +106,10 @@ extension ListCollectionViewAdapter: UICollectionViewDataSource {
         dataSource.moveItem(at: sourceSectionIndexPath, to: destinationSectionIndexPath, in: context)
     }
 
+    @available(iOS 14.0, *)
     open func indexTitles(for collectionView: UICollectionView) -> [String]? { nil }
 
+    @available(iOS 14.0, *)
     open func collectionView(
         _ collectionView: UICollectionView,
         indexPathForIndexTitle title: String,

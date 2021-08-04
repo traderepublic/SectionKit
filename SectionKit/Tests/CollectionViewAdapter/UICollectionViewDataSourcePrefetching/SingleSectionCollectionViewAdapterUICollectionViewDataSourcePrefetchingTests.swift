@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@available(iOS 10.0, *)
 internal final class SingleSectionCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests: BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests {
     override internal func createCollectionViewAdapter(
         collectionView: UICollectionView,

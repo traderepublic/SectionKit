@@ -3,9 +3,15 @@ import UIKit
 import XCTest
 
 internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(
@@ -22,7 +28,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDelegateFlowLayout {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     // MARK: - sizeForItem

@@ -13,7 +13,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         XCTAssertEqual(context.containerSize, rect.size)
     }
 
-    internal func testContainerInset() {
+    internal func testCustomContainerInset() {
         let insets = UIEdgeInsets(top: 1, left: 2, bottom: 4, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.contentInset = insets
@@ -22,7 +22,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
             collectionView: collectionView,
             errorHandler: AssertionFailureErrorHandler()
         )
-        XCTAssertEqual(context.containerInset, insets)
+        XCTAssertEqual(context.customContainerInset, insets)
     }
 
     internal func testAdjustedContainerInset() {

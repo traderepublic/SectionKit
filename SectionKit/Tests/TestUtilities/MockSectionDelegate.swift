@@ -7,7 +7,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias ShouldHighlightItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _shouldHighlightItem: ShouldHighlightItemBlock = { _, _ in
+    internal lazy var _shouldHighlightItem: ShouldHighlightItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
@@ -20,7 +20,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidHighlightItemBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didHighlightItem: DidHighlightItemBlock = { _, _ in
+    internal lazy var _didHighlightItem: DidHighlightItemBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -32,7 +32,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidUnhighlightItemBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didUnhighlightItem: DidUnhighlightItemBlock = { _, _ in
+    internal lazy var _didUnhighlightItem: DidUnhighlightItemBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -44,7 +44,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias ShouldSelectItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _shouldSelectItem: ShouldSelectItemBlock = { _, _ in
+    internal lazy var _shouldSelectItem: ShouldSelectItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
@@ -57,7 +57,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias ShouldDeselectItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _shouldDeselectItem: ShouldDeselectItemBlock = { _, _ in
+    internal lazy var _shouldDeselectItem: ShouldDeselectItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
@@ -70,7 +70,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidSelectItemBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didSelectItem: DidSelectItemBlock = { _, _ in
+    internal lazy var _didSelectItem: DidSelectItemBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -82,7 +82,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidDeselectItemBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didDeselectItem: DidDeselectItemBlock = { _, _ in
+    internal lazy var _didDeselectItem: DidDeselectItemBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -94,7 +94,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias WillDisplayCellBlock = (UICollectionViewCell, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _willDisplayCell: WillDisplayCellBlock = { _, _, _ in
+    internal lazy var _willDisplayCell: WillDisplayCellBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -110,7 +110,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias WillDisplayHeaderViewBlock = (UICollectionReusableView, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _willDisplayHeaderView: WillDisplayHeaderViewBlock = { _, _, _ in
+    internal lazy var _willDisplayHeaderView: WillDisplayHeaderViewBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -126,7 +126,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias WillDisplayFooterViewBlock = (UICollectionReusableView, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _willDisplayFooterView: WillDisplayFooterViewBlock = { _, _, _ in
+    internal lazy var _willDisplayFooterView: WillDisplayFooterViewBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -142,7 +142,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidEndDisplayingCellBlock = (UICollectionViewCell, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didEndDisplayingCell: DidEndDisplayingCellBlock = { _, _, _ in
+    internal lazy var _didEndDisplayingCell: DidEndDisplayingCellBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -158,7 +158,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidEndDisplayingHeaderViewBlock = (UICollectionReusableView, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didEndDisplayingHeaderView: DidEndDisplayingHeaderViewBlock = { _, _, _ in
+    internal lazy var _didEndDisplayingHeaderView: DidEndDisplayingHeaderViewBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -174,7 +174,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias DidEndDisplayingFooterViewBlock = (UICollectionReusableView, SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didEndDisplayingFooterView: DidEndDisplayingFooterViewBlock = { _, _, _ in
+    internal lazy var _didEndDisplayingFooterView: DidEndDisplayingFooterViewBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -188,26 +188,32 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldShowMenuForItem
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal typealias ShouldShowMenuForItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _shouldShowMenuForItem: ShouldShowMenuForItemBlock = { _, _ in
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
+    internal lazy var _shouldShowMenuForItem: ShouldShowMenuForItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func shouldShowMenuForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> Bool {
         _shouldShowMenuForItem(indexPath, context)
     }
 
     // MARK: - canPerform
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal typealias CanPerformBlock = (Selector, SectionIndexPath, Any?, CollectionViewContext) -> Bool
 
-    internal var _canPerform: CanPerformBlock = { _, _, _, _ in
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
+    internal lazy var _canPerform: CanPerformBlock = { _, _, _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func canPerform(
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
@@ -219,12 +225,15 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - perform
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal typealias PerformBlock = (Selector, SectionIndexPath, Any?, CollectionViewContext) -> Void
 
-    internal var _perform: PerformBlock = { _, _, _, _ in
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
+    internal lazy var _perform: PerformBlock = { _, _, _, _ in
         XCTFail("not implemented")
     }
 
+    @available(iOS, introduced: 6.0, deprecated: 13.0)
     internal func perform(
         action: Selector,
         forItemAt indexPath: SectionIndexPath,
@@ -238,7 +247,7 @@ internal class MockSectionDelegate: SectionDelegate {
 
     internal typealias CanFocusItemBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _canFocusItem: CanFocusItemBlock = { _, _ in
+    internal lazy var _canFocusItem: CanFocusItemBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
@@ -249,13 +258,16 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldSpringLoadItem
 
+    @available(iOS 11.0, *)
     internal typealias ShouldSpringLoadItemBlock = (SectionIndexPath, UISpringLoadedInteractionContext, CollectionViewContext) -> Bool
 
-    internal var _shouldSpringLoadItem: ShouldSpringLoadItemBlock = { _, _, _ in
+    @available(iOS 11.0, *)
+    internal lazy var _shouldSpringLoadItem: ShouldSpringLoadItemBlock = { _, _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS 11.0, *)
     internal func shouldSpringLoadItem(
         at indexPath: SectionIndexPath,
         with interactionContext: UISpringLoadedInteractionContext,
@@ -266,38 +278,47 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldBeginMultipleSelectionInteraction
 
+    @available(iOS 13.0, *)
     internal typealias ShouldBeginMultipleSelectionInteractionBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    internal var _shouldBeginMultipleSelectionInteraction: ShouldBeginMultipleSelectionInteractionBlock = { _, _ in
+    @available(iOS 13.0, *)
+    internal lazy var _shouldBeginMultipleSelectionInteraction: ShouldBeginMultipleSelectionInteractionBlock = { _, _ in
         XCTFail("not implemented")
         return false
     }
 
+    @available(iOS 13.0, *)
     internal func shouldBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> Bool {
         _shouldBeginMultipleSelectionInteraction(indexPath, context)
     }
 
     // MARK: - didBeginMultipleSelectionInteraction
 
+    @available(iOS 13.0, *)
     internal typealias DidBeginMultipleSelectionInteractionBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
-    internal var _didBeginMultipleSelectionInteraction: DidBeginMultipleSelectionInteractionBlock = { _, _ in
+    @available(iOS 13.0, *)
+    internal lazy var _didBeginMultipleSelectionInteraction: DidBeginMultipleSelectionInteractionBlock = { _, _ in
         XCTFail("not implemented")
     }
 
+    @available(iOS 13.0, *)
     internal func didBeginMultipleSelectionInteraction(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
         _didBeginMultipleSelectionInteraction(indexPath, context)
     }
 
     // MARK: - contextMenuConfigurationForItem
 
+    @available(iOS 13.0, *)
     internal typealias ContextMenuConfigurationForItemBlock = (SectionIndexPath, CGPoint, CollectionViewContext) -> UIContextMenuConfiguration?
 
-    internal var _contextMenuConfigurationForItem: ContextMenuConfigurationForItemBlock = { _, _, _ in
+    @available(iOS 13.0, *)
+    internal lazy var _contextMenuConfigurationForItem: ContextMenuConfigurationForItemBlock = { _, _, _ in
         XCTFail("not implemented")
         return nil
     }
 
+    @available(iOS 13.0, *)
     internal func contextMenuConfigurationForItem(
         at indexPath: SectionIndexPath,
         point: CGPoint,

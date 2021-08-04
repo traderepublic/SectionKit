@@ -41,7 +41,6 @@ internal final class EmojisViewController: UIViewController {
         )
         let sectionModel = viewModel
         collectionViewAdapter = SingleSectionCollectionViewAdapter(
-            viewController: self,
             collectionView: collectionView,
             section: Section(
                 id: "emojis",

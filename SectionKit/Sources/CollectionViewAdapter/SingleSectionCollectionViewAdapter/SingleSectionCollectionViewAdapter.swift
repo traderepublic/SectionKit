@@ -5,7 +5,7 @@ import UIKit
  */
 open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
-     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
+     Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -32,7 +32,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSection = dataSource.section(for: self)
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
@@ -47,7 +47,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     /**
-     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
+     Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -73,7 +73,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSection = section
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
@@ -116,11 +116,11 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var section: Section? {
         get { collectionViewSection }
         set {
-            if let new = newValue, let existing = collectionViewSection, existing.id == new.id {
-                new.controller = existing.controller
-                new.controller.didUpdate(model: new.model)
+            if let newSection = newValue, let existingSection = collectionViewSection, existingSection.id == newSection.id {
+                let existingController = existingSection.controller
+                newSection.controller = existingController
+                existingController.didUpdate(model: newSection.model)
             }
-
             guard let update = calculateUpdate(from: collectionViewSection, to: newValue) else {
                 collectionViewSection = newValue
                 return

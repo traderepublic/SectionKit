@@ -2,10 +2,17 @@
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
+        try skipIfNeeded()
+    }
+
+    internal func skipIfNeeded() throws {
+        guard Self.self === BaseCollectionViewAdapterUICollectionViewDragDelegateTests.self else { return }
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     internal func createCollectionView(
@@ -22,7 +29,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
         scrollViewDelegate: UIScrollViewDelegate? = nil,
         errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDragDelegate {
-        fatalError("not implemented")
+        throw XCTSkip("Tests from base class are skipped")
     }
 
     // MARK: - itemsForBeginning
@@ -299,6 +306,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
     }
 }
 
+@available(iOS 11.0, *)
 private final class MockDragSession: NSObject, UIDragSession {
     var localContext: Any?
 

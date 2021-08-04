@@ -74,7 +74,7 @@ public protocol CollectionViewContext: AnyObject {
     ) -> SupplementaryView
 
     /**
-     Get the `SectionController` which is responsible for the given `IndexPath` and an calculate
+     Get the `SectionController` which is responsible for the given `IndexPath` and calculate
      an adjusted `SectionIndexPath`.
      
      - Parameter indexPath: The `IndexPath` of which the responsible `SectionController` should be determined.

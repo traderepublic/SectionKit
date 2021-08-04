@@ -9,7 +9,7 @@ import UIKit
  */
 open class ListSectionController<Model, Item>: BaseSectionController {
     /**
-     Initialize an instance of `ListSectionController`.
+     Initialise an instance of `ListSectionController`.
 
      - Parameter model: The model of this `SectionController`.
      */

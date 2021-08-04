@@ -23,7 +23,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     public let shouldReload: (CollectionViewSectionBatchOperation<SectionData>) -> Bool
 
     /**
-     Initialize an instance of `CollectionViewSectionUpdate`.
+     Initialise an instance of `CollectionViewSectionUpdate`.
      
      - Parameter controller: The controller of the section where changes should be performed.
      
@@ -50,7 +50,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     }
 
     /**
-     Initialize an instance of `CollectionViewSectionUpdate` with a single batch operation.
+     Initialise an instance of `CollectionViewSectionUpdate` with a single batch operation.
      
      - Parameter controller: The controller of the section where changes should be performed.
      
@@ -104,7 +104,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     }
 
     /**
-     Initialize an instance of `CollectionViewSectionUpdate` which always reloads the `UICollectionView`.
+     Initialise an instance of `CollectionViewSectionUpdate` which always reloads the `UICollectionView`.
      
      - Parameter controller: The controller of the section where changes should be performed.
      

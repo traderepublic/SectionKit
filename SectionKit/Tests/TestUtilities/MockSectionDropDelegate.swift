@@ -2,12 +2,13 @@ import SectionKit
 import UIKit
 import XCTest
 
+@available(iOS 11.0, *)
 internal class MockSectionDropDelegate: SectionDropDelegate {
     // MARK: - canHandle
 
     internal typealias CanHandleBlock = (UIDropSession, CollectionViewContext) -> Bool
 
-    internal var _canHandle: CanHandleBlock = { _, _ in
+    internal lazy var _canHandle: CanHandleBlock = { _, _ in
         XCTFail("not implemented")
         return true
     }
@@ -20,7 +21,7 @@ internal class MockSectionDropDelegate: SectionDropDelegate {
 
     internal typealias DropSessionDidUpdateBlock = (UIDropSession, SectionIndexPath?, CollectionViewContext) -> UICollectionViewDropProposal
 
-    internal var _dropSessionDidUpdate: DropSessionDidUpdateBlock = { _, _ ,_ in
+    internal lazy var _dropSessionDidUpdate: DropSessionDidUpdateBlock = { _, _ ,_ in
         XCTFail("not implemented")
         return UICollectionViewDropProposal(operation: .forbidden)
     }
@@ -33,7 +34,7 @@ internal class MockSectionDropDelegate: SectionDropDelegate {
 
     internal typealias PerformDropBlock = (SectionIndexPath?, UICollectionViewDropCoordinator, CollectionViewContext) -> Void
 
-    internal var _performDrop: PerformDropBlock = { _, _, _ in
+    internal lazy var _performDrop: PerformDropBlock = { _, _, _ in
         XCTFail("not implemented")
     }
 
@@ -45,7 +46,7 @@ internal class MockSectionDropDelegate: SectionDropDelegate {
 
     internal typealias DropSessionDidEnterBlock = (UIDropSession, CollectionViewContext) -> Void
 
-    internal var _dropSessionDidEnter: DropSessionDidEnterBlock = { _, _ in
+    internal lazy var _dropSessionDidEnter: DropSessionDidEnterBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -57,7 +58,7 @@ internal class MockSectionDropDelegate: SectionDropDelegate {
 
     internal typealias DropSessionDidExitBlock = (UIDropSession, CollectionViewContext) -> Void
 
-    internal var _dropSessionDidExit: DropSessionDidExitBlock = { _, _ in
+    internal lazy var _dropSessionDidExit: DropSessionDidExitBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -69,7 +70,7 @@ internal class MockSectionDropDelegate: SectionDropDelegate {
 
     internal typealias DropSessionDidEndBlock = (UIDropSession, CollectionViewContext) -> Void
 
-    internal var _dropSessionDidEnd: DropSessionDidEndBlock = { _, _ in
+    internal lazy var _dropSessionDidEnd: DropSessionDidEndBlock = { _, _ in
         XCTFail("not implemented")
     }
 
@@ -81,7 +82,7 @@ internal class MockSectionDropDelegate: SectionDropDelegate {
 
     internal typealias DropPreviewParametersForItemBlock = (SectionIndexPath, CollectionViewContext) -> UIDragPreviewParameters?
 
-    internal var _dropPreviewParametersForItem: DropPreviewParametersForItemBlock = { _, _ in
+    internal lazy var _dropPreviewParametersForItem: DropPreviewParametersForItemBlock = { _, _ in
         XCTFail("not implemented")
         return nil
     }
