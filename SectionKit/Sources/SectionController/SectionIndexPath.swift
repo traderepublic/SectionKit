@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct containing the internal and external index of an item.
-public struct SectionIndexPath: Equatable {
+public struct SectionIndexPath: Hashable {
     /// The index path of the item in the `UICollectionView`.
     public let indexInCollectionView: IndexPath
 
