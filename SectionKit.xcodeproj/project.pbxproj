@@ -58,6 +58,7 @@
 		5A31B8D726BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */; };
 		5A31B8D926BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */; };
 		5A31B8E026BBF32D00036A3F /* UICollectionViewApplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8DF26BBF32D00036A3F /* UICollectionViewApplyTests.swift */; };
+		5A31B8E226BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */; };
 		5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */; };
 		5AA9D95226AAA5E000679D88 /* MockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9D95126AAA5E000679D88 /* MockCollectionViewCell.swift */; };
 		5AA9D95426AAA5EA00679D88 /* MockCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9D95326AAA5EA00679D88 /* MockCollectionReusableView.swift */; };
@@ -197,6 +198,7 @@
 		5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		5A31B8DF26BBF32D00036A3F /* UICollectionViewApplyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewApplyTests.swift; sourceTree = "<group>"; };
+		5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SectionIndexPath.swift"; sourceTree = "<group>"; };
 		5AA9D95126AAA5E000679D88 /* MockCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCollectionViewCell.swift; sourceTree = "<group>"; };
 		5AA9D95326AAA5EA00679D88 /* MockCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */,
 				5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */,
 				5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */,
+				5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */,
 				5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */,
 				5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */,
 				5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */,
@@ -899,6 +902,7 @@
 				5A0B775226AF0CB800B054D4 /* SingleSectionCollectionViewAdapterUIScrollViewDelegateTests.swift in Sources */,
 				5A31B8D926BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift in Sources */,
 				5A0B778926B3EA4D00B054D4 /* ErrorTests.swift in Sources */,
+				5A31B8E226BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift in Sources */,
 				5AA9D95426AAA5EA00679D88 /* MockCollectionReusableView.swift in Sources */,
 				5A0B777C26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift in Sources */,
 				5A0B774526AED0F600B054D4 /* BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.swift in Sources */,
