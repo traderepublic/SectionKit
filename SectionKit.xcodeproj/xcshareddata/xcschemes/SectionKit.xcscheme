@@ -48,29 +48,6 @@
                BlueprintName = "SectionKitTests"
                ReferencedContainer = "container:SectionKit.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests">
-               </Test>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUICollectionViewDataSourceTests">
-               </Test>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests">
-               </Test>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUICollectionViewDelegateTests">
-               </Test>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUICollectionViewDragDelegateTests">
-               </Test>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUICollectionViewDropDelegateTests">
-               </Test>
-               <Test
-                  Identifier = "BaseCollectionViewAdapterUIScrollViewDelegateTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

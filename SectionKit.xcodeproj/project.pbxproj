@@ -39,6 +39,24 @@
 		5A0B778426B2AA2000B054D4 /* SingleModelSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */; };
 		5A0B778626B2AB7800B054D4 /* BaseSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */; };
 		5A0B778926B3EA4D00B054D4 /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */; };
+		5A31B8B726BAE8A900036A3F /* BaseSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */; };
+		5A31B8B926BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8B826BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift */; };
+		5A31B8BB26BAE8D400036A3F /* ProtocolDefaultValuesSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8BA26BAE8D400036A3F /* ProtocolDefaultValuesSectionDataSourceTests.swift */; };
+		5A31B8BD26BAE8E300036A3F /* BaseSectionDataSourcePrefetchingDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8BC26BAE8E300036A3F /* BaseSectionDataSourcePrefetchingDelegateTests.swift */; };
+		5A31B8BF26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8BE26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift */; };
+		5A31B8C126BAE8F800036A3F /* ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8C026BAE8F800036A3F /* ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift */; };
+		5A31B8C326BAE90300036A3F /* BaseSectionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8C226BAE90300036A3F /* BaseSectionDelegateTests.swift */; };
+		5A31B8C526BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8C426BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift */; };
+		5A31B8C726BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8C626BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift */; };
+		5A31B8C926BAE91D00036A3F /* BaseSectionDragDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8C826BAE91D00036A3F /* BaseSectionDragDelegateTests.swift */; };
+		5A31B8CB26BAE92400036A3F /* BaseSectionControllerSectionDragDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8CA26BAE92400036A3F /* BaseSectionControllerSectionDragDelegateTests.swift */; };
+		5A31B8CD26BAE92D00036A3F /* ProtocolDefaultValuesSectionDragDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8CC26BAE92D00036A3F /* ProtocolDefaultValuesSectionDragDelegateTests.swift */; };
+		5A31B8CF26BAE93900036A3F /* BaseSectionDropDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8CE26BAE93900036A3F /* BaseSectionDropDelegateTests.swift */; };
+		5A31B8D126BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D026BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift */; };
+		5A31B8D326BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D226BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift */; };
+		5A31B8D526BAE95700036A3F /* BaseSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D426BAE95700036A3F /* BaseSectionFlowDelegateTests.swift */; };
+		5A31B8D726BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */; };
+		5A31B8D926BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */; };
 		5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */; };
 		5AA9D95226AAA5E000679D88 /* MockCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9D95126AAA5E000679D88 /* MockCollectionViewCell.swift */; };
 		5AA9D95426AAA5EA00679D88 /* MockCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9D95326AAA5EA00679D88 /* MockCollectionReusableView.swift */; };
@@ -159,6 +177,24 @@
 		5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModelSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
+		5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDataSourceTests.swift; sourceTree = "<group>"; };
+		5A31B8B826BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionDataSourceTests.swift; sourceTree = "<group>"; };
+		5A31B8BA26BAE8D400036A3F /* ProtocolDefaultValuesSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionDataSourceTests.swift; sourceTree = "<group>"; };
+		5A31B8BC26BAE8E300036A3F /* BaseSectionDataSourcePrefetchingDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDataSourcePrefetchingDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8BE26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8C026BAE8F800036A3F /* ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8C226BAE90300036A3F /* BaseSectionDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8C426BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8C626BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8C826BAE91D00036A3F /* BaseSectionDragDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDragDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8CA26BAE92400036A3F /* BaseSectionControllerSectionDragDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionDragDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8CC26BAE92D00036A3F /* ProtocolDefaultValuesSectionDragDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionDragDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8CE26BAE93900036A3F /* BaseSectionDropDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDropDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8D026BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionDropDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8D226BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionDropDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8D426BAE95700036A3F /* BaseSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
+		5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		5A98000A2678D6BD00378EB5 /* Array+SectionIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SectionIndexPath.swift"; sourceTree = "<group>"; };
 		5AA9D95126AAA5E000679D88 /* MockCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCollectionViewCell.swift; sourceTree = "<group>"; };
 		5AA9D95326AAA5EA00679D88 /* MockCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -304,6 +340,66 @@
 				5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		5A31B8AF26BAE81000036A3F /* SectionDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */,
+				5A31B8B826BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift */,
+				5A31B8BA26BAE8D400036A3F /* ProtocolDefaultValuesSectionDataSourceTests.swift */,
+			);
+			path = SectionDataSource;
+			sourceTree = "<group>";
+		};
+		5A31B8B026BAE82200036A3F /* SectionDataSourcePrefetchingDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5A31B8BC26BAE8E300036A3F /* BaseSectionDataSourcePrefetchingDelegateTests.swift */,
+				5A31B8BE26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift */,
+				5A31B8C026BAE8F800036A3F /* ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift */,
+			);
+			path = SectionDataSourcePrefetchingDelegate;
+			sourceTree = "<group>";
+		};
+		5A31B8B126BAE82D00036A3F /* SectionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5A31B8C226BAE90300036A3F /* BaseSectionDelegateTests.swift */,
+				5A31B8C426BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift */,
+				5A31B8C626BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift */,
+			);
+			path = SectionDelegate;
+			sourceTree = "<group>";
+		};
+		5A31B8B226BAE83F00036A3F /* SectionDragDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5A31B8C826BAE91D00036A3F /* BaseSectionDragDelegateTests.swift */,
+				5A31B8CA26BAE92400036A3F /* BaseSectionControllerSectionDragDelegateTests.swift */,
+				5A31B8CC26BAE92D00036A3F /* ProtocolDefaultValuesSectionDragDelegateTests.swift */,
+			);
+			path = SectionDragDelegate;
+			sourceTree = "<group>";
+		};
+		5A31B8B326BAE85800036A3F /* SectionDropDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5A31B8CE26BAE93900036A3F /* BaseSectionDropDelegateTests.swift */,
+				5A31B8D026BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift */,
+				5A31B8D226BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift */,
+			);
+			path = SectionDropDelegate;
+			sourceTree = "<group>";
+		};
+		5A31B8B426BAE86700036A3F /* SectionFlowDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5A31B8D426BAE95700036A3F /* BaseSectionFlowDelegateTests.swift */,
+				5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */,
+				5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */,
+			);
+			path = SectionFlowDelegate;
 			sourceTree = "<group>";
 		};
 		5AA9D95B26AABEDD00679D88 /* UICollectionViewDataSource */ = {
@@ -544,6 +640,12 @@
 		5AE176122667DA7000D4DCE1 /* SectionController */ = {
 			isa = PBXGroup;
 			children = (
+				5A31B8AF26BAE81000036A3F /* SectionDataSource */,
+				5A31B8B026BAE82200036A3F /* SectionDataSourcePrefetchingDelegate */,
+				5A31B8B126BAE82D00036A3F /* SectionDelegate */,
+				5A31B8B226BAE83F00036A3F /* SectionDragDelegate */,
+				5A31B8B326BAE85800036A3F /* SectionDropDelegate */,
+				5A31B8B426BAE86700036A3F /* SectionFlowDelegate */,
 				5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */,
 				5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */,
 				5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */,
@@ -758,6 +860,8 @@
 				5A0B775626B0050800B054D4 /* MockSectionDropDelegate.swift in Sources */,
 				5A0B774B26AEEB3100B054D4 /* SingleSectionCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.swift in Sources */,
 				5AB6643026A59626004DC230 /* BaseCollectionViewAdapterUICollectionViewDataSourceTests.swift in Sources */,
+				5A31B8D526BAE95700036A3F /* BaseSectionFlowDelegateTests.swift in Sources */,
+				5A31B8D326BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift in Sources */,
 				5A0B776626B146EC00B054D4 /* ListCollectionViewAdapterUICollectionViewDragDelegateTests.swift in Sources */,
 				5A0B777226B1A13B00B054D4 /* SequenceGroupTests.swift in Sources */,
 				5AA9D96A26AACACF00679D88 /* MockSectionDelegate.swift in Sources */,
@@ -769,29 +873,42 @@
 				5AA9D95626AAA61700679D88 /* MockErrorHandler.swift in Sources */,
 				5AA9D95A26AAA92600679D88 /* SingleSectionCollectionViewAdapterUICollectionViewDataSourceTests.swift in Sources */,
 				5AB6642926A587AE004DC230 /* CollectionViewContextSizeTests.swift in Sources */,
+				5A31B8CF26BAE93900036A3F /* BaseSectionDropDelegateTests.swift in Sources */,
+				5A31B8BF26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
 				5A0B778426B2AA2000B054D4 /* SingleModelSectionControllerTests.swift in Sources */,
 				5A0B775926B0069700B054D4 /* BaseCollectionViewAdapterUICollectionViewDropDelegateTests.swift in Sources */,
 				5A0B776E26B19E8C00B054D4 /* MockSingleSectionCollectionViewAdapterDataSource.swift in Sources */,
 				5A0B776C26B1828400B054D4 /* SingleSectionCollectionViewAdapterTests.swift in Sources */,
+				5A31B8C926BAE91D00036A3F /* BaseSectionDragDelegateTests.swift in Sources */,
+				5A31B8BB26BAE8D400036A3F /* ProtocolDefaultValuesSectionDataSourceTests.swift in Sources */,
 				5A0B774E26AF0C2100B054D4 /* BaseCollectionViewAdapterUIScrollViewDelegateTests.swift in Sources */,
 				5AA9D96826AAC9AF00679D88 /* BaseCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
 				5A0B778026B299FF00B054D4 /* ListSectionControllerTests.swift in Sources */,
 				5A0B775B26B006AA00B054D4 /* ListCollectionViewAdapterUICollectionViewDropDelegateTests.swift in Sources */,
+				5A31B8BD26BAE8E300036A3F /* BaseSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
+				5A31B8C126BAE8F800036A3F /* ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
 				5A0B777626B1A5F400B054D4 /* ArraySectionIndexPathTests.swift in Sources */,
 				5AA9D96126AAC53A00679D88 /* MockSectionDataSourcePrefetchingDelegate.swift in Sources */,
 				5A0B775026AF0CAB00B054D4 /* ListCollectionViewAdapterUIScrollViewDelegateTests.swift in Sources */,
 				5AA9D95F26AABF1300679D88 /* BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests.swift in Sources */,
+				5A31B8CB26BAE92400036A3F /* BaseSectionControllerSectionDragDelegateTests.swift in Sources */,
 				5A0B775226AF0CB800B054D4 /* SingleSectionCollectionViewAdapterUIScrollViewDelegateTests.swift in Sources */,
+				5A31B8D926BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift in Sources */,
 				5A0B778926B3EA4D00B054D4 /* ErrorTests.swift in Sources */,
 				5AA9D95426AAA5EA00679D88 /* MockCollectionReusableView.swift in Sources */,
 				5A0B777C26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift in Sources */,
 				5A0B774526AED0F600B054D4 /* BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.swift in Sources */,
+				5A31B8C326BAE90300036A3F /* BaseSectionDelegateTests.swift in Sources */,
 				5A0B774926AEEB2200B054D4 /* ListCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.swift in Sources */,
+				5A31B8B726BAE8A900036A3F /* BaseSectionDataSourceTests.swift in Sources */,
 				5A0B776126B1445900B054D4 /* MockSectionDragDelegate.swift in Sources */,
 				5AA9D96326AAC65200679D88 /* ListCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests.swift in Sources */,
 				5AE1761B2667DA7000D4DCE1 /* SectionIndexPathTests.swift in Sources */,
 				5AA9D96C26AAD05400679D88 /* ListCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
+				5A31B8D726BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift in Sources */,
+				5A31B8C726BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift in Sources */,
 				5A0B776A26B1826100B054D4 /* ListCollectionViewAdapterTests.swift in Sources */,
+				5A31B8B926BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift in Sources */,
 				5A0B777826B1A6AD00B054D4 /* CollectionExtensionsTests.swift in Sources */,
 				5A0B775D26B006B900B054D4 /* SingleSectionCollectionViewAdapterUICollectionViewDropDelegateTests.swift in Sources */,
 				5AA9D96526AAC66500679D88 /* SingleSectionCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests.swift in Sources */,
@@ -799,9 +916,12 @@
 				5A0B775426AFF4D500B054D4 /* MockScrollViewDelegate.swift in Sources */,
 				5A0B776426B146D000B054D4 /* BaseCollectionViewAdapterUICollectionViewDragDelegateTests.swift in Sources */,
 				5A0B777A26B1A81300B054D4 /* MainCollectionViewContextTests.swift in Sources */,
+				5A31B8CD26BAE92D00036A3F /* ProtocolDefaultValuesSectionDragDelegateTests.swift in Sources */,
 				5A0B774726AEE24700B054D4 /* MockSectionFlowDelegate.swift in Sources */,
 				5AA9D95826AAA65900679D88 /* ListCollectionViewAdapterUICollectionViewDataSourceTests.swift in Sources */,
 				5AB6644926A86F4D004DC230 /* MockSectionDataSource.swift in Sources */,
+				5A31B8D126BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift in Sources */,
+				5A31B8C526BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift in Sources */,
 				5A0B778226B2A92C00B054D4 /* SingleItemSectionControllerTests.swift in Sources */,
 				5A0B777E26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift in Sources */,
 			);
