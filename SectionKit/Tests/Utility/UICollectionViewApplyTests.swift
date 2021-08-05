@@ -1,7 +1,7 @@
 @testable import SectionKit
 import XCTest
 
-internal class UICollectionViewApplyTests: XCTestCase {
+internal final class UICollectionViewApplyTests: XCTestCase {
     // MARK: - CollectionViewSectionUpdate
 
     internal func testSectionUpdateEmptyBatchOperations() {
