@@ -26,7 +26,7 @@ public struct CollectionViewSectionBatchOperation<SectionData> {
     public let completion: ((Bool) -> Void)?
 
     /**
-     Initialize an instance of `CollectionViewSectionBatchOperation`.
+     Initialise an instance of `CollectionViewSectionBatchOperation`.
 
      - Parameter data: The data of the section after the `changes` have been performed.
 

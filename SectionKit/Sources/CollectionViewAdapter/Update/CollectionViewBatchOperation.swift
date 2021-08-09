@@ -26,7 +26,7 @@ public struct CollectionViewBatchOperation<CollectionViewData> {
     public let completion: ((Bool) -> Void)?
 
     /**
-     Initialize an instance of `CollectionViewBatchOperation`.
+     Initialise an instance of `CollectionViewBatchOperation`.
 
      - Parameter data: The data of the `UICollectionView` after the `changes` have been performed.
 

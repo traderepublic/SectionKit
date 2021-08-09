@@ -2,11 +2,14 @@ import UIKit
 
 /// A context which provides contextual information for a `SectionController`.
 public protocol CollectionViewContext: AnyObject {
-    /// The `UIViewController` which owns the `UICollectionView`.
+    /// The `UIViewController` which contains the `collectionView`.
     var viewController: UIViewController? { get }
 
-    /// The `UICollectionView` of this context.
+    /// The `UICollectionView` of which this context is responsible for.
     var collectionView: UICollectionView { get }
+
+    /// The error handler of this context.
+    var errorHandler: ErrorHandling { get }
 
     /**
      Apply an update to the items of the current section.
@@ -71,7 +74,7 @@ public protocol CollectionViewContext: AnyObject {
     ) -> SupplementaryView
 
     /**
-     Get the `SectionController` which is responsible for the given `IndexPath` and an calculate
+     Get the `SectionController` which is responsible for the given `IndexPath` and calculate
      an adjusted `SectionIndexPath`.
      
      - Parameter indexPath: The `IndexPath` of which the responsible `SectionController` should be determined.

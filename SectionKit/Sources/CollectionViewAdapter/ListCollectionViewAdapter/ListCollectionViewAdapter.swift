@@ -9,7 +9,7 @@ import UIKit
  */
 open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
-     Initialize an instance of `ListCollectionAdapter` to use it as the datasource and
+     Initialise an instance of `ListCollectionAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
      
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -21,22 +21,23 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(
-        viewController: UIViewController?,
         collectionView: UICollectionView,
-        dataSource: ListCollectionViewAdapterDataSource?,
-        scrollViewDelegate: UIScrollViewDelegate? = nil
+        dataSource: ListCollectionViewAdapterDataSource,
+        viewController: UIViewController? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil,
+        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
-            collectionView: collectionView
+            collectionView: collectionView,
+            errorHandler: errorHandler
         )
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        context.sectionAdapter = self
-        collectionViewSections = dataSource?.sections(for: self) ?? []
-        collectionViewSections.forEach { $0.controller.context = context }
+        context.adapter = self
+        collectionViewSections = dataSource.sections(for: self)
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -50,7 +51,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     /**
-     Initialize an instance of `ListCollectionAdapter` to use it as the datasource and
+     Initialise an instance of `ListCollectionAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -62,21 +63,22 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(
-        viewController: UIViewController?,
         collectionView: UICollectionView,
         sections: [Section] = [],
-        scrollViewDelegate: UIScrollViewDelegate? = nil
+        viewController: UIViewController? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil,
+        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
-            collectionView: collectionView
+            collectionView: collectionView,
+            errorHandler: errorHandler
         )
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSections = sections
-        collectionViewSections.forEach { $0.controller.context = context }
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -108,28 +110,30 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var collectionViewSections: [Section] {
         get { _collectionViewSections }
         set {
-            let uniqueSections = checkOrFilterDuplicateSectionIds(sections: newValue)
+            let uniqueSections = filterDuplicateSectionIds(sections: newValue)
             _collectionViewSections.forEach { $0.controller.context = nil }
             _collectionViewSections = uniqueSections
             uniqueSections.forEach { $0.controller.context = context }
         }
     }
 
-    /// Check for duplicate section IDs and fail gracefully if some are found.
-    /// For debug builds, crash if the section IDs are not unique.
-    /// For production builds, remove sections with duplicate IDs.
-    /// - Parameter sections: The collectionview sections that have just been set by the user
-    /// - Returns: The same sections with additional duplicates removed. Only the first section with
-    ///            a duplicate ID is kept.
-    private func checkOrFilterDuplicateSectionIds(sections: [Section]) -> [Section] {
+    /**
+     Check for duplicate section IDs and remove all but the first.
+
+     - Parameter sections: The collectionview sections that have just been set by the user
+
+     - Returns: The same sections with additional duplicates removed. Only the first section with
+     a duplicate ID is kept.
+     */
+    private func filterDuplicateSectionIds(sections: [Section]) -> [Section] {
         let filtered = sections.unique(by: \.id)
-        assert(
-            filtered.count == sections.count,
-            """
-               The list of sections contains two or more sections with the same id.
-               This would result in undefined behaviour.
-            """
-        )
+        if filtered.count != sections.count {
+            let duplicateIds = sections
+                .group(by: \.id)
+                .filter { $0.value.count > 1 }
+                .map(\.key)
+            context.errorHandler(error: .duplicateSectionIds(duplicateIds))
+        }
         return filtered
     }
 
@@ -140,10 +144,10 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 guard let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }) else {
                     continue
                 }
-                newSection.controller = existingSection.controller
-                newSection.controller.didUpdate(model: newSection.model)
+                let existingController = existingSection.controller
+                newSection.controller = existingController
+                existingController.didUpdate(model: newSection.model)
             }
-
             guard let update = calculateUpdate(from: collectionViewSections, to: newValue) else {
                 collectionViewSections = newValue
                 return

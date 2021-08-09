@@ -35,7 +35,6 @@ internal final class ColorsViewController: UIViewController {
         title = viewModel.title
         let sectionModel = viewModel
         collectionViewAdapter = SingleSectionCollectionViewAdapter(
-            viewController: self,
             collectionView: collectionView,
             section: Section(
                 id: "colors",

@@ -10,6 +10,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         guard let dataSource = dataSource(at: section) else {
+            context.errorHandler(error: .missingDataSource(section: section))
             return 0
         }
         return dataSource.numberOfItems(in: context)
@@ -19,7 +20,12 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
+        guard indexPath.isValid else {
+            context.errorHandler(error: .invalidIndexPath(indexPath))
+            return UICollectionViewCell()
+        }
         guard let dataSource = dataSource(at: indexPath) else {
+            context.errorHandler(error: .missingDataSource(section: indexPath.section))
             return UICollectionViewCell()
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -31,7 +37,12 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         viewForSupplementaryElementOfKind elementKind: String,
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
+        guard indexPath.isValid else {
+            context.errorHandler(error: .invalidIndexPath(indexPath))
+            return UICollectionReusableView()
+        }
         guard let dataSource = dataSource(at: indexPath) else {
+            context.errorHandler(error: .missingDataSource(section: indexPath.section))
             return UICollectionReusableView()
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -43,7 +54,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
             return dataSource.footerView(at: sectionIndexPath, in: context)
 
         default:
-            assertionFailure("Unsupported supplementary view kind.")
+            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
             return UICollectionReusableView()
         }
     }
@@ -52,7 +63,12 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         canMoveItemAt indexPath: IndexPath
     ) -> Bool {
+        guard indexPath.isValid else {
+            context.errorHandler(error: .invalidIndexPath(indexPath))
+            return false
+        }
         guard let dataSource = dataSource(at: indexPath) else {
+            context.errorHandler(error: .missingDataSource(section: indexPath.section))
             return false
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -64,13 +80,25 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         moveItemAt sourceIndexPath: IndexPath,
         to destinationIndexPath: IndexPath
     ) {
-        guard let dataSource = dataSource(at: sourceIndexPath) else {
+        guard sourceIndexPath.isValid else {
+            context.errorHandler(error: .invalidIndexPath(sourceIndexPath))
             return
         }
-        guard sourceIndexPath.isValid && destinationIndexPath.isValid else {
+        guard destinationIndexPath.isValid else {
+            context.errorHandler(error: .invalidIndexPath(destinationIndexPath))
+            return
+        }
+        guard let dataSource = dataSource(at: sourceIndexPath) else {
+            context.errorHandler(error: .missingDataSource(section: sourceIndexPath.section))
             return
         }
         guard sourceIndexPath.section == destinationIndexPath.section else {
+            context.errorHandler(
+                error: .moveIsNotInTheSameSection(
+                    sourceSection: sourceIndexPath.section,
+                    destinationSection: destinationIndexPath.section
+                )
+            )
             return
         }
         let sourceSectionIndexPath = SectionIndexPath(sourceIndexPath)
@@ -78,14 +106,16 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         dataSource.moveItem(at: sourceSectionIndexPath, to: destinationSectionIndexPath, in: context)
     }
 
+    @available(iOS 14.0, *)
     open func indexTitles(for collectionView: UICollectionView) -> [String]? { nil }
 
+    @available(iOS 14.0, *)
     open func collectionView(
         _ collectionView: UICollectionView,
         indexPathForIndexTitle title: String,
         at index: Int
     ) -> IndexPath {
-        assertionFailure("collectionView(_:indexPathForIndexTitle:at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return IndexPath(item: 0, section: 0)
     }
 }

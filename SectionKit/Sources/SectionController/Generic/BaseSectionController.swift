@@ -42,7 +42,7 @@ open class BaseSectionController: SectionController,
     open func numberOfItems(in context: CollectionViewContext) -> Int { 0 }
 
     open func cellForItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) -> UICollectionViewCell {
-        assertionFailure("cellForItem(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionViewCell()
     }
 
@@ -50,7 +50,7 @@ open class BaseSectionController: SectionController,
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        assertionFailure("headerView(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionReusableView()
     }
 
@@ -58,7 +58,7 @@ open class BaseSectionController: SectionController,
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        assertionFailure("footerView(at:) not implemented")
+        context.errorHandler(error: .notImplemented())
         return UICollectionReusableView()
     }
 
@@ -72,8 +72,10 @@ open class BaseSectionController: SectionController,
 
     // MARK: - SectionDataSourcePrefetchingDelegate
 
+    @available(iOS 10.0, *)
     open func prefetchItems(at indexPaths: [SectionIndexPath], in context: CollectionViewContext) { }
 
+    @available(iOS 10.0, *)
     open func cancelPrefetchingForItems(at indexPaths: [SectionIndexPath], in context: CollectionViewContext) { }
 
     // MARK: - SectionDelegate
@@ -221,22 +223,6 @@ open class BaseSectionController: SectionController,
         in context: CollectionViewContext
     ) -> UIDragPreviewParameters? {
         nil
-    }
-
-    @available(iOS 11.0, *)
-    open func dragSessionAllowsMoveOperation(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool {
-        true
-    }
-
-    @available(iOS 11.0, *)
-    open func dragSessionIsRestrictedToDraggingApplication(
-        _ session: UIDragSession,
-        in context: CollectionViewContext
-    ) -> Bool {
-        false
     }
 
     // MARK: - SectionDropDelegate

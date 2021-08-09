@@ -1,7 +1,7 @@
 import Foundation
 
 /// A struct containing the internal and external index of an item.
-public struct SectionIndexPath {
+public struct SectionIndexPath: Hashable {
     /// The index path of the item in the `UICollectionView`.
     public let indexInCollectionView: IndexPath
 
@@ -9,7 +9,7 @@ public struct SectionIndexPath {
     public let indexInSectionController: Int
 
     /**
-     Initialize an instance of `SectionIndexPath`.
+     Initialise an instance of `SectionIndexPath`.
 
      - Parameter indexInCollectionView: The index path of the item in the `UICollectionView`.
 
@@ -21,7 +21,7 @@ public struct SectionIndexPath {
     }
 
     /**
-     Initialize an instance of `SectionIndexPath`.
+     Initialise an instance of `SectionIndexPath`.
 
      - Parameter indexInCollectionView: The index path of the item in the `UICollectionView`.
 

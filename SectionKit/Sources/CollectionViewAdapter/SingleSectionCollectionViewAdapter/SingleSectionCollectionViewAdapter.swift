@@ -5,7 +5,7 @@ import UIKit
  */
 open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
-     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
+     Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -17,22 +17,23 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(
-        viewController: UIViewController?,
         collectionView: UICollectionView,
-        dataSource: SingleSectionCollectionViewAdapterDataSource?,
-        scrollViewDelegate: UIScrollViewDelegate? = nil
+        dataSource: SingleSectionCollectionViewAdapterDataSource,
+        viewController: UIViewController? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil,
+        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
-            collectionView: collectionView
+            collectionView: collectionView,
+            errorHandler: errorHandler
         )
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         self.dataSource = dataSource
         super.init()
-        context.sectionAdapter = self
-        collectionViewSection = dataSource?.section(for: self)
-        collectionViewSection?.controller.context = context
+        context.adapter = self
+        collectionViewSection = dataSource.section(for: self)
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -46,7 +47,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     }
 
     /**
-     Initialize an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
+     Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and
      delegate of the given `UICollectionView`.
 
      - Parameter viewController: The `UIViewController` which owns the `UICollectionView` and will be used in the `CollectionContext`.
@@ -58,21 +59,22 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
      - Parameter scrollViewDelegate: An optional delegate instance that should receive `UIScrollViewDelegate` callbacks.
      */
     public init(
-        viewController: UIViewController?,
         collectionView: UICollectionView,
         section: Section? = nil,
-        scrollViewDelegate: UIScrollViewDelegate? = nil
+        viewController: UIViewController? = nil,
+        scrollViewDelegate: UIScrollViewDelegate? = nil,
+        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
-            collectionView: collectionView
+            collectionView: collectionView,
+            errorHandler: errorHandler
         )
         self.context = context
         self.scrollViewDelegate = scrollViewDelegate
         super.init()
-        context.sectionAdapter = self
+        context.adapter = self
         collectionViewSection = section
-        collectionViewSection?.controller.context = context
         collectionView.dataSource = self
         if #available(iOS 10.0, *) {
             collectionView.prefetchDataSource = self
@@ -93,26 +95,32 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         didSet { invalidateDataSource() }
     }
 
+    private var _collectionViewSection: Section?
+
     /**
      The single section currently displayed in the `UICollectionView`.
 
      - Warning: Only set this property inside an update block of `performBatchUpdates` and
      if `UICollectionView` insertions and deletions are handled, otherwise use `section` instead.
      */
-    open var collectionViewSection: Section? = nil {
-        willSet { collectionViewSection?.controller.context = nil }
-        didSet { collectionViewSection?.controller.context = context }
+    open var collectionViewSection: Section? {
+        get { _collectionViewSection }
+        set {
+            _collectionViewSection?.controller.context = nil
+            _collectionViewSection = newValue
+            newValue?.controller.context = context
+        }
     }
 
     /// The single section in the `UICollectionView`.
     open var section: Section? {
         get { collectionViewSection }
         set {
-            if let new = newValue, let existing = collectionViewSection, existing.id == new.id {
-                new.controller = existing.controller
-                new.controller.didUpdate(model: new.model)
+            if let newSection = newValue, let existingSection = collectionViewSection, existingSection.id == newSection.id {
+                let existingController = existingSection.controller
+                newSection.controller = existingController
+                existingController.didUpdate(model: newSection.model)
             }
-
             guard let update = calculateUpdate(from: collectionViewSection, to: newValue) else {
                 collectionViewSection = newValue
                 return

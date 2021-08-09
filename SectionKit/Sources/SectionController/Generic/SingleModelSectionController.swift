@@ -12,7 +12,7 @@ import UIKit
  */
 open class SingleModelSectionController<Model>: BaseSectionController {
     /**
-     Initialize an instance of `SingleModelSectionController`.
+     Initialise an instance of `SingleModelSectionController`.
 
      - Parameter model: The model of this `SectionController`.
      */
@@ -23,7 +23,12 @@ open class SingleModelSectionController<Model>: BaseSectionController {
 
     override open func didUpdate(model: Any) {
         guard let model = model as? Model else {
-            assertionFailure("Could not cast model to \(String(describing: Model.self))")
+            context?.errorHandler(
+                error: .sectionControllerModelTypeMismatch(
+                    expected: Model.self,
+                    actual: type(of: model)
+                )
+            )
             return
         }
         self.model = model
