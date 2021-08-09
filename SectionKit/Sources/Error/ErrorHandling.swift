@@ -17,8 +17,13 @@ public protocol ErrorHandling {
 extension Error {
     /// The severity of an error.
     public enum Severity: String, Hashable {
+        /// Errors with this severity may inform users about potential future deprecations.
         case informational
+
+        /// Errors with this severity are non-fatal and can be recovered from.
         case nonCritical
+
+        /// Errors with this severity are fatal and can't be recovered from.
         case critical
     }
 }
