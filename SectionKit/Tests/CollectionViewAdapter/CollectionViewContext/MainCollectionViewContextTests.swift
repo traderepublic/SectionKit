@@ -59,11 +59,12 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .adapterIsNotSetOnContext = error else {
                     XCTFail("The error should be adapterIsNotSetOnContext")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )
@@ -84,11 +85,12 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .adapterDoesNotContainSectionController = error else {
                     XCTFail("The error should be adapterDoesNotContainSectionController")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )
@@ -181,13 +183,14 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .dequeuedViewHasNotTheCorrectType(expected: expected, actual: actual) = error else {
                     XCTFail("The error should be dequeuedViewHasNotTheCorrectType")
                     return
                 }
                 XCTAssert(expected === MockCollectionViewCell.self)
                 XCTAssert(actual === CustomCollectionViewCell.self)
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )
@@ -280,13 +283,14 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .dequeuedViewHasNotTheCorrectType(expected: expected, actual: actual) = error else {
                     XCTFail("The error should be dequeuedViewHasNotTheCorrectType")
                     return
                 }
                 XCTAssert(expected === MockCollectionReusableView.self)
                 XCTAssert(actual === CustomCollectionReusableView.self)
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )
@@ -379,13 +383,14 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .dequeuedViewHasNotTheCorrectType(expected: expected, actual: actual) = error else {
                     XCTFail("The error should be dequeuedViewHasNotTheCorrectType")
                     return
                 }
                 XCTAssert(expected === MockCollectionReusableView.self)
                 XCTAssert(actual === CustomCollectionReusableView.self)
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )
@@ -435,11 +440,12 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .adapterIsNotSetOnContext = error else {
                     XCTFail("The error should be adapterIsNotSetOnContext")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )

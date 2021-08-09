@@ -494,11 +494,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .unsupportedSupplementaryViewKind(elementKind) = error, elementKind == "test" else {
                     XCTFail("The error should be unsupportedSupplementaryViewKind")
                     return
                 }
+                XCTAssertEqual(severity, .warning)
                 errorExpectation.fulfill()
             }
         )
@@ -666,11 +667,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .unsupportedSupplementaryViewKind(elementKind) = error, elementKind == "test" else {
                     XCTFail("The error should be unsupportedSupplementaryViewKind")
                     return
                 }
+                XCTAssertEqual(severity, .warning)
                 errorExpectation.fulfill()
             }
         )

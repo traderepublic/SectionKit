@@ -77,11 +77,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .missingDataSource(section: section) = error, section == 1 else {
                     XCTFail("The error should be missingDataSource with section index 1")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -135,11 +136,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .missingDataSource(section: section) = error, section == 1 else {
                     XCTFail("The error should be missingDataSource with section index 1")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -171,11 +173,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .invalidIndexPath(indexPath: indexPath) = error, indexPath == IndexPath() else {
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -233,11 +236,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .missingDataSource(section: section) = error, section == 1 else {
                     XCTFail("The error should be missingDataSource with section 1")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -269,11 +273,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .invalidIndexPath(indexPath: indexPath) = error, indexPath == IndexPath() else {
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -332,11 +337,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .unsupportedSupplementaryViewKind(kind) = error, kind == "test" else {
                     XCTFail("The error should be unsupportedSupplementaryViewKind")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -421,7 +427,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .moveIsNotInTheSameSection(sourceSection, destinationSection) = error,
                       sourceSection == 0,
                       destinationSection == 1
@@ -429,6 +435,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be moveIsNotInTheSameSection")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 errorExpectation.fulfill()
             }
         )
@@ -445,11 +452,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .invalidIndexPath(indexPath: indexPath) = error, indexPath == IndexPath() else {
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -466,11 +474,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .invalidIndexPath(indexPath: indexPath) = error, indexPath == IndexPath() else {
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )
@@ -495,11 +504,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .notImplemented = error else {
                     XCTFail("The error should be notImplemented")
                     return
                 }
+                XCTAssertEqual(severity, .error)
                 testExpectation.fulfill()
             }
         )

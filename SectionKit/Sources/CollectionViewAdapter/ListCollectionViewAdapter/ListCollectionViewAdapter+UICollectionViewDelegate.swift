@@ -114,7 +114,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
             delegate.willDisplay(footerView: view, at: sectionIndexPath, in: context)
 
         default:
-            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
+            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind), severity: .warning)
         }
     }
 
@@ -148,7 +148,7 @@ extension ListCollectionViewAdapter: UICollectionViewDelegate {
             delegate.didEndDisplaying(footerView: view, at: sectionIndexPath, in: context)
 
         default:
-            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
+            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind), severity: .warning)
         }
     }
 
