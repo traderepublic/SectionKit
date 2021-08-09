@@ -22,7 +22,7 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         XCTAssertEqual(sectionDataSource.numberOfItems(in: context), 0)
     }
@@ -107,7 +107,7 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertFalse(sectionDataSource.canMoveItem(at: indexPath, in: context))
@@ -118,7 +118,7 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let sourceIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let destinationIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))

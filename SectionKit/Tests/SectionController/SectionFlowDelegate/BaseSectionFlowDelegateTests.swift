@@ -22,7 +22,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +43,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let layout = UICollectionViewLayout()
@@ -62,7 +62,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewFlowLayout()
         let sectionInset = UIEdgeInsets(top: 1, left: 2, bottom: 4, right: 8)
@@ -81,7 +81,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewLayout()
         XCTAssertEqual(
@@ -98,7 +98,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
@@ -116,7 +116,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewLayout()
         XCTAssertEqual(
@@ -133,7 +133,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
@@ -151,7 +151,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewLayout()
         XCTAssertEqual(
@@ -168,7 +168,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewFlowLayout()
         let referenceSizeForHeader = CGSize(width: 1, height: 2)
@@ -187,7 +187,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewLayout()
         XCTAssertEqual(
@@ -204,7 +204,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewFlowLayout()
         let referenceSizeForFooter = CGSize(width: 1, height: 2)
@@ -223,7 +223,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let layout = UICollectionViewLayout()
         XCTAssertEqual(

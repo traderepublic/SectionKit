@@ -191,7 +191,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         XCTAssertEqual(sectionController.numberOfItems(in: context), 1)
     }
@@ -202,7 +202,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         XCTAssertEqual(sectionController.numberOfItems(in: context), 0)
     }

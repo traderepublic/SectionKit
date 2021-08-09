@@ -23,7 +23,7 @@ internal class BaseSectionDataSourcePrefetchingDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         sectionDataSourcePrefetchingDelegate.prefetchItems(at: [], in: context)
     }
@@ -33,7 +33,7 @@ internal class BaseSectionDataSourcePrefetchingDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         sectionDataSourcePrefetchingDelegate.cancelPrefetchingForItems(at: [], in: context)
     }

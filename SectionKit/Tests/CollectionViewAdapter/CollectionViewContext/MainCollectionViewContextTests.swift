@@ -32,7 +32,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let sectionController = MockSectionController()
         let adapter = ListCollectionViewAdapter(
@@ -123,7 +123,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         XCTAssert(
             context.dequeueReusableCell(
@@ -153,7 +153,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context.registeredCellTypes.insert(String(describing: MockCollectionViewCell.self))
         XCTAssert(
@@ -220,7 +220,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         XCTAssert(
             context.dequeueReusableHeaderView(
@@ -251,7 +251,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context.registeredHeaderViewTypes.insert(String(describing: MockCollectionReusableView.self))
         XCTAssert(
@@ -319,7 +319,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         XCTAssert(
             context.dequeueReusableFooterView(
@@ -350,7 +350,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context.registeredFooterViewTypes.insert(String(describing: MockCollectionReusableView.self))
         XCTAssert(
@@ -401,7 +401,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let sectionController = MockSectionController()
         let adapter = ListCollectionViewAdapter(
@@ -422,7 +422,7 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let adapter = ListCollectionViewAdapter(collectionView: collectionView)
         context.adapter = adapter
