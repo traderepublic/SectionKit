@@ -114,7 +114,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             delegate.willDisplay(footerView: view, at: sectionIndexPath, in: context)
 
         default:
-            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind), severity: .warning)
+            context.errorHandler(
+                error: .unsupportedSupplementaryViewKind(elementKind: elementKind),
+                severity: .informational
+            )
         }
     }
 
@@ -148,7 +151,10 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDelegate {
             delegate.didEndDisplaying(footerView: view, at: sectionIndexPath, in: context)
 
         default:
-            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind), severity: .warning)
+            context.errorHandler(
+                error: .unsupportedSupplementaryViewKind(elementKind: elementKind),
+                severity: .informational
+            )
         }
     }
 

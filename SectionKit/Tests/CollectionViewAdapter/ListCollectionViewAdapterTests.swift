@@ -337,7 +337,7 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
                     return
                 }
                 XCTAssertEqual(ids, [""])
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -360,7 +360,7 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
                     return
                 }
                 XCTAssertEqual(ids, [""])
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )

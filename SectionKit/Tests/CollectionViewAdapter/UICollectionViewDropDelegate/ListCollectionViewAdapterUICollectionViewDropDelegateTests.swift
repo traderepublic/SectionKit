@@ -9,7 +9,7 @@ internal final class ListCollectionViewAdapterUICollectionViewDropDelegateTests:
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDropDelegate {
         ListCollectionViewAdapter(
             collectionView: collectionView,

@@ -26,7 +26,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSource {
         throw XCTSkip("Tests from base class are skipped")
     }
@@ -82,7 +82,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be missingDataSource with section index 1")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -141,7 +141,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be missingDataSource with section index 1")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -178,7 +178,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -241,7 +241,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be missingDataSource with section 1")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -278,7 +278,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -342,7 +342,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be unsupportedSupplementaryViewKind")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -435,7 +435,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be moveIsNotInTheSameSection")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
@@ -457,7 +457,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -479,7 +479,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be invalidIndexPath")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -509,7 +509,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
                     XCTFail("The error should be notImplemented")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )

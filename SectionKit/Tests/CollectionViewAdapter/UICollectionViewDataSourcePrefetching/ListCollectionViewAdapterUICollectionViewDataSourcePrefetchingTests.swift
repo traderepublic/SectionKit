@@ -9,7 +9,7 @@ internal final class ListCollectionViewAdapterUICollectionViewDataSourcePrefetch
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSourcePrefetching {
         ListCollectionViewAdapter(
             collectionView: collectionView,

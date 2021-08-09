@@ -21,7 +21,7 @@ internal final class ListSectionControllerTests: XCTestCase {
                 }
                 XCTAssert(expected == String.self)
                 XCTAssert(actual == Int.self)
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
@@ -98,7 +98,7 @@ internal final class ListSectionControllerTests: XCTestCase {
                     XCTFail("The error should be notImplemented")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )

@@ -8,7 +8,7 @@ internal final class ListCollectionViewAdapterUICollectionViewDataSourceTests: B
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSource {
         ListCollectionViewAdapter(
             collectionView: collectionView,

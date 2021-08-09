@@ -21,7 +21,7 @@ internal final class SingleModelSectionControllerTests: XCTestCase {
                 }
                 XCTAssert(expected == String.self)
                 XCTAssert(actual == Int.self)
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )

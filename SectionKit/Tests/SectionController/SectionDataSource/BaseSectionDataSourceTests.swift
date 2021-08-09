@@ -38,7 +38,7 @@ internal class BaseSectionDataSourceTests: XCTestCase {
                     XCTFail("The error should be notImplemented")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
@@ -64,7 +64,7 @@ internal class BaseSectionDataSourceTests: XCTestCase {
                     XCTFail("The error should be notImplemented")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
@@ -90,7 +90,7 @@ internal class BaseSectionDataSourceTests: XCTestCase {
                     XCTFail("The error should be notImplemented")
                     return
                 }
-                XCTAssertEqual(severity, .error)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
