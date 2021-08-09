@@ -23,7 +23,7 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDragSession()
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -39,7 +39,7 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDragSession()
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -56,7 +56,7 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDragSession()
         sectionDragDelegate.dragSessionWillBegin(
@@ -70,7 +70,7 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDragSession()
         sectionDragDelegate.dragSessionDidEnd(
@@ -84,7 +84,7 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertNil(sectionDragDelegate.dragPreviewParametersForItem(

@@ -41,7 +41,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
     internal func testInitWithDataSourceSetsErrorHandler() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let dataSource = MockSingleSectionCollectionViewAdapterDataSource { _ in nil }
-        let errorHandler = MockErrorHandler { _ in }
+        let errorHandler = MockErrorHandler()
         let adapter = SingleSectionCollectionViewAdapter(
             collectionView: collectionView,
             dataSource: dataSource,
@@ -182,7 +182,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
 
     internal func testInitWithSectionsSetsErrorHandler() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        let errorHandler = MockErrorHandler { _ in }
+        let errorHandler = MockErrorHandler()
         let adapter = SingleSectionCollectionViewAdapter(
             collectionView: collectionView,
             section: nil,

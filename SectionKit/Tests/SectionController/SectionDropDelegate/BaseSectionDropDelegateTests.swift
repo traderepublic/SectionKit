@@ -23,7 +23,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDropSession()
         XCTAssert(sectionDropDelegate.canHandle(
@@ -37,7 +37,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDropSession()
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -56,7 +56,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let coordinator = MockCollectionViewDropCoordinator()
@@ -72,7 +72,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDropSession()
         sectionDropDelegate.dropSessionDidEnter(
@@ -86,7 +86,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDropSession()
         sectionDropDelegate.dropSessionDidExit(
@@ -100,7 +100,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let mockSession = MockDropSession()
         sectionDropDelegate.dropSessionDidEnd(
@@ -114,7 +114,7 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertNil(sectionDropDelegate.dropPreviewParametersForItem(

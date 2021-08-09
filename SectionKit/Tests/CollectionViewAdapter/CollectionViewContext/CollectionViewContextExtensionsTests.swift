@@ -8,7 +8,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableCell = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionViewCell.self)
@@ -24,7 +24,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableCell = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionViewCell.self)
@@ -40,7 +40,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableCell = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionViewCell.self)
@@ -58,7 +58,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableHeaderView")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableHeaderView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
@@ -74,7 +74,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableHeaderView")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableHeaderView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
@@ -90,7 +90,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableHeaderView")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableHeaderView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
@@ -108,7 +108,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableFooterView")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableFooterView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
@@ -124,7 +124,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableFooterView")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableFooterView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
@@ -140,7 +140,7 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         let testExpectation = expectation(description: "Should invoke dequeueReusableFooterView")
         let context = MockCollectionViewContext(
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         context._dequeueReusableFooterView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)

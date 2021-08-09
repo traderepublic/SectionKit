@@ -22,7 +22,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssert(sectionDelegate.shouldHighlightItem(at: indexPath, in: context))
@@ -33,7 +33,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didHighlightItem(at: indexPath, in: context)
@@ -44,7 +44,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didUnhighlightItem(at: indexPath, in: context)
@@ -55,7 +55,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssert(sectionDelegate.shouldSelectItem(at: indexPath, in: context))
@@ -66,7 +66,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssert(sectionDelegate.shouldDeselectItem(at: indexPath, in: context))
@@ -77,7 +77,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didSelectItem(at: indexPath, in: context)
@@ -88,7 +88,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didDeselectItem(at: indexPath, in: context)
@@ -99,7 +99,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.willDisplay(
@@ -114,7 +114,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.willDisplay(
@@ -129,7 +129,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.willDisplay(
@@ -144,7 +144,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didEndDisplaying(
@@ -159,7 +159,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didEndDisplaying(
@@ -174,7 +174,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didEndDisplaying(
@@ -191,7 +191,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertFalse(sectionDelegate.shouldShowMenuForItem(
@@ -212,7 +212,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertFalse(sectionDelegate.canPerform(
@@ -235,7 +235,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.perform(
@@ -251,7 +251,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertEqual(
@@ -272,7 +272,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let interactionContext = MockSpringLoadedInteractionContext()
@@ -289,7 +289,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertFalse(sectionDelegate.shouldBeginMultipleSelectionInteraction(
@@ -304,7 +304,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         sectionDelegate.didBeginMultipleSelectionInteraction(
@@ -319,7 +319,7 @@ internal class BaseSectionDelegateTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { _ in }
+            errorHandler: MockErrorHandler()
         )
         let indexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         XCTAssertNil(sectionDelegate.contextMenuConfigurationForItem(
