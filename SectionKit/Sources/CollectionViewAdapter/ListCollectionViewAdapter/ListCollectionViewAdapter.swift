@@ -132,7 +132,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 .group(by: \.id)
                 .filter { $0.value.count > 1 }
                 .map(\.key)
-            context.errorHandler(error: .duplicateSectionIds(duplicateIds))
+            context.errorHandler.nonCritical(error: .duplicateSectionIds(duplicateIds))
         }
         return filtered
     }

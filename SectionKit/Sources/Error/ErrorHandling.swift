@@ -29,13 +29,31 @@ extension Error {
 }
 
 extension ErrorHandling {
-    public func callAsFunction(
+    @inlinable
+    public func informational(
         error: @autoclosure () -> Error,
-        severity: Error.Severity = .nonCritical,
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        on(error: error(), severity: severity, file: file, line: line)
+        on(error: error(), severity: .informational, file: file, line: line)
+    }
+
+    @inlinable
+    public func nonCritical(
+        error: @autoclosure () -> Error,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        on(error: error(), severity: .nonCritical, file: file, line: line)
+    }
+
+    @inlinable
+    public func critical(
+        error: @autoclosure () -> Error,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        on(error: error(), severity: .critical, file: file, line: line)
     }
 }
 

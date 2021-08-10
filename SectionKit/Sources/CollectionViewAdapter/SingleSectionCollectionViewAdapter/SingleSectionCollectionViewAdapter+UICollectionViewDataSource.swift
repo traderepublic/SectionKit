@@ -10,7 +10,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
     ) -> Int {
         guard let dataSource = dataSource(at: section) else {
-            context.errorHandler(error: .missingDataSource(section: section))
+            context.errorHandler.nonCritical(error: .missingDataSource(section: section))
             return 0
         }
         return dataSource.numberOfItems(in: context)
@@ -21,11 +21,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard indexPath.isValid else {
-            context.errorHandler(error: .invalidIndexPath(indexPath))
+            context.errorHandler.nonCritical(error: .invalidIndexPath(indexPath))
             return UICollectionViewCell()
         }
         guard let dataSource = dataSource(at: indexPath) else {
-            context.errorHandler(error: .missingDataSource(section: indexPath.section))
+            context.errorHandler.nonCritical(error: .missingDataSource(section: indexPath.section))
             return UICollectionViewCell()
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -38,11 +38,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         at indexPath: IndexPath
     ) -> UICollectionReusableView {
         guard indexPath.isValid else {
-            context.errorHandler(error: .invalidIndexPath(indexPath))
+            context.errorHandler.nonCritical(error: .invalidIndexPath(indexPath))
             return UICollectionReusableView()
         }
         guard let dataSource = dataSource(at: indexPath) else {
-            context.errorHandler(error: .missingDataSource(section: indexPath.section))
+            context.errorHandler.nonCritical(error: .missingDataSource(section: indexPath.section))
             return UICollectionReusableView()
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -54,7 +54,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
             return dataSource.footerView(at: sectionIndexPath, in: context)
 
         default:
-            context.errorHandler(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
+            context.errorHandler.nonCritical(error: .unsupportedSupplementaryViewKind(elementKind: elementKind))
             return UICollectionReusableView()
         }
     }
@@ -64,11 +64,11 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         canMoveItemAt indexPath: IndexPath
     ) -> Bool {
         guard indexPath.isValid else {
-            context.errorHandler(error: .invalidIndexPath(indexPath))
+            context.errorHandler.nonCritical(error: .invalidIndexPath(indexPath))
             return false
         }
         guard let dataSource = dataSource(at: indexPath) else {
-            context.errorHandler(error: .missingDataSource(section: indexPath.section))
+            context.errorHandler.nonCritical(error: .missingDataSource(section: indexPath.section))
             return false
         }
         let sectionIndexPath = SectionIndexPath(indexPath)
@@ -81,19 +81,19 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         to destinationIndexPath: IndexPath
     ) {
         guard sourceIndexPath.isValid else {
-            context.errorHandler(error: .invalidIndexPath(sourceIndexPath))
+            context.errorHandler.nonCritical(error: .invalidIndexPath(sourceIndexPath))
             return
         }
         guard destinationIndexPath.isValid else {
-            context.errorHandler(error: .invalidIndexPath(destinationIndexPath))
+            context.errorHandler.nonCritical(error: .invalidIndexPath(destinationIndexPath))
             return
         }
         guard let dataSource = dataSource(at: sourceIndexPath) else {
-            context.errorHandler(error: .missingDataSource(section: sourceIndexPath.section))
+            context.errorHandler.nonCritical(error: .missingDataSource(section: sourceIndexPath.section))
             return
         }
         guard sourceIndexPath.section == destinationIndexPath.section else {
-            context.errorHandler(
+            context.errorHandler.nonCritical(
                 error: .moveIsNotInTheSameSection(
                     sourceSection: sourceIndexPath.section,
                     destinationSection: destinationIndexPath.section
@@ -115,7 +115,7 @@ extension SingleSectionCollectionViewAdapter: UICollectionViewDataSource {
         indexPathForIndexTitle title: String,
         at index: Int
     ) -> IndexPath {
-        context.errorHandler(error: .notImplemented())
+        context.errorHandler.nonCritical(error: .notImplemented())
         return IndexPath(item: 0, section: 0)
     }
 }
