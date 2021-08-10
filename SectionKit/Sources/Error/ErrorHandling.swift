@@ -57,14 +57,31 @@ extension ErrorHandling {
     }
 }
 
-/// This error handler calls `fatalError` for `critical` errors, `assertionFailure` for `nonCritical` errors and ignores `informational` errors.
+/**
+ This error handler calls `fatalError` for `critical` errors, `assertionFailure` for `nonCritical` errors and
+ ignores `informational` errors.
+ */
 public struct ErrorHandler: ErrorHandling {
-    public init() { }
+    private let verbose: Bool
+
+    /**
+     Initialise an instance of `ErrorHandler`.
+
+     This error handler calls `fatalError` for `critical` errors, `assertionFailure` for `nonCritical` errors and
+     ignores `informational` errors.
+
+     - Parameter verbose: If `informational` errors should be printed to the console.
+     */
+    public init(verbose: Bool = false) {
+        self.verbose = verbose
+    }
 
     public func on(error: @autoclosure () -> Error, severity: Error.Severity, file: StaticString, line: UInt) {
         switch severity {
         case .informational:
-            break
+            if verbose {
+                print("\(file):\(line): \(severity.rawValue.capitalized) error: \(error().description)")
+            }
 
         case .nonCritical:
             assertionFailure(error().description, file: file, line: line)
