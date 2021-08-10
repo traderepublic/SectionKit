@@ -8,7 +8,7 @@ internal final class SingleSectionCollectionViewAdapterUICollectionViewDelegateT
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDelegate {
         try XCTSkipIf(sections.count > 1, "A test with more than one section is skipped.")
         return SingleSectionCollectionViewAdapter(

@@ -51,11 +51,11 @@ open class MainCollectionViewContext: CollectionViewContext {
     @inlinable
     open func apply<T>(update: CollectionViewSectionUpdate<T>) {
         guard let adapter = adapter else {
-            errorHandler(error: .adapterIsNotSetOnContext)
+            errorHandler.nonCritical(error: .adapterIsNotSetOnContext)
             return collectionView.reloadData()
         }
         guard let index = adapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
-            errorHandler(error: .adapterDoesNotContainSectionController)
+            errorHandler.nonCritical(error: .adapterDoesNotContainSectionController)
             return collectionView.reloadData()
         }
         collectionView.apply(update: update, at: index)
@@ -83,7 +83,7 @@ open class MainCollectionViewContext: CollectionViewContext {
             for: indexPath
         )
         guard let cell = dequeuedCell as? Cell else {
-            errorHandler(
+            errorHandler.nonCritical(
                 error: .dequeuedViewHasNotTheCorrectType(
                     expected: Cell.self,
                     actual: type(of: dequeuedCell)
@@ -115,7 +115,7 @@ open class MainCollectionViewContext: CollectionViewContext {
             for: indexPath
         )
         guard let view = dequeuedView as? SupplementaryView else {
-            errorHandler(
+            errorHandler.nonCritical(
                 error: .dequeuedViewHasNotTheCorrectType(
                     expected: SupplementaryView.self,
                     actual: type(of: dequeuedView)
@@ -147,7 +147,7 @@ open class MainCollectionViewContext: CollectionViewContext {
             for: indexPath
         )
         guard let view = dequeuedView as? SupplementaryView else {
-            errorHandler(
+            errorHandler.nonCritical(
                 error: .dequeuedViewHasNotTheCorrectType(
                     expected: SupplementaryView.self,
                     actual: type(of: dequeuedView)
@@ -165,7 +165,7 @@ open class MainCollectionViewContext: CollectionViewContext {
         for indexPath: IndexPath
     ) -> (SectionController?, SectionIndexPath)? {
         guard let adapter = adapter else {
-            errorHandler(error: .adapterIsNotSetOnContext)
+            errorHandler.nonCritical(error: .adapterIsNotSetOnContext)
             return nil
         }
         let sectionIndex = indexPath.section

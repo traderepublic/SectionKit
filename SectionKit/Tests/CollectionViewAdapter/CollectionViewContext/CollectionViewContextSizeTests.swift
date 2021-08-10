@@ -8,7 +8,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: AssertionFailureErrorHandler()
+            errorHandler: MockErrorHandler()
         )
         XCTAssertEqual(context.containerSize, rect.size)
     }
@@ -20,7 +20,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: AssertionFailureErrorHandler()
+            errorHandler: MockErrorHandler()
         )
         XCTAssertEqual(context.customContainerInset, insets)
     }
@@ -32,7 +32,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: AssertionFailureErrorHandler()
+            errorHandler: MockErrorHandler()
         )
         XCTAssertEqual(context.adjustedContainerInset, insets)
     }
@@ -45,7 +45,7 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
-            errorHandler: AssertionFailureErrorHandler()
+            errorHandler: MockErrorHandler()
         )
         let expectedSize = CGSize(width: 54, height: 123)
         XCTAssertEqual(context.insetContainerSize, expectedSize)

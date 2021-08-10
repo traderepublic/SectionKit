@@ -23,7 +23,7 @@ open class ListSectionController<Model, Item>: BaseSectionController {
 
     override open func didUpdate(model: Any) {
         guard let model = model as? Model else {
-            context?.errorHandler(
+            context?.errorHandler.nonCritical(
                 error: .sectionControllerModelTypeMismatch(
                     expected: Model.self,
                     actual: type(of: model)
@@ -64,7 +64,7 @@ open class ListSectionController<Model, Item>: BaseSectionController {
      - Returns: The new items to be displayed in this section.
      */
     open func items(for model: Model) -> [Item] {
-        context?.errorHandler(error: .notImplemented())
+        context?.errorHandler.nonCritical(error: .notImplemented())
         return []
     }
 

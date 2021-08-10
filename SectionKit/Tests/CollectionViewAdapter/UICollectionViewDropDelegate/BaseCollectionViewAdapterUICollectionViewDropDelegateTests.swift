@@ -27,7 +27,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDropDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }

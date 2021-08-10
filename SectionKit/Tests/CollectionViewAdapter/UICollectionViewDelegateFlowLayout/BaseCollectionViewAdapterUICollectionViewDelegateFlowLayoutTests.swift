@@ -26,7 +26,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDelegateFlowLayout {
         throw XCTSkip("Tests from base class are skipped")
     }

@@ -331,12 +331,13 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         let adapter = ListCollectionViewAdapter(
             collectionView: collectionView,
             sections: [firstSection, secondSection],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .duplicateSectionIds(ids) = error else {
                     XCTFail("The error should be duplicateSectionIds")
                     return
                 }
                 XCTAssertEqual(ids, [""])
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )
@@ -353,12 +354,13 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         let adapter = ListCollectionViewAdapter(
             collectionView: collectionView,
             sections: [],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .duplicateSectionIds(ids) = error else {
                     XCTFail("The error should be duplicateSectionIds")
                     return
                 }
                 XCTAssertEqual(ids, [""])
+                XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
         )

@@ -27,7 +27,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDataSourcePrefetching {
         throw XCTSkip("Tests from base class are skipped")
     }
