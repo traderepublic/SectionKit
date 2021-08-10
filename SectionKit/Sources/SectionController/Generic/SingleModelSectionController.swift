@@ -23,7 +23,7 @@ open class SingleModelSectionController<Model>: BaseSectionController {
 
     override open func didUpdate(model: Any) {
         guard let model = model as? Model else {
-            context?.errorHandler(
+            context?.errorHandler.nonCritical(
                 error: .sectionControllerModelTypeMismatch(
                     expected: Model.self,
                     actual: type(of: model)

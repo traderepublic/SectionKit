@@ -21,7 +21,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         dataSource: SingleSectionCollectionViewAdapterDataSource,
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = ErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
@@ -63,7 +63,7 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         section: Section? = nil,
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = ErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,

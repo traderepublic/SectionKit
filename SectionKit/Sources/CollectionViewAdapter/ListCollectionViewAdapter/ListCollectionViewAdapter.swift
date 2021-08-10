@@ -25,7 +25,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         dataSource: ListCollectionViewAdapterDataSource,
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = ErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
@@ -67,7 +67,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = ErrorHandler()
     ) {
         let context = MainCollectionViewContext(
             viewController: viewController,
@@ -132,7 +132,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 .group(by: \.id)
                 .filter { $0.value.count > 1 }
                 .map(\.key)
-            context.errorHandler(error: .duplicateSectionIds(duplicateIds))
+            context.errorHandler.nonCritical(error: .duplicateSectionIds(duplicateIds))
         }
         return filtered
     }

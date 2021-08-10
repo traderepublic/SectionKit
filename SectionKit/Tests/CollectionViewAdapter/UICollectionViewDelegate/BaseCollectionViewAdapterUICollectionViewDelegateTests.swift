@@ -26,7 +26,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         sections: [Section] = [],
         viewController: UIViewController? = nil,
         scrollViewDelegate: UIScrollViewDelegate? = nil,
-        errorHandler: ErrorHandling = AssertionFailureErrorHandler()
+        errorHandler: ErrorHandling = MockErrorHandler()
     ) throws -> CollectionViewAdapter & UICollectionViewDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }
@@ -494,11 +494,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .unsupportedSupplementaryViewKind(elementKind) = error, elementKind == "test" else {
                     XCTFail("The error should be unsupportedSupplementaryViewKind")
                     return
                 }
+                XCTAssertEqual(severity, .informational)
                 errorExpectation.fulfill()
             }
         )
@@ -666,11 +667,12 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
                     return sectionController
                 })
             ],
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .unsupportedSupplementaryViewKind(elementKind) = error, elementKind == "test" else {
                     XCTFail("The error should be unsupportedSupplementaryViewKind")
                     return
                 }
+                XCTAssertEqual(severity, .informational)
                 errorExpectation.fulfill()
             }
         )

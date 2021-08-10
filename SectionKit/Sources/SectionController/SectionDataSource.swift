@@ -76,7 +76,7 @@ extension SectionDataSource {
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        context.errorHandler(error: .notImplemented())
+        context.errorHandler.nonCritical(error: .notImplemented())
         return UICollectionReusableView()
     }
 
@@ -84,7 +84,7 @@ extension SectionDataSource {
         at indexPath: SectionIndexPath,
         in context: CollectionViewContext
     ) -> UICollectionReusableView {
-        context.errorHandler(error: .notImplemented())
+        context.errorHandler.nonCritical(error: .notImplemented())
         return UICollectionReusableView()
     }
 

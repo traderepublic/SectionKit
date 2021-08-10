@@ -33,11 +33,12 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .notImplemented = error else {
                     XCTFail("The error should be notImplemented")
                     return
                 }
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
@@ -58,11 +59,12 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .notImplemented = error else {
                     XCTFail("The error should be notImplemented")
                     return
                 }
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )
@@ -83,11 +85,12 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case .notImplemented = error else {
                     XCTFail("The error should be notImplemented")
                     return
                 }
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )

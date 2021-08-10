@@ -14,13 +14,14 @@ internal final class SingleModelSectionControllerTests: XCTestCase {
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler { error in
+            errorHandler: MockErrorHandler { error, severity in
                 guard case let .sectionControllerModelTypeMismatch(expected, actual) = error else {
                     XCTFail("The error should be sectionControllerModelTypeMismatch")
                     return
                 }
                 XCTAssert(expected == String.self)
                 XCTAssert(actual == Int.self)
+                XCTAssertEqual(severity, .nonCritical)
                 errorExpectation.fulfill()
             }
         )

@@ -39,7 +39,7 @@ internal class MockSectionController: SectionController {
 
     internal lazy var errorHandler: ErrorHandling = {
         XCTFail("errorHandler is not set")
-        return AssertionFailureErrorHandler()
+        return MockErrorHandler()
     }()
 
     // MARK: - didUpdate
