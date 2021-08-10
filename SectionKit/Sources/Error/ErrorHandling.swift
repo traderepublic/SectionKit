@@ -70,7 +70,7 @@ public struct ErrorHandler: ErrorHandling {
      This error handler calls `fatalError` for `critical` errors, `assertionFailure` for `nonCritical` errors and
      ignores `informational` errors.
 
-     - Parameter verbose: If `informational` errors should be printed to the console.
+     - Parameter verbose: If `informational` and `nonCritical` errors should be printed to the console.
      */
     public init(verbose: Bool = false) {
         self.verbose = verbose
@@ -84,7 +84,13 @@ public struct ErrorHandler: ErrorHandling {
             }
 
         case .nonCritical:
+            #if DEBUG
             assertionFailure(error().description, file: file, line: line)
+            #else
+            if verbose {
+                print("\(file):\(line): \(severity.rawValue.capitalized) error: \(error().description)")
+            }
+            #endif
 
         case .critical:
             fatalError(error().description, file: file, line: line)
