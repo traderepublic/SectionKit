@@ -1,9 +1,9 @@
 import SectionKit
 import UIKit
 
-internal final class ColorsSectionController: ListSectionController<ColorsViewModelType, UIColor> {
-    override internal func items(for model: ColorsViewModelType) -> [UIColor] {
-        model.colors
+internal final class ColorsSectionController: ListSectionController<[UIColor], UIColor> {
+    override internal func items(for model: [UIColor]) -> [UIColor] {
+        model
     }
 
     override internal func cellForItem(
@@ -24,6 +24,8 @@ internal final class ColorsSectionController: ListSectionController<ColorsViewMo
     }
 
     override internal func didSelectItem(at indexPath: SectionIndexPath, in context: CollectionViewContext) {
-        model.select(color: items[indexPath])
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = items[indexPath]
+        context.viewController?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

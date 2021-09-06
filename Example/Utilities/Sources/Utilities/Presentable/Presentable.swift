@@ -18,3 +18,11 @@ extension Presentable {
         present(segue: .present(on: viewController))
     }
 }
+
+extension UIViewController: Presentable {
+    @inlinable
+    @discardableResult
+    public func present(segue: NavigationSegue) -> NavigationSegue.RewindAction {
+        segue.invoke(with: self)
+    }
+}

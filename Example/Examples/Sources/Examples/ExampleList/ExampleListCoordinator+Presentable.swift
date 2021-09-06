@@ -14,18 +14,18 @@ extension ExampleListCoordinator: Presentable {
                 examples: [
                     ExampleViewModel(
                         name: "Colors",
-                        description: "A SingleSectionCollectionViewAdapter that shows a single ListSectionController.",
+                        description: "An MVC example using a SingleSectionCollectionViewAdapter that shows a single ListSectionController.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
-                            nextCoordinator: ColorsCoordinator(navigationController: navigationController)
+                            presentable: ColorsViewController()
                         )
                     ),
                     ExampleViewModel(
                         name: "Numbers",
-                        description: "A ListCollectionViewAdapter that shows multiple ListSectionController.",
+                        description: "An MVVM-C example using a ListCollectionViewAdapter that shows multiple ListSectionController.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
-                            nextCoordinator: NumbersCoordinator(navigationController: navigationController)
+                            presentable: NumbersCoordinator(navigationController: navigationController)
                         )
                     )
                 ]
@@ -37,11 +37,11 @@ extension ExampleListCoordinator: Presentable {
                 examples: [
                     ExampleViewModel(
                         name: "Emojis",
-                        description: "A SingleSectionCollectionViewAdapter that shows a single ListSectionController."
-                            + "It has a shuffle button and the ListSectionController is updated with a binding.",
+                        description: "An MVVM-C example using ReactiveSwift and a SingleSectionCollectionViewAdapter that shows a single ListSectionController."
+                            + " It has a shuffle button and the ListSectionController is updated with a binding.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
-                            nextCoordinator: EmojisCoordinator(navigationController: navigationController)
+                            presentable: EmojisCoordinator(navigationController: navigationController)
                         )
                     )
                 ]

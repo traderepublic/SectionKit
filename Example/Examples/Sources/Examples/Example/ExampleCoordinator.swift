@@ -3,13 +3,13 @@ import Utilities
 
 internal struct ExampleCoordinator {
     internal unowned let navigationController: UINavigationController
-    internal let nextCoordinator: () -> Presentable
+    internal let presentable: () -> Presentable
 
     internal init(
         navigationController: UINavigationController,
-        nextCoordinator: @autoclosure @escaping () -> Presentable
+        presentable: @autoclosure @escaping () -> Presentable
     ) {
         self.navigationController = navigationController
-        self.nextCoordinator = nextCoordinator
+        self.presentable = presentable
     }
 }
