@@ -37,6 +37,49 @@ public enum Error: Swift.Error {
     case sectionControllerModelTypeMismatch(expected: Any.Type, actual: Any.Type)
 }
 
+extension Error: Equatable {
+    @inlinable
+    public static func == (lhs: Error, rhs: Error) -> Bool {
+        switch (lhs, rhs) {
+        case let (.notImplemented(lhsFunction), .notImplemented(rhsFunction)):
+            return lhsFunction.description == rhsFunction.description
+
+        case let (.duplicateSectionIds(lhsIds), .duplicateSectionIds(rhsIds)):
+            return lhsIds == rhsIds
+
+        case let (.missingDataSource(lhsSection), .missingDataSource(rhsSection)):
+            return lhsSection == rhsSection
+
+        case let (.unsupportedSupplementaryViewKind(lhsElementKind), .unsupportedSupplementaryViewKind(rhsElementKind)):
+            return lhsElementKind == rhsElementKind
+
+        case let (.invalidIndexPath(lhsIndexPath), .invalidIndexPath(rhsIndexPath)):
+            return lhsIndexPath == rhsIndexPath
+
+        case let (.moveIsNotInTheSameSection(lhsSourceSection, lhsDestinationSection), .moveIsNotInTheSameSection(rhsSourceSection, rhsDestinationSection)):
+            return lhsSourceSection == rhsSourceSection
+                && lhsDestinationSection == rhsDestinationSection
+
+        case (.adapterIsNotSetOnContext, .adapterIsNotSetOnContext):
+            return true
+
+        case (.adapterDoesNotContainSectionController, .adapterDoesNotContainSectionController):
+            return true
+
+        case let (.dequeuedViewHasNotTheCorrectType(lhsExpected, lhsActual), .dequeuedViewHasNotTheCorrectType(rhsExpected, rhsActual)):
+            return lhsExpected == rhsExpected
+                && lhsActual == rhsActual
+
+        case let (.sectionControllerModelTypeMismatch(lhsExpected, lhsActual), .sectionControllerModelTypeMismatch(rhsExpected, rhsActual)):
+            return lhsExpected == rhsExpected
+                && lhsActual == rhsActual
+
+        default:
+            return false
+        }
+    }
+}
+
 extension Error: CustomStringConvertible {
     public var description: String {
         switch self {
