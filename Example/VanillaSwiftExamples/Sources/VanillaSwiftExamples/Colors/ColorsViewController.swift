@@ -1,9 +1,7 @@
 import UIKit
 import SectionKit
 
-internal final class ColorsViewController: UIViewController {
-    private let viewModel: ColorsViewModelType
-
+public final class ColorsViewController: UIViewController {
     private var collectionViewAdapter: CollectionViewAdapter!
 
     private let collectionView: UICollectionView = {
@@ -16,35 +14,44 @@ internal final class ColorsViewController: UIViewController {
         return collectionView
     }()
 
-    internal init(viewModel: ColorsViewModelType) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    @available(*, unavailable)
-    required internal init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override internal func loadView() {
+    override public func loadView() {
         view = collectionView
     }
 
-    override internal func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel.title
-        let sectionModel = viewModel
+        title = "Colors"
+        let colors: [UIColor] = [
+            .systemYellow,
+            .systemOrange,
+            .systemRed,
+            .systemPink,
+            .systemPurple,
+            .systemIndigo,
+            .systemTeal,
+            .systemBlue,
+            .systemGreen,
+            .white,
+            .systemGray,
+            .systemGray2,
+            .systemGray3,
+            .systemGray4,
+            .systemGray5,
+            .systemGray6,
+            .black
+        ]
         collectionViewAdapter = SingleSectionCollectionViewAdapter(
             collectionView: collectionView,
             section: Section(
                 id: "colors",
-                model: sectionModel,
-                controller: ColorsSectionController(model: sectionModel)
-            )
+                model: colors,
+                controller: ColorsSectionController(model: colors)
+            ),
+            viewController: self
         )
     }
 
-    override internal func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         deselectItems(in: collectionView, animated: animated)
     }

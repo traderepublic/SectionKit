@@ -40,7 +40,7 @@ To see SectionKit in action please check out the [example project](Example).
 On the package:
 ```swift
 dependencies: [
-    .package(name: "SectionKit", url: "https://github.com/traderepublic/SectionKit", from: "1.0")
+    .package(name: "SectionKit", url: "https://github.com/traderepublic/SectionKit", from: "1.0.0")
 ]
 ```
 
