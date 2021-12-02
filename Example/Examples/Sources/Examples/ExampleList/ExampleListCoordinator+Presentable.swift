@@ -27,6 +27,15 @@ extension ExampleListCoordinator: Presentable {
                             navigationController: navigationController,
                             presentable: NumbersCoordinator(navigationController: navigationController)
                         )
+                    ),
+                    ExampleViewModel(
+                        name: "Emojis",
+                        description: "An MVVM-C example using a SingleSectionCollectionViewAdapter that shows a single FoundationDiffingListSectionController."
+                            + " It has a shuffle button and the FoundationDiffingListSectionController is updated by invalidating the dataSource.",
+                        navigation: ExampleCoordinator(
+                            navigationController: navigationController,
+                            presentable: VanillaSwiftExamples.EmojisCoordinator(navigationController: navigationController)
+                        )
                     )
                 ]
             ),
@@ -41,7 +50,7 @@ extension ExampleListCoordinator: Presentable {
                             + " It has a shuffle button and the ListSectionController is updated with a binding.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
-                            presentable: EmojisCoordinator(navigationController: navigationController)
+                            presentable: ReactiveSwiftExamples.EmojisCoordinator(navigationController: navigationController)
                         )
                     )
                 ]
