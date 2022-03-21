@@ -83,6 +83,15 @@ public protocol CollectionViewContext: AnyObject {
      the corresponding `SectionIndexPath`.
      */
     func sectionControllerWithAdjustedIndexPath(for indexPath: IndexPath) -> (SectionController?, SectionIndexPath)?
+
+    /**
+     Get the index of the given `SectionController` in this context.
+
+     - Parameter controller: The `SectionController` of which the index should be retrieved.
+
+     - Returns: The index of the given `SectionController` in this context.
+     */
+    func index(of controller: SectionController) -> Int?
 }
 
 extension CollectionViewContext {

@@ -76,4 +76,17 @@ internal final class MockCollectionViewContext: CollectionViewContext {
     ) -> SupplementaryView where SupplementaryView : UICollectionReusableView {
         _dequeueReusableFooterView(viewType, indexPath) as! SupplementaryView
     }
+
+    // MARK: - Index
+
+    internal typealias IndexBlock = (SectionController) -> Int?
+
+    internal lazy var _index: IndexBlock = { _ in
+        XCTFail("not implemented")
+        return nil
+    }
+
+    internal func index(of controller: SectionController) -> Int? {
+        _index(controller)
+    }
 }

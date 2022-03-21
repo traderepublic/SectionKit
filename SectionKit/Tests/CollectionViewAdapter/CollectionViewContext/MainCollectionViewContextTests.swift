@@ -452,4 +452,50 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertNil(context.sectionControllerWithAdjustedIndexPath(for: IndexPath(item: 0, section: 0)))
         waitForExpectations(timeout: 1)
     }
+
+    internal func testIndexOfControllerWhenAdapterIsNotSet() {
+        let errorExpectation = expectation(description: "The errorHandler should be invoked")
+        let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: collectionView,
+            errorHandler: MockErrorHandler { error, severity in
+                guard case .adapterIsNotSetOnContext = error else {
+                    XCTFail("The error should be adapterIsNotSetOnContext")
+                    return
+                }
+                XCTAssertEqual(severity, .nonCritical)
+                errorExpectation.fulfill()
+            }
+        )
+        XCTAssertNil(context.index(of: MockSectionController()))
+        waitForExpectations(timeout: 1)
+    }
+
+    internal func testIndexOfControllerThatIsNotPartOfTheContext() {
+        let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let adapter = MockCollectionViewAdapter()
+        adapter._sections = { [] }
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: collectionView,
+            errorHandler: MockErrorHandler()
+        )
+        context.adapter = adapter
+        XCTAssertNil(context.index(of: MockSectionController()))
+    }
+
+    internal func testIndexOfControllerThatIsPartOfTheContext() {
+        let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let controller = MockSectionController()
+        let adapter = MockCollectionViewAdapter()
+        adapter._sections = { [Section(id: "", model: (), controller: controller)] }
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: collectionView,
+            errorHandler: MockErrorHandler()
+        )
+        context.adapter = adapter
+        XCTAssertEqual(context.index(of: controller), 0)
+    }
 }
