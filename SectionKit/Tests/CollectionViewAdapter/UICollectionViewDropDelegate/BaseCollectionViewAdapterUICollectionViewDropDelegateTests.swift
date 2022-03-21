@@ -635,16 +635,6 @@ private final class MockCollectionViewDropItem: NSObject, UICollectionViewDropIt
     var previewSize: CGSize = .zero
 }
 
-private final class MockCollectionView: UICollectionView {
-    typealias IndexPathForItemBlock = (CGPoint) -> IndexPath?
-
-    var _indexPathForItem: IndexPathForItemBlock = { _ in nil }
-
-    override func indexPathForItem(at point: CGPoint) -> IndexPath? {
-        _indexPathForItem(point)
-    }
-}
-
 @available(iOS 11.0, *)
 private final class MockDropSession: NSObject, UIDropSession {
     var localDragSession: UIDragSession?
