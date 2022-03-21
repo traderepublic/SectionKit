@@ -489,13 +489,18 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let controller = MockSectionController()
         let adapter = MockCollectionViewAdapter()
-        adapter._sections = { [Section(id: "", model: (), controller: controller)] }
+        adapter._sections = {
+            [
+                Section(id: "1", model: (), controller: MockSectionController()),
+                Section(id: "2", model: (), controller: controller)
+            ]
+        }
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: collectionView,
             errorHandler: MockErrorHandler()
         )
         context.adapter = adapter
-        XCTAssertEqual(context.index(of: controller), 0)
+        XCTAssertEqual(context.index(of: controller), 1)
     }
 }
