@@ -89,9 +89,9 @@ final class MyCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewAdapter = ListCollectionViewAdapter(
-            viewController: self, 
             collectionView: collectionView,
-            dataSource: self // no worries, we're going to add conformance to the protocol in a bit
+            dataSource: self, // no worries, we're going to add conformance to the protocol in a bit
+            viewController: self
         )
     }
 }

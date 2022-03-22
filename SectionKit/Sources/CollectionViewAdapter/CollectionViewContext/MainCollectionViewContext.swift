@@ -50,11 +50,11 @@ open class MainCollectionViewContext: CollectionViewContext {
 
     @inlinable
     open func apply<T>(update: CollectionViewSectionUpdate<T>) {
-        guard let adapter = adapter else {
+        guard adapter != nil else {
             errorHandler.nonCritical(error: .adapterIsNotSetOnContext)
             return collectionView.reloadData()
         }
-        guard let index = adapter.sections.firstIndex(where: { $0.controller === update.controller }) else {
+        guard let index = index(of: update.controller) else {
             errorHandler.nonCritical(error: .adapterDoesNotContainSectionController)
             return collectionView.reloadData()
         }
@@ -174,5 +174,16 @@ open class MainCollectionViewContext: CollectionViewContext {
             return nil
         }
         return (sections[sectionIndex].controller, SectionIndexPath(indexPath))
+    }
+
+    // MARK: - Index
+
+    @inlinable
+    open func index(of controller: SectionController) -> Int? {
+        guard let adapter = adapter else {
+            errorHandler.nonCritical(error: .adapterIsNotSetOnContext)
+            return nil
+        }
+        return adapter.sections.firstIndex(where: { $0.controller === controller })
     }
 }

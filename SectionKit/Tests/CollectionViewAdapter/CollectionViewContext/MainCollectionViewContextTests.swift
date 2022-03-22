@@ -452,67 +452,55 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertNil(context.sectionControllerWithAdjustedIndexPath(for: IndexPath(item: 0, section: 0)))
         waitForExpectations(timeout: 1)
     }
-}
 
-private class MockCollectionView: UICollectionView {
-    // MARK: - reloadData
-
-    typealias ReloadDataBlock = () -> Void
-
-    lazy var _reloadData: ReloadDataBlock = { }
-
-    override func reloadData() {
-        _reloadData()
+    internal func testIndexOfControllerWhenAdapterIsNotSet() {
+        let errorExpectation = expectation(description: "The errorHandler should be invoked")
+        let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: collectionView,
+            errorHandler: MockErrorHandler { error, severity in
+                guard case .adapterIsNotSetOnContext = error else {
+                    XCTFail("The error should be adapterIsNotSetOnContext")
+                    return
+                }
+                XCTAssertEqual(severity, .nonCritical)
+                errorExpectation.fulfill()
+            }
+        )
+        XCTAssertNil(context.index(of: MockSectionController()))
+        waitForExpectations(timeout: 1)
     }
 
-    // MARK: - registerCell
-
-    typealias RegisterCellBlock = (AnyClass?, String) -> Void
-
-    lazy var _registerCell: RegisterCellBlock = { _, _ in }
-
-    override func register(_ cellClass: AnyClass?, forCellWithReuseIdentifier identifier: String) {
-        _registerCell(cellClass, identifier)
+    internal func testIndexOfControllerThatIsNotPartOfTheContext() {
+        let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let adapter = MockCollectionViewAdapter()
+        adapter._sections = { [] }
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: collectionView,
+            errorHandler: MockErrorHandler()
+        )
+        context.adapter = adapter
+        XCTAssertNil(context.index(of: MockSectionController()))
     }
 
-    // MARK: - dequeueReusableCell
-
-    typealias DequeueReusableCellBlock = (String, IndexPath) -> UICollectionViewCell
-
-    lazy var _dequeueReusableCell: DequeueReusableCellBlock = { _, _ in UICollectionViewCell() }
-
-    override func dequeueReusableCell(
-        withReuseIdentifier identifier: String,
-        for indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        _dequeueReusableCell(identifier, indexPath)
-    }
-
-    // MARK: - registerSupplementaryView
-
-    typealias RegisterSupplementaryViewBlock = (AnyClass?, String, String) -> Void
-
-    lazy var _registerSupplementaryView: RegisterSupplementaryViewBlock = { _, _, _ in }
-
-    override func register(
-        _ viewClass: AnyClass?,
-        forSupplementaryViewOfKind elementKind: String,
-        withReuseIdentifier identifier: String
-    ) {
-        _registerSupplementaryView(viewClass, elementKind, identifier)
-    }
-
-    // MARK: - dequeueReusableSupplementaryView
-
-    typealias DequeueReusableSupplementaryViewBlock = (String, String, IndexPath) -> UICollectionReusableView
-
-    lazy var _dequeueReusableSupplementaryView: DequeueReusableSupplementaryViewBlock = { _, _, _ in UICollectionReusableView() }
-
-    override func dequeueReusableSupplementaryView(
-        ofKind elementKind: String,
-        withReuseIdentifier identifier: String,
-        for indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        _dequeueReusableSupplementaryView(elementKind, identifier, indexPath)
+    internal func testIndexOfControllerThatIsPartOfTheContext() {
+        let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let controller = MockSectionController()
+        let adapter = MockCollectionViewAdapter()
+        adapter._sections = {
+            [
+                Section(id: "1", model: (), controller: MockSectionController()),
+                Section(id: "2", model: (), controller: controller)
+            ]
+        }
+        let context = MainCollectionViewContext(
+            viewController: nil,
+            collectionView: collectionView,
+            errorHandler: MockErrorHandler()
+        )
+        context.adapter = adapter
+        XCTAssertEqual(context.index(of: controller), 1)
     }
 }
