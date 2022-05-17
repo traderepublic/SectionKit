@@ -502,6 +502,10 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         let update = try XCTUnwrap(adapter.calculateUpdate(from: [], to: []))
         XCTAssertEqual(update.batchOperations.count, 1)
         let batchOperation = update.batchOperations.first!
+        XCTAssert(batchOperation.deletes.isEmpty)
+        XCTAssert(batchOperation.inserts.isEmpty)
+        XCTAssert(batchOperation.reloads.isEmpty)
+        XCTAssert(batchOperation.moves.isEmpty)
         XCTAssert(update.shouldReload(batchOperation))
     }
 

@@ -482,6 +482,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromSomeToSomeWithADifferentId() throws {
@@ -499,6 +500,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssertEqual(batchOperation.reloads, [0])
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromNoneToSome() throws {
@@ -516,6 +518,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssertEqual(batchOperation.inserts, [0])
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromSomeToNone() throws {
@@ -533,6 +536,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromNoneToNone() throws {
@@ -545,6 +549,7 @@ internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateHasCorrectData() throws {
