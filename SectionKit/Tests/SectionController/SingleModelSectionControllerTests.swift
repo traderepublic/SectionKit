@@ -43,8 +43,9 @@ internal final class SingleModelSectionControllerTests: XCTestCase {
         let batchOperation = update.batchOperations.first!
         XCTAssert(batchOperation.deletes.isEmpty)
         XCTAssert(batchOperation.inserts.isEmpty)
-        XCTAssertEqual(batchOperation.reloads, [0])
+        XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssert(update.shouldReload(batchOperation))
     }
 
     internal func testNumberOfItems() {
