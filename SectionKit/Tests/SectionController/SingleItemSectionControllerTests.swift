@@ -121,6 +121,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
@@ -137,6 +138,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssertEqual(batchOperation.reloads, [0])
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromNoneToSome() throws {
@@ -153,6 +155,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertEqual(batchOperation.inserts, [0])
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromSomeToNone() throws {
@@ -169,6 +172,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testCalculateUpdateFromNoneToNone() throws {
@@ -185,6 +189,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssert(batchOperation.inserts.isEmpty)
         XCTAssert(batchOperation.reloads.isEmpty)
         XCTAssert(batchOperation.moves.isEmpty)
+        XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
     internal func testNumberOfItemsWithItem() {
