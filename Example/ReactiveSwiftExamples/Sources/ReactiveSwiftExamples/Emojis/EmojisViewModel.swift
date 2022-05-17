@@ -19,7 +19,7 @@ internal struct EmojisViewModel: EmojisViewModelType {
 
     internal init() {
         let emojisList = ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "🥲", "☺️", "😊", "😇", "🙂", "🙃", "😉"]
-        let emojiViewModels = emojisList.map(EmojiViewModel.init)
+        let emojiViewModels: [EmojiViewModelType] = emojisList.map(EmojiViewModel.init)
         emojis = Property(
             initial: emojiViewModels,
             then: shufflePressedSignal.scan(into: emojiViewModels) { viewModels, _ in viewModels.shuffle() }

@@ -140,8 +140,9 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var sections: [Section] {
         get { collectionViewSections }
         set {
+            let existingSections = Dictionary(collectionViewSections.map { ($0.id, $0) }) { first, _ in first }
             for newSection in newValue {
-                guard let existingSection = collectionViewSections.first(where: { $0.id == newSection.id }) else {
+                guard let existingSection = existingSections[newSection.id] else {
                     continue
                 }
                 let existingController = existingSection.controller
