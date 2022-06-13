@@ -371,7 +371,6 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
     }
 
     internal func testSectionsPropertyFiltersDuplicateSectionsAndInvokesDidUpdateOnlyOnce() {
-        let errorHandlerExpectation = expectation(description: "Should invoke errorHandler")
         let didUpdateExpectation = expectation(description: "Should invoke SectionController.didUpdate exactly once")
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let sectionId = "test"
@@ -400,7 +399,7 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         let adapter = ListCollectionViewAdapter(
             collectionView: collectionView,
             sections: [initialSection],
-            errorHandler: MockErrorHandler()
+            errorHandler: MockErrorHandler { _, _ in }
         )
         adapter.sections = [firstSection, secondSection]
         XCTAssertEqual(adapter.sections.count, 1)
