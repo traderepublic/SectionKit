@@ -140,8 +140,9 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     open var sections: [Section] {
         get { collectionViewSections }
         set {
+            let uniqueNewSections = filterDuplicateSectionIds(sections: newValue)
             let existingSections = Dictionary(collectionViewSections.map { ($0.id, $0) }) { first, _ in first }
-            for newSection in newValue {
+            for newSection in uniqueNewSections {
                 guard let existingSection = existingSections[newSection.id] else {
                     continue
                 }
@@ -149,8 +150,8 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
                 newSection.controller = existingController
                 existingController.didUpdate(model: newSection.model)
             }
-            guard let update = calculateUpdate(from: collectionViewSections, to: newValue) else {
-                collectionViewSections = newValue
+            guard let update = calculateUpdate(from: collectionViewSections, to: uniqueNewSections) else {
+                collectionViewSections = uniqueNewSections
                 return
             }
             context.apply(update: update)
