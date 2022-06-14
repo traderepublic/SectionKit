@@ -346,7 +346,7 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testConsecutiveSectionsFiltersDuplicateSectionsAndInvokeErrorHandler() {
+    internal func testSectionsPropertyFiltersDuplicateSectionsAndInvokesErrorHandler() {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let firstSection = Section(id: "", model: "", controller: MockSectionController())
@@ -363,6 +363,43 @@ internal final class ListCollectionViewAdapterTests: XCTestCase {
                 XCTAssertEqual(severity, .nonCritical)
                 testExpectation.fulfill()
             }
+        )
+        adapter.sections = [firstSection, secondSection]
+        XCTAssertEqual(adapter.sections.count, 1)
+        XCTAssert(adapter.sections.first === firstSection)
+        waitForExpectations(timeout: 1)
+    }
+
+    internal func testSectionsPropertyFiltersDuplicateSectionsAndInvokesDidUpdateOnlyOnce() {
+        let didUpdateExpectation = expectation(description: "Should invoke SectionController.didUpdate exactly once")
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        let sectionId = "test"
+
+        /*
+         The initial array only contains the `initialSection` and the array is then updated with `firstSection` and
+         `secondSection`. All three sections have the same id and the expected behaviour would be, that the initial
+         sectioncontroller is reused when updating the array. When setting `[firstSection, secondSection]`, the code
+         should filter out `secondSection` and subsequently call `didUpdate` only once.
+         */
+
+        let createInitialSectionController: () -> SectionController = {
+             let sectionController = MockSectionController()
+             sectionController._didUpdate = { _ in didUpdateExpectation.fulfill() }
+             return sectionController
+         }
+        let initialSection = Section(id: sectionId, model: "", controller: createInitialSectionController)
+
+        let createConsecutiveSectionController: () -> SectionController = {
+            XCTFail("Should reuse initial sectioncontroller")
+            return MockSectionController()
+        }
+        let firstSection = Section(id: sectionId, model: "", controller: createConsecutiveSectionController)
+        let secondSection = Section(id: sectionId, model: "", controller: createConsecutiveSectionController)
+
+        let adapter = ListCollectionViewAdapter(
+            collectionView: collectionView,
+            sections: [initialSection],
+            errorHandler: MockErrorHandler { _, _ in }
         )
         adapter.sections = [firstSection, secondSection]
         XCTAssertEqual(adapter.sections.count, 1)
