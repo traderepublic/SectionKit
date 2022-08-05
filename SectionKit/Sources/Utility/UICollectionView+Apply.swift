@@ -83,6 +83,7 @@ extension UICollectionView {
             if update.shouldReload(batchOperation) {
                 update.setData(batchOperation.data)
                 reloadData()
+                batchOperation.completion?(false)
                 continue
             }
             performBatchUpdates({
