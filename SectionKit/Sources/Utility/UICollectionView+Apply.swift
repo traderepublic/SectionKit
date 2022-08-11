@@ -80,12 +80,14 @@ extension UICollectionView {
         }
 
         for batchOperation in update.batchOperations {
+            if update.shouldReload(batchOperation) {
+                update.setData(batchOperation.data)
+                reloadData()
+                batchOperation.completion?(false)
+                continue
+            }
             performBatchUpdates({
                 update.setData(batchOperation.data)
-
-                if update.shouldReload(batchOperation) {
-                    return reloadData()
-                }
 
                 let deletes = batchOperation.deletes
                 if deletes.isNotEmpty {

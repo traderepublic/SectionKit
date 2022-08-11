@@ -2,7 +2,14 @@ import UIKit
 import SectionKit
 
 internal final class NumbersViewController: UIViewController {
-    private let viewModel: NumbersViewModelType
+    private var viewModel: NumbersViewModelType {
+        didSet {
+            // `collapsePressed` mutates the viewmodel and thus invokes this `didSet` observer.
+            // If the viewmodel is a class, the invalidation of the datasource needs to be performed with another solution, e.g. weak delegate.
+            navigationItem.rightBarButtonItem?.title = viewModel.collapseButtonTitle
+            collectionViewAdapter.invalidateDataSource()
+        }
+    }
 
     private var collectionViewAdapter: CollectionViewAdapter!
 
@@ -33,15 +40,32 @@ internal final class NumbersViewController: UIViewController {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: viewModel.collapseButtonTitle,
+            style: .plain,
+            target: self,
+            action: #selector(collapsePressed)
+        )
         collectionViewAdapter = ListCollectionViewAdapter(
             collectionView: collectionView,
-            sections: viewModel.sections.map {
-                Section(
-                    id: $0.sectionId,
-                    model: $0,
-                    controller: NumbersSectionController(model: $0)
-                )
-            }
+            dataSource: self
         )
+    }
+
+    @objc
+    private func collapsePressed() {
+        viewModel.collapsePressed()
+    }
+}
+
+extension NumbersViewController: ListCollectionViewAdapterDataSource {
+    internal func sections(for adapter: CollectionViewAdapter) -> [Section] {
+        viewModel.sections.map {
+            Section(
+                id: $0.sectionId,
+                model: $0,
+                controller: NumbersSectionController(model: $0)
+            )
+        }
     }
 }
