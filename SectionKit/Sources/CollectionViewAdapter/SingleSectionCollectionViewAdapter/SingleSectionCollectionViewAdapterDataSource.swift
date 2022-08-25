@@ -1,6 +1,7 @@
 import Foundation
 
 /// A datasource which provides a single section for a `CollectionViewAdapter`.
+@MainActor
 public protocol SingleSectionCollectionViewAdapterDataSource: AnyObject {
     /**
      Queries the single section in the `UICollectionView`.

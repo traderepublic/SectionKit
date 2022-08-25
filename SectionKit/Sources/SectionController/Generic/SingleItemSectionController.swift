@@ -8,6 +8,7 @@ import UIKit
 
  - Warning: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
  */
+@MainActor
 open class SingleItemSectionController<Model, Item>: BaseSectionController {
     private let areItemsEqual: (Item, Item) -> Bool
 

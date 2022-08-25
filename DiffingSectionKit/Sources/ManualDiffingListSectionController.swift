@@ -11,6 +11,7 @@ import SectionKit
  - Note: Compared to `DiffingListSectionController` this doesn't have a `Differentiable` constraint on the generic
  `Item` type, instead it requires closures to get diffing information for an item.
  */
+@MainActor
 open class ManualDiffingListSectionController<
     Model,
     Item

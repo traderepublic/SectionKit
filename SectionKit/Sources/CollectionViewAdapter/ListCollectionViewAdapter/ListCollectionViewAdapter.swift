@@ -7,6 +7,7 @@ import UIKit
  `reloadData()` on the underlying `UICollectionView`. If animated updates should occur, please
  override `calculateUpdate(from:to:)`.
  */
+@MainActor
 open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
      Initialise an instance of `ListCollectionAdapter` to use it as the datasource and

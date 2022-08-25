@@ -36,9 +36,9 @@ extension CollectionViewContext {
         inserts: Set<Int> = [],
         moves: Set<Move> = [],
         reloads: Set<Int> = [],
-        setData: @escaping (SectionData) -> Void,
-        shouldReload: @escaping (CollectionViewSectionBatchOperation<SectionData>) -> Bool = { _ in false },
-        completion: ((Bool) -> Void)? = nil
+        setData: @escaping @MainActor (SectionData) -> Void,
+        shouldReload: @escaping @MainActor (CollectionViewSectionBatchOperation<SectionData>) -> Bool = { _ in false },
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         let update = CollectionViewSectionUpdate(
             controller: controller,
@@ -73,8 +73,8 @@ extension CollectionViewContext {
     public func perform<SectionData>(
         controller: SectionController,
         batchOperations: [CollectionViewSectionBatchOperation<SectionData>],
-        setData: @escaping (SectionData) -> Void,
-        shouldReload: @escaping (CollectionViewSectionBatchOperation<SectionData>) -> Bool = { _ in false }
+        setData: @escaping @MainActor (SectionData) -> Void,
+        shouldReload: @escaping @MainActor (CollectionViewSectionBatchOperation<SectionData>) -> Bool = { _ in false }
     ) {
         let update = CollectionViewSectionUpdate(
             controller: controller,
@@ -104,7 +104,7 @@ extension CollectionViewContext {
         controller: SectionController,
         data: SectionData,
         setData: @escaping (SectionData) -> Void,
-        completion: ((Bool) -> Void)? = nil
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         let update = CollectionViewSectionUpdate(
             controller: controller,

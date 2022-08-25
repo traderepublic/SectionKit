@@ -1,6 +1,7 @@
 import UIKit
 
 /// The delegate of a section
+@MainActor
 public protocol SectionDelegate: AnyObject {
     // MARK: - Highlight
 

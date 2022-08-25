@@ -8,6 +8,7 @@ import SectionKit
  This `SectionController` is typically used when there are multiple semantically similar items
  of a model to be displayed and the list of items may dynamically change.
  */
+@MainActor
 open class DiffingListSectionController<Model, Item: Differentiable>: ListSectionController<Model, Item> {
     override open func calculateUpdate(
         from oldData: [Item],
