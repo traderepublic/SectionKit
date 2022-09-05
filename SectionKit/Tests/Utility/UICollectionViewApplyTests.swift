@@ -361,18 +361,13 @@ internal final class UICollectionViewApplyTests: XCTestCase {
     }
 
     internal func testUpdateWithWindowWithSingleBatchOperationWithAlwaysReload() {
-        let performBatchUpdatesExpectation = expectation(description: "Should invoke performBatchUpdates")
         let setDataExpectation = expectation(description: "Should invoke setData")
         let reloadDataExpectation = expectation(description: "Should invoke reloadData")
         let completionExpectation = expectation(description: "Should invoke completion of batch operation")
 
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView._performBatchUpdates = { updates, completion in
-            performBatchUpdatesExpectation.fulfill()
-            XCTAssertNotNil(updates)
-            updates?()
-            XCTAssertNotNil(completion)
-            completion?(true)
+            XCTFail("performBatchUpdates should not be called")
         }
         collectionView._reloadData = reloadDataExpectation.fulfill
 
@@ -403,7 +398,6 @@ internal final class UICollectionViewApplyTests: XCTestCase {
 
         wait(
             for: [
-                performBatchUpdatesExpectation,
                 setDataExpectation,
                 reloadDataExpectation,
                 completionExpectation
