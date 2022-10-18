@@ -16,8 +16,8 @@ open class ManualDiffingListSectionController<
     Model,
     Item
 >: ListSectionController<Model, Item> {
-    private let itemId: (Item) -> AnyHashable
-    private let itemContentIsEqual: (Item, Item) -> Bool
+    private let itemId: @MainActor (Item) -> AnyHashable
+    private let itemContentIsEqual: @MainActor (Item, Item) -> Bool
 
     /**
      Initialise an instance of `ManualDiffingListSectionController`.
@@ -30,8 +30,8 @@ open class ManualDiffingListSectionController<
      */
     public init<ItemId: Hashable>(
         model: Model,
-        itemId: @escaping (Item) -> ItemId,
-        itemContentIsEqual: @escaping (Item, Item) -> Bool
+        itemId: @escaping @MainActor (Item) -> ItemId,
+        itemContentIsEqual: @escaping @MainActor (Item, Item) -> Bool
     ) {
         self.itemId = { itemId($0) }
         self.itemContentIsEqual = itemContentIsEqual
@@ -63,7 +63,7 @@ extension ManualDiffingListSectionController where Item: Equatable {
 
      - Parameter itemId: A closure that returns the identifier for a given item.
      */
-    public convenience init<ItemId: Hashable>(model: Model, itemId: @escaping (Item) -> ItemId) {
+    public convenience init<ItemId: Hashable>(model: Model, itemId: @escaping @MainActor (Item) -> ItemId) {
         self.init(model: model, itemId: itemId, itemContentIsEqual: ==)
     }
 }
@@ -77,7 +77,7 @@ extension ManualDiffingListSectionController where Item: Identifiable {
 
      - Parameter itemContentIsEqual: A closure that checks two items for equality.
      */
-    public convenience init(model: Model, itemContentIsEqual: @escaping (Item, Item) -> Bool) {
+    public convenience init(model: Model, itemContentIsEqual: @escaping @MainActor (Item, Item) -> Bool) {
         self.init(model: model, itemId: \.id, itemContentIsEqual: itemContentIsEqual)
     }
 }
@@ -102,8 +102,8 @@ extension ManualDiffingListSectionController where Item: Identifiable & Equatabl
     @_disfavoredOverload
     public convenience init(
         model: Model,
-        itemId: @escaping (Item) -> Item.ID = { $0.id },
-        itemContentIsEqual: @escaping (Item, Item) -> Bool = { $0 == $1 }
+        itemId: @escaping @MainActor (Item) -> Item.ID = { $0.id },
+        itemContentIsEqual: @escaping @MainActor (Item, Item) -> Bool = { $0 == $1 }
     ) {
         self.init(model: model, itemId: itemId, itemContentIsEqual: itemContentIsEqual)
     }
