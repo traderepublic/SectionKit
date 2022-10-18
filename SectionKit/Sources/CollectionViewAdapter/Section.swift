@@ -2,7 +2,7 @@ import Foundation
 
 /// Represents a section in the `UICollectionView`.
 @MainActor
-public class Section {
+public final class Section {
     /// An identifier that uniquely identifies this section.
     public let id: AnyHashable
 
