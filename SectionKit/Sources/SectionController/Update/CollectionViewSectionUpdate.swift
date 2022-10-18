@@ -132,5 +132,3 @@ public struct CollectionViewSectionUpdate<SectionData> {
         )
     }
 }
-
-extension CollectionViewSectionUpdate: Sendable where SectionData: Sendable { }
