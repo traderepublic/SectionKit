@@ -117,3 +117,5 @@ public struct CollectionViewUpdate<CollectionViewData> {
         )
     }
 }
+
+extension CollectionViewUpdate: Sendable where CollectionViewData: Sendable { }

@@ -59,6 +59,8 @@ public struct CollectionViewBatchOperation<CollectionViewData> {
     }
 }
 
+extension CollectionViewBatchOperation: Sendable where CollectionViewData: Sendable { }
+
 extension CollectionViewBatchOperation {
     /// The count of changes in this batch operation.
     @inlinable

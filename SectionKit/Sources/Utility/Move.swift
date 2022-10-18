@@ -1,7 +1,7 @@
 import Foundation
 
 /// Represents a move from an index to another index.
-public struct Move: Hashable {
+public struct Move: Hashable, Sendable {
     /// The index before the move.
     public let at: Int
 
