@@ -278,10 +278,8 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - shouldBeginMultipleSelectionInteraction
 
-    @available(iOS 13.0, *)
     internal typealias ShouldBeginMultipleSelectionInteractionBlock = (SectionIndexPath, CollectionViewContext) -> Bool
 
-    @available(iOS 13.0, *)
     internal lazy var _shouldBeginMultipleSelectionInteraction: ShouldBeginMultipleSelectionInteractionBlock = { _, _ in
         XCTFail("not implemented")
         return false
@@ -294,10 +292,8 @@ internal class MockSectionDelegate: SectionDelegate {
 
     // MARK: - didBeginMultipleSelectionInteraction
 
-    @available(iOS 13.0, *)
     internal typealias DidBeginMultipleSelectionInteractionBlock = (SectionIndexPath, CollectionViewContext) -> Void
 
-    @available(iOS 13.0, *)
     internal lazy var _didBeginMultipleSelectionInteraction: DidBeginMultipleSelectionInteractionBlock = { _, _ in
         XCTFail("not implemented")
     }
@@ -312,10 +308,24 @@ internal class MockSectionDelegate: SectionDelegate {
     @available(iOS 13.0, *)
     internal typealias ContextMenuConfigurationForItemBlock = (SectionIndexPath, CGPoint, CollectionViewContext) -> UIContextMenuConfiguration?
 
+    // Since Xcode 14, lazy var don't support the @available attribute anymore, so the following is implemented as a computed property
+    // instead. For reference: https://github.com/apple/swift/pull/41112
+    // Because stored properties don't support it either, the private backing field is implemented as `Any?` and casted to the correct type
+    // whenever it is accessed and is only ever set to an instance of `ContextMenuConfigurationForItemBlock`.
+
+    private var __contextMenuConfigurationForItem: Any?
+
     @available(iOS 13.0, *)
-    internal lazy var _contextMenuConfigurationForItem: ContextMenuConfigurationForItemBlock = { _, _, _ in
-        XCTFail("not implemented")
-        return nil
+    internal var _contextMenuConfigurationForItem: ContextMenuConfigurationForItemBlock {
+        get {
+            (__contextMenuConfigurationForItem as? ContextMenuConfigurationForItemBlock) ?? { _, _, _ in
+                XCTFail("not implemented")
+                return nil
+            }
+        }
+        set {
+            __contextMenuConfigurationForItem = newValue
+        }
     }
 
     @available(iOS 13.0, *)
