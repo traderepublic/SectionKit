@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 @available(iOS 11.0, *)
 internal final class SingleSectionCollectionViewAdapterUICollectionViewDragDelegateTests: BaseCollectionViewAdapterUICollectionViewDragDelegateTests {
     override internal func createCollectionViewAdapter(

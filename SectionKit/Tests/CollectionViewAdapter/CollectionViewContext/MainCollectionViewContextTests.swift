@@ -1,6 +1,7 @@
 @testable import SectionKit
 import XCTest
 
+@MainActor
 internal final class MainCollectionViewContextTests: XCTestCase {
     internal func testAdapterIsWeakReferenced() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())

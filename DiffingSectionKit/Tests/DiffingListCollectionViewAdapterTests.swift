@@ -2,6 +2,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 internal final class DiffingListCollectionViewAdapterTests: XCTestCase {
     private struct MockSectionModel: Equatable {
         let sectionId: AnyHashable = UUID()

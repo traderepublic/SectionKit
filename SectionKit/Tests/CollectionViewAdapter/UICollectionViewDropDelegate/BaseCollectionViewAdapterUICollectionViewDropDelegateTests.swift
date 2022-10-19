@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 @available(iOS 11.0, *)
 internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTestCase {
     override func setUpWithError() throws {
@@ -17,9 +18,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     internal func createCollectionView(
         frame: CGRect = .zero,
-        collectionViewLayout layout: UICollectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
-        UICollectionView(frame: frame, collectionViewLayout: layout)
+        UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
     internal func createCollectionViewAdapter(

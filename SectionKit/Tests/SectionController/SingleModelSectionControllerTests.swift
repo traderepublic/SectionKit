@@ -1,6 +1,7 @@
 @testable import SectionKit
 import XCTest
 
+@MainActor
 internal final class SingleModelSectionControllerTests: XCTestCase {
     internal func testDidUpdateModelWithValidTypeSetsModel() {
         let sectionController = SingleModelSectionController(model: "1")

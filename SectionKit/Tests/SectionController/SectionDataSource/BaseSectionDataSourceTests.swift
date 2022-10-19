@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 internal class BaseSectionDataSourceTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
