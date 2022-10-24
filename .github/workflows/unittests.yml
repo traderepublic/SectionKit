@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: Unit Tests
-    runs-on: macOS-latest
+    runs-on: macOS-12
     if: github.event.pull_request.draft == false
     env:
       LC_ALL: en_US.UTF-8
