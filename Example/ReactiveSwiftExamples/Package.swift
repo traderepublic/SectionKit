@@ -15,7 +15,7 @@ let package = Package(
         .package(name: "Utilities", path: "Utilities"),
         .package(name: "ReactiveCocoa", url: "https://github.com/ReactiveCocoa/ReactiveCocoa.git", from: "11.2.1"),
         .package(name: "ReactiveSwift", url: "https://github.com/ReactiveCocoa/ReactiveSwift.git", from: "6.6.0"),
-        .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0")
+        .package(name: "swift-snapshot-testing", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.10.0")
     ],
     targets: [
         .target(
@@ -32,7 +32,7 @@ let package = Package(
             dependencies: [
                 "ReactiveSwiftExamples",
                 .product(name: "TestUtilities", package: "Utilities"),
-                .product(name: "SnapshotTesting", package: "SnapshotTesting")
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
             ],
             exclude: ["__Snapshots__"]
         )

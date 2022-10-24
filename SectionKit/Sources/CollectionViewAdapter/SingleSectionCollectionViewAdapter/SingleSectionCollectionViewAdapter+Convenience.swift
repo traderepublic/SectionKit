@@ -2,7 +2,7 @@ import UIKit
 
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func controller(at indexPath: IndexPath) -> SectionController? {
+    public func controller(at indexPath: IndexPath) -> SectionController? {
         guard indexPath.isValid else {
             return nil
         }
@@ -10,7 +10,7 @@ extension SingleSectionCollectionViewAdapter {
     }
 
     @inlinable
-    open func controller(at index: Int) -> SectionController? {
+    public func controller(at index: Int) -> SectionController? {
         guard index == 0 else {
             return nil
         }
@@ -20,12 +20,12 @@ extension SingleSectionCollectionViewAdapter {
 
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func dataSource(at indexPath: IndexPath) -> SectionDataSource? {
+    public func dataSource(at indexPath: IndexPath) -> SectionDataSource? {
         controller(at: indexPath)?.dataSource
     }
 
     @inlinable
-    open func dataSource(at index: Int) -> SectionDataSource? {
+    public func dataSource(at index: Int) -> SectionDataSource? {
         controller(at: index)?.dataSource
     }
 }
@@ -33,36 +33,36 @@ extension SingleSectionCollectionViewAdapter {
 @available(iOS 10.0, *)
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func dataSourcePrefetchingDelegate(at indexPath: IndexPath) -> SectionDataSourcePrefetchingDelegate? {
+    public func dataSourcePrefetchingDelegate(at indexPath: IndexPath) -> SectionDataSourcePrefetchingDelegate? {
         controller(at: indexPath)?.dataSourcePrefetchingDelegate
     }
 
     @inlinable
-    open func dataSourcePrefetchingDelegate(at index: Int) -> SectionDataSourcePrefetchingDelegate? {
+    public func dataSourcePrefetchingDelegate(at index: Int) -> SectionDataSourcePrefetchingDelegate? {
         controller(at: index)?.dataSourcePrefetchingDelegate
     }
 }
 
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func delegate(at indexPath: IndexPath) -> SectionDelegate? {
+    public func delegate(at indexPath: IndexPath) -> SectionDelegate? {
         controller(at: indexPath)?.delegate
     }
 
     @inlinable
-    open func delegate(at index: Int) -> SectionDelegate? {
+    public func delegate(at index: Int) -> SectionDelegate? {
         controller(at: index)?.delegate
     }
 }
 
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
+    public func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
         controller(at: indexPath)?.flowDelegate
     }
 
     @inlinable
-    open func flowDelegate(at index: Int) -> SectionFlowDelegate? {
+    public func flowDelegate(at index: Int) -> SectionFlowDelegate? {
         controller(at: index)?.flowDelegate
     }
 }
@@ -70,12 +70,12 @@ extension SingleSectionCollectionViewAdapter {
 @available(iOS 11.0, *)
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func dragDelegate(at indexPath: IndexPath) -> SectionDragDelegate? {
+    public func dragDelegate(at indexPath: IndexPath) -> SectionDragDelegate? {
         controller(at: indexPath)?.dragDelegate
     }
 
     @inlinable
-    open func dragDelegate(at index: Int) -> SectionDragDelegate? {
+    public func dragDelegate(at index: Int) -> SectionDragDelegate? {
         controller(at: index)?.dragDelegate
     }
 }
@@ -83,12 +83,12 @@ extension SingleSectionCollectionViewAdapter {
 @available(iOS 11.0, *)
 extension SingleSectionCollectionViewAdapter {
     @inlinable
-    open func dropDelegate(at indexPath: IndexPath) -> SectionDropDelegate? {
+    public func dropDelegate(at indexPath: IndexPath) -> SectionDropDelegate? {
         controller(at: indexPath)?.dropDelegate
     }
 
     @inlinable
-    open func dropDelegate(at index: Int) -> SectionDropDelegate? {
+    public func dropDelegate(at index: Int) -> SectionDropDelegate? {
         controller(at: index)?.dropDelegate
     }
 }
