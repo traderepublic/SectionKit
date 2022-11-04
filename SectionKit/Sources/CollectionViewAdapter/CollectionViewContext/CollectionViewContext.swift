@@ -1,6 +1,7 @@
 import UIKit
 
 /// A context which provides contextual information for a `SectionController`.
+@MainActor
 public protocol CollectionViewContext: AnyObject {
     /// The `UIViewController` which contains the `collectionView`.
     var viewController: UIViewController? { get }

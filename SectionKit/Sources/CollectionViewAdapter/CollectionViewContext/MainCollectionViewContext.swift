@@ -1,6 +1,7 @@
 import UIKit
 
 /// The main context which applies changes to the `UICollectionView` directly
+@MainActor
 open class MainCollectionViewContext: CollectionViewContext {
     // MARK: - Properties
 

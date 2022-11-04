@@ -2,6 +2,7 @@ import UIKit
 
 /// The delegate for datasource prefetching.
 @available(iOS 10.0, *)
+@MainActor
 public protocol SectionDataSourcePrefetchingDelegate: AnyObject {
     /**
      Tells the delegate to start prefetching items at the specified indexPaths.

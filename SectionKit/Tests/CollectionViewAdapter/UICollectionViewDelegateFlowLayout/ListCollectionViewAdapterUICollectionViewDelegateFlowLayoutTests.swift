@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 internal final class ListCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests: BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests {
     override internal func createCollectionViewAdapter(
         collectionView: UICollectionView,

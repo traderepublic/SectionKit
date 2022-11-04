@@ -5,6 +5,7 @@ import UIKit
  
  Every declaration is marked `open` and can be overridden.
  */
+@MainActor
 open class BaseSectionController: SectionController,
                                   SectionDataSource,
                                   SectionDataSourcePrefetchingDelegate,

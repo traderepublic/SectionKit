@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 @available(iOS 11.0, *)
 internal class BaseSectionDragDelegateTests: XCTestCase {
     override func setUpWithError() throws {

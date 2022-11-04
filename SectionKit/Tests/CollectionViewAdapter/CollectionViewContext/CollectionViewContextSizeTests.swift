@@ -1,6 +1,7 @@
 @testable import SectionKit
 import XCTest
 
+@MainActor
 internal final class CollectionViewContextSizeTests: XCTestCase {
     internal func testContainerSize() {
         let rect = CGRect(x: 1, y: 2, width: 4, height: 8)

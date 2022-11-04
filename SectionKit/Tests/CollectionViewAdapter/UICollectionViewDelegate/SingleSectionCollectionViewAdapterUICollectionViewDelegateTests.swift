@@ -2,6 +2,7 @@
 import UIKit
 import XCTest
 
+@MainActor
 internal final class SingleSectionCollectionViewAdapterUICollectionViewDelegateTests: BaseCollectionViewAdapterUICollectionViewDelegateTests {
     override internal func createCollectionViewAdapter(
         collectionView: UICollectionView,

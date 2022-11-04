@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 internal final class ProtocolDefaultValuesSectionControllerTests: XCTestCase {
     private func createSectionController() -> SectionController {
         class DefaultSectionController: SectionController {

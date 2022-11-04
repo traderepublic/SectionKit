@@ -4,6 +4,7 @@ import UIKit
  The root object for a given `UICollectionView` that forwards datasource and delegate
  methods to the corresponding `SectionController`.
  */
+@MainActor
 public protocol CollectionViewAdapter: AnyObject {
     /// An object providing contextual information.
     var context: CollectionViewContext { get }

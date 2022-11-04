@@ -11,7 +11,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     public let batchOperations: [BatchOperation]
 
     /// A handler that gets executed inside a batch operation to set the backing data of the current batch of updates.
-    public let setData: (SectionData) -> Void
+    public let setData: @MainActor (SectionData) -> Void
 
     /**
      A predicate that determines if instead of applying the given batch operation
@@ -20,7 +20,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
      - Note: For performance reasons it is recommended to perform a reload instead of separate inserts/deletes,
      if more than `100` changes are applied in a single batch operation.
      */
-    public let shouldReload: (CollectionViewSectionBatchOperation<SectionData>) -> Bool
+    public let shouldReload: @MainActor (CollectionViewSectionBatchOperation<SectionData>) -> Bool
 
     /**
      Initialise an instance of `CollectionViewSectionUpdate`.
@@ -40,8 +40,8 @@ public struct CollectionViewSectionUpdate<SectionData> {
     public init(
         controller: SectionController,
         batchOperations: [BatchOperation],
-        setData: @escaping (SectionData) -> Void,
-        shouldReload: @escaping (BatchOperation) -> Bool = { _ in false }
+        setData: @escaping @MainActor (SectionData) -> Void,
+        shouldReload: @escaping @MainActor (BatchOperation) -> Bool = { _ in false }
     ) {
         self.controller = controller
         self.batchOperations = batchOperations
@@ -83,9 +83,9 @@ public struct CollectionViewSectionUpdate<SectionData> {
         inserts: Set<Int> = [],
         moves: Set<Move> = [],
         reloads: Set<Int> = [],
-        setData: @escaping (SectionData) -> Void,
-        shouldReload: @escaping (BatchOperation) -> Bool = { _ in false },
-        completion: ((Bool) -> Void)? = nil
+        setData: @escaping @MainActor (SectionData) -> Void,
+        shouldReload: @escaping @MainActor (BatchOperation) -> Bool = { _ in false },
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         let batchOperation = BatchOperation(
             data: data,
@@ -120,8 +120,8 @@ public struct CollectionViewSectionUpdate<SectionData> {
     public init(
         controller: SectionController,
         data: SectionData,
-        setData: @escaping (SectionData) -> Void,
-        completion: ((Bool) -> Void)? = nil
+        setData: @escaping @MainActor (SectionData) -> Void,
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         self.init(
             controller: controller,

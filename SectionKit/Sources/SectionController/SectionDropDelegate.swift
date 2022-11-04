@@ -2,6 +2,7 @@ import UIKit
 
 /// The drop delegate of a section
 @available(iOS 11.0, *)
+@MainActor
 public protocol SectionDropDelegate: AnyObject {
     /**
      Determines if the section allows drops from the given `UIDropSession`.

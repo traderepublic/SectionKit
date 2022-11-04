@@ -1,6 +1,7 @@
 @testable import SectionKit
 import XCTest
 
+@MainActor
 internal final class SingleSectionCollectionViewAdapterTests: XCTestCase {
     // MARK: - Init with datasource
 

@@ -5,6 +5,7 @@ import Foundation
  for the difference to the current value and separate inserts/deletes/moves will be performed accordingly.
  */
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+@MainActor
 open class FoundationDiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(
         from oldData: [Section],
