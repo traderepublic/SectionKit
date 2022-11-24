@@ -88,7 +88,6 @@
 		5AE175DF2667DA3F00D4DCE1 /* CollectionDifference+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A32667DA3E00D4DCE1 /* CollectionDifference+Changes.swift */; };
 		5AE175E02667DA3F00D4DCE1 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A42667DA3E00D4DCE1 /* Move.swift */; };
 		5AE175E12667DA3F00D4DCE1 /* IndexPath+IsValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A52667DA3E00D4DCE1 /* IndexPath+IsValid.swift */; };
-		5AE175E22667DA3F00D4DCE1 /* Sequence+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A62667DA3E00D4DCE1 /* Sequence+Group.swift */; };
 		5AE175E32667DA3F00D4DCE1 /* UICollectionView+Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A72667DA3E00D4DCE1 /* UICollectionView+Apply.swift */; };
 		5AE175E42667DA3F00D4DCE1 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175A82667DA3E00D4DCE1 /* Collection+Extensions.swift */; };
 		5AE175E52667DA3F00D4DCE1 /* SectionDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175AA2667DA3E00D4DCE1 /* SectionDropDelegate.swift */; };
@@ -235,7 +234,6 @@
 		5AE175A32667DA3E00D4DCE1 /* CollectionDifference+Changes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionDifference+Changes.swift"; sourceTree = "<group>"; };
 		5AE175A42667DA3E00D4DCE1 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		5AE175A52667DA3E00D4DCE1 /* IndexPath+IsValid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IndexPath+IsValid.swift"; sourceTree = "<group>"; };
-		5AE175A62667DA3E00D4DCE1 /* Sequence+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Group.swift"; sourceTree = "<group>"; };
 		5AE175A72667DA3E00D4DCE1 /* UICollectionView+Apply.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Apply.swift"; sourceTree = "<group>"; };
 		5AE175A82667DA3E00D4DCE1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		5AE175AA2667DA3E00D4DCE1 /* SectionDropDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDropDelegate.swift; sourceTree = "<group>"; };
@@ -535,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				5AE175A22667DA3E00D4DCE1 /* Sequence+Unique.swift */,
-				5AE175A62667DA3E00D4DCE1 /* Sequence+Group.swift */,
 				5AE175A52667DA3E00D4DCE1 /* IndexPath+IsValid.swift */,
 				5AE175A42667DA3E00D4DCE1 /* Move.swift */,
 				5AE175A32667DA3E00D4DCE1 /* CollectionDifference+Changes.swift */,
@@ -850,7 +847,6 @@
 				5AE175F72667DA3F00D4DCE1 /* CollectionViewContext.swift in Sources */,
 				5AE176082667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */,
 				5AE175E82667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */,
-				5AE175E22667DA3F00D4DCE1 /* Sequence+Group.swift in Sources */,
 				5AE175EA2667DA3F00D4DCE1 /* CollectionViewSectionUpdate.swift in Sources */,
 				5AE175F92667DA3F00D4DCE1 /* CollectionViewBatchOperation.swift in Sources */,
 				5AE175EF2667DA3F00D4DCE1 /* ListSectionController.swift in Sources */,
