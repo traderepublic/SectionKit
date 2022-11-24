@@ -13,7 +13,7 @@ extension Sequence {
 
      - Returns: A sequence whose elements have unique values of the field referenced by `key`.
      */
-    @usableFromInline
+    @inlinable
     internal func unique<T: Hashable>(by selector: (Iterator.Element) throws -> T) rethrows -> [Iterator.Element] {
         var seen = Set<T>()
         return try filter {
