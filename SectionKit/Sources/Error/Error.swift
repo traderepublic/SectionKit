@@ -99,7 +99,7 @@ extension Error: CustomStringConvertible {
             return "The given IndexPath \(indexPath) is not valid (does not contain exactly 2 values)."
 
         case let .moveIsNotInTheSameSection(sourceSection, destinationSection):
-            return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection))."
+            return "A move between different sections is not supported (from \(sourceSection) to \(destinationSection))."
 
         case .adapterIsNotSetOnContext:
             return "The `adapter` is not set on the context."
