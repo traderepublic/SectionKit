@@ -8,13 +8,13 @@ open class SectionSnapshotContainer: UIView {
     public init(sectionController: SectionController, width: CGFloat? = nil, parentVC: UIViewController? = nil) {
         struct FakeSectionModel { }
         collectionViewAdapter = SnapshotCollectionViewAdapter(
-            viewController: parentVC,
             collectionView: collectionView,
             section: Section(
                 id: "",
                 model: FakeSectionModel(),
                 controller: sectionController
-            )
+            ),
+            viewController: parentVC
         )
         super.init(frame: .zero)
 
