@@ -105,7 +105,7 @@ extension Error: CustomStringConvertible {
             return "The `adapter` is not set on the context."
 
         case .adapterDoesNotContainSectionController:
-            return "The given controller is not child of this adapter."
+            return "The given sectioncontroller is not a child of this adapter."
 
         case let .dequeuedViewHasNotTheCorrectType(expected, actual):
             return "The dequeued view has not the correct type. Expected: \(expected) Actual: \(actual)"
