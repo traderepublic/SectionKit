@@ -3,6 +3,7 @@ import SnapshotTesting
 import TestUtilities
 import XCTest
 
+@MainActor
 final class EmojisSectionControllerSnapshotTests: XCTestCase {
     func testDefaultViewModel() {
         let sectionController = EmojisSectionController(model: EmojisViewModel())

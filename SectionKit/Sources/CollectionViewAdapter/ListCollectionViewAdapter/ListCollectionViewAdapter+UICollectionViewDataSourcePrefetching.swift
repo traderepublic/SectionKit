@@ -3,7 +3,8 @@ import UIKit
 @available(iOS 10.0, *)
 extension ListCollectionViewAdapter: UICollectionViewDataSourcePrefetching {
     open func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        indexPaths.filter(\.isValid).group(by: \.section).forEach { sectionIndex, indexPaths in
+        let validIndexPaths = indexPaths.filter(\.isValid)
+        Dictionary(grouping: validIndexPaths, by: \.section).forEach { sectionIndex, indexPaths in
             guard let dataSourcePrefetchingDelegate = dataSourcePrefetchingDelegate(at: sectionIndex) else {
                 return
             }
@@ -13,7 +14,8 @@ extension ListCollectionViewAdapter: UICollectionViewDataSourcePrefetching {
     }
 
     open func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        indexPaths.filter(\.isValid).group(by: \.section).forEach { sectionIndex, indexPaths in
+        let validIndexPaths = indexPaths.filter(\.isValid)
+        Dictionary(grouping: validIndexPaths, by: \.section).forEach { sectionIndex, indexPaths in
             guard let dataSourcePrefetchingDelegate = dataSourcePrefetchingDelegate(at: sectionIndex) else {
                 return
             }

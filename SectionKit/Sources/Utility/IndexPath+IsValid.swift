@@ -1,7 +1,7 @@
 import Foundation
 
 extension IndexPath {
-    @usableFromInline
+    @inlinable
     internal var isValid: Bool {
         count == 2 // precondition of the `section` property
     }
