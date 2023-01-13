@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 internal final class BaseSectionControllerTests: XCTestCase {
     internal func testContextIsNil() {
         let sectionController = BaseSectionController()

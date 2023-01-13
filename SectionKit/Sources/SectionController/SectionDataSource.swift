@@ -1,6 +1,7 @@
 import UIKit
 
 /// The datasource of a section
+@MainActor
 public protocol SectionDataSource: AnyObject {
     /**
      Get the number of items in this section.

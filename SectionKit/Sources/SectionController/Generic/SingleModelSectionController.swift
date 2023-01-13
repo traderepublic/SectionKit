@@ -8,6 +8,7 @@ import UIKit
  a single model. If however all items are the semantically similar and one could derive an array of models,
  it is recommended to use `ListSectionController` instead.
  */
+@MainActor
 open class SingleModelSectionController<Model>: BaseSectionController {
     /**
      Initialise an instance of `SingleModelSectionController`.

@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 @available(iOS 11.0, *)
 internal final class ProtocolDefaultValuesSectionDropDelegateTests: BaseSectionDropDelegateTests {
     override func createSectionDropDelegate() throws -> SectionDropDelegate {

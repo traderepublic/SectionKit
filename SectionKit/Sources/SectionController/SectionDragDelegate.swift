@@ -2,6 +2,7 @@ import UIKit
 
 /// The drag delegate of a section
 @available(iOS 11.0, *)
+@MainActor
 public protocol SectionDragDelegate: AnyObject {
     /**
      Returns the initial list of items to drag.

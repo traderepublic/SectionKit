@@ -1,6 +1,7 @@
 import UIKit
 
 /// The delegate for the `UICollectionViewFlowLayout` of a section.
+@MainActor
 public protocol SectionFlowDelegate: AnyObject {
     /**
      Returns the size for the item at the given index path.

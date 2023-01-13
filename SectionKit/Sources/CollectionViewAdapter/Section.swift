@@ -1,14 +1,15 @@
 import Foundation
 
 /// Represents a section in the `UICollectionView`.
-public class Section {
+@MainActor
+public final class Section {
     /// An identifier that uniquely identifies this section.
     public let id: AnyHashable
 
     /// The model of the section.
     public let model: Any
 
-    private let controllerAccessor: () -> SectionController
+    private let controllerAccessor: @MainActor () -> SectionController
 
     /// A `SectionController` for this section.
     public internal(set) lazy var controller: SectionController = controllerAccessor()
@@ -25,7 +26,7 @@ public class Section {
     public init(
         id: AnyHashable,
         model: Any,
-        controller: @escaping () -> SectionController
+        controller: @escaping @MainActor () -> SectionController
     ) {
         self.id = id
         self.model = model
@@ -46,7 +47,7 @@ extension Section {
     public convenience init(
         id: AnyHashable,
         model: Any,
-        controller: @autoclosure @escaping () -> SectionController
+        controller: @autoclosure @escaping @MainActor () -> SectionController
     ) {
         self.init(id: id, model: model, controller: controller)
     }

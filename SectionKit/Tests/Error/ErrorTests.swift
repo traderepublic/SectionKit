@@ -40,7 +40,7 @@ internal class ErrorTests: XCTestCase {
     internal func testDescriptionOfMoveIsNotInTheSameSection() {
         XCTAssertEqual(
             Error.moveIsNotInTheSameSection(sourceSection: 1, destinationSection: 2).description,
-            "Move is not supported inside the same section (from 1 to 2)."
+            "A move between different sections is not supported (from 1 to 2)."
         )
     }
 
@@ -54,7 +54,7 @@ internal class ErrorTests: XCTestCase {
     internal func testDescriptionOfAdapterDoesNotContainSectionController() {
         XCTAssertEqual(
             Error.adapterDoesNotContainSectionController.description,
-            "The given controller is not child of this adapter."
+            "The given sectioncontroller is not a child of this adapter."
         )
     }
 

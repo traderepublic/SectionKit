@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 @available(iOS 10.0, *)
 internal class BaseSectionDataSourcePrefetchingDelegateTests: XCTestCase {
     override func setUpWithError() throws {

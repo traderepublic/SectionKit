@@ -1,16 +1,17 @@
 import DifferenceKit
 import Foundation
 
+@MainActor
 public struct DifferentiableBox<Value, Id: Hashable> {
     public let value: Value
 
     @usableFromInline
-    internal let id: (Value) -> Id
+    internal let id: @MainActor (Value) -> Id
 
     @usableFromInline
-    internal let isContentEqual: (Value, Value) -> Bool
+    internal let isContentEqual: @MainActor (Value, Value) -> Bool
 
-    public init(value: Value, id: @escaping (Value) -> Id, isContentEqual: @escaping (Value, Value) -> Bool) {
+    public init(value: Value, id: @escaping @MainActor (Value) -> Id, isContentEqual: @escaping @MainActor (Value, Value) -> Bool) {
         self.value = value
         self.id = id
         self.isContentEqual = isContentEqual

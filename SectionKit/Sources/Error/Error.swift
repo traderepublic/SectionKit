@@ -99,13 +99,13 @@ extension Error: CustomStringConvertible {
             return "The given IndexPath \(indexPath) is not valid (does not contain exactly 2 values)."
 
         case let .moveIsNotInTheSameSection(sourceSection, destinationSection):
-            return "Move is not supported inside the same section (from \(sourceSection) to \(destinationSection))."
+            return "A move between different sections is not supported (from \(sourceSection) to \(destinationSection))."
 
         case .adapterIsNotSetOnContext:
             return "The `adapter` is not set on the context."
 
         case .adapterDoesNotContainSectionController:
-            return "The given controller is not child of this adapter."
+            return "The given sectioncontroller is not a child of this adapter."
 
         case let .dequeuedViewHasNotTheCorrectType(expected, actual):
             return "The dequeued view has not the correct type. Expected: \(expected) Actual: \(actual)"

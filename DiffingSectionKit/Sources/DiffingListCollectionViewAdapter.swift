@@ -7,6 +7,7 @@ import SectionKit
  for the difference to the current value and separate inserts/deletes/moves will be performed
  to update the `UICollectionView`.
  */
+@MainActor
 open class DiffingListCollectionViewAdapter: ListCollectionViewAdapter {
     override open func calculateUpdate(
         from oldData: [Section],

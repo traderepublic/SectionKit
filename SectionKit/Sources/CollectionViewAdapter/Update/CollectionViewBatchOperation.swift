@@ -23,7 +23,7 @@ public struct CollectionViewBatchOperation<CollectionViewData> {
      The parameter may be `true` if all of the related animations completed successfully
      or `false` if they were interrupted.
      */
-    public let completion: ((Bool) -> Void)?
+    public let completion: (@MainActor (Bool) -> Void)?
 
     /**
      Initialise an instance of `CollectionViewBatchOperation`.
@@ -48,7 +48,7 @@ public struct CollectionViewBatchOperation<CollectionViewData> {
         inserts: Set<Int> = [],
         moves: Set<Move> = [],
         reloads: Set<Int> = [],
-        completion: ((Bool) -> Void)? = nil
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         self.data = data
         self.deletes = deletes

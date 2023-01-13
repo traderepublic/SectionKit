@@ -33,9 +33,9 @@ extension CollectionViewContext {
         inserts: Set<Int> = [],
         moves: Set<Move> = [],
         reloads: Set<Int> = [],
-        setData: @escaping (CollectionViewData) -> Void,
-        shouldReload: @escaping (CollectionViewBatchOperation<CollectionViewData>) -> Bool = { _ in false },
-        completion: ((Bool) -> Void)? = nil
+        setData: @escaping @MainActor (CollectionViewData) -> Void,
+        shouldReload: @escaping @MainActor (CollectionViewBatchOperation<CollectionViewData>) -> Bool = { _ in false },
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         let update = CollectionViewUpdate(
             data: data,
@@ -66,8 +66,8 @@ extension CollectionViewContext {
     @inlinable
     public func perform<CollectionViewData>(
         batchOperations: [CollectionViewBatchOperation<CollectionViewData>],
-        setData: @escaping (CollectionViewData) -> Void,
-        shouldReload: @escaping (CollectionViewBatchOperation<CollectionViewData>) -> Bool = { _ in false }
+        setData: @escaping @MainActor (CollectionViewData) -> Void,
+        shouldReload: @escaping @MainActor (CollectionViewBatchOperation<CollectionViewData>) -> Bool = { _ in false }
     ) {
         let update = CollectionViewUpdate(
             batchOperations: batchOperations,
@@ -92,8 +92,8 @@ extension CollectionViewContext {
     @inlinable
     public func reloadData<CollectionViewData>(
         data: CollectionViewData,
-        setData: @escaping (CollectionViewData) -> Void,
-        completion: ((Bool) -> Void)? = nil
+        setData: @escaping @MainActor (CollectionViewData) -> Void,
+        completion: (@MainActor (Bool) -> Void)? = nil
     ) {
         let update = CollectionViewUpdate(
             data: data,

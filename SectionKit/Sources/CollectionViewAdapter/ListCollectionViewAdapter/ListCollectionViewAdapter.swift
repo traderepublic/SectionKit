@@ -7,6 +7,7 @@ import UIKit
  `reloadData()` on the underlying `UICollectionView`. If animated updates should occur, please
  override `calculateUpdate(from:to:)`.
  */
+@MainActor
 open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
      Initialise an instance of `ListCollectionAdapter` to use it as the datasource and
@@ -128,8 +129,7 @@ open class ListCollectionViewAdapter: NSObject, CollectionViewAdapter {
     private func filterDuplicateSectionIds(sections: [Section]) -> [Section] {
         let filtered = sections.unique(by: \.id)
         if filtered.count != sections.count {
-            let duplicateIds = sections
-                .group(by: \.id)
+            let duplicateIds = Dictionary(grouping: sections, by: \.id)
                 .filter { $0.value.count > 1 }
                 .map(\.key)
             context.errorHandler.nonCritical(error: .duplicateSectionIds(duplicateIds))

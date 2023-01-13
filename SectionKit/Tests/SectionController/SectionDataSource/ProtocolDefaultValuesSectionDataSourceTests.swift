@@ -1,6 +1,7 @@
 import SectionKit
 import XCTest
 
+@MainActor
 internal final class ProtocolDefaultValuesSectionDataSourceTests: BaseSectionDataSourceTests {
     override func createSectionDataSource() throws -> SectionDataSource {
         class DefaultSectionDataSource: SectionDataSource {

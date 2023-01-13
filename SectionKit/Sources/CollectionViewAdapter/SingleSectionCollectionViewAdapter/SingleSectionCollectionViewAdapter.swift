@@ -3,6 +3,7 @@ import UIKit
 /**
  A `CollectionViewAdapter` that contains a single section.
  */
+@MainActor
 open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
     /**
      Initialise an instance of `SingleSectionCollectionViewAdapter` to use it as the datasource and

@@ -7,6 +7,7 @@ import UIKit
  This `SectionController` is typically used when there are multiple semantically similar items
  of a model to be displayed and the list of items (almost) never changes or should not perform animated updates.
  */
+@MainActor
 open class ListSectionController<Model, Item>: BaseSectionController {
     /**
      Initialise an instance of `ListSectionController`.
