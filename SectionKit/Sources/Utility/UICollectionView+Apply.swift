@@ -54,7 +54,7 @@ extension UICollectionView {
                 if reloads.isNotEmpty {
                     reloadItems(at: reloads.map { IndexPath(item: $0, section: section) })
                 }
-            }, completion: batchOperation.completion)
+            }, completion: { batchOperation.completion?($0) })
         }
     }
 
@@ -108,7 +108,7 @@ extension UICollectionView {
                 if reloads.isNotEmpty {
                     reloadSections(IndexSet(reloads))
                 }
-            }, completion: batchOperation.completion)
+            }, completion: { batchOperation.completion?($0) })
         }
     }
 }
