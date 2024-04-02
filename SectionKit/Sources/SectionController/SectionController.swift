@@ -46,3 +46,15 @@ public protocol FlowLayoutSectionController: SectionController {
     /// The delegate for the `UICollectionViewFlowLayout` of this section.
     var flowDelegate: SectionFlowDelegate? { get }
 }
+
+@MainActor
+public protocol CompositionalLayoutSectionController: SectionController {
+    /// Provide the layout section for the Compositional Layout
+    /// - Parameters:
+    ///   - layoutEnvironment: the environment value for the layout
+    /// - Returns: The layout for the section
+    @available(iOS 13.0, *)
+    func layoutSection(
+        layoutEnvironment: NSCollectionLayoutEnvironment
+    ) -> NSCollectionLayoutSection
+}
