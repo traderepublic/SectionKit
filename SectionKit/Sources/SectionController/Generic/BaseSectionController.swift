@@ -1,16 +1,13 @@
 import UIKit
 
-/**
- A base implementation of all `SectionController` datasource and delegate protocols.
- 
- Every declaration is marked `open` and can be overridden.
- */
+/// This serves as a fundamental `SectionController` implementation,
+/// encompassing data source and delegate protocols, with the exception of the flow layout delegate.
+/// Each access control is designated as` open`, allowing for easy customization through overrides.
 @MainActor
 open class BaseSectionController: SectionController,
                                   SectionDataSource,
                                   SectionDataSourcePrefetchingDelegate,
                                   SectionDelegate,
-                                  SectionFlowDelegate,
                                   SectionDragDelegate,
                                   SectionDropDelegate {
     // MARK: - Init
@@ -27,8 +24,6 @@ open class BaseSectionController: SectionController,
     open var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? { self }
 
     open var delegate: SectionDelegate? { self }
-
-    open var flowDelegate: SectionFlowDelegate? { self }
 
     @available(iOS 11.0, *)
     open var dragDelegate: SectionDragDelegate? { self }
@@ -262,44 +257,5 @@ open class BaseSectionController: SectionController,
         in context: CollectionViewContext
     ) -> UIDragPreviewParameters? {
         nil
-    }
-
-    // MARK: - SectionFlowDelegate
-
-    open func sizeForItem(
-        at indexPath: SectionIndexPath,
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.itemSize ?? CGSize(width: 50, height: 50)
-    }
-
-    open func inset(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> UIEdgeInsets {
-        (layout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
-    }
-
-    open func minimumLineSpacing(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGFloat {
-        (layout as? UICollectionViewFlowLayout)?.minimumLineSpacing ?? 10
-    }
-
-    open func minimumInteritemSpacing(
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGFloat {
-        (layout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10
-    }
-
-    open func referenceSizeForHeader(
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.headerReferenceSize ?? .zero
-    }
-
-    open func referenceSizeForFooter(
-        using layout: UICollectionViewLayout,
-        in context: CollectionViewContext
-    ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.footerReferenceSize ?? .zero
     }
 }

@@ -8,7 +8,7 @@ import UIKit
  of a model to be displayed and the list of items (almost) never changes or should not perform animated updates.
  */
 @MainActor
-open class ListSectionController<Model, Item>: BaseSectionController {
+open class ListSectionController<Model, Item>: BaseFlowLayoutSectionController {
     /**
      Initialise an instance of `ListSectionController`.
 

@@ -16,9 +16,6 @@ public protocol SectionController: AnyObject {
     /// The delegate of this section.
     var delegate: SectionDelegate? { get }
 
-    /// The delegate for the `UICollectionViewFlowLayout` of this section.
-    var flowDelegate: SectionFlowDelegate? { get }
-
     /// The drag delegate of this section.
     @available(iOS 11.0, *)
     var dragDelegate: SectionDragDelegate? { get }
@@ -37,11 +34,15 @@ extension SectionController {
 
     public var delegate: SectionDelegate? { nil }
 
-    public var flowDelegate: SectionFlowDelegate? { nil }
-
     @available(iOS 11.0, *)
     public var dragDelegate: SectionDragDelegate? { nil }
 
     @available(iOS 11.0, *)
     public var dropDelegate: SectionDropDelegate? { nil }
+}
+
+@MainActor
+public protocol FlowLayoutSectionController: SectionController {
+    /// The delegate for the `UICollectionViewFlowLayout` of this section.
+    var flowDelegate: SectionFlowDelegate? { get }
 }
