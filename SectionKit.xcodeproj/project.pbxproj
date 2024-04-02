@@ -53,8 +53,6 @@
 		5A31B8CF26BAE93900036A3F /* BaseSectionDropDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8CE26BAE93900036A3F /* BaseSectionDropDelegateTests.swift */; };
 		5A31B8D126BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D026BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift */; };
 		5A31B8D326BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D226BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift */; };
-		5A31B8D526BAE95700036A3F /* BaseSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D426BAE95700036A3F /* BaseSectionFlowDelegateTests.swift */; };
-		5A31B8D726BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */; };
 		5A31B8D926BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */; };
 		5A31B8E026BBF32D00036A3F /* UICollectionViewApplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8DF26BBF32D00036A3F /* UICollectionViewApplyTests.swift */; };
 		5A31B8E226BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */; };
@@ -114,13 +112,9 @@
 		5AE175FB2667DA3F00D4DCE1 /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C52667DA3F00D4DCE1 /* CollectionViewUpdate.swift */; };
 		5AE175FC2667DA3F00D4DCE1 /* ListCollectionViewAdapter+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C72667DA3F00D4DCE1 /* ListCollectionViewAdapter+Convenience.swift */; };
 		5AE175FD2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C82667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift */; };
-		5AE175FE2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C92667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */; };
-		5AE175FF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CA2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		5AE176002667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CB2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift */; };
 		5AE176012667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CC2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift */; };
 		5AE176022667DA3F00D4DCE1 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CD2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift */; };
-		5AE176032667DA3F00D4DCE1 /* ListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CE2667DA3F00D4DCE1 /* ListCollectionViewAdapter.swift */; };
-		5AE176042667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
 		5AE176052667DA3F00D4DCE1 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175D02667DA3F00D4DCE1 /* FoundationDiffingListCollectionViewAdapter.swift */; };
 		5AE176062667DA3F00D4DCE1 /* ListCollectionViewAdapterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175D12667DA3F00D4DCE1 /* ListCollectionViewAdapterDataSource.swift */; };
 		5AE176072667DA3F00D4DCE1 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175D22667DA3F00D4DCE1 /* Section.swift */; };
@@ -136,6 +130,18 @@
 		5AE176112667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175DD2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift */; };
 		5AE1761B2667DA7000D4DCE1 /* SectionIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */; };
 		5AE1761E2667DA7000D4DCE1 /* SequenceUniqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE176182667DA7000D4DCE1 /* SequenceUniqueTests.swift */; };
+		D91425652BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425642BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift */; };
+		D91425692BBBF79E0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425662BBBF77C0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift */; };
+		D914257F2BBBF8310005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914257A2BBBF8130005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift */; };
+		D91425822BBBF8780005E8CD /* MockFlowLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425802BBBF8670005E8CD /* MockFlowLayoutSectionController.swift */; };
+		D91425852BBBFB840005E8CD /* ListCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CE2667DA3F00D4DCE1 /* ListCollectionViewAdapter.swift */; };
+		D91425862BBBFB930005E8CD /* BaseFlowLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9B72BADF31D00EED204 /* BaseFlowLayoutSectionController.swift */; };
+		D91425872BBBFBA40005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914257B2BBBF8130005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift */; };
+		D93269A22BBBFC2400B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CA2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
+		D93269A32BBBFC2700B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C92667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */; };
+		D93269A42BBBFC2B00B33C32 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
+		D9CCE9B52BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */; };
+		D9CCE9BF2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,8 +201,6 @@
 		5A31B8CE26BAE93900036A3F /* BaseSectionDropDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDropDelegateTests.swift; sourceTree = "<group>"; };
 		5A31B8D026BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionDropDelegateTests.swift; sourceTree = "<group>"; };
 		5A31B8D226BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionDropDelegateTests.swift; sourceTree = "<group>"; };
-		5A31B8D426BAE95700036A3F /* BaseSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
-		5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		5A31B8DF26BBF32D00036A3F /* UICollectionViewApplyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewApplyTests.swift; sourceTree = "<group>"; };
 		5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolDefaultValuesSectionControllerTests.swift; sourceTree = "<group>"; };
@@ -281,6 +285,15 @@
 		5AE175DD2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSectionCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionIndexPathTests.swift; sourceTree = "<group>"; };
 		5AE176182667DA7000D4DCE1 /* SequenceUniqueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceUniqueTests.swift; sourceTree = "<group>"; };
+		D91425622BBBF7320005E8CD /* ListCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
+		D91425642BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionKitCompositionalLayout.swift; sourceTree = "<group>"; };
+		D91425662BBBF77C0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCompositionalLayoutSectionControllerTests.swift; sourceTree = "<group>"; };
+		D914257A2BBBF8130005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
+		D914257B2BBBF8130005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
+		D91425802BBBF8670005E8CD /* MockFlowLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFlowLayoutSectionController.swift; sourceTree = "<group>"; };
+		D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
+		D9CCE9B72BADF31D00EED204 /* BaseFlowLayoutSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionController.swift; sourceTree = "<group>"; };
+		D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSection+Empty.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,8 +416,8 @@
 		5A31B8B426BAE86700036A3F /* SectionFlowDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				5A31B8D426BAE95700036A3F /* BaseSectionFlowDelegateTests.swift */,
-				5A31B8D626BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift */,
+				D914257B2BBBF8130005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift */,
+				D914257A2BBBF8130005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift */,
 				5A31B8D826BAE96800036A3F /* ProtocolDefaultValuesSectionFlowDelegateTests.swift */,
 			);
 			path = SectionFlowDelegate;
@@ -531,6 +544,7 @@
 		5AE175A12667DA3E00D4DCE1 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D9CCE9B92BADF6F600EED204 /* CompositionalLayout */,
 				5AE175A22667DA3E00D4DCE1 /* Sequence+Unique.swift */,
 				5AE175A52667DA3E00D4DCE1 /* IndexPath+IsValid.swift */,
 				5AE175A42667DA3E00D4DCE1 /* Move.swift */,
@@ -546,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				D9CCE9B62BADF2FD00EED204 /* Generic */,
+				D9CCE9B32BADED5B00EED204 /* CompositionalLayout */,
 				D9CCE9B22BADED3D00EED204 /* FlowLayout */,
 				5AE175AD2667DA3E00D4DCE1 /* Update */,
 				5AE175B22667DA3E00D4DCE1 /* SectionIndexPath.swift */,
@@ -641,6 +656,7 @@
 		5AE176122667DA7000D4DCE1 /* SectionController */ = {
 			isa = PBXGroup;
 			children = (
+				D91425672BBBF77C0005E8CD /* SectionCompositionalLayout */,
 				5A31B8AF26BAE81000036A3F /* SectionDataSource */,
 				5A31B8B026BAE82200036A3F /* SectionDataSourcePrefetchingDelegate */,
 				5A31B8B126BAE82D00036A3F /* SectionDelegate */,
@@ -686,6 +702,52 @@
 				5A0B777D26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift */,
 			);
 			path = CollectionViewAdapter;
+			sourceTree = "<group>";
+		};
+		D91425672BBBF77C0005E8CD /* SectionCompositionalLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D91425662BBBF77C0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift */,
+			);
+			path = SectionCompositionalLayout;
+			sourceTree = "<group>";
+		};
+		D9CCE9B22BADED3D00EED204 /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCE9B72BADF31D00EED204 /* BaseFlowLayoutSectionController.swift */,
+				5AE175B62667DA3E00D4DCE1 /* ListSectionController.swift */,
+				5AE175B72667DA3F00D4DCE1 /* SingleItemSectionController.swift */,
+				5AE175B82667DA3F00D4DCE1 /* SingleModelSectionController.swift */,
+				5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift */,
+			);
+			path = FlowLayout;
+			sourceTree = "<group>";
+		};
+		D9CCE9B32BADED5B00EED204 /* CompositionalLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */,
+				D91425622BBBF7320005E8CD /* ListCompositionalLayoutSectionController.swift */,
+			);
+			path = CompositionalLayout;
+			sourceTree = "<group>";
+		};
+		D9CCE9B62BADF2FD00EED204 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				5AE175B52667DA3E00D4DCE1 /* BaseSectionController.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		D9CCE9B92BADF6F600EED204 /* CompositionalLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D91425642BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift */,
+				D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */,
+			);
+			path = CompositionalLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,6 +859,7 @@
 			files = (
 				5AE176022667DA3F00D4DCE1 /* ListCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
 				5AE175ED2667DA3F00D4DCE1 /* SectionDelegate.swift in Sources */,
+				D91425852BBBFB840005E8CD /* ListCollectionViewAdapter.swift in Sources */,
 				5AE175EE2667DA3F00D4DCE1 /* BaseSectionController.swift in Sources */,
 				5AE1760B2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */,
 				5AE176072667DA3F00D4DCE1 /* Section.swift in Sources */,
@@ -808,10 +871,12 @@
 				5AE175F42667DA3F00D4DCE1 /* SectionDragDelegate.swift in Sources */,
 				5AE176062667DA3F00D4DCE1 /* ListCollectionViewAdapterDataSource.swift in Sources */,
 				5AE175F62667DA3F00D4DCE1 /* CollectionViewContext+Size.swift in Sources */,
+				D93269A22BBBFC2400B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
+				D9CCE9B52BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift in Sources */,
 				5AE175F52667DA3F00D4DCE1 /* CollectionViewAdapter.swift in Sources */,
 				5AE175F32667DA3F00D4DCE1 /* SectionController.swift in Sources */,
 				5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift in Sources */,
-				5AE176042667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */,
+				D91425652BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift in Sources */,
 				5AB6644626A854A9004DC230 /* ErrorHandling.swift in Sources */,
 				5AE176052667DA3F00D4DCE1 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */,
 				5AE175E92667DA3F00D4DCE1 /* CollectionViewSectionBatchOperation.swift in Sources */,
@@ -820,14 +885,13 @@
 				5AE175EC2667DA3F00D4DCE1 /* SectionIndexPath.swift in Sources */,
 				5AE1760F2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
 				5AE1760A2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
-				5AE175FE2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
 				5AE175F12667DA3F00D4DCE1 /* SingleModelSectionController.swift in Sources */,
 				5AE175FB2667DA3F00D4DCE1 /* CollectionViewUpdate.swift in Sources */,
 				5AE175E42667DA3F00D4DCE1 /* Collection+Extensions.swift in Sources */,
-				5AE176032667DA3F00D4DCE1 /* ListCollectionViewAdapter.swift in Sources */,
 				5AE175E12667DA3F00D4DCE1 /* IndexPath+IsValid.swift in Sources */,
 				5AE175F82667DA3F00D4DCE1 /* MainCollectionViewContext.swift in Sources */,
-				5AE175FF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
+				D91425862BBBFB930005E8CD /* BaseFlowLayoutSectionController.swift in Sources */,
+				D9CCE9BF2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift in Sources */,
 				5AE176102667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */,
 				5AE175DE2667DA3F00D4DCE1 /* Sequence+Unique.swift in Sources */,
 				5AB6644426A85463004DC230 /* Error.swift in Sources */,
@@ -840,6 +904,7 @@
 				5AE175F02667DA3F00D4DCE1 /* SingleItemSectionController.swift in Sources */,
 				5AE175FD2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */,
 				5AE176092667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
+				D93269A32BBBFC2700B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
 				5AE1760C2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UIScrollViewDelegate.swift in Sources */,
 				5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */,
 				5AE175FA2667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewUpdate.swift in Sources */,
@@ -848,6 +913,7 @@
 				5AE176012667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
 				5AE1760E2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapterDataSource.swift in Sources */,
 				5AE176112667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift in Sources */,
+				D93269A42BBBFC2B00B33C32 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */,
 				5AE175FC2667DA3F00D4DCE1 /* ListCollectionViewAdapter+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -861,12 +927,13 @@
 				5A0B775626B0050800B054D4 /* MockSectionDropDelegate.swift in Sources */,
 				5A0B774B26AEEB3100B054D4 /* SingleSectionCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.swift in Sources */,
 				5AB6643026A59626004DC230 /* BaseCollectionViewAdapterUICollectionViewDataSourceTests.swift in Sources */,
-				5A31B8D526BAE95700036A3F /* BaseSectionFlowDelegateTests.swift in Sources */,
+				D91425872BBBFBA40005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift in Sources */,
 				5A31B8D326BAE94E00036A3F /* ProtocolDefaultValuesSectionDropDelegateTests.swift in Sources */,
 				5A0B776626B146EC00B054D4 /* ListCollectionViewAdapterUICollectionViewDragDelegateTests.swift in Sources */,
 				5AA9D96A26AACACF00679D88 /* MockSectionDelegate.swift in Sources */,
 				5A0B778626B2AB7800B054D4 /* BaseSectionControllerTests.swift in Sources */,
 				5A0B777026B19EB300B054D4 /* MockListCollectionViewAdapterDataSource.swift in Sources */,
+				D914257F2BBBF8310005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift in Sources */,
 				5A31B8E426BC36C400036A3F /* CollectionViewContextExtensionsTests.swift in Sources */,
 				5AA9D96E26AAD06100679D88 /* SingleSectionCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
 				5AE1761E2667DA7000D4DCE1 /* SequenceUniqueTests.swift in Sources */,
@@ -900,6 +967,7 @@
 				5A0B778926B3EA4D00B054D4 /* ErrorTests.swift in Sources */,
 				5A31B8E226BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift in Sources */,
 				5AA9D95426AAA5EA00679D88 /* MockCollectionReusableView.swift in Sources */,
+				D91425822BBBF8780005E8CD /* MockFlowLayoutSectionController.swift in Sources */,
 				5A0B777C26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift in Sources */,
 				5A0B774526AED0F600B054D4 /* BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests.swift in Sources */,
 				5A31B8C326BAE90300036A3F /* BaseSectionDelegateTests.swift in Sources */,
@@ -909,7 +977,6 @@
 				5AA9D96326AAC65200679D88 /* ListCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests.swift in Sources */,
 				5AE1761B2667DA7000D4DCE1 /* SectionIndexPathTests.swift in Sources */,
 				5AA9D96C26AAD05400679D88 /* ListCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
-				5A31B8D726BAE96000036A3F /* BaseSectionControllerSectionFlowDelegateTests.swift in Sources */,
 				5A31B8C726BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift in Sources */,
 				5A0B776A26B1826100B054D4 /* ListCollectionViewAdapterTests.swift in Sources */,
 				5A31B8B926BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift in Sources */,
@@ -923,6 +990,7 @@
 				5A31B8CD26BAE92D00036A3F /* ProtocolDefaultValuesSectionDragDelegateTests.swift in Sources */,
 				5A0B774726AEE24700B054D4 /* MockSectionFlowDelegate.swift in Sources */,
 				5AA9D95826AAA65900679D88 /* ListCollectionViewAdapterUICollectionViewDataSourceTests.swift in Sources */,
+				D91425692BBBF79E0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift in Sources */,
 				5AB6644926A86F4D004DC230 /* MockSectionDataSource.swift in Sources */,
 				5A31B8D126BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift in Sources */,
 				5A31B8C526BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift in Sources */,
