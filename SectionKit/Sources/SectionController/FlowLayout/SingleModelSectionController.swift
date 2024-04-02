@@ -9,7 +9,7 @@ import UIKit
  it is recommended to use `ListSectionController` instead.
  */
 @MainActor
-open class SingleModelSectionController<Model>: BaseSectionController {
+open class SingleModelSectionController<Model>: BaseFlowLayoutSectionController {
     /**
      Initialise an instance of `SingleModelSectionController`.
 
