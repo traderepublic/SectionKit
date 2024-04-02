@@ -140,6 +140,9 @@
 		D93269A22BBBFC2400B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CA2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		D93269A32BBBFC2700B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C92667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */; };
 		D93269A42BBBFC2B00B33C32 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
+		D94185172BBC121F001B5086 /* SingleItemCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94185142BBC121F001B5086 /* SingleItemCompositionalLayoutSectionController.swift */; };
+		D94185182BBC121F001B5086 /* FoundationDiffingListCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94185152BBC121F001B5086 /* FoundationDiffingListCompositionalLayoutSectionController.swift */; };
+		D94185192BBC121F001B5086 /* SingleModelCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94185162BBC121F001B5086 /* SingleModelCompositionalLayoutSectionController.swift */; };
 		D941851A2BBC123C001B5086 /* ListCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425622BBBF7320005E8CD /* ListCompositionalLayoutSectionController.swift */; };
 		D9CCE9B52BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */; };
 		D9CCE9BF2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */; };
@@ -292,6 +295,9 @@
 		D914257A2BBBF8130005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		D914257B2BBBF8130005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		D91425802BBBF8670005E8CD /* MockFlowLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFlowLayoutSectionController.swift; sourceTree = "<group>"; };
+		D94185142BBC121F001B5086 /* SingleItemCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleItemCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
+		D94185152BBC121F001B5086 /* FoundationDiffingListCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationDiffingListCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
+		D94185162BBC121F001B5086 /* SingleModelCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleModelCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
 		D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
 		D9CCE9B72BADF31D00EED204 /* BaseFlowLayoutSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionController.swift; sourceTree = "<group>"; };
 		D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSection+Empty.swift"; sourceTree = "<group>"; };
@@ -730,6 +736,9 @@
 			children = (
 				D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */,
 				D91425622BBBF7320005E8CD /* ListCompositionalLayoutSectionController.swift */,
+				D94185142BBC121F001B5086 /* SingleItemCompositionalLayoutSectionController.swift */,
+				D94185162BBC121F001B5086 /* SingleModelCompositionalLayoutSectionController.swift */,
+				D94185152BBC121F001B5086 /* FoundationDiffingListCompositionalLayoutSectionController.swift */,
 			);
 			path = CompositionalLayout;
 			sourceTree = "<group>";
@@ -878,6 +887,7 @@
 				5AE175F32667DA3F00D4DCE1 /* SectionController.swift in Sources */,
 				5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift in Sources */,
 				D91425652BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift in Sources */,
+				D94185182BBC121F001B5086 /* FoundationDiffingListCompositionalLayoutSectionController.swift in Sources */,
 				5AB6644626A854A9004DC230 /* ErrorHandling.swift in Sources */,
 				5AE176052667DA3F00D4DCE1 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */,
 				5AE175E92667DA3F00D4DCE1 /* CollectionViewSectionBatchOperation.swift in Sources */,
@@ -899,6 +909,7 @@
 				5AB6644426A85463004DC230 /* Error.swift in Sources */,
 				5AE175F72667DA3F00D4DCE1 /* CollectionViewContext.swift in Sources */,
 				5AE176082667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegateFlowLayout.swift in Sources */,
+				D94185172BBC121F001B5086 /* SingleItemCompositionalLayoutSectionController.swift in Sources */,
 				5AE175E82667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */,
 				5AE175EA2667DA3F00D4DCE1 /* CollectionViewSectionUpdate.swift in Sources */,
 				5AE175F92667DA3F00D4DCE1 /* CollectionViewBatchOperation.swift in Sources */,
@@ -911,6 +922,7 @@
 				5A98000B2678D6BD00378EB5 /* Array+SectionIndexPath.swift in Sources */,
 				5AE175FA2667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewUpdate.swift in Sources */,
 				5AE175E72667DA3F00D4DCE1 /* SectionFlowDelegate.swift in Sources */,
+				D94185192BBC121F001B5086 /* SingleModelCompositionalLayoutSectionController.swift in Sources */,
 				5AE175E32667DA3F00D4DCE1 /* UICollectionView+Apply.swift in Sources */,
 				5AE176012667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
 				5AE1760E2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapterDataSource.swift in Sources */,
