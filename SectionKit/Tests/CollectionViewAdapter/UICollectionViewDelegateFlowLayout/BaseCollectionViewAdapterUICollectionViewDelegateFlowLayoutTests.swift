@@ -2,7 +2,6 @@
 import UIKit
 import XCTest
 
-@MainActor
 internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -22,6 +21,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
+    @MainActor
     internal func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
@@ -33,7 +33,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
     }
 
     // MARK: - sizeForItem
-
+    @MainActor
     internal func testSizeForItemWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke flow layout delegate")
         let mockLayout = UICollectionViewFlowLayout()
@@ -44,7 +44,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = {
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._sizeForItem = { indexPath, layout, _ in
@@ -66,6 +66,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     internal func testSizeForItemWithoutDelegateButWithFlowLayout() throws {
         let itemSize = CGSize(width: 1, height: 2)
         let layout = UICollectionViewFlowLayout()
@@ -76,7 +77,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -88,6 +89,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         )
     }
 
+    @MainActor
     internal func testSizeForItemWithoutDelegateAndFlowLayout() throws {
         let layout = UICollectionViewLayout()
         let collectionView = createCollectionView(collectionViewLayout: layout)
@@ -96,7 +98,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -110,6 +112,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
 
     // MARK: - inset
 
+    @MainActor
     internal func testInsetWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke flow layout delegate")
         let mockLayout = UICollectionViewFlowLayout()
@@ -119,7 +122,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = {
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._inset = { layout, _ in
@@ -140,6 +143,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     internal func testInsetWithoutDelegateButWithFlowLayout() throws {
         let sectionInset = UIEdgeInsets(top: 1, left: 2, bottom: 4, right: 8)
         let layout = UICollectionViewFlowLayout()
@@ -149,7 +153,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -161,6 +165,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         )
     }
 
+    @MainActor
     internal func testInsetWithoutDelegateAndFlowLayout() throws {
         let layout = UICollectionViewLayout()
         let collectionView = createCollectionView(collectionViewLayout: layout)
@@ -168,7 +173,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -182,6 +187,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
 
     // MARK: - minimumLineSpacing
 
+    @MainActor
     internal func testMinimumLineSpacingWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke flow layout delegate")
         let mockLayout = UICollectionViewFlowLayout()
@@ -191,7 +197,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = {
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._minimumLineSpacing = { layout, _ in
@@ -212,6 +218,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     internal func testMinimumLineSpacingWithoutDelegateButWithFlowLayout() throws {
         let lineSpacing: CGFloat = 1
         let layout = UICollectionViewFlowLayout()
@@ -221,7 +228,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -233,6 +240,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         )
     }
 
+    @MainActor
     internal func testMinimumLineSpacingWithoutDelegateAndFlowLayout() throws {
         let layout = UICollectionViewLayout()
         let collectionView = createCollectionView(collectionViewLayout: layout)
@@ -240,7 +248,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -254,6 +262,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
 
     // MARK: - minimumInteritemSpacing
 
+    @MainActor
     internal func testMinimumInteritemSpacingWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke flow layout delegate")
         let mockLayout = UICollectionViewFlowLayout()
@@ -263,7 +272,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = {
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._minimumInteritemSpacing = { layout, _ in
@@ -284,6 +293,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     internal func testMinimumInteritemSpacingWithoutDelegateButWithFlowLayout() throws {
         let interitemSpacing: CGFloat = 1
         let layout = UICollectionViewFlowLayout()
@@ -293,7 +303,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -305,6 +315,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         )
     }
 
+    @MainActor
     internal func testMinimumInteritemSpacingWithoutDelegateAndFlowLayout() throws {
         let layout = UICollectionViewLayout()
         let collectionView = createCollectionView(collectionViewLayout: layout)
@@ -312,7 +323,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -326,6 +337,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
 
     // MARK: - referenceSizeForHeader
 
+    @MainActor
     internal func testReferenceSizeForHeaderWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke flow layout delegate")
         let mockLayout = UICollectionViewFlowLayout()
@@ -335,7 +347,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = {
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._referenceSizeForHeader = { layout, _ in
@@ -356,6 +368,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     internal func testReferenceSizeForHeaderWithoutDelegateButWithFlowLayout() throws {
         let headerSize = CGSize(width: 1, height: 2)
         let layout = UICollectionViewFlowLayout()
@@ -365,7 +378,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -377,6 +390,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         )
     }
 
+    @MainActor
     internal func testReferenceSizeForHeaderWithoutDelegateAndFlowLayout() throws {
         let layout = UICollectionViewLayout()
         let collectionView = createCollectionView(collectionViewLayout: layout)
@@ -384,7 +398,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -398,6 +412,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
 
     // MARK: - referenceSizeForFooter
 
+    @MainActor
     internal func testReferenceSizeForFooterWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke flow layout delegate")
         let mockLayout = UICollectionViewFlowLayout()
@@ -407,7 +422,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = {
                         let flowDelegate = MockSectionFlowDelegate()
                         flowDelegate._referenceSizeForFooter = { layout, _ in
@@ -428,6 +443,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     internal func testReferenceSizeForFooterWithoutDelegateButWithFlowLayout() throws {
         let footerSize = CGSize(width: 1, height: 2)
         let layout = UICollectionViewFlowLayout()
@@ -437,7 +453,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })
@@ -449,6 +465,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
         )
     }
 
+    @MainActor
     internal func testReferenceSizeForFooterWithoutDelegateAndFlowLayout() throws {
         let layout = UICollectionViewLayout()
         let collectionView = createCollectionView(collectionViewLayout: layout)
@@ -456,7 +473,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests:
             collectionView: collectionView,
             sections: [
                 Section(id: "", model: "", controller: {
-                    let sectionController = MockSectionController()
+                    let sectionController = MockFlowLayoutSectionController()
                     sectionController.flowDelegate = nil
                     return sectionController
                 })

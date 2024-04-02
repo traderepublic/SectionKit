@@ -20,11 +20,6 @@ internal class MockSectionController: SectionController {
         return nil
     }()
 
-    internal lazy var flowDelegate: SectionFlowDelegate? = {
-        XCTFail("flow delegate is not set")
-        return nil
-    }()
-
     @available(iOS 11.0, *)
     internal lazy var dragDelegate: SectionDragDelegate? = {
         XCTFail("dragDelegate is not set")
