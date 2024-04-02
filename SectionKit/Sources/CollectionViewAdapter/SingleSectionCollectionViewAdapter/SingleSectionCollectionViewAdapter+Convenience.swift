@@ -58,12 +58,12 @@ extension SingleSectionCollectionViewAdapter {
 extension SingleSectionCollectionViewAdapter {
     @inlinable
     public func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
-        controller(at: indexPath)?.flowDelegate
+        (controller(at: indexPath) as? FlowLayoutSectionController)?.flowDelegate
     }
 
     @inlinable
     public func flowDelegate(at index: Int) -> SectionFlowDelegate? {
-        controller(at: index)?.flowDelegate
+        (controller(at: index) as? FlowLayoutSectionController)?.flowDelegate
     }
 }
 
