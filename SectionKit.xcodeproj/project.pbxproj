@@ -140,6 +140,7 @@
 		D93269A22BBBFC2400B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CA2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		D93269A32BBBFC2700B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C92667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */; };
 		D93269A42BBBFC2B00B33C32 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
+		D941851A2BBC123C001B5086 /* ListCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425622BBBF7320005E8CD /* ListCompositionalLayoutSectionController.swift */; };
 		D9CCE9B52BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9B42BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift */; };
 		D9CCE9BF2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */; };
 /* End PBXBuildFile section */
@@ -887,6 +888,7 @@
 				5AE1760A2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				5AE175F12667DA3F00D4DCE1 /* SingleModelSectionController.swift in Sources */,
 				5AE175FB2667DA3F00D4DCE1 /* CollectionViewUpdate.swift in Sources */,
+				D941851A2BBC123C001B5086 /* ListCompositionalLayoutSectionController.swift in Sources */,
 				5AE175E42667DA3F00D4DCE1 /* Collection+Extensions.swift in Sources */,
 				5AE175E12667DA3F00D4DCE1 /* IndexPath+IsValid.swift in Sources */,
 				5AE175F82667DA3F00D4DCE1 /* MainCollectionViewContext.swift in Sources */,
