@@ -1,15 +1,16 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class SingleItemSectionControllerTests: XCTestCase {
-    internal func testDidUpdateModelWithValidTypeSetsModel() {
+final class SingleItemSectionControllerTests: XCTestCase {
+    @MainActor
+    func testDidUpdateModelWithValidTypeSetsModel() {
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         sectionController.didUpdate(model: "2")
         XCTAssertEqual(sectionController.model, "2")
     }
 
-    internal func testDidUpdateModelWithInvalidType() {
+    @MainActor
+    func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
@@ -32,7 +33,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testInitDoesNotUpdateItemIfShouldNotUpdateItem() {
+    @MainActor
+    func testInitDoesNotUpdateItemIfShouldNotUpdateItem() {
         class TestSectionController: SingleItemSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
@@ -56,7 +58,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testSettingModelDoesNotUpdateItemIfShouldNotUpdateItem() {
+    @MainActor
+    func testSettingModelDoesNotUpdateItemIfShouldNotUpdateItem() {
         class TestSectionController: SingleItemSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
@@ -83,12 +86,14 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testShouldUpdateItemDefaultsToTrue() {
+    @MainActor
+    func testShouldUpdateItemDefaultsToTrue() {
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         XCTAssert(sectionController.shouldUpdateItem(afterModelChangedTo: "2"))
     }
 
-    internal func testItemForModelInvokesNotImplementedError() {
+    @MainActor
+    func testItemForModelInvokesNotImplementedError() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
@@ -108,7 +113,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCalculateUpdateFromSomeToSomeWithEqualItems() throws {
+    @MainActor
+    func testCalculateUpdateFromSomeToSomeWithEqualItems() throws {
         let sectionController = SingleItemSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
@@ -125,7 +131,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
-    internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
+    @MainActor
+    func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
         let sectionController = SingleItemSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
@@ -142,7 +149,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
-    internal func testCalculateUpdateFromNoneToSome() throws {
+    @MainActor
+    func testCalculateUpdateFromNoneToSome() throws {
         let sectionController = SingleItemSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
@@ -159,7 +167,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
-    internal func testCalculateUpdateFromSomeToNone() throws {
+    @MainActor
+    func testCalculateUpdateFromSomeToNone() throws {
         let sectionController = SingleItemSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
@@ -176,7 +185,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
-    internal func testCalculateUpdateFromNoneToNone() throws {
+    @MainActor
+    func testCalculateUpdateFromNoneToNone() throws {
         let sectionController = SingleItemSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
@@ -193,7 +203,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertFalse(update.shouldReload(batchOperation))
     }
 
-    internal func testNumberOfItemsWithItem() {
+    @MainActor
+    func testNumberOfItemsWithItem() {
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         sectionController.item = "1"
         let context = MainCollectionViewContext(
@@ -204,7 +215,8 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
         XCTAssertEqual(sectionController.numberOfItems(in: context), 1)
     }
 
-    internal func testNumberOfItemsWithoutItem() {
+    @MainActor
+    func testNumberOfItemsWithoutItem() {
         let sectionController = SingleItemSectionController<String, String>(model: "1")
         sectionController.item = nil
         let context = MainCollectionViewContext(

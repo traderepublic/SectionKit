@@ -1,8 +1,8 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal final class ProtocolDefaultValuesSectionFlowDelegateTests: BaseFlowLayoutSectionFlowDelegateTests {
+final class ProtocolDefaultValuesSectionFlowDelegateTests: BaseFlowLayoutSectionFlowDelegateTests {
+    @MainActor
     override func createSectionFlowDelegate() throws -> SectionFlowDelegate {
         class DefaultSectionFlowDelegate: SectionFlowDelegate { }
         return DefaultSectionFlowDelegate()

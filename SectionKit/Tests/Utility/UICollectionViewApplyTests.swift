@@ -1,11 +1,11 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class UICollectionViewApplyTests: XCTestCase {
+final class UICollectionViewApplyTests: XCTestCase {
     // MARK: - CollectionViewSectionUpdate
 
-    internal func testSectionUpdateEmptyBatchOperations() {
+    @MainActor
+    func testSectionUpdateEmptyBatchOperations() {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let update = CollectionViewSectionUpdate<String>(
             controller: BaseSectionController(),
@@ -15,7 +15,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         collectionView.apply(update: update, at: 0)
     }
 
-    internal func testSectionUpdateWithoutWindowWithSingleBatchOperation() {
+    @MainActor
+    func testSectionUpdateWithoutWindowWithSingleBatchOperation() {
         let setDataExpectation = expectation(description: "Should invoke setData")
         let reloadDataExpectation = expectation(description: "Should invoke reloadData")
         let completionExpectation = expectation(description: "Should invoke completion of batch operation")
@@ -51,7 +52,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         )
     }
 
-    internal func testSectionUpdateWithoutWindowWithMultipleBatchOperations() {
+    @MainActor
+    func testSectionUpdateWithoutWindowWithMultipleBatchOperations() {
         let firstSetDataExpectation = expectation(description: "Should invoke setData for first data")
         let secondSetDataExpectation = expectation(description: "Should invoke setData for second data")
         let reloadDataExpectation = expectation(description: "Should invoke reloadData")
@@ -106,7 +108,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         )
     }
 
-    internal func testSectionUpdateWithWindowWithSingleBatchOperationWithAlwaysReload() {
+    @MainActor
+    func testSectionUpdateWithWindowWithSingleBatchOperationWithAlwaysReload() {
         let performBatchUpdatesExpectation = expectation(description: "Should invoke performBatchUpdates")
         let setDataExpectation = expectation(description: "Should invoke setData")
         let reloadSectionsExpectation = expectation(description: "Should invoke reloadSections")
@@ -163,7 +166,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         )
     }
 
-    internal func testSectionUpdateWithWindowWithSingleBatchOperationWithSeparateUpdates() {
+    @MainActor
+    func testSectionUpdateWithWindowWithSingleBatchOperationWithSeparateUpdates() {
         let performBatchUpdatesExpectation = expectation(description: "Should invoke performBatchUpdates")
         let setDataExpectation = expectation(description: "Should invoke setData")
         let deleteItemsExpectation = expectation(description: "Should invoke deleteItems")
@@ -264,7 +268,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
 
     // MARK: - CollectionViewUpdate
 
-    internal func testUpdateEmptyBatchOperations() {
+    @MainActor
+    func testUpdateEmptyBatchOperations() {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let update = CollectionViewUpdate<String>(
             batchOperations: [],
@@ -308,7 +313,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         )
     }
 
-    internal func testUpdateWithoutWindowWithMultipleBatchOperations() {
+    @MainActor
+    func testUpdateWithoutWindowWithMultipleBatchOperations() {
         let firstSetDataExpectation = expectation(description: "Should invoke setData for first data")
         let secondSetDataExpectation = expectation(description: "Should invoke setData for second data")
         let reloadDataExpectation = expectation(description: "Should invoke reloadData")
@@ -361,7 +367,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         )
     }
 
-    internal func testUpdateWithWindowWithSingleBatchOperationWithAlwaysReload() {
+    @MainActor
+    func testUpdateWithWindowWithSingleBatchOperationWithAlwaysReload() {
         let setDataExpectation = expectation(description: "Should invoke setData")
         let reloadDataExpectation = expectation(description: "Should invoke reloadData")
         let completionExpectation = expectation(description: "Should invoke completion of batch operation")
@@ -408,7 +415,8 @@ internal final class UICollectionViewApplyTests: XCTestCase {
         )
     }
 
-    internal func testUpdateWithWindowWithSingleBatchOperationWithSeparateUpdates() {
+    @MainActor
+    func testUpdateWithWindowWithSingleBatchOperationWithSeparateUpdates() {
         let performBatchUpdatesExpectation = expectation(description: "Should invoke performBatchUpdates")
         let setDataExpectation = expectation(description: "Should invoke setData")
         let deleteSectionsExpectation = expectation(description: "Should invoke deleteSections")

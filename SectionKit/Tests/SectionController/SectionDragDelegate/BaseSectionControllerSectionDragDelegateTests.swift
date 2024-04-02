@@ -1,9 +1,9 @@
 import SectionKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal final class BaseSectionControllerSectionDragDelegateTests: BaseSectionDragDelegateTests {
+final class BaseSectionControllerSectionDragDelegateTests: BaseSectionDragDelegateTests {
+    @MainActor
     override func createSectionDragDelegate() throws -> SectionDragDelegate {
         BaseSectionController()
     }

@@ -3,6 +3,7 @@ import XCTest
 
 @available(iOS 11.0, *)
 internal final class ProtocolDefaultValuesSectionDragDelegateTests: BaseSectionDragDelegateTests {
+    @MainActor
     override func createSectionDragDelegate() throws -> SectionDragDelegate {
         class DefaultSectionDragDelegate: SectionDragDelegate {
             func dragItems(
