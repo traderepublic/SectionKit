@@ -2,27 +2,27 @@
 import UIKit
 import XCTest
 
-@MainActor
-internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
+class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseCollectionViewAdapterUIScrollViewDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createCollectionView(
+    func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
-    internal func createCollectionViewAdapter(
+    @MainActor
+    func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,
@@ -32,7 +32,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testScrollViewDidScroll() throws {
+    @MainActor
+    func testScrollViewDidScroll() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -48,7 +49,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewDidZoom() throws {
+    @MainActor
+    func testScrollViewDidZoom() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -64,7 +66,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewWillBeginDragging() throws {
+    @MainActor
+    func testScrollViewWillBeginDragging() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -80,7 +83,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewWillEndDragging() throws {
+    @MainActor
+    func testScrollViewWillEndDragging() throws {
         let velocity = CGPoint(x: 1, y: 2)
         let targetContentOffset = CGPoint(x: 4, y: 8)
         let testExpectation = expectation(description: "Should invoke scroll delegate")
@@ -105,7 +109,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewDidEndDragging() throws {
+    @MainActor
+    func testScrollViewDidEndDragging() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -122,7 +127,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewWillBeginDecelerating() throws {
+    @MainActor
+    func testScrollViewWillBeginDecelerating() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -138,7 +144,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewDidEndDecelerating() throws {
+    @MainActor
+    func testScrollViewDidEndDecelerating() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -154,7 +161,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewDidEndScrollingAnimation() throws {
+    @MainActor
+    func testScrollViewDidEndScrollingAnimation() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -170,7 +178,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testViewForZooming() throws {
+    @MainActor
+    func testViewForZooming() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -188,7 +197,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewWillBeginZooming() throws {
+    @MainActor
+    func testScrollViewWillBeginZooming() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -206,7 +216,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewDidEndZooming() throws {
+    @MainActor
+    func testScrollViewDidEndZooming() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -225,7 +236,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewShouldScrollToTop() throws {
+    @MainActor
+    func testScrollViewShouldScrollToTop() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -242,7 +254,8 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testScrollViewDidScrollToTop() throws {
+    @MainActor
+    func testScrollViewDidScrollToTop() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()
@@ -258,8 +271,9 @@ internal class BaseCollectionViewAdapterUIScrollViewDelegateTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     @available(iOS 11.0, *)
-    internal func testScrollViewDidChangeAdjustedContentInset() throws {
+    func testScrollViewDidChangeAdjustedContentInset() throws {
         let testExpectation = expectation(description: "Should invoke scroll delegate")
         let collectionView = createCollectionView()
         let scrollViewDelegate = MockScrollViewDelegate()

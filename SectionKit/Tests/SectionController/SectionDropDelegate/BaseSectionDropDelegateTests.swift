@@ -1,25 +1,26 @@
 import SectionKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal class BaseSectionDropDelegateTests: XCTestCase {
+class BaseSectionDropDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseSectionDropDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createSectionDropDelegate() throws -> SectionDropDelegate {
+    @MainActor
+    func createSectionDropDelegate() throws -> SectionDropDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testCanHandle() throws {
+    @MainActor
+    func testCanHandle() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -33,7 +34,8 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         ))
     }
 
-    internal func testDropSessionDidUpdate() throws {
+    @MainActor
+    func testDropSessionDidUpdate() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -52,7 +54,8 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         )
     }
 
-    internal func testPerformDrop() throws {
+    @MainActor
+    func testPerformDrop() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -68,7 +71,8 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDropSessionDidEnter() throws {
+    @MainActor
+    func testDropSessionDidEnter() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -82,7 +86,8 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDropSessionDidExit() throws {
+    @MainActor
+    func testDropSessionDidExit() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -96,7 +101,8 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDropSessionDidEnd() throws {
+    @MainActor
+    func testDropSessionDidEnd() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -110,7 +116,8 @@ internal class BaseSectionDropDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDropPreviewParametersForItem() throws {
+    @MainActor
+    func testDropPreviewParametersForItem() throws {
         let sectionDropDelegate = try createSectionDropDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,

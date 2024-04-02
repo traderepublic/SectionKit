@@ -2,27 +2,27 @@
 import UIKit
 import XCTest
 
-@MainActor
-internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestCase {
+class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseCollectionViewAdapterUICollectionViewDataSourceTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createCollectionView(
+    func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
-    internal func createCollectionViewAdapter(
+    @MainActor
+    func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,
@@ -32,7 +32,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testNumberOfSections() throws {
+    @MainActor
+    func testNumberOfSections() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -43,7 +44,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         XCTAssertEqual(adapter.numberOfSections?(in: collectionView), 1)
     }
 
-    internal func testNumberOfItemsInSection() throws {
+    @MainActor
+    func testNumberOfItemsInSection() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -62,7 +64,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         XCTAssertEqual(adapter.collectionView(collectionView, numberOfItemsInSection: 0), 1)
     }
 
-    internal func testNumberOfItemsInSectionWithInvalidIndex() throws {
+    @MainActor
+    func testNumberOfItemsInSectionWithInvalidIndex() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -91,7 +94,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCellForItem() throws {
+    @MainActor
+    func testCellForItem() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -118,7 +122,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         )
     }
 
-    internal func testCellForItemWithInvalidSectionIndex() throws {
+    @MainActor
+    func testCellForItemWithInvalidSectionIndex() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -155,7 +160,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCellForItemWithInvalidIndexPath() throws {
+    @MainActor
+    func testCellForItemWithInvalidIndexPath() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -192,7 +198,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testViewForSupplementaryElementOfKindHeader() throws {
+    @MainActor
+    func testViewForSupplementaryElementOfKindHeader() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -219,7 +226,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         )
     }
 
-    internal func testViewForSupplementaryElementOfKindWithInvalidSectionIndex() throws {
+    @MainActor
+    func testViewForSupplementaryElementOfKindWithInvalidSectionIndex() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -256,7 +264,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testViewForSupplementaryElementOfKindWithInvalidIndexPath() throws {
+    @MainActor
+    func testViewForSupplementaryElementOfKindWithInvalidIndexPath() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -293,7 +302,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testViewForSupplementaryElementOfKindFooter() throws {
+    @MainActor
+    func testViewForSupplementaryElementOfKindFooter() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -320,7 +330,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         )
     }
 
-    internal func testViewForSupplementaryElementOfKindWithUnsupportedElementKind() throws {
+    @MainActor
+    func testViewForSupplementaryElementOfKindWithUnsupportedElementKind() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -357,7 +368,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCanMoveItemAt() throws {
+    @MainActor
+    func testCanMoveItemAt() throws {
         let testExpectation = expectation(description: "Should invoke datasource")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -381,7 +393,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testMoveItemInSameSectionCallsDataSource() throws {
+    @MainActor
+    func testMoveItemInSameSectionCallsDataSource() throws {
         let testExpectation = expectation(description: "Should invoke datasource")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -408,7 +421,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testMoveItemInDifferentSectionNotCallsDataSource() throws {
+    @MainActor
+    func testMoveItemInDifferentSectionNotCallsDataSource() throws {
         let dataSourceExpectation = expectation(description: "Should not invoke datasource")
         dataSourceExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
@@ -448,7 +462,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testMoveItemWithInvalidSourceIndexPath() throws {
+    @MainActor
+    func testMoveItemWithInvalidSourceIndexPath() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -470,7 +485,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
-    internal func testMoveItemWithInvalidDestinationIndexPath() throws {
+    @MainActor
+    func testMoveItemWithInvalidDestinationIndexPath() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
@@ -492,15 +508,17 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourceTests: XCTestC
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     @available(iOS 14.0, *)
-    internal func testIndexTitlesIsNil() throws {
+    func testIndexTitlesIsNil() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(collectionView: collectionView)
         XCTAssertNil(adapter.indexTitles?(for: collectionView))
     }
 
+    @MainActor
     @available(iOS 14.0, *)
-    internal func testIndexPathForIndexTitle() throws {
+    func testIndexPathForIndexTitle() throws {
         let testExpectation = expectation(description: "Should invoke errorHandler")
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
