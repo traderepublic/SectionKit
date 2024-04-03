@@ -39,7 +39,7 @@ extension ExampleListCoordinator: Presentable {
                     ),
                     ExampleViewModel(
                         name: "Names",
-                        description: "An MVVM-C arichitecture with compositional layout example by using a ListCompositionalLayoutCollectionViewAdapter that shows multiple ListCompositionalLayoutSectionController.",
+                        description: "An MVVM-C architecture with compositional layout example by using a ListCompositionalLayoutCollectionViewAdapter that shows multiple ListCompositionalLayoutSectionController.",
                         navigation: ExampleCoordinator(
                             navigationController: navigationController,
                             presentable: NamesCoordinator(navigationController: navigationController)
