@@ -12,6 +12,14 @@ open class FoundationDiffingListCompositionalLayoutSectionController<
     Model,
     Item: Hashable
 >: ListCompositionalLayoutSectionController<Model, Item> {
+    /// The threshold to reload the collection view instead of the batch updates
+    private let reloadThreshold: Int
+
+    public init(model: Model, reloadThreshold: Int = 100) {
+        self.reloadThreshold = reloadThreshold
+        super.init(model: model)
+    }
+
     override open func calculateUpdate(
         from oldData: [Item],
         to newData: [Item]
@@ -27,8 +35,16 @@ open class FoundationDiffingListCompositionalLayoutSectionController<
             inserts: changes.inserts,
             moves: changes.moves,
             reloads: changes.reloads,
-            setData: { self.collectionViewItems = $0 },
-            shouldReload: { $0.count > 100 }
+            setData: { [weak self] in
+                guard let self else { return }
+                self.collectionViewItems = $0
+            },
+            shouldReload: { [weak self] in
+                guard let self else { return false }
+                // For performance reasons, it is recommended to perform a reload instead of separate inserts/deletes when too many batch operations.
+                // The default threshold is `100`.
+                return $0.count > self.reloadThreshold
+            }
         )
     }
 }

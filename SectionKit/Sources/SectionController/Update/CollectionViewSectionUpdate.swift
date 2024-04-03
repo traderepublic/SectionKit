@@ -34,8 +34,6 @@ public struct CollectionViewSectionUpdate<SectionData> {
      
      - Parameter shouldReload: A predicate that determines if instead of applying the given batch operation
      the section should be reloaded.
-     For performance reasons it is recommended to perform a reload instead of separate inserts/deletes,
-     if more than `100` changes are applied in a single batch operation.
      */
     public init(
         controller: SectionController,
@@ -69,8 +67,6 @@ public struct CollectionViewSectionUpdate<SectionData> {
      
      - Parameter shouldReload: A predicate that determines if instead of applying the given batch operation
      the section should be reloaded.
-     For performance reasons it is recommended to perform a reload instead of separate inserts/deletes,
-     if more than `100` changes are applied in a single batch operation.
      
      - Parameter completion: A completion handler that gets called after the updates have been applied.
      The parameter may be `true` if all of the related animations completed successfully
