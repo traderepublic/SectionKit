@@ -14,35 +14,35 @@ open class BaseFlowLayoutSectionController: BaseSectionController,
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.itemSize ?? CGSize(width: 50, height: 50)
+        layout.flowLayout?.itemSize ?? FlowLayoutConstants.defaultItemSize
     }
 
     open func inset(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> UIEdgeInsets {
-        (layout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
+        layout.flowLayout?.sectionInset ?? FlowLayoutConstants.defaultInset
     }
 
     open func minimumLineSpacing(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGFloat {
-        (layout as? UICollectionViewFlowLayout)?.minimumLineSpacing ?? 10
+        layout.flowLayout?.minimumLineSpacing ?? FlowLayoutConstants.defaultMinimumLineSpacing
     }
 
     open func minimumInteritemSpacing(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGFloat {
-        (layout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10
+        layout.flowLayout?.minimumInteritemSpacing ?? FlowLayoutConstants.defaultMinimumInteritemSpacing
     }
 
     open func referenceSizeForHeader(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.headerReferenceSize ?? .zero
+        layout.flowLayout?.headerReferenceSize ?? FlowLayoutConstants.defaultHeaderSize
     }
 
     open func referenceSizeForFooter(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.footerReferenceSize ?? .zero
+        layout.flowLayout?.footerReferenceSize ?? FlowLayoutConstants.defaultFooterSize
     }
 }

@@ -76,47 +76,62 @@ public protocol SectionFlowDelegate: AnyObject {
     func referenceSizeForFooter(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGSize
 }
 
+enum FlowLayoutConstants {
+    static let defaultItemSize = CGSize(width: 50, height: 50)
+    static let defaultInset: UIEdgeInsets = .zero
+    static let defaultMinimumLineSpacing: CGFloat = 10
+    static let defaultMinimumInteritemSpacing: CGFloat = 10
+    static let defaultHeaderSize: CGSize = .zero
+    static let defaultFooterSize: CGSize = .zero
+}
+
 extension SectionFlowDelegate {
     public func sizeForItem(
         at indexPath: SectionIndexPath,
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.itemSize ?? CGSize(width: 50, height: 50)
+        layout.flowLayout?.itemSize ?? FlowLayoutConstants.defaultItemSize
     }
 
     public func inset(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> UIEdgeInsets {
-        (layout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
+        layout.flowLayout?.sectionInset ?? FlowLayoutConstants.defaultInset
     }
 
     public func minimumLineSpacing(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGFloat {
-        (layout as? UICollectionViewFlowLayout)?.minimumLineSpacing ?? 10
+        layout.flowLayout?.minimumLineSpacing ?? FlowLayoutConstants.defaultMinimumLineSpacing
     }
 
     public func minimumInteritemSpacing(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGFloat {
-        (layout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing ?? 10
+        layout.flowLayout?.minimumInteritemSpacing ?? FlowLayoutConstants.defaultMinimumInteritemSpacing
     }
 
     public func referenceSizeForHeader(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.headerReferenceSize ?? .zero
+        layout.flowLayout?.headerReferenceSize ?? FlowLayoutConstants.defaultHeaderSize
     }
 
     public func referenceSizeForFooter(
         using layout: UICollectionViewLayout,
         in context: CollectionViewContext
     ) -> CGSize {
-        (layout as? UICollectionViewFlowLayout)?.footerReferenceSize ?? .zero
+        layout.flowLayout?.footerReferenceSize ?? FlowLayoutConstants.defaultFooterSize
+    }
+}
+
+extension UICollectionViewLayout {
+    var flowLayout: UICollectionViewFlowLayout? {
+        self as? UICollectionViewFlowLayout
     }
 }
