@@ -44,6 +44,7 @@ extension Section {
 
      - Parameter controller: An autoclosure that produces the `SectionController` for this section.
      */
+    @MainActor
     public convenience init(
         id: AnyHashable,
         model: Any,
