@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		5AE1759E2667D9AF00D4DCE1 /* Changeset+BatchOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175992667D9AF00D4DCE1 /* Changeset+BatchOperations.swift */; };
 		5AE175A02667DA1A00D4DCE1 /* DiffingListCollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1759F2667DA1A00D4DCE1 /* DiffingListCollectionViewAdapterTests.swift */; };
 		5AE176272667DC8100D4DCE1 /* DifferenceKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE176262667DC8100D4DCE1 /* DifferenceKit.xcframework */; };
+		D90764BD2BC578230083306E /* DiffingListCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90764BC2BC578230083306E /* DiffingListCompositionalLayoutSectionController.swift */; };
+		D90764BF2BC57C840083306E /* ManualDiffingListCompositionalLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90764BE2BC57C840083306E /* ManualDiffingListCompositionalLayoutSectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		5AE175992667D9AF00D4DCE1 /* Changeset+BatchOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Changeset+BatchOperations.swift"; sourceTree = "<group>"; };
 		5AE1759F2667DA1A00D4DCE1 /* DiffingListCollectionViewAdapterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffingListCollectionViewAdapterTests.swift; sourceTree = "<group>"; };
 		5AE176262667DC8100D4DCE1 /* DifferenceKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DifferenceKit.xcframework; path = Carthage/Build/DifferenceKit.xcframework; sourceTree = "<group>"; };
+		D90764BC2BC578230083306E /* DiffingListCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffingListCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
+		D90764BE2BC57C840083306E /* ManualDiffingListCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualDiffingListCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +96,10 @@
 		5AE175712667D64B00D4DCE1 /* DiffingSectionKit */ = {
 			isa = PBXGroup;
 			children = (
+				D90764BB2BC578120083306E /* CompositionalLayout */,
+				D90764BA2BC577F70083306E /* FlowLayout */,
 				5AE175942667D9AF00D4DCE1 /* Utility */,
 				5AE175902667D99E00D4DCE1 /* DiffingListCollectionViewAdapter.swift */,
-				5AE1758E2667D99E00D4DCE1 /* DiffingListSectionController.swift */,
-				5AE1758F2667D99E00D4DCE1 /* ManualDiffingListSectionController.swift */,
 				5AE175732667D64B00D4DCE1 /* Info.plist */,
 			);
 			name = DiffingSectionKit;
@@ -131,6 +135,24 @@
 				5AE175992667D9AF00D4DCE1 /* Changeset+BatchOperations.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		D90764BA2BC577F70083306E /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5AE1758F2667D99E00D4DCE1 /* ManualDiffingListSectionController.swift */,
+				5AE1758E2667D99E00D4DCE1 /* DiffingListSectionController.swift */,
+			);
+			path = FlowLayout;
+			sourceTree = "<group>";
+		};
+		D90764BB2BC578120083306E /* CompositionalLayout */ = {
+			isa = PBXGroup;
+			children = (
+				D90764BE2BC57C840083306E /* ManualDiffingListCompositionalLayoutSectionController.swift */,
+				D90764BC2BC578230083306E /* DiffingListCompositionalLayoutSectionController.swift */,
+			);
+			path = CompositionalLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,8 +269,10 @@
 				5AE175912667D99E00D4DCE1 /* DiffingListSectionController.swift in Sources */,
 				5AE175932667D99E00D4DCE1 /* DiffingListCollectionViewAdapter.swift in Sources */,
 				5AE175922667D99E00D4DCE1 /* ManualDiffingListSectionController.swift in Sources */,
+				D90764BF2BC57C840083306E /* ManualDiffingListCompositionalLayoutSectionController.swift in Sources */,
 				5AE1759E2667D9AF00D4DCE1 /* Changeset+BatchOperations.swift in Sources */,
 				5AE1759D2667D9AF00D4DCE1 /* Section+Differentiable.swift in Sources */,
+				D90764BD2BC578230083306E /* DiffingListCompositionalLayoutSectionController.swift in Sources */,
 				5AE1759A2667D9AF00D4DCE1 /* ContentIdentifiable+Identifiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
