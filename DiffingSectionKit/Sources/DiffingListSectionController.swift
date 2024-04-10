@@ -9,7 +9,7 @@ import SectionKit
  of a model to be displayed and the list of items may dynamically change.
  */
 @MainActor
-open class DiffingListFlowLayoutSectionController<Model, Item: Differentiable>: ListFlowLaoutSectionController<Model, Item> {
+open class DiffingListSectionController<Model, Item: Differentiable>: ListSectionController<Model, Item> {
     override open func calculateUpdate(
         from oldData: [Item],
         to newData: [Item]
@@ -23,12 +23,3 @@ open class DiffingListFlowLayoutSectionController<Model, Item: Differentiable>: 
         )
     }
 }
-
-@available(
-    *,
-     deprecated,
-     renamed: "DiffingListFlowLayoutSectionController",
-     message: "It has been renamed to DiffingListFlowLayoutSectionController"
-)
-
-public typealias DiffingListSectionController = DiffingListFlowLayoutSectionController

@@ -1,8 +1,10 @@
 import UIKit
 
-/// This serves as a fundamental `SectionController` implementation,
-/// encompassing data source and delegate protocols, with the exception of the flow layout delegate.
-/// Each access control is designated as` open`, allowing for easy customization through overrides.
+/**
+ A base implementation of all `SectionController` datasource and delegate protocols.
+
+ Every declaration is marked `open` and can be overridden.
+ */
 @MainActor
 open class BaseSectionController: SectionController,
                                   SectionDataSource,
@@ -25,6 +27,8 @@ open class BaseSectionController: SectionController,
     open var dataSourcePrefetchingDelegate: SectionDataSourcePrefetchingDelegate? { self }
 
     open var delegate: SectionDelegate? { self }
+
+    open var flowDelegate: SectionFlowDelegate? { self }
 
     @available(iOS 11.0, *)
     open var dragDelegate: SectionDragDelegate? { self }
@@ -225,6 +229,44 @@ open class BaseSectionController: SectionController,
         nil
     }
 
+    // MARK: - SectionDropDelegate
+
+    @available(iOS 11.0, *)
+    open func canHandle(drop session: UIDropSession, in context: CollectionViewContext) -> Bool { true }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidUpdate(
+        _ session: UIDropSession,
+        at indexPath: SectionIndexPath?,
+        in context: CollectionViewContext
+    ) -> UICollectionViewDropProposal {
+        UICollectionViewDropProposal(operation: .forbidden)
+    }
+
+    @available(iOS 11.0, *)
+    open func performDrop(
+        at indexPath: SectionIndexPath?,
+        with coordinator: UICollectionViewDropCoordinator,
+        in context: CollectionViewContext
+    ) { }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidEnter(_ session: UIDropSession, in context: CollectionViewContext) { }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidExit(_ session: UIDropSession, in context: CollectionViewContext) { }
+
+    @available(iOS 11.0, *)
+    open func dropSessionDidEnd(_ session: UIDropSession, in context: CollectionViewContext) { }
+
+    @available(iOS 11.0, *)
+    open func dropPreviewParametersForItem(
+        at indexPath: SectionIndexPath,
+        in context: CollectionViewContext
+    ) -> UIDragPreviewParameters? {
+        nil
+    }
+
     // MARK: - SectionFlowDelegate
 
     @available(
@@ -300,41 +342,4 @@ open class BaseSectionController: SectionController,
         layout.flowLayout?.footerReferenceSize ?? FlowLayoutConstants.defaultFooterSize
     }
 
-    // MARK: - SectionDropDelegate
-
-    @available(iOS 11.0, *)
-    open func canHandle(drop session: UIDropSession, in context: CollectionViewContext) -> Bool { true }
-
-    @available(iOS 11.0, *)
-    open func dropSessionDidUpdate(
-        _ session: UIDropSession,
-        at indexPath: SectionIndexPath?,
-        in context: CollectionViewContext
-    ) -> UICollectionViewDropProposal {
-        UICollectionViewDropProposal(operation: .forbidden)
-    }
-
-    @available(iOS 11.0, *)
-    open func performDrop(
-        at indexPath: SectionIndexPath?,
-        with coordinator: UICollectionViewDropCoordinator,
-        in context: CollectionViewContext
-    ) { }
-
-    @available(iOS 11.0, *)
-    open func dropSessionDidEnter(_ session: UIDropSession, in context: CollectionViewContext) { }
-
-    @available(iOS 11.0, *)
-    open func dropSessionDidExit(_ session: UIDropSession, in context: CollectionViewContext) { }
-
-    @available(iOS 11.0, *)
-    open func dropSessionDidEnd(_ session: UIDropSession, in context: CollectionViewContext) { }
-
-    @available(iOS 11.0, *)
-    open func dropPreviewParametersForItem(
-        at indexPath: SectionIndexPath,
-        in context: CollectionViewContext
-    ) -> UIDragPreviewParameters? {
-        nil
-    }
 }
