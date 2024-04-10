@@ -12,7 +12,7 @@ final class SingleModelSectionControllerTests: XCTestCase {
     @MainActor
     func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = SingleModelSectionController(model: "1")
+        let sectionController = SingleModelFlowLayoutSectionController(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),

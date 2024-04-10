@@ -33,9 +33,9 @@
 		5A0B777A26B1A81300B054D4 /* MainCollectionViewContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777926B1A81300B054D4 /* MainCollectionViewContextTests.swift */; };
 		5A0B777C26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */; };
 		5A0B777E26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777D26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift */; };
-		5A0B778026B299FF00B054D4 /* ListSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */; };
-		5A0B778226B2A92C00B054D4 /* SingleItemSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */; };
-		5A0B778426B2AA2000B054D4 /* SingleModelSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */; };
+		5A0B778026B299FF00B054D4 /* ListFlowLayoutSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777F26B299FF00B054D4 /* ListFlowLayoutSectionControllerTests.swift */; };
+		5A0B778226B2A92C00B054D4 /* SingleItemFlowLayoutSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778126B2A92C00B054D4 /* SingleItemFlowLayoutSectionControllerTests.swift */; };
+		5A0B778426B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778326B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift */; };
 		5A0B778626B2AB7800B054D4 /* BaseSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */; };
 		5A0B778926B3EA4D00B054D4 /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */; };
 		5A31B8B726BAE8A900036A3F /* BaseSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */; };
@@ -97,10 +97,7 @@
 		5AE175EC2667DA3F00D4DCE1 /* SectionIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B22667DA3E00D4DCE1 /* SectionIndexPath.swift */; };
 		5AE175ED2667DA3F00D4DCE1 /* SectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B32667DA3E00D4DCE1 /* SectionDelegate.swift */; };
 		5AE175EE2667DA3F00D4DCE1 /* BaseSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B52667DA3E00D4DCE1 /* BaseSectionController.swift */; };
-		5AE175EF2667DA3F00D4DCE1 /* ListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B62667DA3E00D4DCE1 /* ListSectionController.swift */; };
-		5AE175F02667DA3F00D4DCE1 /* SingleItemSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B72667DA3F00D4DCE1 /* SingleItemSectionController.swift */; };
-		5AE175F12667DA3F00D4DCE1 /* SingleModelSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B82667DA3F00D4DCE1 /* SingleModelSectionController.swift */; };
-		5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift */; };
+		5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListFlowLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListFlowLayoutSectionController.swift */; };
 		5AE175F32667DA3F00D4DCE1 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175BA2667DA3F00D4DCE1 /* SectionController.swift */; };
 		5AE175F42667DA3F00D4DCE1 /* SectionDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175BB2667DA3F00D4DCE1 /* SectionDragDelegate.swift */; };
 		5AE175F52667DA3F00D4DCE1 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175BD2667DA3F00D4DCE1 /* CollectionViewAdapter.swift */; };
@@ -130,6 +127,9 @@
 		5AE176112667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175DD2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift */; };
 		5AE1761B2667DA7000D4DCE1 /* SectionIndexPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */; };
 		5AE1761E2667DA7000D4DCE1 /* SequenceUniqueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE176182667DA7000D4DCE1 /* SequenceUniqueTests.swift */; };
+		D90764C32BC692BB0083306E /* ListFlowLaoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90764C02BC692BB0083306E /* ListFlowLaoutSectionController.swift */; };
+		D90764C42BC692BB0083306E /* SingleModelFlowLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90764C12BC692BB0083306E /* SingleModelFlowLayoutSectionController.swift */; };
+		D90764C52BC692BB0083306E /* SingleItemFlowLayoutSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90764C22BC692BB0083306E /* SingleItemFlowLayoutSectionController.swift */; };
 		D91425652BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425642BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift */; };
 		D91425692BBBF79E0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91425662BBBF77C0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift */; };
 		D914257F2BBBF8310005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D914257A2BBBF8130005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift */; };
@@ -182,9 +182,9 @@
 		5A0B777926B1A81300B054D4 /* MainCollectionViewContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewContextTests.swift; sourceTree = "<group>"; };
 		5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionBatchOperationTests.swift; sourceTree = "<group>"; };
 		5A0B777D26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBatchOperationTests.swift; sourceTree = "<group>"; };
-		5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionControllerTests.swift; sourceTree = "<group>"; };
-		5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemSectionControllerTests.swift; sourceTree = "<group>"; };
-		5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModelSectionControllerTests.swift; sourceTree = "<group>"; };
+		5A0B777F26B299FF00B054D4 /* ListFlowLayoutSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFlowLayoutSectionControllerTests.swift; sourceTree = "<group>"; };
+		5A0B778126B2A92C00B054D4 /* SingleItemFlowLayoutSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemFlowLayoutSectionControllerTests.swift; sourceTree = "<group>"; };
+		5A0B778326B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModelFlowLayoutSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
 		5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDataSourceTests.swift; sourceTree = "<group>"; };
@@ -249,10 +249,7 @@
 		5AE175B22667DA3E00D4DCE1 /* SectionIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionIndexPath.swift; sourceTree = "<group>"; };
 		5AE175B32667DA3E00D4DCE1 /* SectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDelegate.swift; sourceTree = "<group>"; };
 		5AE175B52667DA3E00D4DCE1 /* BaseSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSectionController.swift; sourceTree = "<group>"; };
-		5AE175B62667DA3E00D4DCE1 /* ListSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSectionController.swift; sourceTree = "<group>"; };
-		5AE175B72667DA3F00D4DCE1 /* SingleItemSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleItemSectionController.swift; sourceTree = "<group>"; };
-		5AE175B82667DA3F00D4DCE1 /* SingleModelSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleModelSectionController.swift; sourceTree = "<group>"; };
-		5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationDiffingListSectionController.swift; sourceTree = "<group>"; };
+		5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListFlowLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationDiffingListFlowLayoutSectionController.swift; sourceTree = "<group>"; };
 		5AE175BA2667DA3F00D4DCE1 /* SectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		5AE175BB2667DA3F00D4DCE1 /* SectionDragDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDragDelegate.swift; sourceTree = "<group>"; };
 		5AE175BD2667DA3F00D4DCE1 /* CollectionViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapter.swift; sourceTree = "<group>"; };
@@ -286,6 +283,9 @@
 		5AE175DD2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleSectionCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		5AE176132667DA7000D4DCE1 /* SectionIndexPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionIndexPathTests.swift; sourceTree = "<group>"; };
 		5AE176182667DA7000D4DCE1 /* SequenceUniqueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceUniqueTests.swift; sourceTree = "<group>"; };
+		D90764C02BC692BB0083306E /* ListFlowLaoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFlowLaoutSectionController.swift; sourceTree = "<group>"; };
+		D90764C12BC692BB0083306E /* SingleModelFlowLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleModelFlowLayoutSectionController.swift; sourceTree = "<group>"; };
+		D90764C22BC692BB0083306E /* SingleItemFlowLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleItemFlowLayoutSectionController.swift; sourceTree = "<group>"; };
 		D91425622BBBF7320005E8CD /* ListCompositionalLayoutSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCompositionalLayoutSectionController.swift; sourceTree = "<group>"; };
 		D91425642BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionKitCompositionalLayout.swift; sourceTree = "<group>"; };
 		D91425662BBBF77C0005E8CD /* BaseCompositionalLayoutSectionControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCompositionalLayoutSectionControllerTests.swift; sourceTree = "<group>"; };
@@ -668,9 +668,9 @@
 				5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */,
 				5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */,
 				5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */,
-				5A0B777F26B299FF00B054D4 /* ListSectionControllerTests.swift */,
-				5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */,
-				5A0B778326B2AA2000B054D4 /* SingleModelSectionControllerTests.swift */,
+				5A0B777F26B299FF00B054D4 /* ListFlowLayoutSectionControllerTests.swift */,
+				5A0B778126B2A92C00B054D4 /* SingleItemFlowLayoutSectionControllerTests.swift */,
+				5A0B778326B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift */,
 			);
 			path = SectionController;
 			sourceTree = "<group>";
@@ -717,10 +717,10 @@
 			isa = PBXGroup;
 			children = (
 				D9CCE9B72BADF31D00EED204 /* BaseFlowLayoutSectionController.swift */,
-				5AE175B62667DA3E00D4DCE1 /* ListSectionController.swift */,
-				5AE175B72667DA3F00D4DCE1 /* SingleItemSectionController.swift */,
-				5AE175B82667DA3F00D4DCE1 /* SingleModelSectionController.swift */,
-				5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift */,
+				D90764C02BC692BB0083306E /* ListFlowLaoutSectionController.swift */,
+				D90764C22BC692BB0083306E /* SingleItemFlowLayoutSectionController.swift */,
+				D90764C12BC692BB0083306E /* SingleModelFlowLayoutSectionController.swift */,
+				5AE175B92667DA3F00D4DCE1 /* FoundationDiffingListFlowLayoutSectionController.swift */,
 			);
 			path = FlowLayout;
 			sourceTree = "<group>";
@@ -876,22 +876,24 @@
 				D9CCE9B52BADED9400EED204 /* BaseCompositionalLayoutSectionController.swift in Sources */,
 				5AE175F52667DA3F00D4DCE1 /* CollectionViewAdapter.swift in Sources */,
 				5AE175F32667DA3F00D4DCE1 /* SectionController.swift in Sources */,
-				5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListSectionController.swift in Sources */,
+				5AE175F22667DA3F00D4DCE1 /* FoundationDiffingListFlowLayoutSectionController.swift in Sources */,
 				D91425652BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift in Sources */,
 				5AB6644626A854A9004DC230 /* ErrorHandling.swift in Sources */,
 				5AE176052667DA3F00D4DCE1 /* FoundationDiffingListCollectionViewAdapter.swift in Sources */,
 				5AE175E92667DA3F00D4DCE1 /* CollectionViewSectionBatchOperation.swift in Sources */,
+				D90764C42BC692BB0083306E /* SingleModelFlowLayoutSectionController.swift in Sources */,
 				5AE175E02667DA3F00D4DCE1 /* Move.swift in Sources */,
 				5AE175EB2667DA3F00D4DCE1 /* SectionDataSourcePrefetchingDelegate.swift in Sources */,
 				5AE175EC2667DA3F00D4DCE1 /* SectionIndexPath.swift in Sources */,
 				5AE1760F2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
 				5AE1760A2667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */,
-				5AE175F12667DA3F00D4DCE1 /* SingleModelSectionController.swift in Sources */,
 				5AE175FB2667DA3F00D4DCE1 /* CollectionViewUpdate.swift in Sources */,
+				D90764C32BC692BB0083306E /* ListFlowLaoutSectionController.swift in Sources */,
 				D941851A2BBC123C001B5086 /* ListCompositionalLayoutSectionController.swift in Sources */,
 				5AE175E42667DA3F00D4DCE1 /* Collection+Extensions.swift in Sources */,
 				5AE175E12667DA3F00D4DCE1 /* IndexPath+IsValid.swift in Sources */,
 				5AE175F82667DA3F00D4DCE1 /* MainCollectionViewContext.swift in Sources */,
+				D90764C52BC692BB0083306E /* SingleItemFlowLayoutSectionController.swift in Sources */,
 				D91425862BBBFB930005E8CD /* BaseFlowLayoutSectionController.swift in Sources */,
 				D9CCE9BF2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift in Sources */,
 				5AE176102667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+Convenience.swift in Sources */,
@@ -902,8 +904,6 @@
 				5AE175E82667DA3F00D4DCE1 /* CollectionViewContext+CollectionViewSectionUpdate.swift in Sources */,
 				5AE175EA2667DA3F00D4DCE1 /* CollectionViewSectionUpdate.swift in Sources */,
 				5AE175F92667DA3F00D4DCE1 /* CollectionViewBatchOperation.swift in Sources */,
-				5AE175EF2667DA3F00D4DCE1 /* ListSectionController.swift in Sources */,
-				5AE175F02667DA3F00D4DCE1 /* SingleItemSectionController.swift in Sources */,
 				5AE175FD2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDropDelegate.swift in Sources */,
 				5AE176092667DA3F00D4DCE1 /* SingleSectionCollectionViewAdapter+UICollectionViewDelegate.swift in Sources */,
 				D93269A32BBBFC2700B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */,
@@ -946,7 +946,7 @@
 				5AB6642926A587AE004DC230 /* CollectionViewContextSizeTests.swift in Sources */,
 				5A31B8CF26BAE93900036A3F /* BaseSectionDropDelegateTests.swift in Sources */,
 				5A31B8BF26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
-				5A0B778426B2AA2000B054D4 /* SingleModelSectionControllerTests.swift in Sources */,
+				5A0B778426B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift in Sources */,
 				5A0B775926B0069700B054D4 /* BaseCollectionViewAdapterUICollectionViewDropDelegateTests.swift in Sources */,
 				5A0B776E26B19E8C00B054D4 /* MockSingleSectionCollectionViewAdapterDataSource.swift in Sources */,
 				5A8D3E5927E8D16200073712 /* MockCollectionViewAdapter.swift in Sources */,
@@ -955,7 +955,7 @@
 				5A31B8BB26BAE8D400036A3F /* ProtocolDefaultValuesSectionDataSourceTests.swift in Sources */,
 				5A0B774E26AF0C2100B054D4 /* BaseCollectionViewAdapterUIScrollViewDelegateTests.swift in Sources */,
 				5AA9D96826AAC9AF00679D88 /* BaseCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
-				5A0B778026B299FF00B054D4 /* ListSectionControllerTests.swift in Sources */,
+				5A0B778026B299FF00B054D4 /* ListFlowLayoutSectionControllerTests.swift in Sources */,
 				5A0B775B26B006AA00B054D4 /* ListCollectionViewAdapterUICollectionViewDropDelegateTests.swift in Sources */,
 				5A31B8BD26BAE8E300036A3F /* BaseSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
 				5A31B8C126BAE8F800036A3F /* ProtocolDefaultValuesSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
@@ -996,7 +996,7 @@
 				5AB6644926A86F4D004DC230 /* MockSectionDataSource.swift in Sources */,
 				5A31B8D126BAE94500036A3F /* BaseSectionControllerSectionDropDelegateTests.swift in Sources */,
 				5A31B8C526BAE90B00036A3F /* BaseSectionControllerSectionDelegateTests.swift in Sources */,
-				5A0B778226B2A92C00B054D4 /* SingleItemSectionControllerTests.swift in Sources */,
+				5A0B778226B2A92C00B054D4 /* SingleItemFlowLayoutSectionControllerTests.swift in Sources */,
 				5A8D3E5527E8D11600073712 /* MockCollectionViewContext.swift in Sources */,
 				5A8D3E5727E8D14700073712 /* MockCollectionView.swift in Sources */,
 				5A0B777E26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift in Sources */,
