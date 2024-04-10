@@ -1,9 +1,9 @@
 import SectionKit
 import XCTest
 
-internal final class BaseFlowLayoutSectionControllerSectionFlowDelegateTests: BaseFlowLayoutSectionFlowDelegateTests {
+internal final class BaseSectionControllerSectionFlowDelegateTests: BaseSectionFlowDelegateTests {
     @MainActor 
     override func createSectionFlowDelegate() throws -> SectionFlowDelegate {
-        BaseFlowLayoutSectionController()
+        BaseSectionController()
     }
 }

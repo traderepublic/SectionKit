@@ -2,16 +2,16 @@
 import XCTest
 
 @MainActor
-internal final class ListFlowLayoutSectionControllerTests: XCTestCase {
+internal final class ListSectionControllerTests: XCTestCase {
     internal func testDidUpdateModelWithValidTypeSetsModel() {
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         sectionController.didUpdate(model: "2")
         XCTAssertEqual(sectionController.model, "2")
     }
 
     internal func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
@@ -33,7 +33,7 @@ internal final class ListFlowLayoutSectionControllerTests: XCTestCase {
     }
 
     internal func testInitDoesNotUpdateItemsIfShouldNotUpdateItems() {
-        class TestSectionController: ListFlowLaoutSectionController<String, String> {
+        class TestSectionController: ListSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
             init(model: String, itemsForModelExpectation: XCTestExpectation?) {
@@ -57,7 +57,7 @@ internal final class ListFlowLayoutSectionControllerTests: XCTestCase {
     }
 
     internal func testSettingModelDoesNotUpdateItemsIfShouldNotUpdateItems() {
-        class TestSectionController: ListFlowLaoutSectionController<String, String> {
+        class TestSectionController: ListSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
             init(model: String, itemsForModelExpectation: XCTestExpectation?) {
@@ -84,13 +84,13 @@ internal final class ListFlowLayoutSectionControllerTests: XCTestCase {
     }
 
     internal func testShouldUpdateItemsDefaultsToTrue() {
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         XCTAssert(sectionController.shouldUpdateItems(afterModelChangedTo: "2"))
     }
 
     internal func testItemsForModelInvokesNotImplementedError() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
@@ -109,7 +109,7 @@ internal final class ListFlowLayoutSectionControllerTests: XCTestCase {
     }
 
     internal func testNumberOfItems() {
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         sectionController.items = ["1", "2"]
         let context = MainCollectionViewContext(
             viewController: nil,

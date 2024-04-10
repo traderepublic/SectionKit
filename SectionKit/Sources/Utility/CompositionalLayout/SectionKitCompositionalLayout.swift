@@ -19,14 +19,11 @@ final public class SectionKitCompositionalLayout: UICollectionViewCompositionalL
                 assertionFailure("Section index out of bound")
                 return .empty
             }
-            guard let compositionalLayoutSectionController = sections[index].controller
-                    as? BaseCompositionalLayoutSectionController else {
-                assertionFailure("Please use the `CompositionalLayoutSectionControler`")
+            guard case .compositionalLayout(let provider) = sections[index].controller.layoutProvider else {
+                assertionFailure("Please set the layout provider with `CompositionalLayoutProvider`")
                 return .empty
             }
-            return compositionalLayoutSectionController.layoutSection(
-                layoutEnvironment: environment
-            )
+            return provider.layoutSection(environment)
         }
         sections = { [weak self] in
             self?.sections?() ?? []

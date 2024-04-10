@@ -24,6 +24,11 @@ internal final class BaseSectionControllerTests: XCTestCase {
         XCTAssert(sectionController.delegate === sectionController)
     }
 
+    internal func testFlowDelegateIsSelf() {
+        let sectionController = BaseSectionController()
+        XCTAssert(sectionController.flowDelegate === sectionController)
+    }
+
     @available(iOS 11.0, *)
     internal func testDragDelegateIsSelf() {
         let sectionController = BaseSectionController()

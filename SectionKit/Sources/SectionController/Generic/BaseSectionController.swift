@@ -1,13 +1,16 @@
 import UIKit
 
-/// This serves as a fundamental `SectionController` implementation,
-/// encompassing data source and delegate protocols, with the exception of the flow layout delegate.
-/// Each access control is designated as` open`, allowing for easy customization through overrides.
+/**
+ A base implementation of all `SectionController` datasource and delegate protocols.
+
+ Every declaration is marked `open` and can be overridden.
+ */
 @MainActor
 open class BaseSectionController: SectionController,
                                   SectionDataSource,
                                   SectionDataSourcePrefetchingDelegate,
                                   SectionDelegate,
+                                  SectionFlowDelegate,
                                   SectionDragDelegate,
                                   SectionDropDelegate {
     // MARK: - Init
@@ -25,11 +28,16 @@ open class BaseSectionController: SectionController,
 
     open var delegate: SectionDelegate? { self }
 
+    open var flowDelegate: SectionFlowDelegate? { self }
+
     @available(iOS 11.0, *)
     open var dragDelegate: SectionDragDelegate? { self }
 
     @available(iOS 11.0, *)
     open var dropDelegate: SectionDropDelegate? { self }
+
+    @available(iOS 13.0, *)
+    open var layoutProvider: SectionLayoutProvider? { .flowLayout(self) }
 
     open func didUpdate(model: Any) { }
 
@@ -258,4 +266,80 @@ open class BaseSectionController: SectionController,
     ) -> UIDragPreviewParameters? {
         nil
     }
+
+    // MARK: - SectionFlowDelegate
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func sizeForItem(
+        at indexPath: SectionIndexPath,
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGSize {
+        layout.flowLayout?.itemSize ?? FlowLayoutConstants.defaultItemSize
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func inset(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> UIEdgeInsets {
+        layout.flowLayout?.sectionInset ?? FlowLayoutConstants.defaultInset
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func minimumLineSpacing(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGFloat {
+        layout.flowLayout?.minimumLineSpacing ?? FlowLayoutConstants.defaultMinimumLineSpacing
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func minimumInteritemSpacing(
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGFloat {
+        layout.flowLayout?.minimumInteritemSpacing ?? FlowLayoutConstants.defaultMinimumInteritemSpacing
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func referenceSizeForHeader(
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGSize {
+        layout.flowLayout?.headerReferenceSize ?? FlowLayoutConstants.defaultHeaderSize
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func referenceSizeForFooter(
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGSize {
+        layout.flowLayout?.footerReferenceSize ?? FlowLayoutConstants.defaultFooterSize
+    }
+
 }

@@ -8,10 +8,10 @@ import Foundation
  */
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 @MainActor
-open class FoundationDiffingListFlowLayoutSectionController<
+open class FoundationDiffingListSectionController<
     Model,
     Item: Hashable
->: ListFlowLaoutSectionController<Model, Item> {
+>: ListSectionController<Model, Item> {
     override open func calculateUpdate(
         from oldData: [Item],
         to newData: [Item]
@@ -32,12 +32,3 @@ open class FoundationDiffingListFlowLayoutSectionController<
         )
     }
 }
-
-@available(
-    *,
-     deprecated,
-     renamed: "FoundationDiffingListFlowLayoutSectionController",
-     message: "It has been renamed to FoundationDiffingListFlowLayoutSectionController"
-)
-@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-public typealias FoundationDiffingListSectionController = FoundationDiffingListFlowLayoutSectionController
