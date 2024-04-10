@@ -59,18 +59,18 @@ extension ListCollectionViewAdapter {
     @inlinable
     public func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
         if #available(iOS 13.0, *) {
-            controller(at: indexPath)?.layoutProvider?.flowLayoutProvider
+            return controller(at: indexPath)?.layoutProvider?.flowLayoutProvider
         } else {
-            controller(at: indexPath)?.flowDelegate
+            return controller(at: indexPath)?.flowDelegate
         }
     }
 
     @inlinable
     public func flowDelegate(at index: Int) -> SectionFlowDelegate? {
         if #available(iOS 13.0, *) {
-            controller(at: index)?.layoutProvider?.flowLayoutProvider
+            return controller(at: index)?.layoutProvider?.flowLayoutProvider
         } else {
-            controller(at: index)?.flowDelegate
+            return controller(at: index)?.flowDelegate
         }
     }
 }
