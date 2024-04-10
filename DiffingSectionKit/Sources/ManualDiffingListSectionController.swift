@@ -12,10 +12,10 @@ import SectionKit
  `Item` type, instead it requires closures to get diffing information for an item.
  */
 @MainActor
-open class ManualDiffingListFlowLayoutSectionController<
+open class ManualDiffingListSectionController<
     Model,
     Item
->: ListFlowLaoutSectionController<Model, Item> {
+>: ListSectionController<Model, Item> {
     private let itemId: @MainActor (Item) -> AnyHashable
     private let itemContentIsEqual: @MainActor (Item, Item) -> Bool
 
@@ -55,7 +55,7 @@ open class ManualDiffingListFlowLayoutSectionController<
     }
 }
 
-extension ManualDiffingListFlowLayoutSectionController where Item: Equatable {
+extension ManualDiffingListSectionController where Item: Equatable {
     /**
      Initialise an instance of `ManualDiffingListSectionController`.
 
@@ -69,7 +69,7 @@ extension ManualDiffingListFlowLayoutSectionController where Item: Equatable {
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-extension ManualDiffingListFlowLayoutSectionController where Item: Identifiable {
+extension ManualDiffingListSectionController where Item: Identifiable {
     /**
      Initialise an instance of `ManualDiffingListSectionController`.
 
@@ -89,7 +89,7 @@ extension ManualDiffingListFlowLayoutSectionController where Item: Identifiable 
  the base init (apart from the default values), we have to specify `@_disfavoredOverload` so it doesn't call itself.
  */
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-extension ManualDiffingListFlowLayoutSectionController where Item: Identifiable & Equatable {
+extension ManualDiffingListSectionController where Item: Identifiable & Equatable {
     /**
      Initialise an instance of `ManualDiffingListSectionController`.
 
@@ -108,12 +108,3 @@ extension ManualDiffingListFlowLayoutSectionController where Item: Identifiable 
         self.init(model: model, itemId: itemId, itemContentIsEqual: itemContentIsEqual)
     }
 }
-
-@available(
-    *,
-     deprecated,
-     renamed: "ManualDiffingListFlowLayoutSectionController",
-     message: "It has been renamed to ManualDiffingListFlowLayoutSectionController"
-)
-
-public typealias ManualDiffingListSectionController = ManualDiffingListFlowLayoutSectionController
