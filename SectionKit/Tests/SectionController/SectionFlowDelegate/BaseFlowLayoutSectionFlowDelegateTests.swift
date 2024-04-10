@@ -1,15 +1,15 @@
 import SectionKit
 import XCTest
 
-class BaseFlowLayoutSectionFlowDelegateTests: XCTestCase {
+class BaseSectionFlowDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    func skipIfNeeded() throws {
-        guard Self.self === BaseFlowLayoutSectionFlowDelegateTests.self else { return }
+   	func skipIfNeeded() throws {
+        guard Self.self === BaseSectionFlowDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
