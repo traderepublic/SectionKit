@@ -1,13 +1,11 @@
 import SectionKit
 import UIKit
 
-final class NamesSectionController: ListCompositionalLayoutSectionController<
+final class NamesSectionController: ListSectionController<
     NamesSectionViewModelType,
     String
 > {
-    override func layoutSection(
-        layoutEnvironment: NSCollectionLayoutEnvironment
-    ) -> NSCollectionLayoutSection {
+    override var layoutProvider: SectionLayoutProvider? {
         let layoutSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .estimated(50)
@@ -37,7 +35,9 @@ final class NamesSectionController: ListCompositionalLayoutSectionController<
         } else {
             layout.boundarySupplementaryItems = []
         }
-        return layout
+        return .compositionalLayout(
+            .init(layoutSection: { _ in layout })
+        )
     }
 
     override func items(for model: NamesSectionViewModelType) -> [String] {
