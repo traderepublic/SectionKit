@@ -34,7 +34,6 @@
 		5A0B777C26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */; };
 		5A0B777E26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B777D26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift */; };
 		5A0B778226B2A92C00B054D4 /* SingleItemSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */; };
-		5A0B778426B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778326B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift */; };
 		5A0B778626B2AB7800B054D4 /* BaseSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */; };
 		5A0B778926B3EA4D00B054D4 /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */; };
 		5A31B8B726BAE8A900036A3F /* BaseSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */; };
@@ -137,6 +136,7 @@
 		D93269A22BBBFC2400B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CA2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSourcePrefetching.swift */; };
 		D93269A32BBBFC2700B33C32 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175C92667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDataSource.swift */; };
 		D93269A42BBBFC2B00B33C32 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE175CF2667DA3F00D4DCE1 /* ListCollectionViewAdapter+UICollectionViewDragDelegate.swift */; };
+		D952494D2BC6EDFB00108510 /* SingleModelSectionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D952494C2BC6EDFB00108510 /* SingleModelSectionControllerTests.swift */; };
 		D9CCE9BF2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,7 +178,6 @@
 		5A0B777B26B2931700B054D4 /* CollectionViewSectionBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewSectionBatchOperationTests.swift; sourceTree = "<group>"; };
 		5A0B777D26B2944F00B054D4 /* CollectionViewBatchOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewBatchOperationTests.swift; sourceTree = "<group>"; };
 		5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleItemSectionControllerTests.swift; sourceTree = "<group>"; };
-		5A0B778326B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleModelFlowLayoutSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778526B2AB7800B054D4 /* BaseSectionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionControllerTests.swift; sourceTree = "<group>"; };
 		5A0B778826B3EA4D00B054D4 /* ErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
 		5A31B8B526BAE8A300036A3F /* BaseSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSectionDataSourceTests.swift; sourceTree = "<group>"; };
@@ -284,6 +283,7 @@
 		D91425642BBBF74A0005E8CD /* SectionKitCompositionalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionKitCompositionalLayout.swift; sourceTree = "<group>"; };
 		D914257A2BBBF8130005E8CD /* BaseFlowLayoutSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
 		D914257B2BBBF8130005E8CD /* BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFlowLayoutSectionControllerSectionFlowDelegateTests.swift; sourceTree = "<group>"; };
+		D952494C2BC6EDFB00108510 /* SingleModelSectionControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleModelSectionControllerTests.swift; sourceTree = "<group>"; };
 		D9CCE9BE2BADF7C700EED204 /* NSCollectionLayoutSection+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSection+Empty.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -656,7 +656,7 @@
 				5A31B8E126BC25A700036A3F /* ProtocolDefaultValuesSectionControllerTests.swift */,
 				D90764CE2BC6E8140083306E /* ListSectionControllerTests.swift */,
 				5A0B778126B2A92C00B054D4 /* SingleItemSectionControllerTests.swift */,
-				5A0B778326B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift */,
+				D952494C2BC6EDFB00108510 /* SingleModelSectionControllerTests.swift */,
 			);
 			path = SectionController;
 			sourceTree = "<group>";
@@ -905,7 +905,6 @@
 				5AB6642926A587AE004DC230 /* CollectionViewContextSizeTests.swift in Sources */,
 				5A31B8CF26BAE93900036A3F /* BaseSectionDropDelegateTests.swift in Sources */,
 				5A31B8BF26BAE8EE00036A3F /* BaseSectionControllerSectionDataSourcePrefetchingDelegateTests.swift in Sources */,
-				5A0B778426B2AA2000B054D4 /* SingleModelFlowLayoutSectionControllerTests.swift in Sources */,
 				5A0B775926B0069700B054D4 /* BaseCollectionViewAdapterUICollectionViewDropDelegateTests.swift in Sources */,
 				5A0B776E26B19E8C00B054D4 /* MockSingleSectionCollectionViewAdapterDataSource.swift in Sources */,
 				5A8D3E5927E8D16200073712 /* MockCollectionViewAdapter.swift in Sources */,
@@ -936,6 +935,7 @@
 				5AA9D96326AAC65200679D88 /* ListCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests.swift in Sources */,
 				5AE1761B2667DA7000D4DCE1 /* SectionIndexPathTests.swift in Sources */,
 				5AA9D96C26AAD05400679D88 /* ListCollectionViewAdapterUICollectionViewDelegateTests.swift in Sources */,
+				D952494D2BC6EDFB00108510 /* SingleModelSectionControllerTests.swift in Sources */,
 				5A31B8C726BAE91300036A3F /* ProtocolDefaultValuesSectionDelegateTests.swift in Sources */,
 				5A0B776A26B1826100B054D4 /* ListCollectionViewAdapterTests.swift in Sources */,
 				5A31B8B926BAE8C600036A3F /* BaseSectionControllerSectionDataSourceTests.swift in Sources */,
