@@ -8,7 +8,7 @@ import UIKit
  of a model to be displayed and the list of items (almost) never changes or should not perform animated updates.
  */
 @MainActor
-open class ListFlowLaoutSectionController<Model, Item>: BaseFlowLayoutSectionController {
+open class ListSectionController<Model, Item>: BaseSectionController {
     /**
      Initialise an instance of `ListSectionController`.
 
@@ -112,11 +112,3 @@ open class ListFlowLaoutSectionController<Model, Item>: BaseFlowLayoutSectionCon
 
     override open func numberOfItems(in context: CollectionViewContext) -> Int { items.count }
 }
-
-@available(
-    *,
-     deprecated,
-     renamed: "ListFlowLaoutSectionController",
-     message: "It has been renamed to ListFlowLaoutSectionController"
-)
-public typealias ListSectionController = ListFlowLaoutSectionController

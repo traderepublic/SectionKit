@@ -12,7 +12,7 @@ final class ListSectionControllerTests: XCTestCase {
     @MainActor
     func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
@@ -95,7 +95,7 @@ final class ListSectionControllerTests: XCTestCase {
     @MainActor
     func testItemsForModelInvokesNotImplementedError() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = ListFlowLaoutSectionController<String, String>(model: "1")
+        let sectionController = ListSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
