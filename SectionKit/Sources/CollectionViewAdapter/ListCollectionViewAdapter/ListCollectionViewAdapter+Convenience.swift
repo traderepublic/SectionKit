@@ -58,12 +58,20 @@ extension ListCollectionViewAdapter {
 extension ListCollectionViewAdapter {
     @inlinable
     public func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
-        (controller(at: indexPath) as? FlowLayoutSectionController)?.flowDelegate
+        if #available(iOS 13.0, *) {
+            controller(at: indexPath)?.layoutProvider?.flowLayoutProvider
+        } else {
+            controller(at: indexPath)?.flowDelegate
+        }
     }
 
     @inlinable
     public func flowDelegate(at index: Int) -> SectionFlowDelegate? {
-        (controller(at: index) as? FlowLayoutSectionController)?.flowDelegate
+        if #available(iOS 13.0, *) {
+            controller(at: index)?.layoutProvider?.flowLayoutProvider
+        } else {
+            controller(at: index)?.flowDelegate
+        }
     }
 }
 

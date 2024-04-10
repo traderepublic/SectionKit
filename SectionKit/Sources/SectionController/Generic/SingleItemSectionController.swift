@@ -9,7 +9,7 @@ import UIKit
  - Warning: If `numberOfItems` is overridden, `calculateUpdate(from:to:)` needs to be overridden as well.
  */
 @MainActor
-open class SingleItemFlowLayoutSectionController<Model, Item>: BaseFlowLayoutSectionController {
+open class SingleItemSectionController<Model, Item>: BaseSectionController {
     private let areItemsEqual: @MainActor (Item, Item) -> Bool
 
     /**
@@ -133,7 +133,7 @@ open class SingleItemFlowLayoutSectionController<Model, Item>: BaseFlowLayoutSec
     override open func numberOfItems(in context: CollectionViewContext) -> Int { item != nil ? 1 : 0 }
 }
 
-extension SingleItemFlowLayoutSectionController where Item: Equatable {
+extension SingleItemSectionController where Item: Equatable {
     /**
      Initialise an instance of `SingleItemSectionController`
      which will only reload when the new item is different from the old one.
@@ -144,11 +144,3 @@ extension SingleItemFlowLayoutSectionController where Item: Equatable {
         self.init(model: model, areItemsEqual: ==)
     }
 }
-
-@available(
-    *,
-     deprecated,
-     renamed: "SingleItemFlowLayoutSectionController",
-     message: "It has been renamed to SingleItemFlowLayoutSectionController"
-)
-public typealias SingleItemSectionController = SingleItemFlowLayoutSectionController

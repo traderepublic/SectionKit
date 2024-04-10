@@ -2,16 +2,16 @@
 import XCTest
 
 @MainActor
-internal final class SingleModelFlowLayoutSectionControllerTests: XCTestCase {
+internal final class SingleModelSectionControllerTests: XCTestCase {
     internal func testDidUpdateModelWithValidTypeSetsModel() {
-        let sectionController = SingleModelFlowLayoutSectionController(model: "1")
+        let sectionController = SingleModelSectionController(model: "1")
         sectionController.didUpdate(model: "2")
         XCTAssertEqual(sectionController.model, "2")
     }
 
     internal func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = SingleModelFlowLayoutSectionController(model: "1")
+        let sectionController = SingleModelSectionController(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
@@ -33,7 +33,7 @@ internal final class SingleModelFlowLayoutSectionControllerTests: XCTestCase {
     }
 
     internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
-        let sectionController = SingleModelFlowLayoutSectionController<Int>(model: 1)
+        let sectionController = SingleModelSectionController<Int>(model: 1)
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
                 from: 1,
@@ -50,7 +50,7 @@ internal final class SingleModelFlowLayoutSectionControllerTests: XCTestCase {
     }
 
     internal func testNumberOfItems() {
-        let sectionController = SingleModelFlowLayoutSectionController(model: "1")
+        let sectionController = SingleModelSectionController(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),

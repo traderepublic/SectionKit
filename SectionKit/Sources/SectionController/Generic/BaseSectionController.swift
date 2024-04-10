@@ -8,6 +8,7 @@ open class BaseSectionController: SectionController,
                                   SectionDataSource,
                                   SectionDataSourcePrefetchingDelegate,
                                   SectionDelegate,
+                                  SectionFlowDelegate,
                                   SectionDragDelegate,
                                   SectionDropDelegate {
     // MARK: - Init
@@ -30,6 +31,9 @@ open class BaseSectionController: SectionController,
 
     @available(iOS 11.0, *)
     open var dropDelegate: SectionDropDelegate? { self }
+
+    @available(iOS 13.0, *)
+    open var layoutProvider: SectionLayoutProvider? { .flowLayout(self) }
 
     open func didUpdate(model: Any) { }
 
@@ -219,6 +223,81 @@ open class BaseSectionController: SectionController,
         in context: CollectionViewContext
     ) -> UIDragPreviewParameters? {
         nil
+    }
+
+    // MARK: - SectionFlowDelegate
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func sizeForItem(
+        at indexPath: SectionIndexPath,
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGSize {
+        layout.flowLayout?.itemSize ?? FlowLayoutConstants.defaultItemSize
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func inset(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> UIEdgeInsets {
+        layout.flowLayout?.sectionInset ?? FlowLayoutConstants.defaultInset
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func minimumLineSpacing(using layout: UICollectionViewLayout, in context: CollectionViewContext) -> CGFloat {
+        layout.flowLayout?.minimumLineSpacing ?? FlowLayoutConstants.defaultMinimumLineSpacing
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func minimumInteritemSpacing(
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGFloat {
+        layout.flowLayout?.minimumInteritemSpacing ?? FlowLayoutConstants.defaultMinimumInteritemSpacing
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func referenceSizeForHeader(
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGSize {
+        layout.flowLayout?.headerReferenceSize ?? FlowLayoutConstants.defaultHeaderSize
+    }
+
+    @available(
+        iOS,
+        introduced: 6.0,
+        deprecated: 13.0,
+        message: "Please use the layoutProvider with the flowLayout type"
+    )
+    open func referenceSizeForFooter(
+        using layout: UICollectionViewLayout,
+        in context: CollectionViewContext
+    ) -> CGSize {
+        layout.flowLayout?.footerReferenceSize ?? FlowLayoutConstants.defaultFooterSize
     }
 
     // MARK: - SectionDropDelegate
