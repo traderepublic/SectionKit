@@ -2,16 +2,16 @@
 import XCTest
 
 @MainActor
-internal final class SingleItemSectionControllerTests: XCTestCase {
+internal final class SingleItemFlowLayoutSectionControllerTests: XCTestCase {
     internal func testDidUpdateModelWithValidTypeSetsModel() {
-        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        let sectionController = SingleItemFlowLayoutSectionController<String, String>(model: "1")
         sectionController.didUpdate(model: "2")
         XCTAssertEqual(sectionController.model, "2")
     }
 
     internal func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        let sectionController = SingleItemFlowLayoutSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
@@ -33,7 +33,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testInitDoesNotUpdateItemIfShouldNotUpdateItem() {
-        class TestSectionController: SingleItemSectionController<String, String> {
+        class TestSectionController: SingleItemFlowLayoutSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
             init(model: String, itemsForModelExpectation: XCTestExpectation?) {
@@ -57,7 +57,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testSettingModelDoesNotUpdateItemIfShouldNotUpdateItem() {
-        class TestSectionController: SingleItemSectionController<String, String> {
+        class TestSectionController: SingleItemFlowLayoutSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
             init(model: String, itemsForModelExpectation: XCTestExpectation?) {
@@ -84,13 +84,13 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testShouldUpdateItemDefaultsToTrue() {
-        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        let sectionController = SingleItemFlowLayoutSectionController<String, String>(model: "1")
         XCTAssert(sectionController.shouldUpdateItem(afterModelChangedTo: "2"))
     }
 
     internal func testItemForModelInvokesNotImplementedError() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
-        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        let sectionController = SingleItemFlowLayoutSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,
             collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
@@ -109,7 +109,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testCalculateUpdateFromSomeToSomeWithEqualItems() throws {
-        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let sectionController = SingleItemFlowLayoutSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
                 from: 1,
@@ -126,7 +126,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
-        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let sectionController = SingleItemFlowLayoutSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
                 from: 1,
@@ -143,7 +143,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testCalculateUpdateFromNoneToSome() throws {
-        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let sectionController = SingleItemFlowLayoutSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
                 from: nil,
@@ -160,7 +160,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testCalculateUpdateFromSomeToNone() throws {
-        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let sectionController = SingleItemFlowLayoutSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
                 from: 1,
@@ -177,7 +177,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testCalculateUpdateFromNoneToNone() throws {
-        let sectionController = SingleItemSectionController<String, Int>(model: "")
+        let sectionController = SingleItemFlowLayoutSectionController<String, Int>(model: "")
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
                 from: nil,
@@ -194,7 +194,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testNumberOfItemsWithItem() {
-        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        let sectionController = SingleItemFlowLayoutSectionController<String, String>(model: "1")
         sectionController.item = "1"
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -205,7 +205,7 @@ internal final class SingleItemSectionControllerTests: XCTestCase {
     }
 
     internal func testNumberOfItemsWithoutItem() {
-        let sectionController = SingleItemSectionController<String, String>(model: "1")
+        let sectionController = SingleItemFlowLayoutSectionController<String, String>(model: "1")
         sectionController.item = nil
         let context = MainCollectionViewContext(
             viewController: nil,
