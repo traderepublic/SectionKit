@@ -9,7 +9,7 @@ import UIKit
  it is recommended to use `ListSectionController` instead.
  */
 @MainActor
-open class SingleModelSectionController<Model>: BaseFlowLayoutSectionController {
+open class SingleModelFlowLayoutSectionController<Model>: BaseFlowLayoutSectionController {
     /**
      Initialise an instance of `SingleModelSectionController`.
 
@@ -76,3 +76,11 @@ open class SingleModelSectionController<Model>: BaseFlowLayoutSectionController 
 
     override open func numberOfItems(in context: CollectionViewContext) -> Int { 1 }
 }
+
+@available(
+    *,
+     deprecated,
+     renamed: "SingleModelFlowLayoutSectionController",
+     message: "It has been renamed to SingleModelFlowLayoutSectionController"
+)
+public typealias SingleModelSectionController = SingleModelFlowLayoutSectionController
