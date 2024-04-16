@@ -1,7 +1,6 @@
 import SectionKit
 import XCTest
 
-@MainActor
 internal class BaseSectionFlowDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -14,10 +13,12 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         throw XCTSkip("Tests from base class are skipped")
     }
 
+    @MainActor
     internal func createSectionFlowDelegate() throws -> SectionFlowDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }
 
+    @MainActor
     internal func testSizeForItemWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -39,6 +40,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testSizeForItemWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -58,6 +60,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testInsetWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -77,6 +80,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testInsetWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -94,6 +98,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testMinimumLineSpacingWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -112,6 +117,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testMinimumLineSpacingWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -129,6 +135,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testMinimumInteritemSpacingWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -147,6 +154,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testMinimumInteritemSpacingWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -164,6 +172,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testReferenceSizeForHeaderWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -183,6 +192,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testReferenceSizeForHeaderWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -200,6 +210,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testReferenceSizeForFooterWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
@@ -219,6 +230,7 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     internal func testReferenceSizeForFooterWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(

@@ -42,6 +42,11 @@ internal class MockSectionController: SectionController {
         return MockErrorHandler()
     }()
 
+    internal lazy var layoutProvider: SectionLayoutProvider? = {
+        XCTFail("layoutProvider is not set")
+        return nil
+    }()
+
     // MARK: - didUpdate
 
     internal typealias DidUpdateBlock = (Any) -> Void
