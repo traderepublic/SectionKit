@@ -12,7 +12,7 @@ final public class SectionKitCompositionalLayout: UICollectionViewCompositionalL
         var sections: (() -> [Section])?
         super.init { index, environment in
             guard let sections = sections?() else {
-                assertionFailure("The section provider doesn't set up correctly, please use the `CollectionViewCompositionalLayoutAdapter`")
+                assertionFailure("The section update closure doesn't set up correctly, please use the `CollectionViewAdapter`")
                 return .empty
             }
             guard sections.count > index else {
