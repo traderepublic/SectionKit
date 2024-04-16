@@ -36,7 +36,15 @@ extension ExampleListCoordinator: Presentable {
                             navigationController: navigationController,
                             presentable: VanillaSwiftExamples.EmojisCoordinator(navigationController: navigationController)
                         )
-                    )
+                    ),
+                    ExampleViewModel(
+                        name: "Names",
+                        description: "An MVVM-C architecture with compositional layout example by using a ListCompositionalLayoutCollectionViewAdapter that shows multiple ListCompositionalLayoutSectionController.",
+                        navigation: ExampleCoordinator(
+                            navigationController: navigationController,
+                            presentable: NamesCoordinator(navigationController: navigationController)
+                        )
+                    ),
                 ]
             ),
             ExampleSectionViewModel(
