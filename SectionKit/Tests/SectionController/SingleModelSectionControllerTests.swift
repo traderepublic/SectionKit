@@ -1,15 +1,16 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class SingleModelSectionControllerTests: XCTestCase {
-    internal func testDidUpdateModelWithValidTypeSetsModel() {
+final class SingleModelSectionControllerTests: XCTestCase {
+    @MainActor
+    func testDidUpdateModelWithValidTypeSetsModel() {
         let sectionController = SingleModelSectionController(model: "1")
         sectionController.didUpdate(model: "2")
         XCTAssertEqual(sectionController.model, "2")
     }
 
-    internal func testDidUpdateModelWithInvalidType() {
+    @MainActor
+    func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionController = SingleModelSectionController(model: "1")
         let context = MainCollectionViewContext(
@@ -32,7 +33,8 @@ internal final class SingleModelSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
+    @MainActor
+    func testCalculateUpdateFromSomeToSomeWithDifferentItems() throws {
         let sectionController = SingleModelSectionController<Int>(model: 1)
         let update = try XCTUnwrap(
             sectionController.calculateUpdate(
@@ -49,7 +51,8 @@ internal final class SingleModelSectionControllerTests: XCTestCase {
         XCTAssert(update.shouldReload(batchOperation))
     }
 
-    internal func testNumberOfItems() {
+    @MainActor
+    func testNumberOfItems() {
         let sectionController = SingleModelSectionController(model: "1")
         let context = MainCollectionViewContext(
             viewController: nil,

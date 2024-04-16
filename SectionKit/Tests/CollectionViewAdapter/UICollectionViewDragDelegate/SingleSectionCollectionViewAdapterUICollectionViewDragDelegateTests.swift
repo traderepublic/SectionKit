@@ -2,10 +2,10 @@
 import UIKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal final class SingleSectionCollectionViewAdapterUICollectionViewDragDelegateTests: BaseCollectionViewAdapterUICollectionViewDragDelegateTests {
-    override internal func createCollectionViewAdapter(
+final class SingleSectionCollectionViewAdapterUICollectionViewDragDelegateTests: BaseCollectionViewAdapterUICollectionViewDragDelegateTests {
+    @MainActor
+    override func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,

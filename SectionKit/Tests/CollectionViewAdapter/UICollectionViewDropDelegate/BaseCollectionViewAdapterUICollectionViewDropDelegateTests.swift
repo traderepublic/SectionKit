@@ -2,28 +2,28 @@
 import UIKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTestCase {
+class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseCollectionViewAdapterUICollectionViewDropDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createCollectionView(
+    func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
-    internal func createCollectionViewAdapter(
+    @MainActor
+    func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,
@@ -35,7 +35,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - canHandle
 
-    internal func testCanHandleWithDelegate() throws {
+    @MainActor
+    func testCanHandleWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let collectionView = createCollectionView()
         let mockSession = MockDropSession()
@@ -64,7 +65,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCanHandleWithoutDelegate() throws {
+    @MainActor
+    func testCanHandleWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let mockSession = MockDropSession()
         let adapter = try createCollectionViewAdapter(
@@ -85,7 +87,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - dropSessionDidUpdate
 
-    internal func testDropSessionDidUpdateWithDestinationIndexPathAndWithInvalidIndex() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithDestinationIndexPathAndWithInvalidIndex() throws {
         let testExpectation = expectation(description: "Should not invoke drop delegate")
         testExpectation.fulfill()
         let collectionView = createCollectionView()
@@ -119,7 +122,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDropSessionDidUpdateWithDestinationIndexPathAndWithDelegate() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithDestinationIndexPathAndWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let collectionView = createCollectionView()
         let mockSession = MockDropSession()
@@ -154,7 +158,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDropSessionDidUpdateWithDestinationIndexPathAndWithoutDelegate() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithDestinationIndexPathAndWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let mockSession = MockDropSession()
         let indexPath = IndexPath(item: 0, section: 0)
@@ -178,7 +183,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         )
     }
 
-    internal func testDropSessionDidUpdateWithoutDestinationIndexPathAndWithDelegate() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithoutDestinationIndexPathAndWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView._indexPathForItem = { _ in IndexPath(item: 0, section: 0) }
@@ -213,7 +219,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDropSessionDidUpdateWithoutDestinationIndexPathButInvalidLocation() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithoutDestinationIndexPathButInvalidLocation() throws {
         let testExpectation = expectation(description: "Should invoke indexPathForItem")
         let mockPoint = CGPoint(x: 1, y: 2)
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -241,7 +248,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDropSessionDidUpdateWithoutDestinationIndexPathButLocationOfInvalidIndexPath() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithoutDestinationIndexPathButLocationOfInvalidIndexPath() throws {
         let testExpectation = expectation(description: "Should invoke indexPathForItem")
         let mockPoint = CGPoint(x: 1, y: 2)
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -269,7 +277,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDropSessionDidUpdateWithoutDestinationIndexPathAndWithoutDelegate() throws {
+    @MainActor
+    func testDropSessionDidUpdateWithoutDestinationIndexPathAndWithoutDelegate() throws {
         let testExpectation = expectation(description: "Should invoke indexPathForItem")
         let mockPoint = CGPoint(x: 1, y: 2)
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -303,7 +312,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - performDrop
 
-    internal func testPerformDropWithoutDestinationIndexPath() throws {
+    @MainActor
+    func testPerformDropWithoutDestinationIndexPath() throws {
         let testExpectation = expectation(description: "Should not invoke drop delegate")
         testExpectation.fulfill()
         let coordinator = MockCollectionViewDropCoordinator()
@@ -329,7 +339,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPerformDropWithInvalidDestinationIndexPath() throws {
+    @MainActor
+    func testPerformDropWithInvalidDestinationIndexPath() throws {
         let testExpectation = expectation(description: "Should not invoke drop delegate")
         testExpectation.fulfill()
         let coordinator = MockCollectionViewDropCoordinator()
@@ -355,7 +366,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPerformDropWithUnknownDestinationIndexPath() throws {
+    @MainActor
+    func testPerformDropWithUnknownDestinationIndexPath() throws {
         let testExpectation = expectation(description: "Should not invoke drop delegate")
         testExpectation.fulfill()
         let coordinator = MockCollectionViewDropCoordinator()
@@ -381,7 +393,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPerformDropFromDifferentLocalSection() throws {
+    @MainActor
+    func testPerformDropFromDifferentLocalSection() throws {
         let testExpectation = expectation(description: "Should not invoke drop delegate")
         testExpectation.fulfill()
         let coordinator = MockCollectionViewDropCoordinator()
@@ -414,7 +427,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPerformDropFromSameLocalSection() throws {
+    @MainActor
+    func testPerformDropFromSameLocalSection() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let coordinator = MockCollectionViewDropCoordinator()
         coordinator.destinationIndexPath = IndexPath(item: 0, section: 0)
@@ -446,7 +460,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPerformDropFromRemote() throws {
+    @MainActor
+    func testPerformDropFromRemote() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let coordinator = MockCollectionViewDropCoordinator()
         coordinator.destinationIndexPath = IndexPath(item: 0, section: 0)
@@ -474,7 +489,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPerformDropWithoutDelegate() throws {
+    @MainActor
+    func testPerformDropWithoutDelegate() throws {
         let coordinator = MockCollectionViewDropCoordinator()
         coordinator.destinationIndexPath = IndexPath(item: 0, section: 0)
         let collectionView = createCollectionView()
@@ -493,7 +509,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - dropSessionDidEnter
 
-    internal func testDropSessionDidEnter() throws {
+    @MainActor
+    func testDropSessionDidEnter() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let mockSession = MockDropSession()
         let collectionView = createCollectionView()
@@ -520,7 +537,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - dropSessionDidExit
 
-    internal func testDropSessionDidExit() throws {
+    @MainActor
+    func testDropSessionDidExit() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let mockSession = MockDropSession()
         let collectionView = createCollectionView()
@@ -547,7 +565,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - dropSessionDidEnd
 
-    internal func testDropSessionDidEnd() throws {
+    @MainActor
+    func testDropSessionDidEnd() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let mockSession = MockDropSession()
         let collectionView = createCollectionView()
@@ -574,7 +593,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
 
     // MARK: - dropPreviewParametersForItem
 
-    internal func testDropPreviewParametersForItemWithDelegate() throws {
+    @MainActor
+    func testDropPreviewParametersForItemWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drop delegate")
         let itemIndexPath = IndexPath(item: 0, section: 0)
         let mockPreviewParameters = UIDragPreviewParameters()
@@ -606,7 +626,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDropDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDropPreviewParametersForItemWithoutDelegate() throws {
+    @MainActor
+    func testDropPreviewParametersForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,

@@ -1,15 +1,16 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class ListSectionControllerTests: XCTestCase {
-    internal func testDidUpdateModelWithValidTypeSetsModel() {
+final class ListSectionControllerTests: XCTestCase {
+    @MainActor
+    func testDidUpdateModelWithValidTypeSetsModel() {
         let sectionController = ListSectionController<String, String>(model: "1")
         sectionController.didUpdate(model: "2")
         XCTAssertEqual(sectionController.model, "2")
     }
 
-    internal func testDidUpdateModelWithInvalidType() {
+    @MainActor
+    func testDidUpdateModelWithInvalidType() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionController = ListSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
@@ -32,7 +33,8 @@ internal final class ListSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testInitDoesNotUpdateItemsIfShouldNotUpdateItems() {
+    @MainActor
+    func testInitDoesNotUpdateItemsIfShouldNotUpdateItems() {
         class TestSectionController: ListSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
@@ -56,7 +58,8 @@ internal final class ListSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testSettingModelDoesNotUpdateItemsIfShouldNotUpdateItems() {
+    @MainActor
+    func testSettingModelDoesNotUpdateItemsIfShouldNotUpdateItems() {
         class TestSectionController: ListSectionController<String, String> {
             var itemsForModelExpectation: XCTestExpectation?
 
@@ -83,12 +86,14 @@ internal final class ListSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testShouldUpdateItemsDefaultsToTrue() {
+    @MainActor
+    func testShouldUpdateItemsDefaultsToTrue() {
         let sectionController = ListSectionController<String, String>(model: "1")
         XCTAssert(sectionController.shouldUpdateItems(afterModelChangedTo: "2"))
     }
 
-    internal func testItemsForModelInvokesNotImplementedError() {
+    @MainActor
+    func testItemsForModelInvokesNotImplementedError() {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionController = ListSectionController<String, String>(model: "1")
         let context = MainCollectionViewContext(
@@ -108,7 +113,8 @@ internal final class ListSectionControllerTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testNumberOfItems() {
+    @MainActor
+    func testNumberOfItems() {
         let sectionController = ListSectionController<String, String>(model: "1")
         sectionController.items = ["1", "2"]
         let context = MainCollectionViewContext(

@@ -2,27 +2,27 @@
 import UIKit
 import XCTest
 
-@MainActor
-internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCase {
+class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseCollectionViewAdapterUICollectionViewDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createCollectionView(
+    func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
-    internal func createCollectionViewAdapter(
+    @MainActor
+    func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,
@@ -32,7 +32,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testShouldHighlightItem() throws {
+    @MainActor
+    func testShouldHighlightItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -61,7 +62,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testShouldHighlightItemWithoutDelegate() throws {
+    @MainActor
+    func testShouldHighlightItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -80,7 +82,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testDidHighlightItem() throws {
+    @MainActor
+    func testDidHighlightItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -105,7 +108,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidHighlightItemWithoutDelegate() throws {
+    @MainActor
+    func testDidHighlightItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -121,7 +125,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionView?(collectionView, didHighlightItemAt: itemIndexPath.indexInCollectionView)
     }
 
-    internal func testDidUnhighlightItem() throws {
+    @MainActor
+    func testDidUnhighlightItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -146,7 +151,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidUnhighlightItemWithoutDelegate() throws {
+    @MainActor
+    func testDidUnhighlightItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -162,7 +168,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionView?(collectionView, didUnhighlightItemAt: itemIndexPath.indexInCollectionView)
     }
 
-    internal func testShouldSelectItem() throws {
+    @MainActor
+    func testShouldSelectItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -191,7 +198,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testShouldSelectItemWithoutDelegate() throws {
+    @MainActor
+    func testShouldSelectItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -210,7 +218,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testShouldDeselectItem() throws {
+    @MainActor
+    func testShouldDeselectItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -239,7 +248,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testShouldDeselectItemWithoutDelegate() throws {
+    @MainActor
+    func testShouldDeselectItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -258,7 +268,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testDidSelectItem() throws {
+    @MainActor
+    func testDidSelectItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -283,7 +294,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidSelectItemWithoutDelegate() throws {
+    @MainActor
+    func testDidSelectItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -299,7 +311,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionView?(collectionView, didSelectItemAt: itemIndexPath.indexInCollectionView)
     }
 
-    internal func testDidDeselectItem() throws {
+    @MainActor
+    func testDidDeselectItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -324,7 +337,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidDeselectItemWithoutDelegate() throws {
+    @MainActor
+    func testDidDeselectItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -340,7 +354,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionView?(collectionView, didDeselectItemAt: itemIndexPath.indexInCollectionView)
     }
 
-    internal func testWillDisplayCell() throws {
+    @MainActor
+    func testWillDisplayCell() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -367,7 +382,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testWillDisplayCellWithoutDelegate() throws {
+    @MainActor
+    func testWillDisplayCellWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let itemCell = MockCollectionViewCell()
@@ -384,7 +400,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionView?(collectionView, willDisplay: itemCell, forItemAt: itemIndexPath.indexInCollectionView)
     }
 
-    internal func testWillDisplayHeaderView() throws {
+    @MainActor
+    func testWillDisplayHeaderView() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -416,7 +433,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testWillDisplayFooterView() throws {
+    @MainActor
+    func testWillDisplayFooterView() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -448,7 +466,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testWillDisplaySupplementaryViewWithoutDelegate() throws {
+    @MainActor
+    func testWillDisplaySupplementaryViewWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let itemHeaderView = MockCollectionReusableView()
@@ -470,7 +489,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testWillDisplaySupplementaryViewWithInvalidElementKind() throws {
+    @MainActor
+    func testWillDisplaySupplementaryViewWithInvalidElementKind() throws {
         let delegateExpectation = expectation(description: "Should not invoke delegate")
         delegateExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
@@ -513,7 +533,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidEndDisplayingCell() throws {
+    @MainActor
+    func testDidEndDisplayingCell() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -540,7 +561,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidEndDisplayingCellWithoutDelegate() throws {
+    @MainActor
+    func testDidEndDisplayingCellWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let itemCell = MockCollectionViewCell()
@@ -557,7 +579,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionView?(collectionView, didEndDisplaying: itemCell, forItemAt: itemIndexPath.indexInCollectionView)
     }
 
-    internal func testDidEndDisplayingHeaderView() throws {
+    @MainActor
+    func testDidEndDisplayingHeaderView() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -589,7 +612,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidEndDisplayingFooterView() throws {
+    @MainActor
+    func testDidEndDisplayingFooterView() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -621,7 +645,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDidEndDisplayingSupplementaryViewWithoutDelegate() throws {
+    @MainActor
+    func testDidEndDisplayingSupplementaryViewWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let itemHeaderView = MockCollectionReusableView()
@@ -643,7 +668,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testDidEndDisplayingSupplementaryWithInvalidElementKind() throws {
+    @MainActor
+    func testDidEndDisplayingSupplementaryWithInvalidElementKind() throws {
         let delegateExpectation = expectation(description: "Should not invoke delegate")
         delegateExpectation.fulfill()
         let errorExpectation = expectation(description: "Should invoke errorHandler")
@@ -687,8 +713,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testShouldShowMenuForItem() throws {
+    func testShouldShowMenuForItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -718,8 +745,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testShouldShowMenuForItemWithoutDelegate() throws {
+    func testShouldShowMenuForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -739,8 +767,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testCanPerform() throws {
+    func testCanPerform() throws {
         class Mock {
             @objc
             func perform() { }
@@ -782,8 +811,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testCanPerformWithoutDelegate() throws {
+    func testCanPerformWithoutDelegate() throws {
         class Mock {
             @objc
             func perform() { }
@@ -813,8 +843,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testPerform() throws {
+    func testPerform() throws {
         class Mock {
             @objc
             func perform() { }
@@ -852,8 +883,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testPerformWithoutDelegate() throws {
+    func testPerformWithoutDelegate() throws {
         class Mock {
             @objc
             func perform() { }
@@ -879,7 +911,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testTransitionLayoutForOldLayout() throws {
+    @MainActor
+    func testTransitionLayoutForOldLayout() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -900,7 +933,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         XCTAssert(transitionLayout.nextLayout === toLayout)
     }
 
-    internal func testCanFocusItem() throws {
+    @MainActor
+    func testCanFocusItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -929,7 +963,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCanFocusItemWithoutDelegate() throws {
+    @MainActor
+    func testCanFocusItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -949,7 +984,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
     }
 
     // Not possible to instantiate `UICollectionViewFocusUpdateContext`
-//    internal func testShouldUpdateFocus() throws {
+//    func testShouldUpdateFocus() throws {
 //        let collectionView = createCollectionView()
 //        let adapter = try createCollectionViewAdapter(
 //            collectionView: collectionView,
@@ -964,7 +999,7 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
 //    }
 
     // Not possible to instantiate `UICollectionViewFocusUpdateContext`
-//    internal func testDidUpdateFocus() throws {
+//    func testDidUpdateFocus() throws {
 //        let collectionView = createCollectionView()
 //        let adapter = try createCollectionViewAdapter(
 //            collectionView: collectionView,
@@ -979,7 +1014,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
 //        )
 //    }
 
-    internal func testIndexPathForPreferredFocusedView() throws {
+    @MainActor
+    func testIndexPathForPreferredFocusedView() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -990,7 +1026,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         XCTAssertNil(adapter.indexPathForPreferredFocusedView?(in: collectionView))
     }
 
-    internal func testTargetIndexPathForMoveFromItem() throws {
+    @MainActor
+    func testTargetIndexPathForMoveFromItem() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -1010,7 +1047,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
-    internal func testTargetContentOffsetForProposedContentOffset() throws {
+    @MainActor
+    func testTargetContentOffsetForProposedContentOffset() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -1028,8 +1066,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 11.0, *)
-    internal func testShouldSpringLoadItem() throws {
+    func testShouldSpringLoadItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1064,8 +1103,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     @available(iOS 11.0, *)
-    internal func testShouldSpringLoadItemWithoutDelegate() throws {
+    func testShouldSpringLoadItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let mockContext = MockSpringLoadedInteractionContext()
@@ -1089,8 +1129,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testShouldBeginMultipleSelectionInteraction() throws {
+    func testShouldBeginMultipleSelectionInteraction() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1122,8 +1163,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testShouldBeginMultipleSelectionInteractionWithoutDelegate() throws {
+    func testShouldBeginMultipleSelectionInteractionWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -1145,8 +1187,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testDidBeginMultipleSelectionInteraction() throws {
+    func testDidBeginMultipleSelectionInteraction() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1174,8 +1217,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testDidBeginMultipleSelectionInteractionWithoutDelegate() throws {
+    func testDidBeginMultipleSelectionInteractionWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let adapter = try createCollectionViewAdapter(
@@ -1194,8 +1238,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testDidEndMultipleSelectionInteraction() throws {
+    func testDidEndMultipleSelectionInteraction() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -1206,8 +1251,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         adapter.collectionViewDidEndMultipleSelectionInteraction?(collectionView)
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testContextMenuConfigurationForItem() throws {
+    func testContextMenuConfigurationForItem() throws {
         let testExpectation = expectation(description: "Should invoke delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
@@ -1242,8 +1288,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         waitForExpectations(timeout: 1)
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testContextMenuConfigurationForItemWithoutDelegate() throws {
+    func testContextMenuConfigurationForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = SectionIndexPath(IndexPath(item: 0, section: 0))
         let itemPoint = CGPoint(x: 1, y: 2)
@@ -1266,8 +1313,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testPreviewForHighlightingContextMenuWithConfiguration() throws {
+    func testPreviewForHighlightingContextMenuWithConfiguration() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -1283,8 +1331,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testPreviewForDismissingContextMenuWithConfiguration() throws {
+    func testPreviewForDismissingContextMenuWithConfiguration() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
@@ -1300,8 +1349,9 @@ internal class BaseCollectionViewAdapterUICollectionViewDelegateTests: XCTestCas
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testWillPerformPreviewActionForMenu() throws {
+    func testWillPerformPreviewActionForMenu() throws {
         let collectionView = createCollectionView()
         let adapter = try createCollectionViewAdapter(
             collectionView: collectionView,
