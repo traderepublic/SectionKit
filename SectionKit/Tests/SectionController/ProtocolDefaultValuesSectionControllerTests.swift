@@ -9,7 +9,8 @@ final class ProtocolDefaultValuesSectionControllerTests: XCTestCase {
         super.setUp()
         class DefaultSectionController: SectionController {
             var context: CollectionViewContext?
-            var dataSource: SectionDataSource = MockSectionDataSource()
+            let dataSource: SectionDataSource = MockSectionDataSource()
+            let layoutProvider: SectionLayoutProvider = .flowLayout(nil)
             func didUpdate(model: Any) { }
         }
         sut = DefaultSectionController()

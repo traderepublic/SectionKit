@@ -28,7 +28,7 @@ public protocol SectionController: AnyObject {
     var dropDelegate: SectionDropDelegate? { get }
 
     @available(iOS 13.0, *)
-    var layoutProvider: SectionLayoutProvider? { get }
+    var layoutProvider: SectionLayoutProvider { get }
 
     /// The model of this section controller changed.
     func didUpdate(model: Any)
@@ -47,14 +47,11 @@ extension SectionController {
 
     @available(iOS 11.0, *)
     public var dropDelegate: SectionDropDelegate? { nil }
-
-    @available(iOS 13.0, *)
-    public var layoutProvider: SectionLayoutProvider? { nil }
 }
 
 @available(iOS 13.0, *)
 public enum SectionLayoutProvider {
-    case flowLayout(FlowLayoutProvider)
+    case flowLayout(FlowLayoutProvider?)
     case compositionalLayout(CompositionalLayoutProvider)
 }
 

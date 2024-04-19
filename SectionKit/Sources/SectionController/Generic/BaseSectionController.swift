@@ -37,7 +37,7 @@ open class BaseSectionController: SectionController,
     open var dropDelegate: SectionDropDelegate? { self }
 
     @available(iOS 13.0, *)
-    open var layoutProvider: SectionLayoutProvider? { .flowLayout(self) }
+    open var layoutProvider: SectionLayoutProvider { .flowLayout(self) }
 
     open func didUpdate(model: Any) { }
 
