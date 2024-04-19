@@ -23,7 +23,7 @@ final public class SectionKitCompositionalLayout: UICollectionViewCompositionalL
                 assertionFailure("Please set the layout provider with `CompositionalLayoutProvider`")
                 return .empty
             }
-            return provider.layoutSection(environment)
+            return provider.layoutSectionProvider(environment)
         }
         sections = { [weak self] in
             self?.sections?() ?? []
