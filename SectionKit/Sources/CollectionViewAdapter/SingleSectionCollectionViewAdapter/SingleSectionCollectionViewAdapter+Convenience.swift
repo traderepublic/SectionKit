@@ -59,7 +59,7 @@ extension SingleSectionCollectionViewAdapter {
     @inlinable
     public func flowDelegate(at indexPath: IndexPath) -> SectionFlowDelegate? {
         if #available(iOS 13.0, *) {
-            return controller(at: indexPath)?.layoutProvider?.flowLayoutProvider
+            return controller(at: indexPath)?.layoutProvider.flowLayoutProvider
         } else {
             return controller(at: indexPath)?.flowDelegate
         }
@@ -68,7 +68,7 @@ extension SingleSectionCollectionViewAdapter {
     @inlinable
     public func flowDelegate(at index: Int) -> SectionFlowDelegate? {
         if #available(iOS 13.0, *) {
-            return controller(at: index)?.layoutProvider?.flowLayoutProvider
+            return controller(at: index)?.layoutProvider.flowLayoutProvider
         } else {
             return controller(at: index)?.flowDelegate
         }

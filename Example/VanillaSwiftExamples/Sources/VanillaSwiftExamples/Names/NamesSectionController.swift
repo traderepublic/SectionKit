@@ -5,7 +5,7 @@ final class NamesSectionController: ListSectionController<
     NamesSectionViewModelType,
     String
 > {
-    override var layoutProvider: SectionLayoutProvider? {
+    override var layoutProvider: SectionLayoutProvider {
         let layoutSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .estimated(50)
