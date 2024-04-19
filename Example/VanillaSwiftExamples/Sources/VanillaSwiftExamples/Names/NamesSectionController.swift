@@ -36,7 +36,7 @@ final class NamesSectionController: ListSectionController<
             layout.boundarySupplementaryItems = []
         }
         return .compositionalLayout(
-            .init(layoutSection: { _ in layout })
+            .init { _ in layout }
         )
     }
 
