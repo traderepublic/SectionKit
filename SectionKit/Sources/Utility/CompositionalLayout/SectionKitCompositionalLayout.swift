@@ -20,7 +20,8 @@ final public class SectionKitCompositionalLayout: UICollectionViewCompositionalL
                 return .empty
             }
             guard case .compositionalLayout(let provider) = sections[index].controller.layoutProvider else {
-                assertionFailure("Please set the layout provider with `CompositionalLayoutProvider`")
+                let sectionType = String(describing: type(of: sections[index].controller))
+                assertionFailure("Please set the layout provider with `CompositionalLayoutProvider` in \(sectionType)")
                 return .empty
             }
             return provider.layoutSectionProvider(environment)
