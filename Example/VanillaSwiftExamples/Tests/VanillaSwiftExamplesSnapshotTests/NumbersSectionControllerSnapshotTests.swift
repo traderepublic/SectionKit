@@ -3,8 +3,8 @@ import SnapshotTesting
 import TestUtilities
 import XCTest
 
-@MainActor
 final class NumbersSectionControllerSnapshotTests: XCTestCase {
+    @MainActor
     func testDefaultViewModel() {
         let model = NumbersSectionViewModel(numbers: Array(0..<10), navigation: MockNumbersSectionNavigation())
         let sectionController = NumbersSectionController(model: model)
