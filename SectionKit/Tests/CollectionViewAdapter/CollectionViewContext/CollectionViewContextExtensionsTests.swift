@@ -1,16 +1,31 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class CollectionViewContextExtensionsTests: XCTestCase {
-    // MARK: - dequeueReusableCell
+final class CollectionViewContextExtensionsTests: XCTestCase {
+    private var context: MockCollectionViewContext!
 
-    internal func testDequeueReusableCellForIndexPathWithImplicitType() {
-        let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
+    @MainActor
+    override func setUp() {
+        super.setUp()
+        context = MockCollectionViewContext(
+            collectionView: UICollectionView(
+                frame: .zero,
+                collectionViewLayout: UICollectionViewFlowLayout()
+            ),
             errorHandler: MockErrorHandler()
         )
+    }
+
+    override func tearDown() {
+        context = nil
+        super.tearDown()
+    }
+
+    // MARK: - dequeueReusableCell
+
+    @MainActor
+    func testDequeueReusableCellForIndexPathWithImplicitType() {
+        let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
         context._dequeueReusableCell = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionViewCell.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -21,12 +36,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableCellForSectionIndexPathWithExplicitType() {
+    @MainActor
+    func testDequeueReusableCellForSectionIndexPathWithExplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableCell = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionViewCell.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -37,12 +49,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableCellForSectionIndexPathWithImplicitType() {
+    @MainActor
+    func testDequeueReusableCellForSectionIndexPathWithImplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableCell")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableCell = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionViewCell.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -55,12 +64,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
 
     // MARK: - dequeueReusableHeaderView
 
-    internal func testDequeueReusableHeaderViewForIndexPathWithImplicitType() {
+    @MainActor
+    func testDequeueReusableHeaderViewForIndexPathWithImplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableHeaderView")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableHeaderView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -71,12 +77,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableHeaderViewForSectionIndexPathWithExplicitType() {
+    @MainActor
+    func testDequeueReusableHeaderViewForSectionIndexPathWithExplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableHeaderView")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableHeaderView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -87,12 +90,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableHeaderViewForSectionIndexPathWithImplicitType() {
+    @MainActor
+    func testDequeueReusableHeaderViewForSectionIndexPathWithImplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableHeaderView")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableHeaderView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -105,12 +105,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
 
     // MARK: - dequeueReusableFooterView
 
-    internal func testDequeueReusableFooterViewForIndexPathWithImplicitType() {
+    @MainActor
+    func testDequeueReusableFooterViewForIndexPathWithImplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableFooterView")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableFooterView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -121,12 +118,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableFooterViewForSectionIndexPathWithExplicitType() {
+    @MainActor
+    func testDequeueReusableFooterViewForSectionIndexPathWithExplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableFooterView")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableFooterView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))
@@ -137,12 +131,9 @@ internal final class CollectionViewContextExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableFooterViewForSectionIndexPathWithImplicitType() {
+    @MainActor
+    func testDequeueReusableFooterViewForSectionIndexPathWithImplicitType() {
         let testExpectation = expectation(description: "Should invoke dequeueReusableFooterView")
-        let context = MockCollectionViewContext(
-            collectionView: UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()),
-            errorHandler: MockErrorHandler()
-        )
         context._dequeueReusableFooterView = { cellType, indexPath in
             XCTAssert(cellType === MockCollectionReusableView.self)
             XCTAssertEqual(indexPath, IndexPath(item: 0, section: 0))

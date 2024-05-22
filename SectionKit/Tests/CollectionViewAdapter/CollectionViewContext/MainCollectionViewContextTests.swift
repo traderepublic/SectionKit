@@ -1,9 +1,9 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class MainCollectionViewContextTests: XCTestCase {
-    internal func testAdapterIsWeakReferenced() {
+final class MainCollectionViewContextTests: XCTestCase {
+    @MainActor
+    func testAdapterIsWeakReferenced() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -16,7 +16,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertNil(context.adapter)
     }
 
-    internal func testViewControllerIsWeakReferenced() {
+    @MainActor
+    func testViewControllerIsWeakReferenced() {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
             viewController: UIViewController(),
@@ -26,7 +27,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertNil(context.viewController)
     }
 
-    internal func testApplySectionUpdate() {
+    @MainActor
+    func testApplySectionUpdate() {
         let collectionViewExpectation = expectation(description: "reloadData should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView._reloadData = collectionViewExpectation.fulfill
@@ -52,7 +54,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testApplySectionUpdateWhenAdapterIsNotSetThenReloadDataIsCalled() {
+    @MainActor
+    func testApplySectionUpdateWhenAdapterIsNotSetThenReloadDataIsCalled() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let collectionViewExpectation = expectation(description: "reloadData should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -78,7 +81,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testApplySectionUpdateWhenSectionControllerIsNotPartOfTheAdapterThenReloadDataIsCalled() {
+    @MainActor
+    func testApplySectionUpdateWhenSectionControllerIsNotPartOfTheAdapterThenReloadDataIsCalled() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let collectionViewExpectation = expectation(description: "reloadData should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -106,7 +110,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableCellWhenCellIsNotRegisteredYet() {
+    @MainActor
+    func testDequeueReusableCellWhenCellIsNotRegisteredYet() {
         let registerExpectation = expectation(description: "The cell should be registered")
         let dequeueExpectation = expectation(description: "The cell should be dequeued")
         let mockIndexPath = IndexPath(item: 1, section: 2)
@@ -137,7 +142,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableCellWhenCellIsAlreadyRegistered() {
+    @MainActor
+    func testDequeueReusableCellWhenCellIsAlreadyRegistered() {
         let registerExpectation = expectation(description: "The cell should not be registered")
         registerExpectation.fulfill()
         let dequeueExpectation = expectation(description: "The cell should be dequeued")
@@ -168,7 +174,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableCellWhenInvalidCellIsRegistered() {
+    @MainActor
+    func testDequeueReusableCellWhenInvalidCellIsRegistered() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let dequeueExpectation = expectation(description: "The cell should be dequeued")
         let mockIndexPath = IndexPath(item: 1, section: 2)
@@ -202,7 +209,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableHeaderViewWhenHeaderViewIsNotRegisteredYet() {
+    @MainActor
+    func testDequeueReusableHeaderViewWhenHeaderViewIsNotRegisteredYet() {
         let registerExpectation = expectation(description: "The header view should be registered")
         let dequeueExpectation = expectation(description: "The header view should be dequeued")
         let mockIndexPath = IndexPath(item: 1, section: 2)
@@ -235,7 +243,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableHeaderViewWhenHeaderViewIsAlreadyRegistered() {
+    @MainActor
+    func testDequeueReusableHeaderViewWhenHeaderViewIsAlreadyRegistered() {
         let registerExpectation = expectation(description: "The header view should not be registered")
         registerExpectation.fulfill()
         let dequeueExpectation = expectation(description: "The header view should be dequeued")
@@ -267,7 +276,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableHeaderViewWhenInvalidHeaderViewIsRegistered() {
+    @MainActor
+    func testDequeueReusableHeaderViewWhenInvalidHeaderViewIsRegistered() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let dequeueExpectation = expectation(description: "The header view should be dequeued")
         let mockIndexPath = IndexPath(item: 1, section: 2)
@@ -302,7 +312,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableFooterViewWhenFooterViewIsNotRegisteredYet() {
+    @MainActor
+    func testDequeueReusableFooterViewWhenFooterViewIsNotRegisteredYet() {
         let registerExpectation = expectation(description: "The footer view should be registered")
         let dequeueExpectation = expectation(description: "The footer view should be dequeued")
         let mockIndexPath = IndexPath(item: 1, section: 2)
@@ -335,7 +346,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableFooterViewWhenFooterViewIsAlreadyRegistered() {
+    @MainActor
+    func testDequeueReusableFooterViewWhenFooterViewIsAlreadyRegistered() {
         let registerExpectation = expectation(description: "The footer view should not be registered")
         registerExpectation.fulfill()
         let dequeueExpectation = expectation(description: "The footer view should be dequeued")
@@ -367,7 +379,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDequeueReusableFooterViewWhenInvalidFooterViewIsRegistered() {
+    @MainActor
+    func testDequeueReusableFooterViewWhenInvalidFooterViewIsRegistered() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let dequeueExpectation = expectation(description: "The footer view should be dequeued")
         let mockIndexPath = IndexPath(item: 1, section: 2)
@@ -402,7 +415,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testSectionControllerWithAdjustedIndexPath() {
+    @MainActor
+    func testSectionControllerWithAdjustedIndexPath() {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -423,7 +437,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertEqual(actual?.1.indexInCollectionView, indexPath)
     }
 
-    internal func testSectionControllerWithAdjustedIndexPathWhenSectionDoesNotExist() {
+    @MainActor
+    func testSectionControllerWithAdjustedIndexPathWhenSectionDoesNotExist() {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -435,7 +450,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertNil(context.sectionControllerWithAdjustedIndexPath(for: IndexPath(item: 0, section: 0)))
     }
 
-    internal func testSectionControllerWithAdjustedIndexPathWhenAdapterIsNotSet() {
+    @MainActor
+    func testSectionControllerWithAdjustedIndexPathWhenAdapterIsNotSet() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
@@ -454,7 +470,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testIndexOfControllerWhenAdapterIsNotSet() {
+    @MainActor
+    func testIndexOfControllerWhenAdapterIsNotSet() {
         let errorExpectation = expectation(description: "The errorHandler should be invoked")
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
@@ -473,7 +490,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testIndexOfControllerThatIsNotPartOfTheContext() {
+    @MainActor
+    func testIndexOfControllerThatIsNotPartOfTheContext() {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let adapter = MockCollectionViewAdapter()
         adapter._sections = { [] }
@@ -486,7 +504,8 @@ internal final class MainCollectionViewContextTests: XCTestCase {
         XCTAssertNil(context.index(of: MockSectionController()))
     }
 
-    internal func testIndexOfControllerThatIsPartOfTheContext() {
+    @MainActor
+    func testIndexOfControllerThatIsPartOfTheContext() {
         let collectionView = MockCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         let controller = MockSectionController()
         let adapter = MockCollectionViewAdapter()

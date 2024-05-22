@@ -1,42 +1,46 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal final class ProtocolDefaultValuesSectionControllerTests: XCTestCase {
-    private func createSectionController() -> SectionController {
+final class ProtocolDefaultValuesSectionControllerTests: XCTestCase {
+    private var sut: SectionController!
+
+    @MainActor
+    override func setUp() {
+        super.setUp()
         class DefaultSectionController: SectionController {
             var context: CollectionViewContext?
-            var dataSource: SectionDataSource = MockSectionDataSource()
+            let dataSource: SectionDataSource = MockSectionDataSource()
+            let layoutProvider: SectionLayoutProvider = .flowLayout(nil)
             func didUpdate(model: Any) { }
         }
-        return DefaultSectionController()
+        sut = DefaultSectionController()
     }
 
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+
+    @MainActor
     @available(iOS 10.0, *)
-    internal func testDataSourcePrefetchingDelegateIsNil() {
-        let sectionController = createSectionController()
-        XCTAssertNil(sectionController.dataSourcePrefetchingDelegate)
+    func testDataSourcePrefetchingDelegateIsNil() {
+        XCTAssertNil(sut.dataSourcePrefetchingDelegate)
     }
 
-    internal func testDelegateIsNil() {
-        let sectionController = createSectionController()
-        XCTAssertNil(sectionController.delegate)
+    @MainActor
+    func testDelegateIsNil() {
+        XCTAssertNil(sut.delegate)
     }
 
-    internal func testFlowDelegateIsNil() {
-        let sectionController = createSectionController()
-        XCTAssertNil(sectionController.flowDelegate)
-    }
-
+    @MainActor
     @available(iOS 11.0, *)
-    internal func testDragDelegateIsNil() {
-        let sectionController = createSectionController()
-        XCTAssertNil(sectionController.dragDelegate)
+    func testDragDelegateIsNil() {
+        XCTAssertNil(sut.dragDelegate)
     }
 
+    @MainActor
     @available(iOS 11.0, *)
-    internal func testDropDelegateIsNil() {
-        let sectionController = createSectionController()
-        XCTAssertNil(sectionController.dropDelegate)
+    func testDropDelegateIsNil() {
+        XCTAssertNil(sut.dropDelegate)
     }
 }

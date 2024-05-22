@@ -27,6 +27,9 @@ public protocol SectionController: AnyObject {
     @available(iOS 11.0, *)
     var dropDelegate: SectionDropDelegate? { get }
 
+    @available(iOS 13.0, *)
+    var layoutProvider: SectionLayoutProvider { get }
+
     /// The model of this section controller changed.
     func didUpdate(model: Any)
 }
@@ -44,4 +47,45 @@ extension SectionController {
 
     @available(iOS 11.0, *)
     public var dropDelegate: SectionDropDelegate? { nil }
+}
+
+@available(iOS 13.0, *)
+public enum SectionLayoutProvider {
+    case flowLayout(FlowLayoutProvider?)
+    case compositionalLayout(CompositionalLayoutProvider)
+}
+
+public typealias FlowLayoutProvider = SectionFlowDelegate
+
+@MainActor
+@available(iOS 13.0, *)
+public struct CompositionalLayoutProvider {
+    /// Provide the layout section for the Compositional Layout
+    /// - Parameters:
+    ///   - layoutEnvironment: the environment value for the layout
+    /// - Returns: The layout for the section
+    var layoutSectionProvider: (_ layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
+
+    public init(
+        layoutSectionProvider: @escaping (any NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
+    ) {
+        self.layoutSectionProvider = layoutSectionProvider
+    }
+}
+
+@available(iOS 13.0, *)
+public extension SectionLayoutProvider {
+    var flowLayoutProvider: FlowLayoutProvider? {
+        guard case .flowLayout(let flowLayoutProvider) = self else {
+            return nil
+        }
+        return flowLayoutProvider
+    }
+
+    var compositionalLayoutProvider: CompositionalLayoutProvider? {
+        guard case .compositionalLayout(let compositionalLayoutProvider) = self else {
+            return nil
+        }
+        return compositionalLayoutProvider
+    }
 }

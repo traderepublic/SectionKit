@@ -2,9 +2,9 @@
 import UIKit
 import XCTest
 
-@MainActor
-internal final class ListCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests: BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests {
-    override internal func createCollectionViewAdapter(
+final class ListCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests: BaseCollectionViewAdapterUICollectionViewDelegateFlowLayoutTests {
+    @MainActor
+    override func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,

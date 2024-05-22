@@ -3,8 +3,8 @@ import SnapshotTesting
 import TestUtilities
 import XCTest
 
-@MainActor
 final class ColorsSectionControllerSnapshotTests: XCTestCase {
+    @MainActor
     func testDefaultViewModel() {
         let sectionController = ColorsSectionController(model: [.red, .green, .blue])
         let container = SectionSnapshotContainer(sectionController: sectionController, width: 375)

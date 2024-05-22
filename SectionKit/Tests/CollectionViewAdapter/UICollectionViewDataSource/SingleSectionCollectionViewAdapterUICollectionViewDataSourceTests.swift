@@ -2,8 +2,8 @@
 import UIKit
 import XCTest
 
-@MainActor
-internal final class SingleSectionCollectionViewAdapterUICollectionViewDataSourceTests: BaseCollectionViewAdapterUICollectionViewDataSourceTests {
+final class SingleSectionCollectionViewAdapterUICollectionViewDataSourceTests: BaseCollectionViewAdapterUICollectionViewDataSourceTests {
+    @MainActor
     override internal func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],

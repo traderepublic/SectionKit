@@ -1,8 +1,8 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal final class BaseSectionControllerSectionDelegateTests: BaseSectionDelegateTests {
+final class BaseSectionControllerSectionDelegateTests: BaseSectionDelegateTests {
+    @MainActor
     override func createSectionDelegate() throws -> SectionDelegate {
         BaseSectionController()
     }

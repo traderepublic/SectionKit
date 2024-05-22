@@ -2,28 +2,28 @@
 import UIKit
 import XCTest
 
-@MainActor
 @available(iOS 10.0, *)
-internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests: XCTestCase {
+class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createCollectionView(
+    func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
-    internal func createCollectionViewAdapter(
+    @MainActor
+    func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,
@@ -33,7 +33,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testPrefetchItems() throws {
+    @MainActor
+    func testPrefetchItems() throws {
         let testExpectation = expectation(description: "Should invoke datasource prefetching delegate")
         let collectionView = createCollectionView()
         let itemsToPrefetch = [IndexPath(item: 0, section: 0), IndexPath(item: 1, section: 0)]
@@ -58,7 +59,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testPrefetchItemsWithInvalidIndices() throws {
+    @MainActor
+    func testPrefetchItemsWithInvalidIndices() throws {
         let testExpectation = expectation(description: "Should invoke datasource prefetching delegate")
         let collectionView = createCollectionView()
         let itemsToPrefetch = [IndexPath(item: 0, section: 0), IndexPath(item: 1, section: 0)]
@@ -84,7 +86,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCancelPrefetchingForItems() throws {
+    @MainActor
+    func testCancelPrefetchingForItems() throws {
         let testExpectation = expectation(description: "Should invoke datasource prefetching delegate")
         let collectionView = createCollectionView()
         let itemsToCancel = [IndexPath(item: 0, section: 0), IndexPath(item: 1, section: 0)]
@@ -109,7 +112,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCancelPrefetchingForItemsWithInvalidIndices() throws {
+    @MainActor
+    func testCancelPrefetchingForItemsWithInvalidIndices() throws {
         let testExpectation = expectation(description: "Should invoke datasource prefetching delegate")
         let collectionView = createCollectionView()
         let itemsToCancel = [IndexPath(item: 0, section: 0), IndexPath(item: 1, section: 0)]

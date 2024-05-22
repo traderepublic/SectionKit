@@ -1,25 +1,26 @@
 import SectionKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal class BaseSectionDragDelegateTests: XCTestCase {
+class BaseSectionDragDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseSectionDragDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createSectionDragDelegate() throws -> SectionDragDelegate {
+    @MainActor
+    func createSectionDragDelegate() throws -> SectionDragDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testDragItemsForBeginning() throws {
+    @MainActor
+    func testDragItemsForBeginning() throws {
         let sectionDragDelegate = try createSectionDragDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -35,7 +36,8 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         ).isEmpty)
     }
 
-    internal func testDragItemsForAdding() throws {
+    @MainActor
+    func testDragItemsForAdding() throws {
         let sectionDragDelegate = try createSectionDragDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -52,7 +54,8 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         ).isEmpty)
     }
 
-    internal func testDragSessionWillBegin() throws {
+    @MainActor
+    func testDragSessionWillBegin() throws {
         let sectionDragDelegate = try createSectionDragDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -66,7 +69,8 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDragSessionDidEnd() throws {
+    @MainActor
+    func testDragSessionDidEnd() throws {
         let sectionDragDelegate = try createSectionDragDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -80,7 +84,8 @@ internal class BaseSectionDragDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDragPreviewParametersForItem() throws {
+    @MainActor
+    func testDragPreviewParametersForItem() throws {
         let sectionDragDelegate = try createSectionDragDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
