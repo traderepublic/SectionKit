@@ -2,28 +2,28 @@
 import UIKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTestCase {
+class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseCollectionViewAdapterUICollectionViewDragDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createCollectionView(
+    func createCollectionView(
         frame: CGRect = .zero,
         collectionViewLayout layout: UICollectionViewLayout? = nil
     ) -> UICollectionView {
         UICollectionView(frame: frame, collectionViewLayout: layout ?? UICollectionViewFlowLayout())
     }
 
-    internal func createCollectionViewAdapter(
+    @MainActor
+    func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,
@@ -35,7 +35,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - itemsForBeginning
 
-    internal func testItemsForBeginningWithDelegate() throws {
+    @MainActor
+    func testItemsForBeginningWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drag delegate")
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
@@ -70,7 +71,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testItemsForBeginningWithoutDelegate() throws {
+    @MainActor
+    func testItemsForBeginningWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
         let itemIndexPath = IndexPath(item: 0, section: 0)
@@ -93,7 +95,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - itemsForAdding
 
-    internal func testItemsForAddingWithDelegate() throws {
+    @MainActor
+    func testItemsForAddingWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drag delegate")
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
@@ -131,7 +134,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testItemsForAddingWithoutDelegate() throws {
+    @MainActor
+    func testItemsForAddingWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
         let itemIndexPath = IndexPath(item: 0, section: 0)
@@ -159,7 +163,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - dragPreviewParametersForItem
 
-    internal func testDragPreviewParametersForItemWithDelegate() throws {
+    @MainActor
+    func testDragPreviewParametersForItemWithDelegate() throws {
         let testExpectation = expectation(description: "Should invoke drag delegate")
         let collectionView = createCollectionView()
         let itemIndexPath = IndexPath(item: 0, section: 0)
@@ -191,7 +196,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
         waitForExpectations(timeout: 1)
     }
 
-    internal func testDragPreviewParametersForItemWithoutDelegate() throws {
+    @MainActor
+    func testDragPreviewParametersForItemWithoutDelegate() throws {
         let collectionView = createCollectionView()
         let itemIndexPath = IndexPath(item: 0, section: 0)
         let adapter = try createCollectionViewAdapter(
@@ -214,7 +220,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - dragSessionWillBegin
 
-    internal func testDragSessionWillBegin() throws {
+    @MainActor
+    func testDragSessionWillBegin() throws {
         let testExpectation = expectation(description: "Should invoke drag delegate")
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
@@ -244,7 +251,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - dragSessionDidEnd
 
-    internal func testDragSessionDidEnd() throws {
+    @MainActor
+    func testDragSessionDidEnd() throws {
         let testExpectation = expectation(description: "Should invoke drag delegate")
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
@@ -274,7 +282,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - dragSessionAllowsMoveOperation
 
-    internal func testDragSessionAllowsMoveOperation() throws {
+    @MainActor
+    func testDragSessionAllowsMoveOperation() throws {
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
         let adapter = try createCollectionViewAdapter(
@@ -291,7 +300,8 @@ internal class BaseCollectionViewAdapterUICollectionViewDragDelegateTests: XCTes
 
     // MARK: - dragSessionIsRestrictedToDraggingApplication
 
-    internal func testDragSessionIsRestrictedToDraggingApplication() throws {
+    @MainActor
+    func testDragSessionIsRestrictedToDraggingApplication() throws {
         let collectionView = createCollectionView()
         let mockSession = MockDragSession()
         let adapter = try createCollectionViewAdapter(

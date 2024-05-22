@@ -1,24 +1,25 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal class BaseSectionDelegateTests: XCTestCase {
+class BaseSectionDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseSectionDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createSectionDelegate() throws -> SectionDelegate {
+    @MainActor
+    func createSectionDelegate() throws -> SectionDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testShouldHighlightItem() throws {
+    @MainActor
+    func testShouldHighlightItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -29,7 +30,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         XCTAssert(sectionDelegate.shouldHighlightItem(at: indexPath, in: context))
     }
 
-    internal func testDidHighlightItem() throws {
+    @MainActor
+    func testDidHighlightItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -40,7 +42,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         sectionDelegate.didHighlightItem(at: indexPath, in: context)
     }
 
-    internal func testDidUnhighlightItem() throws {
+    @MainActor
+    func testDidUnhighlightItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -51,7 +54,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         sectionDelegate.didUnhighlightItem(at: indexPath, in: context)
     }
 
-    internal func testShouldSelectItem() throws {
+    @MainActor
+    func testShouldSelectItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -62,7 +66,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         XCTAssert(sectionDelegate.shouldSelectItem(at: indexPath, in: context))
     }
 
-    internal func testShouldDeselectItem() throws {
+    @MainActor
+    func testShouldDeselectItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -73,7 +78,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         XCTAssert(sectionDelegate.shouldDeselectItem(at: indexPath, in: context))
     }
 
-    internal func testDidSelectItem() throws {
+    @MainActor
+    func testDidSelectItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -84,7 +90,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         sectionDelegate.didSelectItem(at: indexPath, in: context)
     }
 
-    internal func testDidDeselectItem() throws {
+    @MainActor
+    func testDidDeselectItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -95,7 +102,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         sectionDelegate.didDeselectItem(at: indexPath, in: context)
     }
 
-    internal func testWillDisplayCell() throws {
+    @MainActor
+    func testWillDisplayCell() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -110,7 +118,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
-    internal func testWillDisplayHeaderView() throws {
+    @MainActor
+    func testWillDisplayHeaderView() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -125,7 +134,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
-    internal func testWillDisplayFooterView() throws {
+    @MainActor
+    func testWillDisplayFooterView() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -140,7 +150,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDidEndDisplayingCell() throws {
+    @MainActor
+    func testDidEndDisplayingCell() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -155,7 +166,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDidEndDisplayingHeaderView() throws {
+    @MainActor
+    func testDidEndDisplayingHeaderView() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -170,7 +182,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
-    internal func testDidEndDisplayingFooterView() throws {
+    @MainActor
+    func testDidEndDisplayingFooterView() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -186,8 +199,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testShouldShowMenuForItem() throws {
+    func testShouldShowMenuForItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -202,8 +216,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testCanPerform() throws {
+    func testCanPerform() throws {
         class Mock {
             @objc
             func perform() { }
@@ -225,8 +240,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
     }
 
     // availability attribute is needed because of deprecation warning
+    @MainActor
     @available(iOS, introduced: 6.0, deprecated: 13.0)
-    internal func testPerform() throws {
+    func testPerform() throws {
         class Mock {
             @objc
             func perform() { }
@@ -247,7 +263,8 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
-    internal func testCanFocusItem() throws {
+    @MainActor
+    func testCanFocusItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -267,8 +284,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     @available(iOS 11.0, *)
-    internal func testShouldSpringLoadItem() throws {
+    func testShouldSpringLoadItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -284,8 +302,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
         ))
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testShouldBeginMultipleSelectionInteraction() throws {
+    func testShouldBeginMultipleSelectionInteraction() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -299,8 +318,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
         ))
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testDidBeginMultipleSelectionInteraction() throws {
+    func testDidBeginMultipleSelectionInteraction() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -314,8 +334,9 @@ internal class BaseSectionDelegateTests: XCTestCase {
         )
     }
 
+    @MainActor
     @available(iOS 13.0, *)
-    internal func testContextMenuConfigurationForItem() throws {
+    func testContextMenuConfigurationForItem() throws {
         let sectionDelegate = try createSectionDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,

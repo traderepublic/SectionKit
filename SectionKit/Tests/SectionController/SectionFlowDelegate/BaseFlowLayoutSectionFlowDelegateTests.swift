@@ -1,24 +1,25 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal class BaseSectionFlowDelegateTests: XCTestCase {
+class BaseFlowLayoutSectionFlowDelegateTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
-        guard Self.self === BaseSectionFlowDelegateTests.self else { return }
+    func skipIfNeeded() throws {
+        guard Self.self === BaseFlowLayoutSectionFlowDelegateTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createSectionFlowDelegate() throws -> SectionFlowDelegate {
+    @MainActor
+    func createSectionFlowDelegate() throws -> SectionFlowDelegate {
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testSizeForItemWithFlowLayout() throws {
+    @MainActor
+    func testSizeForItemWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -39,7 +40,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testSizeForItemWithoutFlowLayout() throws {
+    @MainActor
+    func testSizeForItemWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -58,7 +60,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testInsetWithFlowLayout() throws {
+    @MainActor
+    func testInsetWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -77,7 +80,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testInsetWithoutFlowLayout() throws {
+    @MainActor
+    func testInsetWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -94,7 +98,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testMinimumLineSpacingWithFlowLayout() throws {
+    @MainActor
+    func testMinimumLineSpacingWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -112,7 +117,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testMinimumLineSpacingWithoutFlowLayout() throws {
+    @MainActor
+    func testMinimumLineSpacingWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -129,7 +135,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testMinimumInteritemSpacingWithFlowLayout() throws {
+    @MainActor
+    func testMinimumInteritemSpacingWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -147,7 +154,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testMinimumInteritemSpacingWithoutFlowLayout() throws {
+    @MainActor
+    func testMinimumInteritemSpacingWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -164,7 +172,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testReferenceSizeForHeaderWithFlowLayout() throws {
+    @MainActor
+    func testReferenceSizeForHeaderWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -183,7 +192,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testReferenceSizeForHeaderWithoutFlowLayout() throws {
+    @MainActor
+    func testReferenceSizeForHeaderWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -200,7 +210,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testReferenceSizeForFooterWithFlowLayout() throws {
+    @MainActor
+    func testReferenceSizeForFooterWithFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -219,7 +230,8 @@ internal class BaseSectionFlowDelegateTests: XCTestCase {
         )
     }
 
-    internal func testReferenceSizeForFooterWithoutFlowLayout() throws {
+    @MainActor
+    func testReferenceSizeForFooterWithoutFlowLayout() throws {
         let sectionFlowDelegate = try createSectionFlowDelegate()
         let context = MainCollectionViewContext(
             viewController: nil,

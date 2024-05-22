@@ -1,8 +1,8 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal final class ProtocolDefaultValuesSectionDataSourceTests: BaseSectionDataSourceTests {
+final class ProtocolDefaultValuesSectionDataSourceTests: BaseSectionDataSourceTests {
+    @MainActor
     override func createSectionDataSource() throws -> SectionDataSource {
         class DefaultSectionDataSource: SectionDataSource {
             func numberOfItems(in context: CollectionViewContext) -> Int {

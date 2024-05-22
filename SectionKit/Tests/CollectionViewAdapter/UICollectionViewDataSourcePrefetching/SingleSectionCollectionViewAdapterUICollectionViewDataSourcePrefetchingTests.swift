@@ -2,10 +2,10 @@
 import UIKit
 import XCTest
 
-@MainActor
 @available(iOS 10.0, *)
-internal final class SingleSectionCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests: BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests {
-    override internal func createCollectionViewAdapter(
+final class SingleSectionCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests: BaseCollectionViewAdapterUICollectionViewDataSourcePrefetchingTests {
+    @MainActor
+    override func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
         viewController: UIViewController? = nil,

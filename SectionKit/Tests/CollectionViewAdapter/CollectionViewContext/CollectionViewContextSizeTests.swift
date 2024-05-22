@@ -1,9 +1,9 @@
 @testable import SectionKit
 import XCTest
 
-@MainActor
-internal final class CollectionViewContextSizeTests: XCTestCase {
-    internal func testContainerSize() {
+final class CollectionViewContextSizeTests: XCTestCase {
+    @MainActor
+    func testContainerSize() {
         let rect = CGRect(x: 1, y: 2, width: 4, height: 8)
         let collectionView = UICollectionView(frame: rect, collectionViewLayout: UICollectionViewFlowLayout())
         let context = MainCollectionViewContext(
@@ -14,7 +14,8 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         XCTAssertEqual(context.containerSize, rect.size)
     }
 
-    internal func testCustomContainerInset() {
+    @MainActor
+    func testCustomContainerInset() {
         let insets = UIEdgeInsets(top: 1, left: 2, bottom: 4, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.contentInset = insets
@@ -26,7 +27,8 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         XCTAssertEqual(context.customContainerInset, insets)
     }
 
-    internal func testAdjustedContainerInset() {
+    @MainActor
+    func testAdjustedContainerInset() {
         let insets = UIEdgeInsets(top: 1, left: 2, bottom: 4, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.contentInset = insets
@@ -38,7 +40,8 @@ internal final class CollectionViewContextSizeTests: XCTestCase {
         XCTAssertEqual(context.adjustedContainerInset, insets)
     }
 
-    internal func testInsetContainerSize() {
+    @MainActor
+    func testInsetContainerSize() {
         let rect = CGRect(x: 16, y: 32, width: 64, height: 128)
         let insets = UIEdgeInsets(top: 1, left: 2, bottom: 4, right: 8)
         let collectionView = UICollectionView(frame: rect, collectionViewLayout: UICollectionViewFlowLayout())

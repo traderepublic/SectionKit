@@ -1,24 +1,25 @@
 import SectionKit
 import XCTest
 
-@MainActor
-internal class BaseSectionDataSourceTests: XCTestCase {
+class BaseSectionDataSourceTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         try skipIfNeeded()
     }
 
-    internal func skipIfNeeded() throws {
+    func skipIfNeeded() throws {
         guard Self.self === BaseSectionDataSourceTests.self else { return }
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func createSectionDataSource() throws -> SectionDataSource {
+    @MainActor
+    func createSectionDataSource() throws -> SectionDataSource {
         throw XCTSkip("Tests from base class are skipped")
     }
 
-    internal func testNumberOfItems() throws {
+    @MainActor
+    func testNumberOfItems() throws {
         let sectionDataSource = try createSectionDataSource()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -28,7 +29,8 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         XCTAssertEqual(sectionDataSource.numberOfItems(in: context), 0)
     }
 
-    internal func testCellForItem() throws {
+    @MainActor
+    func testCellForItem() throws {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionDataSource = try createSectionDataSource()
         let context = MainCollectionViewContext(
@@ -54,7 +56,8 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testHeaderView() throws {
+    @MainActor
+    func testHeaderView() throws {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionDataSource = try createSectionDataSource()
         let context = MainCollectionViewContext(
@@ -80,7 +83,8 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testFooterView() throws {
+    @MainActor
+    func testFooterView() throws {
         let errorExpectation = expectation(description: "The errorHandler should be called")
         let sectionDataSource = try createSectionDataSource()
         let context = MainCollectionViewContext(
@@ -106,7 +110,8 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 
-    internal func testCanMoveItem() throws {
+    @MainActor
+    func testCanMoveItem() throws {
         let sectionDataSource = try createSectionDataSource()
         let context = MainCollectionViewContext(
             viewController: nil,
@@ -117,7 +122,8 @@ internal class BaseSectionDataSourceTests: XCTestCase {
         XCTAssertFalse(sectionDataSource.canMoveItem(at: indexPath, in: context))
     }
 
-    internal func testMoveItem() throws {
+    @MainActor
+    func testMoveItem() throws {
         let sectionDataSource = try createSectionDataSource()
         let context = MainCollectionViewContext(
             viewController: nil,

@@ -1,9 +1,9 @@
 import SectionKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal final class BaseSectionControllerSectionDropDelegateTests: BaseSectionDropDelegateTests {
+final class BaseSectionControllerSectionDropDelegateTests: BaseSectionDropDelegateTests {
+    @MainActor
     override func createSectionDropDelegate() throws -> SectionDropDelegate {
         BaseSectionController()
     }

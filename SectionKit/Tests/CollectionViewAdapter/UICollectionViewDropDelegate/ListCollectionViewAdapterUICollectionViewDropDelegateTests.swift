@@ -2,9 +2,9 @@
 import UIKit
 import XCTest
 
-@MainActor
 @available(iOS 11.0, *)
-internal final class ListCollectionViewAdapterUICollectionViewDropDelegateTests: BaseCollectionViewAdapterUICollectionViewDropDelegateTests {
+final class ListCollectionViewAdapterUICollectionViewDropDelegateTests: BaseCollectionViewAdapterUICollectionViewDropDelegateTests {
+    @MainActor
     override internal func createCollectionViewAdapter(
         collectionView: UICollectionView,
         sections: [Section] = [],
