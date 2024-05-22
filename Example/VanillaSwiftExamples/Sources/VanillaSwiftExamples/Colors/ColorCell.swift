@@ -11,8 +11,6 @@ internal final class ColorCell: SelectionCollectionViewCell {
         commonInit()
     }
 
-    // Test
-
     required internal init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
