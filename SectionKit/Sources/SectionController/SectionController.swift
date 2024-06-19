@@ -64,7 +64,7 @@ public struct CompositionalLayoutProvider {
     /// - Parameters:
     ///   - layoutEnvironment: the environment value for the layout
     /// - Returns: The layout for the section
-    var layoutSectionProvider: (_ layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
+    public let layoutSectionProvider: (_ layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
 
     public init(
         layoutSectionProvider: @escaping (any NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection
