@@ -45,6 +45,15 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
             collectionView.dragDelegate = self
             collectionView.dropDelegate = self
         }
+        if #available(iOS 13.0, *),
+           let layout = collectionView.collectionViewLayout as? SectionKitCompositionalLayout {
+            layout.sections = { [weak self] in
+                guard let section = self?.collectionViewSection else {
+                    return []
+                }
+                return [section]
+            }
+        }
     }
 
     /**
@@ -85,6 +94,15 @@ open class SingleSectionCollectionViewAdapter: NSObject, CollectionViewAdapter {
         if #available(iOS 11.0, *) {
             collectionView.dragDelegate = self
             collectionView.dropDelegate = self
+        }
+        if #available(iOS 13.0, *),
+           let layout = collectionView.collectionViewLayout as? SectionKitCompositionalLayout {
+            layout.sections = { [weak self] in
+                guard let section = self?.collectionViewSection else {
+                    return []
+                }
+                return [section]
+            }
         }
     }
 
