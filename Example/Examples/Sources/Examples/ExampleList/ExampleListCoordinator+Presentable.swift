@@ -38,6 +38,14 @@ extension ExampleListCoordinator: Presentable {
                         )
                     ),
                     ExampleViewModel(
+                        name: "Activities",
+                        description: "An MVC example with compositional layout example using a SingleSectionCollectionViewAdapter that shows a single ListSectionController.",
+                        navigation: ExampleCoordinator(
+                            navigationController: navigationController,
+                            presentable: ActivitiesViewController()
+                        )
+                    ),
+                    ExampleViewModel(
                         name: "Names",
                         description: "An MVVM-C architecture with compositional layout example by using a ListCompositionalLayoutCollectionViewAdapter that shows multiple ListCompositionalLayoutSectionController.",
                         navigation: ExampleCoordinator(
