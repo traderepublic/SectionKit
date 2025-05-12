@@ -9,6 +9,9 @@ public struct CollectionViewSectionUpdate<SectionData> {
 
     /// The batch operations that should be performed in succession.
     public let batchOperations: [BatchOperation]
+    
+    /// weather the changes should be aniamted
+    public let shouldAnimate: Bool
 
     /// A handler that gets executed inside a batch operation to set the backing data of the current batch of updates.
     public let setData: @MainActor (SectionData) -> Void
@@ -40,11 +43,13 @@ public struct CollectionViewSectionUpdate<SectionData> {
     public init(
         controller: SectionController,
         batchOperations: [BatchOperation],
+        shouldAnimate: Bool = true,
         setData: @escaping @MainActor (SectionData) -> Void,
         shouldReload: @escaping @MainActor (BatchOperation) -> Bool = { _ in false }
     ) {
         self.controller = controller
         self.batchOperations = batchOperations
+        self.shouldAnimate = shouldAnimate
         self.setData = setData
         self.shouldReload = shouldReload
     }
@@ -79,6 +84,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
     public init(
         controller: SectionController,
         data: SectionData,
+        shouldAnimate: Bool = true,
         deletes: Set<Int> = [],
         inserts: Set<Int> = [],
         moves: Set<Move> = [],
@@ -98,6 +104,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
         self.init(
             controller: controller,
             batchOperations: [batchOperation],
+            shouldAnimate: shouldAnimate,
             setData: setData,
             shouldReload: shouldReload
         )
@@ -119,6 +126,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
      */
     public init(
         controller: SectionController,
+        shouldAnimate: Bool = true,
         data: SectionData,
         setData: @escaping @MainActor (SectionData) -> Void,
         completion: (@MainActor (Bool) -> Void)? = nil
@@ -126,6 +134,7 @@ public struct CollectionViewSectionUpdate<SectionData> {
         self.init(
             controller: controller,
             data: data,
+            shouldAnimate: shouldAnimate,
             setData: setData,
             shouldReload: { _ in true },
             completion: completion

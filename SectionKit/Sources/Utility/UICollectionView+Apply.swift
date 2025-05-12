@@ -24,6 +24,17 @@ extension UICollectionView {
             return
         }
 
+        guard update.shouldAnimate else {
+            for batchOperation in update.batchOperations {
+                update.setData(batchOperation.data)
+                UIView.performWithoutAnimation {
+                    reloadSections(IndexSet(integer: section))
+                }
+                batchOperation.completion?(false)
+            }
+            return
+        }
+
         for batchOperation in update.batchOperations {
             performBatchUpdates({
                 update.setData(batchOperation.data)
