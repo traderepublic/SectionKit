@@ -126,8 +126,8 @@ public struct CollectionViewSectionUpdate<SectionData> {
      */
     public init(
         controller: SectionController,
-        shouldAnimate: Bool = true,
         data: SectionData,
+        shouldAnimate: Bool = true,
         setData: @escaping @MainActor (SectionData) -> Void,
         completion: (@MainActor (Bool) -> Void)? = nil
     ) {
