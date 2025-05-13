@@ -123,11 +123,28 @@ open class SingleItemSectionController<Model, Item>: BaseSectionController {
         return CollectionViewSectionUpdate(
             controller: self,
             data: newData,
+            shouldAnimate: shouldAnimateItems(from: oldData, to: newData),
             deletes: deletes,
             inserts: inserts,
             reloads: reloads,
             setData: { self.collectionViewItem = $0 }
         )
+    }
+
+    /**
+     Controlls where the update from old to new data should be animated.
+     
+     - Parameter oldData: The old data currently displayed in the section.
+     
+     - Parameter newData: The new data that should be displayed in the section.
+     
+     - Returns: Bool. Default true.
+     */
+    open func shouldAnimateItems(
+        from oldData:Item?,
+        to newData: Item?
+    ) -> Bool {
+        return true
     }
 
     override open func numberOfItems(in context: CollectionViewContext) -> Int { item != nil ? 1 : 0 }
