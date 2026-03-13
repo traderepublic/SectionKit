@@ -3,6 +3,14 @@ import UIKit
 import XCTest
 
 internal final class MockCollectionView: UICollectionView {
+    // MARK: - window
+
+    internal var _window: UIWindow?
+
+    override var window: UIWindow? {
+        _window ?? super.window
+    }
+
     // MARK: - reloadData
 
     internal typealias ReloadDataBlock = () -> Void
