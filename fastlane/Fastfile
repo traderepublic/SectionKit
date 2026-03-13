@@ -3,9 +3,11 @@ ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "10"
 
 lane :unittest do
 	scan(
-	  scheme: "SectionKit"
+	  scheme: "SectionKit",
+	  xcargs: "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
 	)
 	scan(
-	  scheme: "DiffingSectionKit"
+	  scheme: "DiffingSectionKit",
+	  xcargs: "CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO"
 	)
 end
