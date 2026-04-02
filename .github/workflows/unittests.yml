@@ -33,15 +33,3 @@ jobs:
 
     - name: Build and run unit tests
       run: bundle exec fastlane unittest
-
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarqube-scan-action@v6.0.0
-      with:
-        args: >-
-          ${{ github.event_name == 'merge_group' && format('-Dsonar.pullrequest.branch={0} -Dsonar.pullrequest.key={1}', github.ref, github.run_number) || '' }}
-          ${{ github.event_name == 'pull_request' && format('-D sonar.scm.revision={0}', github.event.pull_request.head.sha) || '' }}
-          ${{ github.event_name == 'pull_request' && format('-D sonar.pullrequest.key={0}', github.event.pull_request.number) || '' }}
-          ${{ github.event_name == 'pull_request' && format('-D sonar.pullrequest.branch={0}', github.head_ref) || '' }}
-      env:
-        SONAR_TOKEN: ${{ secrets.ORG_SONAR_COMMUNITY_TOKEN }}
-        SONAR_HOST_URL: ${{ vars.SONAR_COMMUNITY_URL }}
