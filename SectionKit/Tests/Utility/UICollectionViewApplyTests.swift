@@ -128,8 +128,7 @@ final class UICollectionViewApplyTests: XCTestCase {
             reloadSectionsExpectation.fulfill()
         }
 
-        let window = UIWindow()
-        window.addSubview(collectionView)
+        collectionView._window = UIWindow()
 
         let update = CollectionViewSectionUpdate<String>(
             controller: BaseSectionController(),
@@ -226,8 +225,7 @@ final class UICollectionViewApplyTests: XCTestCase {
             reloadItemsExpectation.fulfill()
         }
 
-        let window = UIWindow()
-        window.addSubview(collectionView)
+        collectionView._window = UIWindow()
 
         let update = CollectionViewSectionUpdate<String>(
             controller: BaseSectionController(),
@@ -379,8 +377,7 @@ final class UICollectionViewApplyTests: XCTestCase {
         }
         collectionView._reloadData = reloadDataExpectation.fulfill
 
-        let window = UIWindow()
-        window.addSubview(collectionView)
+        collectionView._window = UIWindow()
 
         let update = CollectionViewUpdate<String>(
             batchOperations: [
@@ -451,8 +448,7 @@ final class UICollectionViewApplyTests: XCTestCase {
             reloadSectionsExpectation.fulfill()
         }
 
-        let window = UIWindow()
-        window.addSubview(collectionView)
+        collectionView._window = UIWindow()
 
         let update = CollectionViewUpdate<String>(
             batchOperations: [
