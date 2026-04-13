@@ -18,6 +18,7 @@ open class DiffingListSectionController<Model, Item: Differentiable>: ListSectio
         return CollectionViewSectionUpdate(
             controller: self,
             batchOperations: changeSet.map(\.sectionBatchOperation),
+            shouldAnimate: shouldAnimateItems(from: oldData, to: newData),
             setData: { self.collectionViewItems = $0 },
             shouldReload: { $0.count > 100 }
         )

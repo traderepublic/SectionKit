@@ -49,6 +49,7 @@ open class ManualDiffingListSectionController<
         return CollectionViewSectionUpdate(
             controller: self,
             batchOperations: changeSet.mapData(\.value).map(\.sectionBatchOperation),
+            shouldAnimate: shouldAnimateItems(from: oldData, to: newData),
             setData: { self.collectionViewItems = $0 },
             shouldReload: { $0.count > 100 }
         )

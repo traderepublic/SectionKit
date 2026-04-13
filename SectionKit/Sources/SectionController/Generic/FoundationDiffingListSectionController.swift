@@ -23,6 +23,7 @@ open class FoundationDiffingListSectionController<
         return CollectionViewSectionUpdate(
             controller: self,
             data: newData,
+            shouldAnimate: shouldAnimateItems(from: oldData, to: newData),
             deletes: changes.deletes,
             inserts: changes.inserts,
             moves: changes.moves,
